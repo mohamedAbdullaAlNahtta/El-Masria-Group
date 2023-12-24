@@ -1,0 +1,7 @@
+.dropify-wrapper{
+    height: 360px;
+}
+.dropify-preview{
+    display: block; border-radius: 100%;  background-color: #fff;
+    
+}

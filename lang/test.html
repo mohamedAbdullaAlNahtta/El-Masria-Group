@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+    <body>
+        <h2>JavaScript Arrays</h2>
+
+        <p title="demo">dddddddd</p>
+        <p title="demo1">gttttttt</p>
+        <p title="demo2">trrttt</p>
+        <p title="demo3">ttttttttttt</p>
+        <p title="demo4">fdfdffd</p>
+        <p title="demo5">fdfdf</p>
+
+        <script>
+            var testpage = [];
+            testpage ['ttttttttttt']="تتتتتتتتت";
+            testpage ['fdfdffd']="فدفدفدفدف";
+            testpage ['fdfdf']="فدفد";
+            testpage ['dddddddd']="دددددددددددد";
+            testpage ['gttttttt']="جتتتتتتتتتتتتتتتتتت";
+            testpage ['trrttt']="تررتتتتتت";
+            
+
+            var str = document.getElementsByTagName("html")[0].innerHTML;
+
+            var tagsFound = [];
+            var indexNum =0;
+
+            str.replace(/<([a-zA-Z][a-zA-Z0-9_-]*)\b[^>]*>(.*?)<\/\1>/g, function (m, m1, m2) {
+                // write data to result objcect
+
+                
+
+
+                tagsFound.push({
+                    tagName: m1,
+                    value: m2,
+                    ind:indexNum++
+                });
+
+                // replace with original = do nothing with string
+
+                return m;
+            });
+
+            // Displaying the results
+
+            for (var i = 0; i < tagsFound.length; i++) {
+                
+                console.log(tagsFound[i]);
+                // document.getElementsByTagName(tagsFound[i]['tagName'])[0].innerHTML= testpage[tagsFound[i]['value']];
+                // console.log(tagsFound[i]['tagName']);
+                // console.log(testpage[tagsFound[i]['value']]);
+                // console.log(tagsFound[i]['tagName'].includes("p"));
+                
+            }
+            
+
+        </script>
+    </body>
+    <!-- https://stackoverflow.com/questions/7115022/how-do-i-enumerate-all-of-the-html-ids-in-a-document-with-javascript
+    https://stackoverflow.com/questions/65724705/how-can-i-find-html-like-tags-in-a-string-using-javascript
+    https://stackoverflow.com/questions/2385500/search-document-innerhtml
+    https://stackoverflow.com/questions/21811735/count-all-a-on-html-page -->
+</html>

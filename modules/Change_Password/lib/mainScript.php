@@ -1,0 +1,1 @@
+<script src="modules/Change_Password/lib/js/md5.min.js"></script>

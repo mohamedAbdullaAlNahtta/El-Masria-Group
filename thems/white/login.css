@@ -1,0 +1,50 @@
+html{
+    background-image: url("../../assets/images/bg/190i0xxs.jpg");
+}
+body{
+    /* background-color: #000001; */
+    background-image: url("../../assets/images/bg/190i0xxs.jpg");
+}
+#left-card-block-login{
+    background-color: #fff; 
+    /* opacity: 0.7; */
+
+}
+#right-card-block-login{
+    background-color: #fff;
+}
+#login-page-footer{
+    width: 100%; 
+    background-color: #fff; 
+    font-weight: 100; 
+    font-size: 12px; 
+    margin-top: -15px; 
+    margin-left: 0%;
+    color: #000;
+}
+#login-box-style{
+    width: 800px; 
+    flex-direction: row; 
+    -webkit-box-shadow: 0px 0px 15px 2px rgb(18, 19, 20); 
+    box-shadow: 0px 0px 15px 2px rgb(18, 19, 20); 
+    -moz-box-shadow: 0px 0px 15px 2px rgb(18, 19, 20); 
+    border: 1px solid #0275d8
+}
+.login-register {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100%;
+    width: 100%;
+    padding: 5% 0;
+    position: fixed;
+  }
+  #username{
+    background: #fff; 
+    color: #000;
+  }
+  #password{
+    background: #fff; 
+    color: #000;
+
+  }
