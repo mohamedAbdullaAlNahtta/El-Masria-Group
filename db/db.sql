@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2023 at 08:51 AM
+-- Generation Time: Dec 24, 2023 at 05:19 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -20,6 +20,30 @@ SET time_zone = "+00:00";
 --
 -- Database: `el-masria-group`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `client_user`
+--
+
+CREATE TABLE `client_user` (
+  `id` int(18) NOT NULL,
+  `national_ID` varchar(14) NOT NULL,
+  `full_name` varchar(250) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `phone_number` varchar(11) NOT NULL,
+  `pin_number` varchar(18) NOT NULL,
+  `reg_status` enum('registered','not registered') NOT NULL DEFAULT 'not registered'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `client_user`
+--
+
+INSERT INTO `client_user` (`id`, `national_ID`, `full_name`, `email`, `phone_number`, `pin_number`, `reg_status`) VALUES
+(1, '12345678912345', 'ahmed mohamed ahmed1', 'ahmed.mohamed.ahmed1@email.com', '01093001070', '123#0109300', 'not registered'),
+(2, '12345678912378', 'ahmed mohamed ahmed2', 'ahmed.mohamed.ahmed2@email.com', '01127993387', '123#0112799', 'not registered');
 
 -- --------------------------------------------------------
 
@@ -139,18 +163,19 @@ CREATE TABLE `users` (
   `gui_theme` int(11) NOT NULL DEFAULT 1,
   `Status` varchar(1) NOT NULL DEFAULT 'A',
   `creationDate` datetime NOT NULL,
-  `createdBy` varchar(250) NOT NULL
+  `createdBy` varchar(250) NOT NULL,
+  `client_id` int(18) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`userId`, `name`, `username`, `secureH`, `password`, `companyId`, `user_role_id`, `userType`, `systemtype`, `gui_language`, `gui_theme`, `Status`, `creationDate`, `createdBy`) VALUES
-(1, 'Eng Muhammad ElNahtta', 'muhammad.elnahtta', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 2, 'P', 'web', 2, 1, 'A', '2023-12-07 09:22:14', 'Muhammad.AlNahtta'),
-(9, 'admin', 'Administrator', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 2, 'P', 'web', 1, 1, 'A', '2023-12-07 09:22:14', 'Muhammad.AlNahtta'),
-(13, 'Muhammad Soliman', 'Muhammad.Soliman', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 2, 'P', 'web', 1, 1, 'A', '2023-12-07 09:22:14', 'Muhammad.AlNahtta'),
-(14, 'Nabile', 'Nabile', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 2, 'C', 'web', 1, 1, 'A', '2023-12-07 09:22:14', 'Muhammad.AlNahtta');
+INSERT INTO `users` (`userId`, `name`, `username`, `secureH`, `password`, `companyId`, `user_role_id`, `userType`, `systemtype`, `gui_language`, `gui_theme`, `Status`, `creationDate`, `createdBy`, `client_id`) VALUES
+(1, 'Eng Muhammad ElNahtta', 'muhammad.elnahtta', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 2, 'P', 'web', 1, 1, 'A', '2023-12-07 09:22:14', 'Muhammad.AlNahtta', 0),
+(9, 'admin', 'Administrator', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 3, 'P', 'web', 1, 1, 'A', '2023-12-07 09:22:14', 'Muhammad.AlNahtta', 0),
+(13, 'Muhammad Soliman', 'Muhammad.Soliman', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 3, 'P', 'web', 1, 1, 'A', '2023-12-07 09:22:14', 'Muhammad.AlNahtta', 0),
+(14, 'Nabile', 'Nabile', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 3, 'P', 'web', 1, 1, 'A', '2023-12-07 09:22:14', 'Muhammad.AlNahtta', 0);
 
 -- --------------------------------------------------------
 
@@ -165,6 +190,13 @@ CREATE TABLE `users_blocked` (
   `IP` varchar(255) NOT NULL,
   `blockDate` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users_blocked`
+--
+
+INSERT INTO `users_blocked` (`id`, `username`, `systemtype`, `IP`, `blockDate`) VALUES
+(32, 'Nabile', 'web', '127.0.0.1', '2023-12-07 12:47:09');
 
 -- --------------------------------------------------------
 
@@ -187,7 +219,15 @@ CREATE TABLE `users_login_sessions` (
 
 INSERT INTO `users_login_sessions` (`id`, `username`, `systemtype`, `token`, `loginTme`, `logOutTime`) VALUES
 (449, 'muhammad.elnahtta', 'web', 'ab6ad9a86d1fac4f700f7865d106fba4nTc0C6wLHQea73e0311a94086158046acc045c4eeb6c66ad6f', '2023-12-07 03:51:37', '2023-12-07 08:23:32'),
-(450, 'muhammad.elnahtta', 'web', 'd926447a7de96acc9575891b7b968775HtSY7q8LHS1078b7911876f8f2ad348d43628dfb03a6277782', '2023-12-07 08:23:34', NULL);
+(450, 'muhammad.elnahtta', 'web', 'd926447a7de96acc9575891b7b968775HtSY7q8LHS1078b7911876f8f2ad348d43628dfb03a6277782', '2023-12-07 08:23:34', '2023-12-07 10:15:57'),
+(451, 'muhammad.elnahtta', 'web', '6c691bbd19afb9e71a72af9f0c4a768aAG5NNZY2v9dead138d169fcf194796ab071c3e4ca810ef8377', '2023-12-07 10:19:57', '2023-12-07 10:26:34'),
+(452, 'muhammad.elnahtta', 'web', '39685b4975f08a331726bfd4ab239eccTvRmUnWDSt8357017cc9f4a9307aef74b06a4d4c41acf680b0', '2023-12-07 10:28:23', '2023-12-07 10:30:10'),
+(453, 'muhammad.elnahtta', 'web', '5623bc150519d810db34d81ca1954ffeNOCeukvkQ97a252ede82489f0992f866dfb3b6a63788363cff', '2023-12-07 11:34:47', '2023-12-07 11:44:43'),
+(454, 'muhammad.elnahtta', 'web', '1a86f1006c8f6807589b145778c92621cHyAKk3cdR43f8a88674571a3e3daa92ee13d4d9b894bd792d', '2023-12-07 11:36:53', '2023-12-07 11:55:03'),
+(455, 'muhammad.elnahtta', 'web', '4c7c4d0313e23d211302359c39880f7dEZahriNHAV938b53b324bf4df53a0be6d2cabbf228590595fa', '2023-12-07 11:54:54', '2023-12-07 12:46:20'),
+(456, 'muhammad.elnahtta', 'web', '43da96d3ba256d9377c1bcf213b044b4oHmXYFbXzD83f5d2b15ad14f92b1d54ad3cb8b5464bb3cb158', '2023-12-07 12:57:18', '2023-12-11 11:36:43'),
+(457, 'muhammad.elnahtta', 'web', 'aea110ac8a0e1b5e1544f6a855144ddeAIzylJAFJ0a5af4bc44da4232213c3d1dae8722b1299fa7fb7', '2023-12-11 11:36:38', '2023-12-24 13:56:02'),
+(458, 'muhammad.elnahtta', 'web', 'a208d0b88042cea2e8ef27588aeb672dZDnSQxumZK7faaf706666f95ccab28fcee205a06cad7b627cc', '2023-12-24 13:55:57', NULL);
 
 -- --------------------------------------------------------
 
@@ -229,7 +269,45 @@ INSERT INTO `users_logs` (`id`, `username`, `systemtype`, `userIP`, `action`, `d
 (1199, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log in', '', 'Success', '2023-12-07 08:23:35', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
 (1200, 'muhammad.elnahtta', 'web', '127.0.0.1', 'change language', '', 'Success', '2023-12-07 09:42:04', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
 (1201, 'muhammad.elnahtta', 'web', '127.0.0.1', 'change language', '', 'Success', '2023-12-07 09:43:22', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
-(1202, 'muhammad.elnahtta', 'web', '127.0.0.1', 'change language', '', 'Success', '2023-12-07 09:50:46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved');
+(1202, 'muhammad.elnahtta', 'web', '127.0.0.1', 'change language', '', 'Success', '2023-12-07 09:50:46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1203, 'muhammad.elnahtta', 'web', '127.0.0.1', 'change language', '', 'Success', '2023-12-07 09:51:30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1204, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log out', '', 'Success', '2023-12-07 10:15:57', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1205, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log in', 'Wrong Password', 'Failed', '2023-12-07 10:16:01', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1206, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log in', 'Wrong Password', 'Failed', '2023-12-07 10:19:04', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1207, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log in', '', 'Success', '2023-12-07 10:19:57', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1208, 'muhammad.elnahtta', 'web', '127.0.0.1', 'change password', '', 'Success', '2023-12-07 10:26:00', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1209, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log out', '', 'Success', '2023-12-07 10:26:34', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1210, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log in', '', 'Success', '2023-12-07 10:28:24', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1211, 'muhammad.elnahtta', 'web', '127.0.0.1', 'change password', '', 'Success', '2023-12-07 10:29:44', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1212, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log out', '', 'Success', '2023-12-07 10:30:09', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1213, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log in', '', 'Success', '2023-12-07 11:34:48', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1214, 'muhammad.elnahtta', 'web', '::1', 'log in', 'Wrong Password', 'Failed', '2023-12-07 11:36:35', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36', 'Google Chrome', '119.0.0.0', 'windows', '#(?<browser>Version|Chrome|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1215, 'muhammad.elnahtta', 'web', '::1', 'log in', '', 'Success', '2023-12-07 11:36:53', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36', 'Google Chrome', '119.0.0.0', 'windows', '#(?<browser>Version|Chrome|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1216, 'muhammad.elnahtta', 'web', '::1', 'destroy other session token', '', 'Success', '2023-12-07 11:44:43', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36', 'Google Chrome', '119.0.0.0', 'windows', '#(?<browser>Version|Chrome|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1217, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log out', '', 'Success', '2023-12-07 11:44:52', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1218, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log in', '', 'Success', '2023-12-07 11:54:55', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1219, 'muhammad.elnahtta', 'web', '127.0.0.1', 'destroy other session token', '', 'Success', '2023-12-07 11:55:03', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1220, 'muhammad.elnahtta', 'web', '::1', 'log out', '', 'Success', '2023-12-07 11:55:06', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36', 'Google Chrome', '119.0.0.0', 'windows', '#(?<browser>Version|Chrome|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1221, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log out', '', 'Success', '2023-12-07 12:46:19', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1222, 'nabile', 'web', '127.0.0.1', 'log in', 'Wrong Password', 'Failed', '2023-12-07 12:46:30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1223, 'nabile', 'web', '127.0.0.1', 'log in', 'Wrong Password', 'Failed', '2023-12-07 12:46:38', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1224, 'nabile', 'web', '127.0.0.1', 'log in', 'Wrong Password', 'Failed', '2023-12-07 12:46:45', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1225, 'nabile', 'web', '127.0.0.1', 'log in', 'Wrong Password', 'Failed', '2023-12-07 12:46:54', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1226, 'nabile', 'web', '127.0.0.1', 'log in', 'Wrong Password', 'Failed', '2023-12-07 12:47:01', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1227, 'System', 'web', '127.0.0.1', 'Block User', ' System Block User :Nabile due to 5 trials of falied login', 'Success', '2023-12-07 12:47:09', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1228, 'Nabile', 'web', '127.0.0.1', 'User Blocked', ' System Block User :Nabile due to 5 trials of falied login', 'Success', '2023-12-07 12:47:09', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1229, 'nabile', 'web', '127.0.0.1', 'log in', 'Account has been blocked', 'Failed', '2023-12-07 12:47:09', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1230, 'muhammad.elnahtta', 'web', '::1', 'log in', 'Wrong Password', 'Failed', '2023-12-07 12:57:09', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36', 'Google Chrome', '119.0.0.0', 'windows', '#(?<browser>Version|Chrome|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1231, 'muhammad.elnahtta', 'web', '::1', 'log in', '', 'Success', '2023-12-07 12:57:18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36', 'Google Chrome', '119.0.0.0', 'windows', '#(?<browser>Version|Chrome|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1232, '', 'web', '127.0.0.1', 'log out', '', 'Success', '2023-12-11 11:34:30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1233, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log in', 'Wrong Password', 'Failed', '2023-12-11 11:34:48', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1234, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log in', 'Wrong Password', 'Failed', '2023-12-11 11:34:57', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1235, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log in', 'Wrong Password', 'Failed', '2023-12-11 11:36:17', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1236, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log in', '', 'Success', '2023-12-11 11:36:39', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1237, 'muhammad.elnahtta', 'web', '127.0.0.1', 'destroy other session token', '', 'Success', '2023-12-11 11:36:43', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1238, 'super admin', 'web', '127.0.0.1', 'log out', '', 'Success', '2023-12-24 13:55:25', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1239, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log in', '', 'Success', '2023-12-24 13:55:58', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1240, 'muhammad.elnahtta', 'web', '127.0.0.1', 'destroy other session token', '', 'Success', '2023-12-24 13:56:02', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved');
 
 -- --------------------------------------------------------
 
@@ -292,7 +370,8 @@ INSERT INTO `user_role` (`id`, `name`, `description`, `status`, `creationDate`, 
 (2, 'Super Admin', 'Super Admin', 'Active', '2022-05-23 15:31:42', 'Muhammad El Nahtta'),
 (3, 'Admin', 'Admin', 'Active', '2022-05-23 15:31:42', 'Muhammad El Nahtta'),
 (4, 'Technical Team', 'Technical Support Team', 'Active', '2022-05-23 15:32:33', 'Muhammad El Nahtta'),
-(5, 'Sales Team', 'Sales Support Team', 'Active', '2022-05-23 15:32:33', 'Muhammad El Nahtta');
+(5, 'Sales Team', 'Sales Support Team', 'Active', '2022-05-23 15:32:33', 'Muhammad El Nahtta'),
+(6, 'client', 'client', 'Active', '2023-12-24 17:09:16', 'Muhammad El Nahtta');
 
 -- --------------------------------------------------------
 
@@ -303,7 +382,7 @@ INSERT INTO `user_role` (`id`, `name`, `description`, `status`, `creationDate`, 
 CREATE TABLE `user_role_module_menu` (
   `user_role_id` int(11) NOT NULL,
   `module_menu_id` varchar(250) NOT NULL,
-  `access_type` enum('read','write') NOT NULL
+  `access_type` enum('read','write') NOT NULL DEFAULT 'read'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -320,13 +399,40 @@ INSERT INTO `user_role_module_menu` (`user_role_id`, `module_menu_id`, `access_t
 (2, 'Dashboard', 'write'),
 (2, 'log Management', 'write'),
 (2, 'Login History', 'write'),
-(2, 'Reports', 'write'),
-(2, 'Request', 'write'),
-(2, 'Setting', 'write');
+(2, 'Reset User Password', 'write'),
+(2, 'Security', 'write'),
+(2, 'Setting', 'write'),
+(2, 'System Administration', 'write'),
+(2, 'Users Activity Logs', 'write'),
+(3, 'Change language', 'write'),
+(3, 'Change Password', 'write'),
+(3, 'Change Profile Image', 'write'),
+(3, 'Change theme', 'write'),
+(3, 'Dashboard', 'write'),
+(3, 'log Management', 'write'),
+(3, 'Login History', 'write'),
+(3, 'Setting', 'write'),
+(6, 'Change language', 'read'),
+(6, 'Change Password', 'read'),
+(6, 'Change Profile Image', 'read'),
+(6, 'Change theme', 'read'),
+(6, 'Dashboard', 'read'),
+(6, 'log Management', 'read'),
+(6, 'Login History', 'read'),
+(6, 'Setting', 'read');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `client_user`
+--
+ALTER TABLE `client_user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `national_ID` (`national_ID`),
+  ADD UNIQUE KEY `phone_number` (`phone_number`);
 
 --
 -- Indexes for table `gui_lanuage`
@@ -406,6 +512,12 @@ ALTER TABLE `user_role_module_menu`
 --
 
 --
+-- AUTO_INCREMENT for table `client_user`
+--
+ALTER TABLE `client_user`
+  MODIFY `id` int(18) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `gui_lanuage`
 --
 ALTER TABLE `gui_lanuage`
@@ -433,19 +545,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users_blocked`
 --
 ALTER TABLE `users_blocked`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `users_login_sessions`
 --
 ALTER TABLE `users_login_sessions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=451;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=459;
 
 --
 -- AUTO_INCREMENT for table `users_logs`
 --
 ALTER TABLE `users_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1203;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1241;
 
 --
 -- AUTO_INCREMENT for table `users_profiles`
