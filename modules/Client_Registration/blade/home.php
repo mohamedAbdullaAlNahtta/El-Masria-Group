@@ -104,8 +104,6 @@
                                 <?php 
                                 $clients = new Client();
                                 $result = $clients->get_unregistered_client();
-                                // $result = $user->get_user_logs($user->username);
-
                                 if ($result->num_rows > 0) {
                                     // output data of each row
                                     while($row = $result->fetch_assoc()) {               
