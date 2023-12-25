@@ -138,10 +138,22 @@ if (isset($_POST["submit"])) {
                                         <input type="text" name="username" class="form-control" id="username" placeholder="اسم المستخدم" required="required" />
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" >
                                     <div class="input-group">
-                                        <div class="input-group-addon"><i class="mdi mdi-key"></i></div>
-                                        <input  type="password" name="password" class="form-control" id="password" placeholder="كلمة المرور" required="required" />
+                                        <div class="input-group-addon"><i style="font-size: 20px;" class="mdi mdi-key"></i></div>
+                                        <input  type="password" name="new_password" class="form-control" id="new_password" placeholder="<?php echo $lang['new password']; ?>" required="required" onkeyup="checkPasswordStrength();" />
+                                        <div class="input-group-addon" style="cursor: pointer;" onclick="myFunctionShowPass();" ><i style="font-size: 20px;" id="showPass" class="mdi mdi-eye"></i></div>
+                                    </div>
+                                </div>
+                                <p id="new_password_res"></p>
+                                <div class="form-group" >
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i style="font-size: 20px;" class="mdi mdi-key-change"></i></div>
+                                        <input type="password" name="confirm_password" class="form-control" id="confirm_password" placeholder="<?php echo $lang['confirm password']; ?>" required="required" onkeyup="myFunctionCompareNewPassWithConfirmPass();myFunctionReadyToChnage()" />
+                                        <div class="input-group-addon">
+                                            <img id="correctRetype" style="width: 30px; display: none;" src="modules/Change_Password/img/correct.png" />
+                                            <img id="incorrectRetype" style="width: 30px;" src="modules/Change_Password/img/incorrect.png" />
+                                        </div>
                                     </div>
                                 </div>
 
@@ -199,33 +211,6 @@ if (isset($_POST["submit"])) {
         <script>
             if (window.history.replaceState) {
                 window.history.replaceState(null, null, window.location.href);
-            }
-        </script>
-        <script>
-            var i = 0;
-            var txt = "<?php echo htmlentities($loginPagelang[$loginMessage]);?>";
-            var speed = 50;
-
-            function typeWriter() {
-                if (i < txt.length) {
-                    document.getElementById("typeWriter").innerHTML += txt.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, speed);
-                }
-                function formatAMPM(date) {
-                    var hours = date.getHours();
-                    var minutes = date.getMinutes();
-                    var ampm = hours >= 12 ? "pm" : "am";
-                    hours = hours % 12;
-                    hours = hours ? hours : 12; // the hour '0' should be '12'
-                    minutes = minutes < 10 ? "0" + minutes : minutes;
-                    var strTime = hours + ":" + minutes + " " + ampm;
-                    return strTime;
-                }
-
-                var textString = formatAMPM(new Date()) + " " + new Date().getFullYear() + "/" + new Date().getMonth() + "/" + new Date().getDate();
-
-                document.getElementById("typeWriterTime").innerHTML = textString.toUpperCase();
             }
         </script>
         <script>
