@@ -42,6 +42,16 @@
 
 
 
+class Client{
 
+    public function get_unregistered_client()
+    {
+        $db   = new ArabicssDB;
+        $sql  = "SELECT * FROM `client_user` WHERE `reg_status`='not registered'";
+        $result = $db ->query($sql);
+        return $result;
+    }
+
+}
 
 ?>
