@@ -52,6 +52,15 @@ class Client{
         return $result;
     }
 
+    public function create_client_user($client_id, $email ){
+        $user_role_if = '6';
+        $db   = new ArabicssDB;
+        $sql  = "";
+        $result = $db ->query($sql);
+        return $result;
+
+    }
+
 }
 
 ?>
