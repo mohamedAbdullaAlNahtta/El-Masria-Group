@@ -120,4 +120,5 @@ $lang['unaccepted file error trying to move file'] = 'unaccepted file error tryi
 $lang['Failed to update DB with attachment please take screenshoot and refere to Software Development Team'] = 'Failed to update DB with attachment please take screenshoot and refere to Software Development Team';
 
 
+
 ?>

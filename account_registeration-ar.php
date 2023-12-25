@@ -1,10 +1,10 @@
 <?php
 include("includes/classautoloader.inc.php");
+include 'lang/ar-login.php';
 //nitiate session
 session_start();
 error_reporting(0);
 error_reporting(E_ERROR | E_PARSE);
-//end of initiate session
 
 if (isset($_POST["submit"])) {
 
@@ -31,12 +31,11 @@ if (isset($_POST["submit"])) {
 }
 
 
-
 ?>
 
 
 <!DOCTYPE html>
-<html id="html-page" lang="en">
+<html id="html-page" dir="rtl" lang="en">
 
 <!-- ///////////////////////////////////////////////////////////////////////////////// -->
 <!-- // Powered by ENG Muhammad Abdullah El Nahtta//////////////////////////////////// -->
@@ -92,9 +91,9 @@ if (isset($_POST["submit"])) {
         <!-- Bootstrap Core CSS -->
         <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
         <!-- Custom CSS -->
-        <link id="custom-css" href="thems/white/css/style.css" rel="stylesheet"/>
+        <link id="custom-css" href="thems/white-main-rtl/css/style.css" rel="stylesheet"/>
         <!-- login CSS -->
-        <link id="login-css" href="thems/white/login.css" rel="stylesheet"/>
+        <link id="login-css" href="thems/white-main-rtl/login.css" rel="stylesheet"/>
     </head>
 
     <body onload="typeWriter()">
@@ -116,18 +115,18 @@ if (isset($_POST["submit"])) {
                         <div id="right-card-block-login" class="col-lg-12 b-l card-block">
                             <div class="form-group" >
                                 <div class="input-group">
-                                    <div class="input-group-addon"><i class="mdi mdi-theme-light-dark"> Theme </i></div>
+                                    <div class="input-group-addon"><i class="mdi mdi-theme-light-dark"> المظهر </i></div>
                                     <select id="changeTheme" name="changeTheme" class="form-control custom-select" onchange="changeThemeStyle();">
-                                        <option value="white">White</option>
-                                        <option value="dark">Dark </option>
+                                        <option value="white">صاطع</option>
+                                        <option value="dark">ليلى </option>
                                     </select>
-                                    <a id="currentLang" class="nav-link dropdown-toggle text-muted waves-effect waves-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="flag-icon flag-icon-us"></i></a>
-                                    <div class="dropdown-menu  dropdown-menu-right animated bounceInDown"> <a href="account_registeration-ar" id ="changeLang" class="dropdown-item" ><i class="flag-icon flag-icon-eg"></i> اللغة العربية</a></div>
+                                    <a id="currentLang" class="nav-link dropdown-toggle text-muted waves-effect waves-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="flag-icon flag-icon-eg"></i></a>
+                                    <div class="dropdown-menu  dropdown-menu-right animated bounceInDown"> <a href="account_registeration" id ="changeLang" class="dropdown-item" ><i class="flag-icon flag-icon-us"></i> English</a></div>
                                 </div>
                             </div>
-                            <form class="form-horizontal" id="loginform" method="post" action="login.php">
+                            <form class="form-horizontal" id="loginform" method="post" action="login-ar.php">
                                 <center>
-                                    <h2 class="box-title m-b-20" style="margin-bottom: 0;"><img id="mylogoImg2" src="assets/images/El Masria Group Logo 2.png" /></h2>
+                                <h2 class="box-title m-b-20" style="margin-bottom: 0;"><img id="mylogoImg2" src="assets/images/El Masria Group Logo 2.png" /></h2>
                                 </center>
                                 <center>
                                     <p style="padding-top: 2%; color: red;"></p>
@@ -136,25 +135,13 @@ if (isset($_POST["submit"])) {
                                 <div class="form-group" >
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="ti-user"></i></div>
-                                        <input type="text" name="username" class="form-control" id="username" placeholder="User Name" required="required" />
+                                        <input type="text" name="username" class="form-control" id="username" placeholder="اسم المستخدم" required="required" />
                                     </div>
                                 </div>
-                                <div class="form-group" >
+                                <div class="form-group">
                                     <div class="input-group">
-                                        <div class="input-group-addon"><i style="font-size: 20px;" class="mdi mdi-key"></i></div>
-                                        <input  type="password" name="new_password" class="form-control" id="new_password" placeholder="new password" required="required" onkeyup="checkPasswordStrength();" />
-                                        <div class="input-group-addon" style="cursor: pointer;" onclick="myFunctionShowPass();" ><i style="font-size: 20px;" id="showPass" class="mdi mdi-eye"></i></div>
-                                    </div>
-                                </div>
-                                <p id="new_password_res"></p>
-                                <div class="form-group" >
-                                    <div class="input-group">
-                                        <div class="input-group-addon"><i style="font-size: 20px;" class="mdi mdi-key-change"></i></div>
-                                        <input type="password" name="confirm_password" class="form-control" id="confirm_password" placeholder="confirm password" required="required" onkeyup="myFunctionCompareNewPassWithConfirmPass();myFunctionReadyToChnage()" />
-                                        <div class="input-group-addon">
-                                            <img id="correctRetype" style="width: 30px; display: none;" src="modules/Change_Password/img/correct.png" />
-                                            <img id="incorrectRetype" style="width: 30px;" src="modules/Change_Password/img/incorrect.png" />
-                                        </div>
+                                        <div class="input-group-addon"><i class="mdi mdi-key"></i></div>
+                                        <input  type="password" name="password" class="form-control" id="password" placeholder="كلمة المرور" required="required" />
                                     </div>
                                 </div>
 
@@ -167,7 +154,7 @@ if (isset($_POST["submit"])) {
                                             class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light"
                                             type="submit"
                                         >
-                                            LOG IN
+                                            تسجيل الدخول
                                         </button>
                                     </div>
                                 </div>
@@ -175,8 +162,6 @@ if (isset($_POST["submit"])) {
                             </form>
                            
                         </div>
-                       
-                  
                     </div>
                 </div>
             </section>
@@ -217,19 +202,46 @@ if (isset($_POST["submit"])) {
             }
         </script>
         <script>
+            var i = 0;
+            var txt = "<?php echo htmlentities($loginPagelang[$loginMessage]);?>";
+            var speed = 50;
+
+            function typeWriter() {
+                if (i < txt.length) {
+                    document.getElementById("typeWriter").innerHTML += txt.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, speed);
+                }
+                function formatAMPM(date) {
+                    var hours = date.getHours();
+                    var minutes = date.getMinutes();
+                    var ampm = hours >= 12 ? "pm" : "am";
+                    hours = hours % 12;
+                    hours = hours ? hours : 12; // the hour '0' should be '12'
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    var strTime = hours + ":" + minutes + " " + ampm;
+                    return strTime;
+                }
+
+                var textString = formatAMPM(new Date()) + " " + new Date().getFullYear() + "/" + new Date().getMonth() + "/" + new Date().getDate();
+
+                document.getElementById("typeWriterTime").innerHTML = textString.toUpperCase();
+            }
+        </script>
+        <script>
             function changeThemeStyle() {
                 var x = document.getElementById("changeTheme").value;
                 var z = document.getElementById("currentLang").innerHTML;
                 if (x === "dark") {
-                    document.getElementById("html-page").setAttribute("dir", "ltr");
-                    document.getElementById("custom-css").setAttribute("href", "thems/dark/css/style.css");
-                    document.getElementById("login-css").setAttribute("href", "thems/dark/login.css");
+                    document.getElementById("html-page").setAttribute("dir", "rtl");
+                    document.getElementById("custom-css").setAttribute("href", "thems/dark-main-rtl/css/style.css");
+                    document.getElementById("login-css").setAttribute("href", "thems/dark-main-rtl/login.css");
                     document.getElementById("mylogoImg").src = "assets/images/El Masria Group Logo 2022-10-White.png";
                     document.getElementById("mylogoImg2").src = "assets/images/El Masria Group Logo 2-white.png";
                 } else if (x === "white") {
-                    document.getElementById("html-page").setAttribute("dir", "ltr");
-                    document.getElementById("custom-css").setAttribute("href", "thems/white/css/style.css");
-                    document.getElementById("login-css").setAttribute("href", "thems/white/login.css");
+                    document.getElementById("html-page").setAttribute("dir", "rtl");
+                    document.getElementById("custom-css").setAttribute("href", "thems/white-main-rtl/css/style.css");
+                    document.getElementById("login-css").setAttribute("href", "thems/white-main-rtl/login.css");
                     document.getElementById("mylogoImg").src = "assets/images/El Masria Group Logo 2022-10.png";
                     document.getElementById("mylogoImg2").src = "assets/images/El Masria Group Logo 2.png";
                 }
@@ -242,15 +254,15 @@ if (isset($_POST["submit"])) {
             <script>
             function changeThemeStyleLoginPage() {
                 if ("dark" === "<?php echo $_GET['theme']; ?>") {
-                    document.getElementById("html-page").setAttribute("dir", "ltr");
-                    document.getElementById("custom-css").setAttribute("href", "thems/dark/css/style.css");
-                    document.getElementById("login-css").setAttribute("href", "thems/dark/login.css");
+                    document.getElementById("html-page").setAttribute("dir", "rtl");
+                    document.getElementById("custom-css").setAttribute("href", "thems/dark-main-rtl/css/style.css");
+                    document.getElementById("login-css").setAttribute("href", "thems/dark-main-rtl/login.css");
                     document.getElementById("mylogoImg").src = "assets/images/El Masria Group Logo 2022-10-White.png";
                     document.getElementById("mylogoImg2").src = "assets/images/El Masria Group Logo 2-white.png";
                 } else if ("white" === "<?php echo $_GET['theme']; ?>") {
-                    document.getElementById("html-page").setAttribute("dir", "ltr");
-                    document.getElementById("custom-css").setAttribute("href", "thems/white/css/style.css");
-                    document.getElementById("login-css").setAttribute("href", "thems/white/login.css");
+                    document.getElementById("html-page").setAttribute("dir", "rtl");
+                    document.getElementById("custom-css").setAttribute("href", "thems/white-main-rtl/css/style.css");
+                    document.getElementById("login-css").setAttribute("href", "thems/white-main-rtl/login.css");
                     document.getElementById("mylogoImg").src = "assets/images/El Masria Group Logo 2022-10.png";
                     document.getElementById("mylogoImg2").src = "assets/images/El Masria Group Logo 2.png";
                 }
