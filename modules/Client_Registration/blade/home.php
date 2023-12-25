@@ -72,12 +72,6 @@
 		<div class="col-12">
                 <div class="card">
                     <div class="card-block">
-                        <h1> 
-                        <?php 
-                        // $clients = new Client();
-                        // $unregistered_client = $clients->get_unregistered_client();
-                        // var_dump($unregistered_client);
-                         ?></h1>
                         <h4 class="card-title"><?php echo $lang['Data Export'] ?></h4>
                         <h6 class="card-subtitle"><?php echo $lang['Export data to Copy, CSV, Excel, PDF & Print'] ?></h6>
                         <div class="table-responsive m-t-40">
