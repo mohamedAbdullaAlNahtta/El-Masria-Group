@@ -1,1 +1,1 @@
-<title>CC Change Theme</title>
+<title>Change Theme</title>

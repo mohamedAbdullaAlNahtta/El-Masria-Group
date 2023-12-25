@@ -1,1 +1,1 @@
-<title>CC Change Language</title>
+<title>Change Language</title>

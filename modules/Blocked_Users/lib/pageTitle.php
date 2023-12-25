@@ -1,1 +1,1 @@
-<title>CC Blocked User</title>
+<title>Blocked User</title>

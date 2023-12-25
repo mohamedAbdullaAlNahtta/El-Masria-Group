@@ -1,1 +1,1 @@
-<title>CC log Management</title>
+<title>log Management</title>

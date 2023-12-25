@@ -1,1 +1,1 @@
-<title>CC Change Profile Image</title>
+<title>Change Profile Image</title>

@@ -1,1 +1,1 @@
-<title>CC Login History</title>
+<title>Client Registration</title>

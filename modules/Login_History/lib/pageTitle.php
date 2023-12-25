@@ -1,1 +1,1 @@
-<title>CC Login History</title>
+<title>Login History</title>

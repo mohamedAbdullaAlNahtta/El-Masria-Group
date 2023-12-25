@@ -1,1 +1,1 @@
-<title>CC Users Activity Logs</title>
+<title>Users Activity Logs</title>

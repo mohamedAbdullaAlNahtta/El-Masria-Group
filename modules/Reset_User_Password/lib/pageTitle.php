@@ -1,1 +1,1 @@
-<title>CC Reset Password</title>
+<title>Reset Password</title>

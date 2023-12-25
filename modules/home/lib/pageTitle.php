@@ -1,1 +1,1 @@
-<title>CC Home</title>
+<title>Home</title>
