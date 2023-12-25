@@ -54,5 +54,10 @@ $lang['Date'] = 'Date';
 $lang['Platform'] = 'Platform';
 $lang['Status'] = 'Status';
 
+$lang['Full Name'] ='Full Name';
+$lang['Phone Number'] ='Phone Number';
+$lang['National ID']= 'National ID';
+$lang['Email'] = 'Email';
+
 
 ?>

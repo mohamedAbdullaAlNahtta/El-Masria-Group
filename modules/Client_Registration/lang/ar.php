@@ -54,4 +54,10 @@ $lang['Date'] = 'التاريخ';
 $lang['Platform'] = 'نوع النظام';
 $lang['Status'] = 'الحالة';
 
+$lang['Full Name'] ='الاسم بالكامل';
+$lang['Phone Number'] ='رقم التليفون';
+$lang['National ID']= 'الرقم القومى';
+$lang['Email'] = 'بريد إلكتروني';
+
+
 ?>

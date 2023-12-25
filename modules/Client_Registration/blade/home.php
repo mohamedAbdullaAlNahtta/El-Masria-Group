@@ -72,6 +72,12 @@
 		<div class="col-12">
                 <div class="card">
                     <div class="card-block">
+                        <h1> 
+                        <?php 
+                        // $clients = new Client();
+                        // $unregistered_client = $clients->get_unregistered_client();
+                        // var_dump($unregistered_client);
+                         ?></h1>
                         <h4 class="card-title"><?php echo $lang['Data Export'] ?></h4>
                         <h6 class="card-subtitle"><?php echo $lang['Export data to Copy, CSV, Excel, PDF & Print'] ?></h6>
                         <div class="table-responsive m-t-40">
@@ -80,12 +86,10 @@
                                     <tr>
                                         <th><i class='mdi mdi-account-convert'></i></th>
                                         <th><?php echo $lang['ID'] ?></th>
-                                        <th><?php echo $lang['User Name'] ?></th>
-                                        <th><?php echo $lang['Access Type'] ?></th>
-                                        <th><?php echo $lang['User IP'] ?></th>
-                                        <th><?php echo $lang['action'] ?></th>
-										<th><?php echo $lang['Date'] ?></th>
-										<th><?php echo $lang['Platform'] ?></th>
+                                        <th><?php echo $lang['Full Name'] ?></th>
+                                        <th><?php echo $lang['Phone Number'] ?></th>
+                                        <th><?php echo $lang['National ID'] ?></th>
+                                        <th><?php echo $lang['Email'] ?></th>
                                         <th><?php echo $lang['Status'] ?></th>
                                         <th><i class="mdi mdi-eye"></i></th>
                                     </tr>
@@ -94,19 +98,19 @@
                                     <tr>
                                         <th><i class='mdi mdi-account-convert'></i></th>
 										<th><?php echo $lang['ID'] ?></th>
-                                        <th><?php echo $lang['User Name'] ?></th>
-                                        <th><?php echo $lang['Access Type'] ?></th>
-                                        <th><?php echo $lang['User IP'] ?></th>
-                                        <th><?php echo $lang['action'] ?></th>
-										<th><?php echo $lang['Date'] ?></th>
-										<th><?php echo $lang['Platform'] ?></th>
+                                        <th><?php echo $lang['Full Name'] ?></th>
+                                        <th><?php echo $lang['Phone Number'] ?></th>
+                                        <th><?php echo $lang['National ID'] ?></th>
+                                        <th><?php echo $lang['Email'] ?></th>
                                         <th><?php echo $lang['Status'] ?></th>
                                         <th><i class="mdi mdi-eye"></i></th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
                                 <?php 
-                                $result = $user->get_user_logs($user->username);
+                                $clients = new Client();
+                                $result = $clients->get_unregistered_client();
+                                // $result = $user->get_user_logs($user->username);
 
                                 if ($result->num_rows > 0) {
                                     // output data of each row
@@ -114,20 +118,14 @@
                                         echo "<tr>";
                                         echo"<td><i class='mdi mdi-account-convert'></i> </td>";
                                         echo "<td> ".$row["id"]." </td>";
-                                        echo "<td> <img <img class='img-circle' style='width:30px;height:30px;' src='".$user->user_profile_img."'>".$row["username"]." </td>";
-                                        if ($row["systemtype"]==='web') {
-                                            echo "<td><i class='mdi mdi-google-chrome'></i>  ".$row["systemtype"]." </td>";
+                                        echo "<td>".$row["full_name"]." </td>";
+                                        echo "<td> ".$row["phone_number"]." </td>";
+                                        echo "<td> ".$row["national_ID"]." </td>";
+                                        echo "<td> ".$row["email"]." </td>";
+                                        if ($row["reg_status"]==='registered') {
+                                            echo "<td> <img style='width:20px;height:20px;' src='modules/Login_History/img/correct.png'> ".$row["reg_status"]." </td>";
                                         } else {
-                                            echo "<td> ".$row["systemtype"]." </td>";
-                                        }
-                                        echo "<td> ".$row["userIP"]." </td>";
-                                        echo "<td> ".$row["action"]." </td>";
-                                        echo "<td> <i class='mdi mdi-update'></i> ".$row["actionDateTime"]." </td>";
-                                        echo "<td> ".$row["browserPlatform"]." </td>";
-                                        if ($row["status"]==='Success') {
-                                            echo "<td> <img style='width:20px;height:20px;' src='modules/Login_History/img/correct.png'> ".$row["status"]." </td>";
-                                        } else {
-                                            echo "<td> <img style='width:20px;height:20px;' src='modules/Login_History/img/incorrect.png'> ".$row["status"]." </td>";
+                                            echo "<td> <img style='width:20px;height:20px;' src='modules/Login_History/img/incorrect.png'> ".$row["reg_status"]." </td>";
                                         }
                                         ?>
                                         <td><button onclick="window.open('modules/Login_History/inc/log_view?log_id=<?php echo htmlentities($row['id']); ?>',' ','width=1000,height=500');" style="width: 35px;height: 35px;padding: 0px;font-size: 18px;" class="btn btn-info btn-circle btn-xl"><i class="mdi mdi-eye"></i> </button></td>
