@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 25, 2023 at 03:21 PM
+-- Generation Time: Dec 25, 2023 at 06:10 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -34,7 +34,7 @@ CREATE TABLE `client_user` (
   `email` varchar(250) NOT NULL,
   `phone_number` varchar(11) NOT NULL,
   `pin_number` varchar(14) NOT NULL,
-  `reg_status` enum('registered','not registered') NOT NULL DEFAULT 'not registered'
+  `reg_status` enum('registered','not registered','in progress') NOT NULL DEFAULT 'not registered'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `client_user` (
 
 INSERT INTO `client_user` (`id`, `national_ID`, `full_name`, `email`, `phone_number`, `pin_number`, `reg_status`) VALUES
 (1, '12345678912345', 'ahmed mohamed ahmed1', 'ahmed.mohamed.ahmed1@email.com', '12345678912', '12345678912345', 'not registered'),
-(2, '12345678912378', 'ahmed mohamed ahmed2', 'ahmed.mohamed.ahmed2@email.com', '01127993387', '12345678912345', 'not registered');
+(2, '12345678912378', 'ahmed mohamed ahmed2', 'ahmed.mohamed.ahmed2@email.com', '01127993387', '12345678912378', 'not registered');
 
 -- --------------------------------------------------------
 
@@ -543,7 +543,7 @@ ALTER TABLE `leaveamessage`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=190;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=196;
 
 --
 -- AUTO_INCREMENT for table `users_blocked`
