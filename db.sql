@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 24, 2023 at 05:19 PM
+-- Generation Time: Dec 25, 2023 at 02:41 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -33,7 +33,7 @@ CREATE TABLE `client_user` (
   `full_name` varchar(250) NOT NULL,
   `email` varchar(250) NOT NULL,
   `phone_number` varchar(11) NOT NULL,
-  `pin_number` varchar(18) NOT NULL,
+  `pin_number` varchar(14) NOT NULL,
   `reg_status` enum('registered','not registered') NOT NULL DEFAULT 'not registered'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -42,8 +42,8 @@ CREATE TABLE `client_user` (
 --
 
 INSERT INTO `client_user` (`id`, `national_ID`, `full_name`, `email`, `phone_number`, `pin_number`, `reg_status`) VALUES
-(1, '12345678912345', 'ahmed mohamed ahmed1', 'ahmed.mohamed.ahmed1@email.com', '01093001070', '123#0109300', 'not registered'),
-(2, '12345678912378', 'ahmed mohamed ahmed2', 'ahmed.mohamed.ahmed2@email.com', '01127993387', '123#0112799', 'not registered');
+(1, '12345678912345', 'ahmed mohamed ahmed1', 'ahmed.mohamed.ahmed1@email.com', '12345678912', '12345678912345', 'not registered'),
+(2, '12345678912378', 'ahmed mohamed ahmed2', 'ahmed.mohamed.ahmed2@email.com', '01127993387', '12345678912345', 'not registered');
 
 -- --------------------------------------------------------
 
@@ -132,6 +132,7 @@ INSERT INTO `module_menu` (`id`, `id_parent`, `icon`, `link`, `name`, `type`, `o
 ('Change Password', 'Setting', 'mdi mdi-account-key', 'index?module=Change_Password ', 'Change Password', 'tab', 3, 1, 25),
 ('Change Profile Image', 'Setting', 'mdi mdi-account-card-details', 'index?module=Change_Profile_Image', 'Change Profile Image', 'tab', 2, 1, 24),
 ('Change theme', 'Setting', 'mdi mdi-theme-light-dark', 'index?module=Change_Theme', 'Change theme', 'tab', 5, 1, 27),
+('Client Registration', 'System Administration', 'mdi mdi-account-convert', 'index?module=Client_Registration', 'Client Registration', 'tab', 1, 1, 33),
 ('Dashboard', NULL, 'mdi mdi-gauge', 'index?module=home', 'Dashboard', 'tab', 5, 0, 5),
 ('log Management', 'Setting', 'mdi mdi-account-multiple-outline', 'index?module=log_Management', 'log Management', 'tab', 1, 1, 23),
 ('Login History', 'Setting', 'mdi mdi-account-convert', 'index?module=Login_History', 'Login History', 'tab', 0, 1, 22),
@@ -396,6 +397,7 @@ INSERT INTO `user_role_module_menu` (`user_role_id`, `module_menu_id`, `access_t
 (2, 'Change Password', 'write'),
 (2, 'Change Profile Image', 'write'),
 (2, 'Change theme', 'write'),
+(2, 'Client Registration', 'write'),
 (2, 'Dashboard', 'write'),
 (2, 'log Management', 'write'),
 (2, 'Login History', 'write'),
@@ -408,6 +410,7 @@ INSERT INTO `user_role_module_menu` (`user_role_id`, `module_menu_id`, `access_t
 (3, 'Change Password', 'write'),
 (3, 'Change Profile Image', 'write'),
 (3, 'Change theme', 'write'),
+(3, 'Client Registration', 'write'),
 (3, 'Dashboard', 'write'),
 (3, 'log Management', 'write'),
 (3, 'Login History', 'write'),

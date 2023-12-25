@@ -55,6 +55,7 @@ $lang['Reports'] = 'التقارير';
 $lang['Technical Support'] = 'دعم فني';
 $lang['Inquiry'] = 'إستفسار';
 $lang['Request'] = ' طلب ';
+$lang['Client Registration'] = 'تسجيل العميل';
 $lang['Issue'] = 'المشاكل والاعطال';
 $lang['Sales Support'] = 'دعم المبيعات';
 $lang['Setting'] = 'الاعدادات';

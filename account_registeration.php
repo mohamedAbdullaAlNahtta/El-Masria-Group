@@ -167,7 +167,7 @@ if (isset($_POST["submit"])) {
                                             class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light"
                                             type="submit"
                                         >
-                                            LOG IN
+                                            ٌRegister
                                         </button>
                                     </div>
                                 </div>
@@ -214,6 +214,31 @@ if (isset($_POST["submit"])) {
         <script>
             if (window.history.replaceState) {
                 window.history.replaceState(null, null, window.location.href);
+            }
+        </script>
+        <script>
+        function myFunctionShowPass() {
+                var li = document.getElementById("showPass").className;
+                if (li === "mdi mdi-eye") {
+                    document.getElementById("showPass").setAttribute("class", "mdi mdi-eye-off");
+                    document.getElementById("new_password").setAttribute("type", "text");
+                } else if (li === "mdi mdi-eye-off") {
+                    document.getElementById("showPass").setAttribute("class", "mdi mdi-eye");
+                    document.getElementById("new_password").setAttribute("type", "password");
+                }
+            }
+            function myFunctionCompareNewPassWithConfirmPass() {
+                var newPasswordUserInput = document.getElementById("new_password").value;
+                var confirmPasswordUserInput = document.getElementById("confirm_password").value;
+                if (newPasswordUserInput === confirmPasswordUserInput) {
+                    document.getElementById("incorrectRetype").style.display = "none";
+                    document.getElementById("correctRetype").style.display = "block";
+                    return true;
+                } else {
+                    document.getElementById("incorrectRetype").style.display = "block";
+                    document.getElementById("correctRetype").style.display = "none";
+                    return false;
+                }
             }
         </script>
         <script>

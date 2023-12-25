@@ -42,7 +42,7 @@
 $lang['Setting'] = 'الإعدادات';
 $lang['change user password'] = 'تغيير كلمة مرور المستخدم';
 $lang['Change Password']='تغيير كلمة المرور';
-$lang['new password']='كلمة السر جديد';
+$lang['new password']='كلمة المرور جديد';
 $lang['current password']='كلمة السر الحالية';
 $lang['confirm password']='تأكيد كلمة المرور';
 $lang['Strength Checker']='مدقق قوة كلمة المرور';

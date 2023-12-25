@@ -141,7 +141,7 @@ if (isset($_POST["submit"])) {
                                 <div class="form-group" >
                                     <div class="input-group">
                                         <div class="input-group-addon"><i style="font-size: 20px;" class="mdi mdi-key"></i></div>
-                                        <input  type="password" name="new_password" class="form-control" id="new_password" placeholder="<?php echo $lang['new password']; ?>" required="required" onkeyup="checkPasswordStrength();" />
+                                        <input  type="password" name="new_password" class="form-control" id="new_password" placeholder="كلمة المرور جديد" required="required" onkeyup="checkPasswordStrength();" />
                                         <div class="input-group-addon" style="cursor: pointer;" onclick="myFunctionShowPass();" ><i style="font-size: 20px;" id="showPass" class="mdi mdi-eye"></i></div>
                                     </div>
                                 </div>
@@ -149,7 +149,7 @@ if (isset($_POST["submit"])) {
                                 <div class="form-group" >
                                     <div class="input-group">
                                         <div class="input-group-addon"><i style="font-size: 20px;" class="mdi mdi-key-change"></i></div>
-                                        <input type="password" name="confirm_password" class="form-control" id="confirm_password" placeholder="<?php echo $lang['confirm password']; ?>" required="required" onkeyup="myFunctionCompareNewPassWithConfirmPass();myFunctionReadyToChnage()" />
+                                        <input type="password" name="confirm_password" class="form-control" id="confirm_password" placeholder="تأكيد كلمة المرور" required="required" onkeyup="myFunctionCompareNewPassWithConfirmPass();myFunctionReadyToChnage()" />
                                         <div class="input-group-addon">
                                             <img id="correctRetype" style="width: 30px; display: none;" src="modules/Change_Password/img/correct.png" />
                                             <img id="incorrectRetype" style="width: 30px;" src="modules/Change_Password/img/incorrect.png" />
@@ -166,7 +166,7 @@ if (isset($_POST["submit"])) {
                                             class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light"
                                             type="submit"
                                         >
-                                            تسجيل الدخول
+                                            تسجيل 
                                         </button>
                                     </div>
                                 </div>
@@ -211,6 +211,31 @@ if (isset($_POST["submit"])) {
         <script>
             if (window.history.replaceState) {
                 window.history.replaceState(null, null, window.location.href);
+            }
+        </script>
+        <script>
+        function myFunctionShowPass() {
+                var li = document.getElementById("showPass").className;
+                if (li === "mdi mdi-eye") {
+                    document.getElementById("showPass").setAttribute("class", "mdi mdi-eye-off");
+                    document.getElementById("new_password").setAttribute("type", "text");
+                } else if (li === "mdi mdi-eye-off") {
+                    document.getElementById("showPass").setAttribute("class", "mdi mdi-eye");
+                    document.getElementById("new_password").setAttribute("type", "password");
+                }
+            }
+            function myFunctionCompareNewPassWithConfirmPass() {
+                var newPasswordUserInput = document.getElementById("new_password").value;
+                var confirmPasswordUserInput = document.getElementById("confirm_password").value;
+                if (newPasswordUserInput === confirmPasswordUserInput) {
+                    document.getElementById("incorrectRetype").style.display = "none";
+                    document.getElementById("correctRetype").style.display = "block";
+                    return true;
+                } else {
+                    document.getElementById("incorrectRetype").style.display = "block";
+                    document.getElementById("correctRetype").style.display = "none";
+                    return false;
+                }
             }
         </script>
         <script>

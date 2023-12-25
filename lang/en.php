@@ -77,7 +77,7 @@ $lang['Subscription'] = 'Subscription';
 $lang['Outbound'] = 'Outbound';
 $lang['postpaid'] = 'postpaid';
 $lang['prepaid'] = 'prepaid';
-
+$lang['Client Registration'] = 'Client Registration';
 $lang['Change theme'] = 'Change theme';
 $lang['Change language'] = 'Change language';
 $lang['Theme'] = 'Theme';
