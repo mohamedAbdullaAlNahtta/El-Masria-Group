@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 25, 2023 at 02:41 PM
+-- Generation Time: Dec 25, 2023 at 03:21 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -415,6 +415,7 @@ INSERT INTO `user_role_module_menu` (`user_role_id`, `module_menu_id`, `access_t
 (3, 'log Management', 'write'),
 (3, 'Login History', 'write'),
 (3, 'Setting', 'write'),
+(3, 'System Administration', 'read'),
 (6, 'Change language', 'read'),
 (6, 'Change Password', 'read'),
 (6, 'Change Profile Image', 'read'),
