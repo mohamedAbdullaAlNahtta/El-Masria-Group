@@ -72,6 +72,12 @@
 		<div class="col-12">
                 <div class="card">
                     <div class="card-block">
+                        <h1>
+                        <?php
+                        $xx = new Client();
+                        var_dump($xx->gett_reg_status('12345678912378'));
+                        ?>
+                        </h1>
                         <h4 class="card-title"><?php echo $lang['Data Export'] ?></h4>
                         <h6 class="card-subtitle"><?php echo $lang['Export data to Copy, CSV, Excel, PDF & Print'] ?></h6>
                         <div class="table-responsive m-t-40">

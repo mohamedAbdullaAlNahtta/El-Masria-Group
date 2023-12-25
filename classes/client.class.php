@@ -105,6 +105,56 @@ class Client{
 
     }
 
+    public function encrypt_pin_num($pin_number){
+        // Store a string into the variable which
+        // needs to be encrypted
+        $simple_string = $pin_number;
+
+        // Store the cipher method
+        $ciphering = "AES-128-CTR";
+        
+        // Use OpenSSl Encryption method
+        $iv_length = openssl_cipher_iv_length($ciphering);
+        $options = 0;
+        
+        // Non-NULL Initialization Vector for encryption
+        $encryption_iv = '1234567891011121';
+        
+        // Store the encryption key
+        $encryption_key = "GeeksforGeeks";
+        
+        // Use openssl_encrypt() function to encrypt the data
+        $encryption = openssl_encrypt($simple_string, $ciphering,
+            $encryption_key, $options, $encryption_iv);
+
+        return $encryption;
+
+    }
+    public function decrypt_pin_num($pin_number){
+
+        $encryption = $pin_number;
+
+         // Store the cipher method
+         $ciphering = "AES-128-CTR";
+        
+         // Use OpenSSl Encryption method
+         $iv_length = openssl_cipher_iv_length($ciphering);
+         $options = 0;
+         
+         // Non-NULL Initialization Vector for encryption
+         $encryption_iv = '1234567891011121';
+         
+         // Store the encryption key
+         $encryption_key = "GeeksforGeeks";
+
+        // Decryption process
+        $decryption = openssl_decrypt($encryption, $ciphering,
+        $encryption_key, $options, $encryption_iv);
+
+        return $decryption;
+        
+    }
+
 }
 
 ?>
