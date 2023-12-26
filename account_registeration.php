@@ -6,7 +6,7 @@ error_reporting(0);
 error_reporting(E_ERROR | E_PARSE);
 //end of initiate session
 
-$pin_number = $_GET["pin_number"];
+$pin_number = urlencode($_GET["pin_number"]);
 
 $user = new Client();
 

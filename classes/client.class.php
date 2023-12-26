@@ -132,7 +132,7 @@ class Client{
     }
     public function decrypt_pin_num($pin_number){
 
-        $encryption = $pin_number;
+        $encryption = urldecode($pin_number);
 
          // Store the cipher method
          $ciphering = "AES-128-CTR";
