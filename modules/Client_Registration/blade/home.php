@@ -76,8 +76,8 @@
                         <?php
                         $xx = new Client();
                         // var_dump($xx->gett_reg_status('12345678912378'));
-                        var_dump($xx->encrypt_pin_num('12345678912345'));
-                        var_dump($xx->decrypt_pin_num('4VcqfMk%2FL9p%2BzqaiELQ%3D'));
+                        // var_dump($xx->encrypt_pin_num('12345678912345'));
+                        // var_dump($xx->decrypt_pin_num('4VcqfMk%2FL9p%2BzqaiELQ%3D'));
                         ?>
                         </h1>
                         <h4 class="card-title"><?php echo $lang['Data Export'] ?></h4>
