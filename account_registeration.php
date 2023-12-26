@@ -6,29 +6,22 @@ error_reporting(0);
 error_reporting(E_ERROR | E_PARSE);
 //end of initiate session
 
-if (isset($_POST["submit"])) {
+$pin_number = $_GET["pin_number"];
 
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+$user = new Client();
 
-    $_SESSION['username'] = $username;
-    $_SESSION['password'] = $password;
-    $_SESSION['systemType'] = 'web';
+$National_ID = $user->decrypt_pin_num($pin_number);
 
-    $user = new User();
-    $_SESSION['user'] = $user;
 
-    $user_logged_in = $user->user_login($username,$password,'web');
-    $_SESSION['token'] = $user->session_token;
 
-    if ($user_logged_in === true) {
-        header("location: index");
-    }else{
-        $loginMessage = $user_logged_in;
-        $_SESSION['loginMessage'] = $loginMessage;
-    }   
+// if (isset($_POST["submit"])) {
+
+//     $username = $_POST['username'];
+//     $password = $_POST['password'];
+
     
-}
+  
+// }
 
 
 
@@ -130,7 +123,7 @@ if (isset($_POST["submit"])) {
                                     <h2 class="box-title m-b-20" style="margin-bottom: 0;"><img id="mylogoImg2" src="assets/images/El Masria Group Logo 2.png" /></h2>
                                 </center>
                                 <center>
-                                    <p style="padding-top: 2%; color: red;"></p>
+                                    <p style="padding-top: 2%; color: red;"><?php var_dump($National_ID);?></p>
                                 </center>
 
                                 <div class="form-group" >
@@ -167,7 +160,7 @@ if (isset($_POST["submit"])) {
                                             class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light"
                                             type="submit"
                                         >
-                                            ٌRegister
+                                            ٌRegister 
                                         </button>
                                     </div>
                                 </div>

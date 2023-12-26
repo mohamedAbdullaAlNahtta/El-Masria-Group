@@ -127,7 +127,7 @@ class Client{
         $encryption = openssl_encrypt($simple_string, $ciphering,
             $encryption_key, $options, $encryption_iv);
 
-        return $encryption;
+        return urlencode($encryption);
 
     }
     public function decrypt_pin_num($pin_number){

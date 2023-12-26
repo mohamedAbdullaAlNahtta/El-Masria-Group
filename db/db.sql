@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 25, 2023 at 06:11 PM
+-- Generation Time: Dec 26, 2023 at 03:41 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -33,7 +33,6 @@ CREATE TABLE `client_user` (
   `full_name` varchar(250) NOT NULL,
   `email` varchar(250) NOT NULL,
   `phone_number` varchar(11) NOT NULL,
-  `pin_number` varchar(14) NOT NULL,
   `reg_status` enum('registered','not registered','in progress') NOT NULL DEFAULT 'not registered'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -41,9 +40,9 @@ CREATE TABLE `client_user` (
 -- Dumping data for table `client_user`
 --
 
-INSERT INTO `client_user` (`id`, `national_ID`, `full_name`, `email`, `phone_number`, `pin_number`, `reg_status`) VALUES
-(1, '12345678912345', 'ahmed mohamed ahmed1', 'ahmed.mohamed.ahmed1@email.com', '12345678912', '12345678912345', 'not registered'),
-(2, '12345678912378', 'ahmed mohamed ahmed2', 'ahmed.mohamed.ahmed2@email.com', '01127993387', '12345678912378', 'not registered');
+INSERT INTO `client_user` (`id`, `national_ID`, `full_name`, `email`, `phone_number`, `reg_status`) VALUES
+(1, '12345678912345', 'ahmed mohamed ahmed1', 'ahmed.mohamed.ahmed1@email.com', '12345678912', 'not registered'),
+(2, '12345678912378', 'ahmed mohamed ahmed2', 'ahmed.mohamed.ahmed2@email.com', '01127993387', 'not registered');
 
 -- --------------------------------------------------------
 
