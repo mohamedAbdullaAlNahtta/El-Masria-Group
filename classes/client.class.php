@@ -52,6 +52,29 @@ class Client{
         return $result;
     }
 
+    public function get_reg_data($pin_number){
+        $user = new Client();
+        $National_ID = $user->decrypt_pin_num($pin_number);
+
+        $db   = new ArabicssDB;
+        $sql  = "SELECT * FROM `client_user` WHERE `national_ID`='$National_ID';";
+        $result = $db ->query($sql);
+
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()){
+                $client_id = $row["id"];
+                $client_email = $row["email"];
+                $client_full_name = $row["full_name"];
+            }
+        }
+        $reg_data ['client_id']=$client_id;
+        $reg_data ['client_email']=$client_email;
+        $reg_data ['client_full_name']=$client_full_name;
+
+        return $reg_data;
+
+    }
+
     public function create_user($client_id, $email, $full_name ){
 
         $user_name = $email;

@@ -13,6 +13,9 @@ $user = new Client();
 $National_ID = $user->decrypt_pin_num($pin_number);
 
 
+$reg_data = $user->get_reg_data($pin_number);
+
+
 
 // if (isset($_POST["submit"])) {
 
@@ -129,7 +132,7 @@ $National_ID = $user->decrypt_pin_num($pin_number);
                                 <div class="form-group" >
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="ti-user"></i></div>
-                                        <input type="text" name="username" class="form-control" id="username" placeholder="User Name" required="required" />
+                                        <input type="text" name="username" class="form-control" id="username" value="<?php echo $reg_data['client_email'];?>" placeholder="<?php echo $reg_data['client_email'];?>" required="required" />
                                     </div>
                                 </div>
                                 <div class="form-group" >
