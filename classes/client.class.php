@@ -117,7 +117,7 @@ class Client{
     public function get_reg_status($pin_number){
         $reg_status ='';
         $db   = new ArabicssDB;
-        $sql = "SELECT `reg_status` FROM `client_user` WHERE `client_user`.`pin_number`='$pin_number'";
+        $sql = "SELECT `reg_status` FROM `client_user` WHERE `client_user`.`national_ID`='$pin_number'";
         $result = $db ->query($sql);
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {  
@@ -130,7 +130,7 @@ class Client{
     public function set_reg_status($pin_number){
         $reg_status ='';
         $db   = new ArabicssDB;
-        $sql = " UPDATE `client_user` set `reg_status`='in progress' WHERE `client_user`.`pin_number`='$pin_number'";
+        $sql = " UPDATE `client_user` set `reg_status`='in progress' WHERE `client_user`.`national_ID`='$pin_number'";
         $result = $db ->query($sql);
         return $reg_status;
 
