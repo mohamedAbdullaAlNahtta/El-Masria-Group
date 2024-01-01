@@ -17,14 +17,13 @@ $reg_data = $user->get_reg_data($pin_number);
 
 
 
-// if (isset($_POST["submit"])) {
+if (isset($_POST["submit"])) {
 
-//     $username = $_POST['username'];
-//     $password = $_POST['password'];
-
+    $username = $_POST['username'];
+    $password = $_POST['new_password'];
     
   
-// }
+}
 
 
 
@@ -117,22 +116,22 @@ $reg_data = $user->get_reg_data($pin_number);
                                         <option value="white">White</option>
                                         <option value="dark">Dark </option>
                                     </select>
-                                    <a id="currentLang" class="nav-link dropdown-toggle text-muted waves-effect waves-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="flag-icon flag-icon-us"></i></a>
-                                    <div class="dropdown-menu  dropdown-menu-right animated bounceInDown"> <a href="account_registeration-ar" id ="changeLang" class="dropdown-item" ><i class="flag-icon flag-icon-eg"></i> اللغة العربية</a></div>
                                 </div>
                             </div>
-                            <form class="form-horizontal" id="loginform" method="post" action="login.php">
+                            <form class="form-horizontal" id="loginform" method="post" action="account_registeration.php">
                                 <center>
                                     <h2 class="box-title m-b-20" style="margin-bottom: 0;"><img id="mylogoImg2" src="assets/images/El Masria Group Logo 2.png" /></h2>
                                 </center>
                                 <center>
-                                    <p style="padding-top: 2%; color: red;"><?php var_dump($National_ID);?></p>
+                                    <p style="padding-top: 2%; color: red;"><?php echo "national id:"; var_dump($National_ID);echo "<br>";?></p>
+                                    <p style="padding-top: 2%; color: red;"><?php "user name:"; var_dump($username); echo "<br>";?></p>
+                                    <p style="padding-top: 2%; color: red;"><?php "password:"; var_dump($password); echo "<br>";?></p>
                                 </center>
 
                                 <div class="form-group" >
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="ti-user"></i></div>
-                                        <input type="text" name="username" class="form-control" id="username" value="<?php echo $reg_data['client_email'];?>" placeholder="<?php echo $reg_data['client_email'];?>" required="required" />
+                                        <input type="text" name="username" class="form-control" id="username"  value="<?php echo $reg_data['client_email'];?>" placeholder="<?php echo $reg_data['client_email'];?>" readonly="readonly"/>
                                     </div>
                                 </div>
                                 <div class="form-group" >
