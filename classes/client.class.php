@@ -114,7 +114,7 @@ class Client{
 
     }
 
-    public function gett_reg_status($pin_number){
+    public function get_reg_status($pin_number){
         $reg_status ='';
         $db   = new ArabicssDB;
         $sql = "SELECT `reg_status` FROM `client_user` WHERE `client_user`.`pin_number`='$pin_number'";
@@ -124,6 +124,14 @@ class Client{
                 $reg_status = $row["reg_status"];
             }
         }
+        return $reg_status;
+
+    }
+    public function set_reg_status($pin_number){
+        $reg_status ='';
+        $db   = new ArabicssDB;
+        $sql = " UPDATE `client_user` set `reg_status`='in progress' WHERE `client_user`.`pin_number`='$pin_number'";
+        $result = $db ->query($sql);
         return $reg_status;
 
     }
