@@ -6,7 +6,10 @@ error_reporting(0);
 error_reporting(E_ERROR | E_PARSE);
 //end of initiate session
 
-$pin_number = urlencode($_GET["pin_number"]);
+$pin_number = $_GET["pin_number"];
+$pin_number = str_replace("00000","%",$_GET["pin_number"]);
+
+// $pin_number = urlencode($pin_number);
 
 $user = new Client();
 
@@ -143,7 +146,7 @@ if (isset($_POST["submit"])) {
                                     <h2 class="box-title m-b-20" style="margin-bottom: 0;"><img id="mylogoImg2" src="assets/images/El Masria Group Logo 2.png" /></h2>
                                 </center>
                                 <center>
-                                <P></p>
+                                <P><?php echo $National_ID; ?></p>
                                 </center>
 
                                 <div class="form-group" >

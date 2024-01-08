@@ -128,7 +128,7 @@
                                             echo "<td> <img style='width:20px;height:20px;' src='modules/Login_History/img/incorrect.png'> ".$row["reg_status"]." </td>";
                                         }
                                         ?>
-                                        <td><button onclick="window.open('modules/Client_Registration/blade/view?national_id=<?php echo htmlentities($row['national_ID']); ?>',' ','width=1000,height=500');" style="width: 35px;height: 35px;padding: 0px;font-size: 18px;" class="btn btn-info btn-circle btn-xl"><i class="mdi mdi-eye"></i> </button></td>
+                                        <td><button onclick="window.open('modules/Client_Registration/blade/view?national_id=<?php echo htmlentities($row['national_ID']); ?>',' ','width=1000,height=500');" style="width: 35px;height: 35px;padding: 0px;font-size: 18px;" class="btn btn-info btn-circle btn-xl"><i class="mdi mdi-email"></i> </button></td>
                                         <?php        
                                         echo "</tr>";          
                                     }
