@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 08, 2024 at 01:25 PM
+-- Generation Time: Jan 08, 2024 at 02:30 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -41,8 +41,8 @@ CREATE TABLE `client_user` (
 --
 
 INSERT INTO `client_user` (`id`, `national_ID`, `full_name`, `email`, `phone_number`, `reg_status`) VALUES
-(1, '12345678912345', 'ahmed mohamed ahmed1', 'ahmed.mohamed.ahmed1@email.com', '12345678912', 'in progress'),
-(2, '12345678912378', 'ahmed mohamed ahmed2', 'ahmed.mohamed.ahmed2@email.com', '01127993387', 'not registered');
+(1, '12345678912345', 'ahmed mohamed ahmed1', 'ahmed.mohamed.ahmed1@email.com', '01093001070', 'not registered'),
+(2, '12345678912378', 'ahmed mohamed ahmed2', 'ahmed.mohamed.ahmed2@email.com', '01093001070', 'not registered');
 
 -- --------------------------------------------------------
 

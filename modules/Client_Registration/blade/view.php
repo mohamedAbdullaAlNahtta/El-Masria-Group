@@ -26,7 +26,27 @@ $client_email = $reg_data_by_pin ['client_email'];
 $client_full_name = $reg_data_by_pin ['client_full_name'];
 $client_phone_number = $reg_data_by_pin ['client_phone_number'];
 
-$message_content= "https://smssmartegypt.com/sms/api/?username=elmasria&password=\BJ[XW5[TSTT&sendername=ElMasriaGRP&mobiles=201030070104&message=Dear client please set a new password for your account ";
+// $message_content= "https://smssmartegypt.com/sms/api/?username=elmasria&password=\BJ[XW5[TSTT&sendername=ElMasriaGRP&mobiles=201030070104&message=Dear client please set a new password for your account ";
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => 'https://smssmartegypt.com/sms/api/?username=elmasria&password=%5CBJ[XW5[TSTT&sendername=ElMasriaGRP&mobiles=201030070104&message=Dear%20client%20please%20set%20a%20new%20password%20for%20your%20account http://localhost/El-Masria-Group/account_registeration?pin_number=$pin_number',
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => '',
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => 'GET',
+));
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+echo $response;
+
+$user->set_reg_status($client_email, "in progress");
 
 
 ?>
