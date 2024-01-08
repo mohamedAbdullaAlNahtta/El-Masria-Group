@@ -1,3 +1,7 @@
+<?php 
+
+$client_id = $_GET['client_id'];
+?>
 <!-- ///////////////////////////////////////////////////////////////////////////////// -->
 <!-- // Powered by ENG Muhammad Abdullah El Nahtta//////////////////////////////////// -->
 <!-- // This Module  created bye ENG Muhammad Abdullah El Nahtta////////////////////// -->
@@ -48,10 +52,9 @@
         <!-- ============================================================== -->
         <div class="row page-titles">
             <div class="col-md-6 col-8 align-self-center">
-                <h3 class="text-themecolor m-b-0 m-t-0">Login History</h3>
+                <h3 class="text-themecolor m-b-0 m-t-0">Registration Message sent</h3>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="javascript:void(0)">Report</a></li>
-                    <li class="breadcrumb-item active">Log description</li>
+                    <li class="breadcrumb-item active"><?php echo $client_id; ?></li>
                 </ol>
             </div>
         </div>
