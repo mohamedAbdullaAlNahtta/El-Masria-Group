@@ -55,6 +55,9 @@ $client_id = $_GET['client_id'];
                 <h3 class="text-themecolor m-b-0 m-t-0">Registration Message sent</h3>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item active"><?php echo $client_id; ?></li>
+                    <li class="breadcrumb-item active"><?php echo $client_id; ?></li>
+                    <li class="breadcrumb-item active"><?php echo $client_id; ?></li>
+                    <li class="breadcrumb-item active"><?php echo $client_id; ?></li>
                 </ol>
             </div>
         </div>
