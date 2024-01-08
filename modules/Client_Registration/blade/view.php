@@ -27,7 +27,7 @@ $client_full_name = $reg_data_by_pin ['client_full_name'];
 $client_phone_number = $reg_data_by_pin ['client_phone_number'];
 
 $pin_number = str_replace("%","00000",$pin_number);
-$mesg="Dear client please set a new password for your account https://10.10.110.110/El-Masria-Group/account_registeration?pin_number=";
+$mesg="Dear client please set a new password for your account https://el-masria.solutionarchitect-its.com/El-Masria-Group/account_registeration?pin_number=";
 
 $message_content= "https://smssmartegypt.com/sms/api/?username=elmasria&password=%5CBJ[XW5[TSTT&sendername=ElMasriaGRP&mobiles=2".$client_phone_number."&message=".$mesg.$pin_number;
 
@@ -44,10 +44,10 @@ curl_setopt_array($curl, array(
   CURLOPT_CUSTOMREQUEST => 'GET',
 ));
 
-// $response = curl_exec($curl);
+$response = curl_exec($curl);
 
-// curl_close($curl);
-// echo $response;
+curl_close($curl);
+echo $response;
 
 $user->set_reg_status($client_email, "in progress");
 

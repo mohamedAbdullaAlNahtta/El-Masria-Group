@@ -9,7 +9,6 @@ error_reporting(E_ERROR | E_PARSE);
 $pin_number = $_GET["pin_number"];
 $pin_number = str_replace("00000","%",$_GET["pin_number"]);
 
-// $pin_number = urlencode($pin_number);
 
 $user = new Client();
 
@@ -35,14 +34,14 @@ if (isset($_POST["submit"])) {
 
    if($user_reg_status === true){
     
-    header("Location: http://$system_server/el-Masria-Group/modules/Account_Registeration/registeration_failed.php");
+    header("Location: https://el-masria.solutionarchitect-its.com/el-Masria-Group/modules/Account_Registeration/registeration_failed.php");
 
    }else{
     $user->create_user($client_id, $email, $full_name);
     $user->set_new_password($username, $password);
     $user->acivate_user($username);
     $user->set_reg_status($email, 'registered');
-    header("Location: http://$system_server/el-Masria-Group/modules/Account_Registeration/registeration_sucess.php");
+    header("Location: https://el-masria.solutionarchitect-its.com/el-Masria-Group/modules/Account_Registeration/registeration_sucess.php");
    }
     
   

@@ -1,4 +1,7 @@
 
+<?php
+header( "refresh:3;url=https://el-masria.solutionarchitect-its.com/" ); 
+?>
 <!DOCTYPE html>
 <html id="html-page" lang="en">
 
@@ -59,6 +62,7 @@
         <link id="custom-css" href="../../thems/white/css/style.css" rel="stylesheet"/>
         <!-- login CSS -->
         <link id="login-css" href="../../thems/white/login.css" rel="stylesheet"/>
+
     </head>
 
     <body onload="typeWriter()">
@@ -85,9 +89,10 @@
                                 <center>
                                     <h2 class="box-title m-b-20" style="margin-bottom: 0;"><img id="mylogoImg2" width="100%" src="image/icon-correct-24-2.png" /></h2>
                                 </center>
-
-                                
                                 <br />
+                                <center>
+                                <iframe src="https://giphy.com/embed/RiEW6mSQqjRiDy51MI" frameBorder="0" ></iframe>
+                                </center>                  
                             </form>
                            
                         </div>
