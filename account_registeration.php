@@ -12,15 +12,35 @@ $user = new Client();
 
 $National_ID = $user->decrypt_pin_num($pin_number);
 
+$reg_data_by_pin = $user->get_reg_data_by_pin($pin_number);
 
-$reg_data = $user->get_reg_data($pin_number);
-
+$email = $reg_data_by_pin['client_email'];
 
 
 if (isset($_POST["submit"])) {
 
     $username = $_POST['username'];
     $password = $_POST['new_password'];
+    $system_server= $_SERVER['SERVER_ADDR'];
+
+    $reg_data_by_email = $user->get_reg_data_by_email($username);
+    $client_id = $reg_data_by_email['client_id'];
+    $email = $reg_data_by_email['client_email'];
+    $full_name = $reg_data_by_email['client_full_name'];
+
+    $user_reg_status= $user->check_if_user_exists($client_id, $email, $full_name);
+
+   if($user_reg_status === true){
+    
+    header("Location: http://$system_server/el-Masria-Group/modules/Account_Registeration/registeration_failed.php");
+
+   }else{
+    $user->create_user($client_id, $email, $full_name);
+    $user->set_new_password($username, $password);
+    $user->acivate_user($username);
+    $user->set_reg_status($email, 'registered');
+    header("Location: http://$system_server/el-Masria-Group/modules/Account_Registeration/registeration_sucess.php");
+   }
     
   
 }
@@ -123,15 +143,13 @@ if (isset($_POST["submit"])) {
                                     <h2 class="box-title m-b-20" style="margin-bottom: 0;"><img id="mylogoImg2" src="assets/images/El Masria Group Logo 2.png" /></h2>
                                 </center>
                                 <center>
-                                    <p style="padding-top: 2%; color: red;"><?php echo "national id:"; var_dump($National_ID);echo "<br>";?></p>
-                                    <p style="padding-top: 2%; color: red;"><?php "user name:"; var_dump($username); echo "<br>";?></p>
-                                    <p style="padding-top: 2%; color: red;"><?php "password:"; var_dump($password); echo "<br>";?></p>
+                                <P></p>
                                 </center>
 
                                 <div class="form-group" >
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="ti-user"></i></div>
-                                        <input type="text" name="username" class="form-control" id="username"  value="<?php echo $reg_data['client_email'];?>" placeholder="<?php echo $reg_data['client_email'];?>" readonly="readonly"/>
+                                        <input type="text" name="username" class="form-control" id="username"  value="<?php echo $email;?>" placeholder="<?php echo $email;?>" readonly="readonly"/>
                                     </div>
                                 </div>
                                 <div class="form-group" >
@@ -239,7 +257,6 @@ if (isset($_POST["submit"])) {
         <script>
             function changeThemeStyle() {
                 var x = document.getElementById("changeTheme").value;
-                var z = document.getElementById("currentLang").innerHTML;
                 if (x === "dark") {
                     document.getElementById("html-page").setAttribute("dir", "ltr");
                     document.getElementById("custom-css").setAttribute("href", "thems/dark/css/style.css");

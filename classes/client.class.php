@@ -52,7 +52,7 @@ class Client{
         return $result;
     }
 
-    public function get_reg_data($pin_number){
+    public function get_reg_data_by_pin($pin_number){
         $user = new Client();
         $National_ID = $user->decrypt_pin_num($pin_number);
 
@@ -75,10 +75,31 @@ class Client{
 
     }
 
-    public function create_user($client_id, $email, $full_name ){
+    public function get_reg_data_by_email($email){
+        $user = new Client();
+        $National_ID = $user->decrypt_pin_num($pin_number);
 
-        $user_name = $email;
-        $name = $full_name;
+        $db   = new ArabicssDB;
+        $sql  = "SELECT * FROM `client_user` WHERE `email`='$email';";
+        $result = $db ->query($sql);
+
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()){
+                $client_id = $row["id"];
+                $client_email = $row["email"];
+                $client_full_name = $row["full_name"];
+            }
+        }
+        $reg_data ['client_id']=$client_id;
+        $reg_data ['client_email']=$client_email;
+        $reg_data ['client_full_name']=$client_full_name;
+
+        return $reg_data;
+
+    }
+
+    public function create_user($client_id, $email, $full_name){
+
         $user_role_id = '6';
         $user_status = 'D';
 
@@ -86,7 +107,7 @@ class Client{
         $sql  = "INSERT INTO `users` (`userId`, `name`, `username`, `secureH`, `password`, 
         `companyId`, `user_role_id`, `userType`, `systemtype`, `gui_language`, `gui_theme`, `Status`, 
         `creationDate`, `createdBy`, `client_id`)
-        VALUES (NULL, '$name ', '$user_name', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8',
+        VALUES (NULL, '$full_name', '$email', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8',
          '5f4dcc3b5aa765d61d8327deb882cf99', '1', '$user_role_id', 'C', 'web', '1', '1', '$user_status', now(),
           'System', '$client_id');";
         $result = $db ->query($sql);
@@ -114,10 +135,10 @@ class Client{
 
     }
 
-    public function get_reg_status($pin_number){
+    public function get_reg_status($email){
         $reg_status ='';
         $db   = new ArabicssDB;
-        $sql = "SELECT `reg_status` FROM `client_user` WHERE `client_user`.`national_ID`='$pin_number'";
+        $sql = "SELECT `reg_status` FROM `client_user` WHERE `client_user`.`email`='$email'";
         $result = $db ->query($sql);
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {  
@@ -127,10 +148,10 @@ class Client{
         return $reg_status;
 
     }
-    public function set_reg_status($pin_number){
+    public function set_reg_status($email, $status){
         $reg_status ='';
         $db   = new ArabicssDB;
-        $sql = " UPDATE `client_user` set `reg_status`='in progress' WHERE `client_user`.`national_ID`='$pin_number'";
+        $sql = " UPDATE `client_user` set `reg_status`='$status' WHERE `client_user`.`email`='$email'";
         $result = $db ->query($sql);
         return $reg_status;
 
@@ -184,6 +205,18 @@ class Client{
 
         return $decryption;
         
+    }
+
+    public function check_if_user_exists($client_id, $email, $full_name){
+        $db   = new ArabicssDB;
+        $sql  = "SELECT * FROM `users` WHERE `username`='$email' AND `client_id`='$client_id' AND `name`='$full_name';";
+        $result = $db ->query($sql);
+        if ($result->num_rows > 0) {
+            return true;
+        }else{
+            return false;
+        }
+
     }
 
 }
