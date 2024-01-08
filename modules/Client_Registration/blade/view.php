@@ -26,6 +26,8 @@ $client_email = $reg_data_by_pin ['client_email'];
 $client_full_name = $reg_data_by_pin ['client_full_name'];
 $client_phone_number = $reg_data_by_pin ['client_phone_number'];
 
+$message_content= "https://smssmartegypt.com/sms/api/?username=elmasria&password=\BJ[XW5[TSTT&sendername=ElMasriaGRP&mobiles=201030070104&message=Dear client please set a new password for your account ";
+
 
 ?>
 <!-- ///////////////////////////////////////////////////////////////////////////////// -->
@@ -84,6 +86,7 @@ $client_phone_number = $reg_data_by_pin ['client_phone_number'];
                     <li class="breadcrumb-item active"><?php echo $client_email; ?></li>
                     <li class="breadcrumb-item active"><?php echo $client_full_name; ?></li>
                     <li class="breadcrumb-item active"><?php echo $client_phone_number; ?></li>
+                    <li class="breadcrumb-item active"><?php echo $pin_number; ?></li>
                 </ol>
             </div>
         </div>
