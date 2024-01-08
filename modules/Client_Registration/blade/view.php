@@ -1,6 +1,32 @@
 <?php 
 
-$client_id = $_GET['client_id'];
+spl_autoload_register("myAutoLoader");
+function myAutoLoader($className){
+    
+    $path = "../../../classes/";
+    $extensiontype = ".class.php";
+    $fullpath = $path . $className . $extensiontype;
+
+	include $fullpath;
+
+}
+session_start();
+error_reporting(0);
+
+$national_id = $_GET['national_id'];
+
+$user = new Client();
+
+$pin_number = $user->encrypt_pin_num($national_id);
+
+$reg_data_by_pin = $user->get_reg_data_by_pin($pin_number);
+
+$client_id = $reg_data_by_pin ['client_id'];
+$client_email = $reg_data_by_pin ['client_email'];
+$client_full_name = $reg_data_by_pin ['client_full_name'];
+$client_phone_number = $reg_data_by_pin ['client_phone_number'];
+
+
 ?>
 <!-- ///////////////////////////////////////////////////////////////////////////////// -->
 <!-- // Powered by ENG Muhammad Abdullah El Nahtta//////////////////////////////////// -->
@@ -54,10 +80,10 @@ $client_id = $_GET['client_id'];
             <div class="col-md-6 col-8 align-self-center">
                 <h3 class="text-themecolor m-b-0 m-t-0">Registration Message sent</h3>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item active"><?php echo $client_id; ?></li>
-                    <li class="breadcrumb-item active"><?php echo $client_id; ?></li>
-                    <li class="breadcrumb-item active"><?php echo $client_id; ?></li>
-                    <li class="breadcrumb-item active"><?php echo $client_id; ?></li>
+                    <li class="breadcrumb-item active"><?php echo $national_id; ?></li>
+                    <li class="breadcrumb-item active"><?php echo $client_email; ?></li>
+                    <li class="breadcrumb-item active"><?php echo $client_full_name; ?></li>
+                    <li class="breadcrumb-item active"><?php echo $client_phone_number; ?></li>
                 </ol>
             </div>
         </div>

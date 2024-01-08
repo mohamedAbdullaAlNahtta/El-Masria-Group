@@ -65,11 +65,13 @@ class Client{
                 $client_id = $row["id"];
                 $client_email = $row["email"];
                 $client_full_name = $row["full_name"];
+                $client_phone_number = $row["phone_number"];
             }
         }
         $reg_data ['client_id']=$client_id;
         $reg_data ['client_email']=$client_email;
         $reg_data ['client_full_name']=$client_full_name;
+        $reg_data ['client_phone_number']=$client_phone_number;
 
         return $reg_data;
 
