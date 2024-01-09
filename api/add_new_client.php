@@ -4,7 +4,7 @@
 // Add new client National ID, Full Name, Email, and Phone Number 
 // Authentication Type : Basic Authentication 
 // Method: POST 
-// Request URL : https://localhost/El-Masria-Group/api/add_new_client?national_ID=96541236548969&full_name=mohamedelnahtta2&email=asdfdgf@SDfD.C1213f&phone_number=01093001070
+// Request URL : https://el-masria.solutionarchitect-its.com/El-Masria-Group/api/add_new_client?national_ID=96541236548969&full_name=mohamedelnahtta2&email=asdfdgf@SDfD.C1213f&phone_number=01093001070
 // Authentication UN: el-masria-group-portal
 // Authentication PW: asdA125sdw1dSf5rtertPref
 
