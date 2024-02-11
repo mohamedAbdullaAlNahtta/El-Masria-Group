@@ -81,7 +81,6 @@
                                         <th><i class="mdi mdi-account-multiple-outline"></i></th>
                                         <th><?php echo $lang['User Name']; ?></th>
                                         <th><?php echo $lang['Name']; ?></th>
-                                        <th><?php  echo $lang['Company'];?> </th>
                                         <th><?php echo $lang['Access Type']; ?></th>
                                         <th><?php  echo $lang['Reset Password'];?> </th>
                                     </tr>
@@ -91,7 +90,6 @@
                                         <th><i class="mdi mdi-account-multiple-outline"></i></th>
 										<th><?php echo $lang['User Name']; ?></th>
                                         <th><?php echo $lang['Name']; ?></th>
-                                        <th><?php  echo $lang['Company'];?> </th>
                                         <th><?php echo $lang['Access Type']; ?></th>
                                         <th><?php  echo $lang['Reset Password'];?> </th>
                                     </tr>
@@ -107,7 +105,6 @@
                                         echo"<td><i class='mdi mdi-account-multiple-outline'></i> </td>";
                                         echo "<td> <img class='img-circle' style='width:30px;height:30px;' src='".$user->get_user_profile_image_by_user_name($row["username"])."'> ".$row["username"]." </td>";
                                         echo "<td>".$row["name"]." </td>";
-                                        echo "<td> <img class='img-circle' style='width:30px;height:30px;' src='".$user->get_company_image_by_id($row["companyId"])."'> " .$user->get_company_name_by_id($row["companyId"])." </td>";
                                         if ($row["systemtype"]==='web') {
                                             echo "<td><i class='mdi mdi-google-chrome'></i>  ".$row["systemtype"]." </td>";
                                         } else {

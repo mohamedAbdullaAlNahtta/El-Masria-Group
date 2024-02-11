@@ -108,10 +108,10 @@ if(isset($_POST['submit_change'])){
                                             <td style="border: 1px solid;padding: 5px;" ><a class="btn btn-info" onclick="regenrateRandomPassword()"><?php echo $lang['Regenerate'];?></a></td>
                                             <script>
                                                 document.getElementById("myInputval").value =
-                                                "ArabicSS@"+Math.floor(Math.random() * 10000);
+                                                "Masr!@"+Math.floor(Math.random() * 10000);
                                                 function regenrateRandomPassword(){
                                                     document.getElementById("myInputval").value =
-                                                    Math.floor(Math.random() * 100)+"_ArabicSS@"+Math.floor(Math.random() * 10000);
+                                                    Math.floor(Math.random() * 100)+"_Masr!@"+Math.floor(Math.random() * 10000);
                                                     }
                                             </script>
                                             <td style="border: 1px solid;padding: 5px;" ><a class="btn btn-info" onclick="copyPass()"><?php echo $lang['Copy'];?></a></td>
