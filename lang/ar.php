@@ -110,6 +110,8 @@ $lang['Show Token']='إظهار الرمز';
 $lang['Logout']='تسجيل الخروج';
 $lang['Theme']='المظهر';
 $lang['Language']='اللغة';
+$lang['Payment Reports']='تقارير الدفع';
+$lang['Review Payments']='مراجعة المدفوعات';
 $lang['No Suggestion']='لا يوجد اقتراح';
 
 

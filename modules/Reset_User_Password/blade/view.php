@@ -90,10 +90,6 @@ if(isset($_POST['submit_change'])){
                                         <td style="border: 1px solid;padding: 5px;" > <?php echo $lang['Access Type'];?> </td>
                                         <td style="border: 1px solid;padding: 5px;" > <?php echo $access_type;?> </td>
                                     </tr>
-                                    <tr>
-                                        <td style="border: 1px solid;padding: 5px;" > <?php echo $lang['Company'];?> </td>
-                                        <td style="border: 1px solid;padding: 5px;" > <?php echo $company_name; ?> </td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>

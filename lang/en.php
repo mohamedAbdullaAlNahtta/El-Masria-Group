@@ -107,6 +107,8 @@ $lang['All rights reserved']='All rights reserved';
 $lang['Logout']='Logout';
 $lang['Theme']='Theme';
 $lang['Language']='Language';
+$lang['Payment Reports']='Payment Reports';
+$lang['Review Payments']='Review Payments';
 $lang['No Suggestion']='No Suggestion';
 
 
