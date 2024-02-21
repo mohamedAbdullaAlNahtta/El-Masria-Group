@@ -73,37 +73,50 @@
                 <div class="card">
                     <div class="card-block">
                         <div class="table-responsive m-t-40">
+                            <div>
+                            <?php
+                            $new_client = new ElmasriaPortal("27507230103983");
+                            ?>
+                            </div>
                             <table class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <th>Project Name</th>
-                                        <th>Elmasria Simple</th>
+                                        <th><?php echo $new_client->ProjectName; ?></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Alfreds Futterkiste</td>
-                                        <td>Maria Anders</td>
+                                        <td>Bulding Name</td>
+                                        <th><?php echo $new_client->BuildingName; ?></th>
                                     </tr>
                                     <tr>
-                                        <td>Centro comercial Moctezuma</td>
-                                        <td>Francisco Chang</td>
+                                        <td>Unit Number</td>
+                                        <th><?php echo $new_client->UnitNumber; ?></th>
                                     </tr>
                                     <tr>
-                                        <td>Ernst Handel</td>
-                                        <td>Roland Mendel</td>
+                                        <td>Is Over Seas</td>
+                                        <th><?php echo $new_client->IsOverSeas; ?></th>
                                     </tr>
                                     <tr>
-                                        <td>Island Trading</td>
-                                        <td>Helen Bennett</td>
+                                        <td>Reservation Date</td>
+                                        <th><?php echo $new_client->Reservationdate; ?></th>
                                     </tr>
                                     <tr>
-                                        <td>Laughing Bacchus Winecellars</td>
-                                        <td>Yoshi Tannamuri</td>
+                                        <td>Contract Date</td>
+                                        <th><?php echo $new_client->ContractDate; ?></th>
                                     </tr>
                                     <tr>
-                                        <td>Magazzini Alimentari Riuniti</td>
-                                        <td>Giovanni Rovelli</td>
+                                        <td>Contract Receiving Date</td>
+                                        <th><?php echo $new_client->ContractReceivingDate; ?></th>
+                                    </tr>
+                                    <tr>
+                                        <td>Actual Receiving Date</td>
+                                        <th><?php echo $new_client->ActualReceivingDate; ?></th>
+                                    </tr>
+                                    <tr>
+                                        <td>Contracting Method</td>
+                                        <th><?php echo $new_client->ContractingMethod; ?></th>
                                     </tr>
                                 </tbody>
                             </table>
@@ -112,43 +125,29 @@
                 </div>
                 
             </div>
-            <div class="col-6">
+            <div class="col-9">
                 <div class="card">
                     <div class="card-block">
-                        <h4 class="card-title"><?php echo $lang['Data Export'] ?></h4>
-                        <h6 class="card-subtitle"><?php echo $lang['Export data to Copy, CSV, Excel, PDF & Print'] ?></h6>
+                        <!-- <h4 class="card-title"> Unit Details <?php echo $lang['Data Export'] ?></h4>
+                        <h6 class="card-subtitle"><?php echo $lang['Export data to Copy, CSV, Excel, PDF & Print'] ?></h6> -->
                         <div class="table-responsive m-t-40">
                             <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th>Company</th>
-                                        <th>Contact</th>
+                                        <th>Payment</th>
+                                        <th>Payment value</th>
+                                        <th>Paid</th>
+                                        <th>Collection rate</th>
+                                        <th>General balance</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>Alfreds Futterkiste</td>
                                         <td>Maria Anders</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Centro comercial Moctezuma</td>
-                                        <td>Francisco Chang</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ernst Handel</td>
-                                        <td>Roland Mendel</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Island Trading</td>
-                                        <td>Helen Bennett</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laughing Bacchus Winecellars</td>
-                                        <td>Yoshi Tannamuri</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Magazzini Alimentari Riuniti</td>
-                                        <td>Giovanni Rovelli</td>
+                                        <td>Company</td>
+                                        <td>Contact</td>
+                                        <td>Contact</td>
                                     </tr>
                                 </tbody>
                             </table>
