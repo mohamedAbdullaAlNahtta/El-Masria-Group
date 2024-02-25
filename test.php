@@ -26,3 +26,7 @@ var_dump($testy);
 echo"<br>";
 
 echo $testy[0]["UnitID"];
+
+echo"<br>";
+
+echo $testy[0]["UnitDetails"][0]["InstallmentName"];
