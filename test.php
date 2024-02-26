@@ -30,3 +30,26 @@ echo $testy[0]["UnitID"];
 echo"<br>";
 
 echo $testy[0]["UnitDetails"][0]["InstallmentName"];
+
+echo"<br>";
+
+$payment = $testy[0]["UnitDetails"];
+
+echo $payment_len = count($testy[0]["UnitDetails"]);
+
+echo"<br>";
+
+var_dump($payment);
+
+echo"<br>";
+
+for ($x = 0; $x < $payment_len; $x++) {
+
+  echo "InstallmentName: ".$payment[$x]["InstallmentName"] ."<br>";
+  echo "InstallmentValue: ".$payment[$x]["InstallmentValue"] ."<br>";
+  echo "Paied: ".$payment[$x]["Paied"] ."<br>";
+  echo "Balance: ".$payment[$x]["Balance"] ."<br>";
+  echo "CollectionRate: ".$payment[$x]["CollectionRate"] ."<br>";
+  
+}
+

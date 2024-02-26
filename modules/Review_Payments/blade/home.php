@@ -81,17 +81,17 @@
                             <table class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th>Project Name</th>
+                                        <th><i class="mdi mdi-bank" style="color:#009efb;"></i> Project Name</th>
                                         <th><?php echo $new_client->ProjectName; ?></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Bulding Name</td>
+                                        <td><i class="mdi mdi-home-modern"style="color:#009efb;"></i> Bulding Name</td>
                                         <th><?php echo $new_client->BuildingName; ?></th>
                                     </tr>
                                     <tr>
-                                        <td>Unit Number</td>
+                                        <td><i class="mdi mdi-barcode"style="color:#009efb;"></i> Unit Number</td>
                                         <th><?php echo $new_client->UnitNumber; ?></th>
                                     </tr>
                                     <tr>
@@ -99,19 +99,19 @@
                                         <th><?php echo $new_client->IsOverSeas; ?></th>
                                     </tr>
                                     <tr>
-                                        <td>Reservation Date</td>
+                                        <td><i class="mdi mdi-calendar-plus"style="color:#009efb;"></i> Reservation Date</td>
                                         <th><?php echo $new_client->Reservationdate; ?></th>
                                     </tr>
                                     <tr>
-                                        <td>Contract Date</td>
+                                        <td><i class="mdi mdi-calendar-check"style="color:#009efb;"></i> Contract Date</td>
                                         <th><?php echo $new_client->ContractDate; ?></th>
                                     </tr>
                                     <tr>
-                                        <td>Contract Receiving Date</td>
+                                        <td><i class="mdi mdi-calendar-multiple-check"style="color:#009efb;"></i> Contract Receiving Date</td>
                                         <th><?php echo $new_client->ContractReceivingDate; ?></th>
                                     </tr>
                                     <tr>
-                                        <td>Actual Receiving Date</td>
+                                        <td><i class="mdi mdi-calendar-clock"style="color:#009efb;"></i> Actual Receiving Date</td>
                                         <th><?php echo $new_client->ActualReceivingDate; ?></th>
                                     </tr>
                                     <tr>
@@ -128,8 +128,6 @@
             <div class="col-9">
                 <div class="card">
                     <div class="card-block">
-                        <!-- <h4 class="card-title"> Unit Details <?php echo $lang['Data Export'] ?></h4>
-                        <h6 class="card-subtitle"><?php echo $lang['Export data to Copy, CSV, Excel, PDF & Print'] ?></h6> -->
                         <div class="table-responsive m-t-40">
                             <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>
@@ -138,17 +136,70 @@
                                         <th>Payment value</th>
                                         <th>Paid</th>
                                         <th>Collection rate</th>
-                                        <th>General balance</th>
+                                        <th>General Balance</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Alfreds Futterkiste</td>
-                                        <td>Maria Anders</td>
-                                        <td>Company</td>
-                                        <td>Contact</td>
-                                        <td>Contact</td>
-                                    </tr>
+                                    <?php 
+                                    for ($x = 0; $x < count($new_client->UnitDetails); $x++) {
+                                        echo "<tr>";
+                                        echo "<td><i class='mdi mdi-note-text'></i> ".$new_client->UnitDetails[$x]["InstallmentName"] ."</td>";
+
+                                        ////////////////////////////////////////////////////////
+                                        // checking postive value 
+                                        echo "<td> <img style='width:20px;height:20px;' src='modules/Review_Payments/img/";
+                                        // coloring postive value 
+                                        if ($new_client->UnitDetails[$x]["InstallmentValue"]>=0) {
+                                            echo 'grrn mi.png';
+                                        } else {
+                                            echo 'mi.png';
+                                        }
+                                        echo"'> ".$new_client->UnitDetails[$x]["InstallmentValue"]."</td>";
+                                        ////////////////////////////////////////////////////////
+
+
+
+                                        ////////////////////////////////////////////////////////
+                                        // checking postive value 
+                                        echo "<td> <img style='width:20px;height:20px;' src='modules/Review_Payments/img/";
+                                        // coloring postive value 
+                                        if ($new_client->UnitDetails[$x]["InstallmentValue"]>=0) {
+                                            echo 'correct.png';
+                                        } else {
+                                            echo 'mi.png';
+                                        }
+                                        echo"'> ".$new_client->UnitDetails[$x]["Paied"] ."</td>";
+                                        ////////////////////////////////////////////////////////
+
+
+
+                                        ////////////////////////////////////////////////////////
+                                        // CollectionRate progress bar condition coloring 
+                                        echo '<td><div class="progress m-t-20">';
+                                        echo'<div class="progress-bar" role="progressbar" style="background-color: '; 
+                                        // progress bar condition coloring 
+                                        if ($new_client->UnitDetails[$x]["CollectionRate"]<=50) {
+                                            echo'#f62d51';
+                                        } elseif ($new_client->UnitDetails[$x]["CollectionRate"]<=70){
+                                            echo'#ffbc34';
+                                        }else{
+                                            echo'#55ce63';
+                                        }
+                                        echo' ;width: '.$new_client->UnitDetails[$x]["CollectionRate"] .'%; height:15px;">'.$new_client->UnitDetails[$x]["CollectionRate"].'%</div>';
+                                        echo '</div></td>';
+                                        ////////////////////////////////////////////////////////
+
+                                        ////////////////////////////////////////////////////////
+                                        // coloring genral balance 
+                                        echo "<td ";
+                                        if ($new_client->UnitDetails[$x]["Balance"]<0) {
+                                            echo"style='background-color:#ffbc34'";
+                                        } 
+                                        echo ">".$new_client->UnitDetails[$x]["Balance"]."</td>";
+                                        ////////////////////////////////////////////////////////
+                                        echo "</tr>";
+                                    }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>

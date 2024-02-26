@@ -63,6 +63,10 @@ class ElmasriaPortal
     public $ActualReceivingDate;
     public $ContractingMethod;
 
+    public $UnitDetails;
+    public $PaidValues;
+    public $Dues;
+
 
 
     function __construct($ClientID) {
@@ -108,13 +112,12 @@ class ElmasriaPortal
         $this->ActualReceivingDate = $res[0]["ActualReceivingDate"];
         $this->ContractingMethod = $res[0]["ContractingMethod"];
 
+        $this->UnitDetails = $res[0]["UnitDetails"];
+        $this->PaidValues = $res[0]["PaidValues"];
+        $this->Dues = $res[0]["Dues"];
 
       }
 
-    // public function getUnitData(){
-
-
-    // }
 
 }
 
