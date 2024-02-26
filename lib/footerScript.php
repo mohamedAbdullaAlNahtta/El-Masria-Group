@@ -37,6 +37,7 @@ function changeThemeStyle() {
         document.getElementById("isjquery.sweet-alert.custom.js").setAttribute("src", "thems/dark/sweetalert/jquery.sweet-alert.custom.js");
         document.getElementById("csssweetalert").setAttribute("href", "thems/dark/sweetalert/sweetalert.css");
         document.getElementById("module-style").setAttribute("href", "modules/<?php echo $module;?>/themes/dark/style.css");
+        document.getElementById("logo-colo").setAttribute("src", "assets/images/elmasria_logo_mini2.png");
 
         if (z === 'ar') {
             document.getElementById("html-page").setAttribute("dir", "rtl");
@@ -55,6 +56,7 @@ function changeThemeStyle() {
         document.getElementById("isjquery.sweet-alert.custom.js").setAttribute("src", "thems/white/sweetalert/jquery.sweet-alert.custom.js");
         document.getElementById("csssweetalert").setAttribute("href", "thems/white/sweetalert/sweetalert.css");
         document.getElementById("module-style").setAttribute("href", "modules/<?php echo $module;?>/themes/white/style.css");
+        document.getElementById("logo-colo").setAttribute("src", "assets/images/elmasria_logo_mini2-white.png");
 
         if (z === 'ar') {
             document.getElementById("html-page").setAttribute("dir", "rtl");
@@ -80,6 +82,7 @@ function changeSelectedThemeStyle(x) {
         document.getElementById("isjquery.sweet-alert.custom.js").setAttribute("src", "thems/dark/sweetalert/jquery.sweet-alert.custom.js");
         document.getElementById("csssweetalert").setAttribute("href", "thems/dark/sweetalert/sweetalert.css");
         document.getElementById("module-style").setAttribute("href", "modules/<?php echo $module;?>/themes/dark/style.css");
+        document.getElementById("logo-colo").setAttribute("src", "assets/images/elmasria_logo_mini2.png");
 
         if (z === 'ar') {
             document.getElementById("html-page").setAttribute("dir", "rtl");
@@ -98,6 +101,7 @@ function changeSelectedThemeStyle(x) {
         document.getElementById("isjquery.sweet-alert.custom.js").setAttribute("src", "thems/white/sweetalert/jquery.sweet-alert.custom.js");
         document.getElementById("csssweetalert").setAttribute("href", "thems/white/sweetalert/sweetalert.css");
         document.getElementById("module-style").setAttribute("href", "modules/<?php echo $module;?>/themes/white/style.css");
+        document.getElementById("logo-colo").setAttribute("src", "assets/images/elmasria_logo_mini2-white.png");
 
         if (z === 'ar') {
             document.getElementById("html-page").setAttribute("dir", "rtl");

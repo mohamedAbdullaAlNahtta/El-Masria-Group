@@ -14,7 +14,7 @@
                 <!-- Logo text -->
                 <span>
 
-                 <img src="<?php echo $lang['assets/images/issabel_logo_mini2.png']; ?>" class="light-logo" alt="homepage" />
+                 <img id="logo-colo" src="assets/images/elmasria_logo_mini2.png" class="light-logo" alt="homepage" />
              </span> 
          </a>
 
