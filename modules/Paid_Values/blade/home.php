@@ -132,7 +132,7 @@
 
                                         ////////////////////////////////////////////////////////
                                         // checking postive value 
-                                        echo "<td> <img style='width:20px;height:20px;' src='modules/Review_Payments/img/";
+                                        echo "<td> <img style='width:20px;height:20px;' src='modules/Paid_Values/img/";
                                         // coloring postive value 
                                         if ($new_client->PaidValues[$x]["PaiedAmount"]>0) {
                                             echo 'grrn mi.png';
@@ -146,7 +146,14 @@
 
                                         ////////////////////////////////////////////////////////
                                         // checking postive value 
-                                        echo "<td>".$new_client->PaidValues[$x]["CollectionType"] ."</td>";
+                                        echo "<td><i class='mdi ";
+                                        if ($new_client->PaidValues[$x]["CollectionType"]=="شيكات") {
+                                            echo"mdi-note-text";
+                                        } else {
+                                            echo "mdi mdi-cash";
+                                        }
+                                        
+                                        echo"'></i> ".$new_client->PaidValues[$x]["CollectionType"] ."</td>";
                                         ////////////////////////////////////////////////////////
                                         echo "<td>".$new_client->PaidValues[$x]["Comments"] ."</td>";
                                         ////////////////////////////////////////////////////////
