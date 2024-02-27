@@ -152,7 +152,6 @@
                                         } else {
                                             echo "mdi mdi-cash";
                                         }
-                                        
                                         echo"'></i> ".$new_client->PaidValues[$x]["CollectionType"] ."</td>";
                                         ////////////////////////////////////////////////////////
                                         echo "<td>".$new_client->PaidValues[$x]["Comments"] ."</td>";
