@@ -118,71 +118,26 @@
                             <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th>Payment</th>
-                                        <th>Payment value</th>
-                                        <th>Paid</th>
-                                        <th>Collection rate</th>
-                                        <th>General Balance</th>
+                                        <th>Installment Date</th>
+                                        <th>Installment Name</th>
+                                        <th>Installment Value</th>
+                                        <th>Collection Type</th>
+                                        <th>Cheque Number</th>
+                                        <th>Installment Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php 
-                                    for ($x = 0; $x < count($new_client->UnitDetails); $x++) {
+                                    for ($x = 0; $x < count($new_client->Dues); $x++) {
                                         echo "<tr>";
-                                        echo "<td><i class='mdi mdi-note-text'></i> ".$new_client->UnitDetails[$x]["InstallmentName"] ."</td>";
-
-                                        ////////////////////////////////////////////////////////
-                                        // checking postive value 
-                                        echo "<td> <img style='width:20px;height:20px;' src='modules/Review_Payments/img/";
-                                        // coloring postive value 
-                                        if ($new_client->UnitDetails[$x]["InstallmentValue"]>=0) {
-                                            echo 'grrn mi.png';
-                                        } else {
-                                            echo 'mi.png';
-                                        }
-                                        echo"'> ".$new_client->UnitDetails[$x]["InstallmentValue"]."</td>";
+                                        echo "<td><i class='mdi mdi-note-text'></i> ".$new_client->Dues[$x]["InstallmentDate"] ."</td>";
+                                        echo "<td><i class='mdi mdi-note-text'></i> ".$new_client->Dues[$x]["InstallmentName"] ."</td>";
+                                        echo "<td><i class='mdi mdi-note-text'></i> ".$new_client->Dues[$x]["InstallmentValue"] ."</td>";
+                                        echo "<td><i class='mdi mdi-note-text'></i> ".$new_client->Dues[$x]["CollectionType"] ."</td>";
+                                        echo "<td><i class='mdi mdi-note-text'></i> ".$new_client->Dues[$x]["ChequeNumber"] ."</td>";
+                                        echo "<td> ".$new_client->UnitDetails[$x]["InstallmentValue"]."</td>";
                                         ////////////////////////////////////////////////////////
 
-
-
-                                        ////////////////////////////////////////////////////////
-                                        // checking postive value 
-                                        echo "<td> <img style='width:20px;height:20px;' src='modules/Review_Payments/img/";
-                                        // coloring postive value 
-                                        if ($new_client->UnitDetails[$x]["InstallmentValue"]>=0) {
-                                            echo 'correct.png';
-                                        } else {
-                                            echo 'mi.png';
-                                        }
-                                        echo"'> ".$new_client->UnitDetails[$x]["Paied"] ."</td>";
-                                        ////////////////////////////////////////////////////////
-
-
-
-                                        ////////////////////////////////////////////////////////
-                                        // CollectionRate progress bar condition coloring 
-                                        echo '<td><div class="progress m-t-20">';
-                                        echo'<div class="progress-bar" role="progressbar" style="background-color: '; 
-                                        // progress bar condition coloring 
-                                        if ($new_client->UnitDetails[$x]["CollectionRate"]<=50) {
-                                            echo'#f62d51';
-                                        } elseif ($new_client->UnitDetails[$x]["CollectionRate"]<=70){
-                                            echo'#ffbc34';
-                                        }else{
-                                            echo'#55ce63';
-                                        }
-                                        echo' ;width: '.$new_client->UnitDetails[$x]["CollectionRate"] .'%; height:15px;">'.$new_client->UnitDetails[$x]["CollectionRate"].'%</div>';
-                                        echo '</div></td>';
-                                        ////////////////////////////////////////////////////////
-
-                                        ////////////////////////////////////////////////////////
-                                        // coloring genral balance 
-                                        echo "<td ";
-                                        if ($new_client->UnitDetails[$x]["Balance"]<0) {
-                                            echo"style='background-color:#ffbc34'";
-                                        } 
-                                        echo ">".$new_client->UnitDetails[$x]["Balance"]."</td>";
-                                        ////////////////////////////////////////////////////////
                                         echo "</tr>";
                                     }
                                     ?>

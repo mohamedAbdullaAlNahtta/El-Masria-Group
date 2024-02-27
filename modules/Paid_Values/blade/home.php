@@ -134,7 +134,7 @@
                                         // checking postive value 
                                         echo "<td> <img style='width:20px;height:20px;' src='modules/Review_Payments/img/";
                                         // coloring postive value 
-                                        if ($new_client->PaidValues[$x]["PaiedAmount"]>=0) {
+                                        if ($new_client->PaidValues[$x]["PaiedAmount"]>0) {
                                             echo 'grrn mi.png';
                                         } else {
                                             echo 'mi.png';
