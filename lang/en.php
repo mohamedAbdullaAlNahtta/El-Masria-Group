@@ -109,6 +109,7 @@ $lang['Theme']='Theme';
 $lang['Language']='Language';
 $lang['Payment Reports']='Payment Reports';
 $lang['Review Payments']='Review Payments';
+$lang['Paid Values']='Paid Values';
 $lang['No Suggestion']='No Suggestion';
 
 
