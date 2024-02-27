@@ -75,7 +75,7 @@
                         <div class="table-responsive m-t-40">
                             <div>
                             <?php
-                            $new_client = new ElmasriaPortal("27507230103983");
+                            $new_client = new ElmasriaPortal("28408252300036");
                             ?>
                             </div>
                             <table class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
@@ -130,12 +130,36 @@
                                     <?php 
                                     for ($x = 0; $x < count($new_client->Dues); $x++) {
                                         echo "<tr>";
-                                        echo "<td><i class='mdi mdi-note-text'></i> ".$new_client->Dues[$x]["InstallmentDate"] ."</td>";
+                                        echo "<td><i class='mdi mdi-calendar-text'></i> ".$new_client->Dues[$x]["InstallmentDate"] ."</td>";
                                         echo "<td><i class='mdi mdi-note-text'></i> ".$new_client->Dues[$x]["InstallmentName"] ."</td>";
                                         echo "<td><i class='mdi mdi-note-text'></i> ".$new_client->Dues[$x]["InstallmentValue"] ."</td>";
-                                        echo "<td><i class='mdi mdi-note-text'></i> ".$new_client->Dues[$x]["CollectionType"] ."</td>";
-                                        echo "<td><i class='mdi mdi-note-text'></i> ".$new_client->Dues[$x]["ChequeNumber"] ."</td>";
-                                        echo "<td> ".$new_client->UnitDetails[$x]["InstallmentValue"]."</td>";
+
+                                        ////////////////////////////////////////////////////////
+                                        // stylying the collection type
+                                        echo "<td><i class='mdi ";
+                                        if ($new_client->Dues[$x]["CollectionType"]=="شيكات") {
+                                            echo"mdi-note-text";
+                                        } else {
+                                            echo "mdi mdi-cash";
+                                        }
+                                        
+                                        echo"'></i> ".$new_client->Dues[$x]["CollectionType"] ."</td>";
+                                        ////////////////////////////////////////////////////////
+
+                                        ////////////////////////////////////////////////////////
+                                        if ($new_client->Dues[$x]["ChequeNumber"]>0) {
+                                            echo "<td><i class='mdi mdi-note-text'></i> ".$new_client->Dues[$x]["ChequeNumber"]."</td>";
+                                        } else {
+                                            echo "<td> <img style='width:20px;height:20px;' src='modules/Dues/img/mi.png'</td>";
+                                        }
+                                        ////////////////////////////////////////////////////////
+
+                                        ////////////////////////////////////////////////////////
+                                        if ($new_client->Dues[$x]["InstallmentStatus"]=="تم التحصيل") {
+                                            echo "<td> <img style='width:20px;height:20px;' src='modules/Dues/img/correct.png'> ".$new_client->Dues[$x]["InstallmentStatus"]."</td>";
+                                        } else {
+                                            echo "<td> <img style='width:20px;height:20px;' src='modules/Dues/img/incorrect.png'> ".$new_client->Dues[$x]["InstallmentStatus"]."</td>";
+                                        }
                                         ////////////////////////////////////////////////////////
 
                                         echo "</tr>";
