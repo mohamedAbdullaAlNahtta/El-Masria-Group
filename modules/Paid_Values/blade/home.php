@@ -118,28 +118,28 @@
                             <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th>Payment</th>
-                                        <th>Payment value</th>
-                                        <th>Paid</th>
-                                        <th>Collection rate</th>
+                                        <th>Collection Date</th>
+                                        <th>Paied Amount</th>
+                                        <th>Collection Type</th>
+                                        <th>Comments</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php 
-                                    for ($x = 0; $x < count($new_client->UnitDetails); $x++) {
+                                    for ($x = 0; $x < count($new_client->PaidValues); $x++) {
                                         echo "<tr>";
-                                        echo "<td><i class='mdi mdi-note-text'></i> ".$new_client->UnitDetails[$x]["InstallmentName"] ."</td>";
+                                        echo "<td><i class='mdi mdi-calendar-blank'></i> ".$new_client->PaidValues[$x]["CollectionDate"] ."</td>";
 
                                         ////////////////////////////////////////////////////////
                                         // checking postive value 
                                         echo "<td> <img style='width:20px;height:20px;' src='modules/Review_Payments/img/";
                                         // coloring postive value 
-                                        if ($new_client->UnitDetails[$x]["InstallmentValue"]>=0) {
+                                        if ($new_client->PaidValues[$x]["PaiedAmount"]>=0) {
                                             echo 'grrn mi.png';
                                         } else {
                                             echo 'mi.png';
                                         }
-                                        echo"'> ".$new_client->UnitDetails[$x]["InstallmentValue"]."</td>";
+                                        echo"'> ".$new_client->PaidValues[$x]["PaiedAmount"]."</td>";
                                         ////////////////////////////////////////////////////////
 
 
@@ -148,30 +148,14 @@
                                         // checking postive value 
                                         echo "<td> <img style='width:20px;height:20px;' src='modules/Review_Payments/img/";
                                         // coloring postive value 
-                                        if ($new_client->UnitDetails[$x]["InstallmentValue"]>=0) {
+                                        if ($new_client->PaidValues[$x]["CollectionType"]>=0) {
                                             echo 'correct.png';
                                         } else {
                                             echo 'mi.png';
                                         }
-                                        echo"'> ".$new_client->UnitDetails[$x]["Paied"] ."</td>";
+                                        echo"'> ".$new_client->PaidValues[$x]["CollectionType"] ."</td>";
                                         ////////////////////////////////////////////////////////
-
-
-
-                                        ////////////////////////////////////////////////////////
-                                        // CollectionRate progress bar condition coloring 
-                                        echo '<td><div class="progress m-t-20">';
-                                        echo'<div class="progress-bar" role="progressbar" style="background-color: '; 
-                                        // progress bar condition coloring 
-                                        if ($new_client->UnitDetails[$x]["CollectionRate"]<=50) {
-                                            echo'#f62d51';
-                                        } elseif ($new_client->UnitDetails[$x]["CollectionRate"]<=70){
-                                            echo'#ffbc34';
-                                        }else{
-                                            echo'#55ce63';
-                                        }
-                                        echo' ;width: '.$new_client->UnitDetails[$x]["CollectionRate"] .'%; height:15px;">'.$new_client->UnitDetails[$x]["CollectionRate"].'%</div>';
-                                        echo '</div></td>';
+                                        echo "<td>".$new_client->PaidValues[$x]["Comments"] ."</td>";
                                         ////////////////////////////////////////////////////////
                                         echo "</tr>";
                                     }
