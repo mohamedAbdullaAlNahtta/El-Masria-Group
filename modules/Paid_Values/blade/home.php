@@ -146,14 +146,7 @@
 
                                         ////////////////////////////////////////////////////////
                                         // checking postive value 
-                                        echo "<td> <img style='width:20px;height:20px;' src='modules/Review_Payments/img/";
-                                        // coloring postive value 
-                                        if ($new_client->PaidValues[$x]["CollectionType"]>=0) {
-                                            echo 'correct.png';
-                                        } else {
-                                            echo 'mi.png';
-                                        }
-                                        echo"'> ".$new_client->PaidValues[$x]["CollectionType"] ."</td>";
+                                        echo "<td>".$new_client->PaidValues[$x]["CollectionType"] ."</td>";
                                         ////////////////////////////////////////////////////////
                                         echo "<td>".$new_client->PaidValues[$x]["Comments"] ."</td>";
                                         ////////////////////////////////////////////////////////
