@@ -48,9 +48,9 @@
         <!-- ============================================================== -->
         <div class="row page-titles">
             <div class="col-md-6 col-8 align-self-center">
-                <h3 class="text-themecolor m-b-0 m-t-0"><?php echo $lang['Paid Value'] ?></h3>
+                <h3 class="text-themecolor m-b-0 m-t-0"><?php echo $lang['Dues'] ?></h3>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="javascript:void(0)"><?php echo $lang['Paid Value'] ?></a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0)"><?php echo $lang['Dues'] ?></a></li>
                     <li class="breadcrumb-item active"><?php echo $lang['Review Payments'] ?></li>
                 </ol>
             </div>
@@ -122,6 +122,7 @@
                                         <th>Payment value</th>
                                         <th>Paid</th>
                                         <th>Collection rate</th>
+                                        <th>General Balance</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -172,6 +173,15 @@
                                         }
                                         echo' ;width: '.$new_client->UnitDetails[$x]["CollectionRate"] .'%; height:15px;">'.$new_client->UnitDetails[$x]["CollectionRate"].'%</div>';
                                         echo '</div></td>';
+                                        ////////////////////////////////////////////////////////
+
+                                        ////////////////////////////////////////////////////////
+                                        // coloring genral balance 
+                                        echo "<td ";
+                                        if ($new_client->UnitDetails[$x]["Balance"]<0) {
+                                            echo"style='background-color:#ffbc34'";
+                                        } 
+                                        echo ">".$new_client->UnitDetails[$x]["Balance"]."</td>";
                                         ////////////////////////////////////////////////////////
                                         echo "</tr>";
                                     }

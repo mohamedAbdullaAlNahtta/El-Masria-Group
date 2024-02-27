@@ -113,6 +113,7 @@ $lang['Language']='اللغة';
 $lang['Payment Reports']='تقارير الدفع';
 $lang['Review Payments']='مراجعة المدفوعات';
 $lang['Paid Values']='القيم المدفوعة';
+$lang['Dues']='Dues';
 $lang['No Suggestion']='لا يوجد اقتراح';
 
 
