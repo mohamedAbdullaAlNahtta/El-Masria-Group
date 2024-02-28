@@ -39,28 +39,23 @@
 // This module created from scratch by Powered by ENG Muhammad Abdullah El Nahtta
 // Powered by ENG Muhammad Abdullah El Nahtta 
 /////////////////////////////////////////////////////////////////////////////////
-$lang['Data Export'] = 'إستخراج البيانات';
-$lang['Export data to Copy, CSV, Excel, PDF & Print'] = 'إستخراج البيانات المراد نسخها و CSV و Excel و PDF والطباعة';
-$lang['Setting'] = 'الإعدادات';
-$lang['Reset User Password']='إعادة تعيين كلمة المرور';
+$lang['Project Name'] = 'اسم المشروع';
+$lang['Building Name'] = 'اسم المبنى';
+$lang['Unit Number'] = 'رقم الوحدة';
+$lang['Is Over Seas'] = 'هو في الخارج';
+$lang['Reservation Date'] = 'تاريخ الحجز';
+$lang['Contract Date'] = 'تاريخ التعاقد';
+$lang['Contract Receiving Date'] = 'تاريخ استلام العقد';
+$lang['Actual Receiving Date'] = 'تاريخ الاستلام الفعلي';
+$lang['Contracting Metdod'] = 'طريقة التعاقد';
 
-$lang['Name'] = 'الإسم';
-$lang['User Name'] = 'اسم المستخدم';
-$lang['Access Type'] = 'نوع الوصول';
-$lang['Reset Password'] = 'إعادة تعيين كلمة المرور';
-$lang['Company'] = ' الشركة';
+$lang['Installment Date'] = 'تاريخ القسط';
+$lang['Installment Name'] = 'اسم القسط';
+$lang['Installment Value'] = 'قيمة القسط';
+$lang['Collection Type'] = 'نوع التحصيل';
+$lang['Cheque Number'] = 'رقم الشيك';
+$lang['Installment Status'] = 'حالة القسط';
 
-$lang['Reset user password'] = 'إعادة تعيين كلمة مرور المستخدم';
-
-$lang['User Name'] = 'إسم المستخدم';
-$lang['Access Type'] = 'نوع الوصول';
-$lang['Company'] = 'الشركة';
-$lang['New Password'] = 'كلمة المرور الجديدة';
-$lang['Copy'] = 'نسخ';
-$lang['Password Copied']='تم نسخ كلمة المرور';
-$lang['User password has been reset.  Thanks for trusting US....... Software Development Team'] = 'تم إعادة تعيين كلمة مرور المستخدم. شكرا لثقتكم بنا ....... فريق تطوير البرمجيات ';
-$lang['failed to rest user password please contact your Developer if the problem repeated'] = 'فشل في استعادة كلمة مرور المستخدم ، يرجى الاتصال بالمطور الخاص بك إذا تكررت المشكلة';
-$lang['Regenerate']='تجديد';
 
 
 ?>

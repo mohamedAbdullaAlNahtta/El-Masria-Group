@@ -81,41 +81,41 @@
                             <table class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th><i class="mdi mdi-bank" style="color:#009efb;"></i> Project Name</th>
+                                        <th><i class="mdi mdi-bank" style="color:#009efb;"></i> <?php echo $lang['Project Name']; ?></th>
                                         <th><?php echo $new_client->ProjectName; ?></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><i class="mdi mdi-home-modern"style="color:#009efb;"></i> Bulding Name</td>
+                                        <td><i class="mdi mdi-home-modern"style="color:#009efb;"></i> <?php echo $lang['Building Name']; ?></td>
                                         <th><?php echo $new_client->BuildingName; ?></th>
                                     </tr>
                                     <tr>
-                                        <td><i class="mdi mdi-barcode"style="color:#009efb;"></i> Unit Number</td>
+                                        <td><i class="mdi mdi-barcode"style="color:#009efb;"></i> <?php echo $lang['Unit Number']; ?></td>
                                         <th><?php echo $new_client->UnitNumber; ?></th>
                                     </tr>
                                     <tr>
-                                        <td>Is Over Seas</td>
+                                        <td><?php echo $lang['Is Over Seas']; ?></td>
                                         <th><?php echo $new_client->IsOverSeas; ?></th>
                                     </tr>
                                     <tr>
-                                        <td><i class="mdi mdi-calendar-plus"style="color:#009efb;"></i> Reservation Date</td>
+                                        <td><i class="mdi mdi-calendar-plus"style="color:#009efb;"></i> <?php echo $lang['Reservation Date']; ?></td>
                                         <th><?php echo $new_client->Reservationdate; ?></th>
                                     </tr>
                                     <tr>
-                                        <td><i class="mdi mdi-calendar-check"style="color:#009efb;"></i> Contract Date</td>
+                                        <td><i class="mdi mdi-calendar-check"style="color:#009efb;"></i> <?php echo $lang['Contract Date']; ?></td>
                                         <th><?php echo $new_client->ContractDate; ?></th>
                                     </tr>
                                     <tr>
-                                        <td><i class="mdi mdi-calendar-multiple-check"style="color:#009efb;"></i> Contract Receiving Date</td>
+                                        <td><i class="mdi mdi-calendar-multiple-check"style="color:#009efb;"></i> <?php echo $lang['Contract Receiving Date']; ?></td>
                                         <th><?php echo $new_client->ContractReceivingDate; ?></th>
                                     </tr>
                                     <tr>
-                                        <td><i class="mdi mdi-calendar-clock"style="color:#009efb;"></i> Actual Receiving Date</td>
+                                        <td><i class="mdi mdi-calendar-clock"style="color:#009efb;"></i> <?php echo $lang['Actual Receiving Date']; ?></td>
                                         <th><?php echo $new_client->ActualReceivingDate; ?></th>
                                     </tr>
                                     <tr>
-                                        <td>Contracting Method</td>
+                                        <td><?php echo $lang['Contracting Metdod']; ?></td>
                                         <th><?php echo $new_client->ContractingMethod; ?></th>
                                     </tr>
                                 </tbody>
@@ -132,11 +132,11 @@
                             <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th>Payment</th>
-                                        <th>Payment value</th>
-                                        <th>Paid</th>
-                                        <th>Collection rate</th>
-                                        <th>General Balance</th>
+                                        <th><?php echo $lang['Payment'];?></th>
+                                        <th><?php echo $lang['Payment value'];?></th>
+                                        <th><?php echo $lang['Paid'];?></th>
+                                        <th><?php echo $lang['Collection rate'];?></th>
+                                        <th><?php echo $lang['General Balance'];?></th>
                                     </tr>
                                 </thead>
                                 <tbody>

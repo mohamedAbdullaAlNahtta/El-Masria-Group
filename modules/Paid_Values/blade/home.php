@@ -81,15 +81,15 @@
                             <table class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th><i class="mdi mdi-bank" style="color:#009efb;"></i> Project Name</th>
-                                        <td><i class="mdi mdi-home-modern"style="color:#009efb;"></i> Bulding Name</th>
-                                        <th><i class="mdi mdi-barcode"style="color:#009efb;"></i> Unit Number</th>
-                                        <th>Is Over Seas</th>
-                                        <th><i class="mdi mdi-calendar-plus"style="color:#009efb;"></i> Reservation Date</th>
-                                        <th><i class="mdi mdi-calendar-check"style="color:#009efb;"></i> Contract Date</th>
-                                        <th><i class="mdi mdi-calendar-multiple-check"style="color:#009efb;"></i> Contract Receiving Date</th>
-                                        <th><i class="mdi mdi-calendar-clock"style="color:#009efb;"></i> Actual Receiving Date</th>
-                                        <th>Contracting Metdod</th>
+                                        <th><i class="mdi mdi-bank" style="color:#009efb;"></i> <?php echo $lang['Project Name']; ?></th>
+                                        <td><i class="mdi mdi-home-modern"style="color:#009efb;"></i> <?php echo $lang['Building Name']; ?></th>
+                                        <th><i class="mdi mdi-barcode"style="color:#009efb;"></i> <?php echo $lang['Unit Number']; ?></th>
+                                        <th><?php echo $lang['Is Over Seas']; ?></th>
+                                        <th><i class="mdi mdi-calendar-plus"style="color:#009efb;"></i> <?php echo $lang['Reservation Date']; ?></th>
+                                        <th><i class="mdi mdi-calendar-check"style="color:#009efb;"></i> <?php echo $lang['Contract Date']; ?></th>
+                                        <th><i class="mdi mdi-calendar-multiple-check"style="color:#009efb;"></i> <?php echo $lang['Contract Receiving Date']; ?></th>
+                                        <th><i class="mdi mdi-calendar-clock"style="color:#009efb;"></i> <?php echo $lang['Actual Receiving Date']; ?></th>
+                                        <th><?php echo $lang['Contracting Metdod']; ?></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -118,10 +118,10 @@
                             <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th>Collection Date</th>
-                                        <th>Paied Amount</th>
-                                        <th>Collection Type</th>
-                                        <th>Comments</th>
+                                        <th><?php echo $lang['Project']; ?></th>
+                                        <th><?php echo $lang['Paied Amount']; ?></th>
+                                        <th><?php echo $lang['Collection Type']; ?></th>
+                                        <th><?php echo $lang['Comments']; ?></th>
                                     </tr>
                                 </thead>
                                 <tbody>

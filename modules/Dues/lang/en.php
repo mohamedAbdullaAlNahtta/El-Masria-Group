@@ -39,30 +39,26 @@
 // This module created from scratch by Powered by ENG Muhammad Abdullah El Nahtta
 // Powered by ENG Muhammad Abdullah El Nahtta 
 /////////////////////////////////////////////////////////////////////////////////
-$lang['Data Export'] = 'Data Export';
-$lang['Export data to Copy, CSV, Excel, PDF & Print'] = 'Export data to Copy, CSV, Excel, PDF & Print';
-$lang['Setting'] = 'Setting';
-$lang['Reset User Password']='Reset User Password';
-
-$lang['Name'] = 'Name';
-$lang['User Name'] = 'User Name';
-$lang['Access Type'] = 'Access Type';
-$lang['Reset Password'] = 'Rest Password';
-$lang['Company'] = 'Company';
-
-$lang['Reset user password'] = 'Reset user password';
+$lang['Project Name'] = 'Project Name';
+$lang['Building Name'] = 'Building Name';
+$lang['Unit Number'] = 'Unit Number';
+$lang['Is Over Seas'] = 'Is Over Seas';
+$lang['Reservation Date'] = 'Reservation Date';
+$lang['Contract Date'] = 'Contract Date';
+$lang['Contract Receiving Date'] = 'Contract Receiving Date';
+$lang['Actual Receiving Date'] = 'Actual Receiving Date';
+$lang['Contracting Metdod'] = 'Contracting Metdod';
 
 
-$lang['User Name'] = 'User Name';
-$lang['Access Type'] = 'Access Type';
-$lang['Company'] = 'Company';
-$lang['New Password'] = 'New Password';
-$lang['Copy'] = 'Copy';
-$lang['Password Copied']='Password Copied';
-$lang['User password has been reset.  Thanks for trusting US....... Software Development Team'] = 'User password has been reset.  Thanks for trusting US....... Software Development Team';
-$lang['failed to rest user password please contact your Developer if the problem repeated'] = 'failed to rest user password please contact your Developer if the problem repeated';
 
-$lang['Regenerate']='Regenerate';
+$lang['Installment Date'] = 'Installment Date';
+$lang['Installment Name'] = 'Installment Name';
+$lang['Installment Value'] = 'Installment Value';
+$lang['Collection Type'] = 'Collection Type';
+$lang['Cheque Number'] = 'Cheque Number';
+$lang['Installment Status'] = 'Installment Status';
+
+
 
 
 ?>
