@@ -88,16 +88,7 @@
                 }             
             </script>
             <ul class="navbar-nav my-lg-0">
-                <li class="nav-item hidden-sm-down">
-                    <form class="app-search">
-                    <input type="text" onfocusout="closeSearchseasion()" onfocus="resetSearch()" onkeyup="showResult(this.value);resetSearch();" id="autoCompleteSearchInput" class="form-control" placeholder="<?php echo $lang['Search for...']; ?>"> <a class="srh-btn"><i class="ti-search"></i></a>
-                    <div class="form-control" id="autoCompleteSearchOutput" style="position: absolute;width: 620px;border-radius: 0px 0px 25px 25px;border-color: #5cb3fd;display:none">
-                    <!-- <button id="view-fa-fa-list" onclick="closeSearchOutput();" style="margin: 5px; font-size: 24px;" class="btn pull-right hidden-sm-down"><i class="fa fa-list"></i></button> -->
-                        <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="list-style: none;border-radius: 0px 0px 25px 25px;">  
-                        </ul>
-                    </div>
-                    </form>
-                </li>
+                
                 <li class="nav-item hidden-sm-down">
                     <form class="app-search">
                     <div class="form-group" >
