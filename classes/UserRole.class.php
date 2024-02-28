@@ -63,7 +63,7 @@ class UserRole
         //////////////////////////////////////////////////////// 
 
         // new object for Arabicss db 
-        $db   = new ArabicssDB;
+        $db   = new ElmasriaDB;
 
         $sql  ="SELECT `id`, `name`, `description`, `status`, `creationDate`, `createdBy`";
         $sql .="FROM `user_role` WHERE `id`=";
@@ -101,7 +101,7 @@ class UserRole
         //////////////////////////////////////////////////////// 
 
         // new object for Arabicss db 
-        $db   = new ArabicssDB;
+        $db   = new ElmasriaDB;
 
         $sql  ="SELECT `access_type` FROM `user_role_module_menu` WHERE `module_menu_id` ='{$moduleId}'";
 

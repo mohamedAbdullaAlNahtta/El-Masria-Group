@@ -40,7 +40,7 @@
 // Powered by ENG Muhammad Abdullah El Nahtta 
 /////////////////////////////////////////////////////////////////////////////////
 
-class ArabicssDB
+class ElmasriaDB
 {
     
     protected $servername = "localhost";

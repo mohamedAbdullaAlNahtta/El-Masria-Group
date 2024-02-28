@@ -52,7 +52,7 @@ class UserGroup
     {
         
         $userGroupId = $this->id;
-        $usergroup   = new ArabicssDB;
+        $usergroup   = new ElmasriaDB;
         
         $sql = "SELECT * FROM `systempages` WHERE `pageId` IN(SELECT `pageId` FROM `usergroup` WHERE `groupId`=$userGroupId)";
         
@@ -68,7 +68,7 @@ class UserGroup
     {
         
         $userGroupId = $this->id;
-        $usergroup   = new ArabicssDB;
+        $usergroup   = new ElmasriaDB;
         
         $sql = "SELECT `read`, `write` FROM `usergroup` WHERE `groupId`=$userGroupId and `pageId`=$pageId";
         
@@ -83,7 +83,7 @@ class UserGroup
     public function add_new_group($groupName, $pageId, $read, $Write)
     {
         
-        $group         = new ArabicssDB;
+        $group         = new ElmasriaDB;
         $last_group_id = $this->get_last_group_id();
         $new_group_id  = $last_group_id + 1;
         
@@ -105,7 +105,7 @@ class UserGroup
     public function add_group_page($group_id, $groupName, $pageId, $read, $Write)
     {
         
-        $group = new ArabicssDB;
+        $group = new ElmasriaDB;
         
         $sql = "INSERT INTO `usergroup` (`groupId`, `groupName`, `pageId`, `read`, `write`)
         VALUES ('$group_id','$groupName', $pageId, '$read', '$Write')";
@@ -125,7 +125,7 @@ class UserGroup
     public function get_last_group_id()
     {
         # Get last group id as it's unique
-        $usergroup = new ArabicssDB;
+        $usergroup = new ElmasriaDB;
         
         $sql = "SELECT MAX(`groupId`)as last_group_id FROM `usergroup` ";
         

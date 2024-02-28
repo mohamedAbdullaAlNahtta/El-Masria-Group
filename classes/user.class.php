@@ -124,7 +124,7 @@ class User
         ////////////////////////////////////////////////////////
         //////////////////////////////////////////////////////// 
 
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $lower_case_username = $this->lower_case($username);
         
@@ -145,7 +145,7 @@ class User
         // Cell Phone +20 1093001070                          //
         ////////////////////////////////////////////////////////
         //////////////////////////////////////////////////////// 
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         $lower_case_username = $this->lower_case($username);
 
         $sql = "SELECT * FROM `users_login_sessions` WHERE `username`='$lower_case_username' AND `systemtype`='$system_type' AND `logOutTime` IS NULL";
@@ -160,7 +160,7 @@ class User
     
     public function destroy_other_session_token($username, $system_type, $token)
     {
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         $this->log_user_logout_success_end_other_session_token($username, $system_type);
         $lower_case_username = $this->lower_case($username);
         
@@ -177,7 +177,7 @@ class User
 
     public function destroy_user_token($username, $system_type, $token)
     {
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         $this->log_user_logout_success($username, $system_type);
         $lower_case_username = $this->lower_case($username);
         
@@ -200,7 +200,7 @@ class User
         ////////////////////////////////////////////////////////
         //////////////////////////////////////////////////////// 
         
-        $userdb   = new ArabicssDB;
+        $userdb   = new ElmasriaDB;
         $lower_case_username = $this->lower_case($username);
         $actionBy = $this->$username;
 
@@ -224,7 +224,7 @@ class User
     
     public function get_system_users()
     {
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $sql = "SELECT * FROM `users` WHERE `user_role_id` NOT IN ('1','2')";
         
@@ -238,7 +238,7 @@ class User
     public function add_user($name, $username, $password, $company_id, $group_id, $user_Type, $system_type)
     {
         
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $created_by = $this->username;
         
@@ -272,7 +272,7 @@ class User
     
     public function activate_user($username, $system_type)
     {
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $lower_case_username = $this->lower_case($username);
         
@@ -299,7 +299,7 @@ class User
     
     public function deactivate_user($username, $system_type)
     {
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $lower_case_username = $this->lower_case($username);
         
@@ -324,7 +324,7 @@ class User
     
     public function change_user_group($username, $system_type, $newGroupId)
     {
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $lower_case_username = $this->lower_case($username);
         
@@ -364,7 +364,7 @@ class User
             
         } else {
             # code...
-            $userdb = new ArabicssDB;
+            $userdb = new ElmasriaDB;
             
             $lower_case_username = $this->lower_case($username);
             $encyripted_password = $this->encyript_password($new_password);
@@ -398,7 +398,7 @@ class User
     public function reset_user_password($username, $system_type, $restPass)
     {
         
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $lower_case_username = $this->lower_case($username);
         $encyripted_password = $this->encyript_password($restPass);
@@ -428,7 +428,7 @@ class User
 
     public function first_time_login($username, $system_type)
     {
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $lower_case_username = $this->lower_case($username);
         
@@ -446,7 +446,7 @@ class User
     }
 
     public function get_blocked_users(){
-        $inquiry_db   = new ArabicssDB;
+        $inquiry_db   = new ElmasriaDB;
         $sql = "SELECT * FROM `users_blocked`";
 
         $result = $inquiry_db->query($sql);
@@ -455,7 +455,7 @@ class User
 
     }
     public function get_user_profile_image_by_name($user_full_name){
-        $inquiry_db   = new ArabicssDB;
+        $inquiry_db   = new ElmasriaDB;
         $sql = "SELECT `Profile_image` FROM `users_profiles` WHERE `user_id`=(SELECT `userId` FROM `users` WHERE `name`='{$user_full_name}') ";
 
         $result = $inquiry_db->query($sql);
@@ -472,7 +472,7 @@ class User
     }
 
     public function get_user_profile_image_by_user_name($username){
-        $inquiry_db   = new ArabicssDB;
+        $inquiry_db   = new ElmasriaDB;
         $sql = "SELECT `Profile_image` FROM `users_profiles` WHERE `user_id`=(SELECT `userId` FROM `users` WHERE `username`='{$username}') ";
 
         $result = $inquiry_db->query($sql);
@@ -490,7 +490,7 @@ class User
 
     public function get_user_logs($username){
 
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         if ($username==="") {
             $sql = "SELECT * FROM `users_logs` ORDER BY `id` DESC Limit 25";
         } else {
@@ -505,7 +505,7 @@ class User
 
     public function get_user_block_reason_logs($username){
 
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $sql = "SELECT * FROM `users_logs` WHERE `username`='$username' AND `action`='log in' AND `status`='Failed' AND `actionApproval`='Not Approved' 
                 UNION
@@ -519,7 +519,7 @@ class User
     }
     public function get_user_log_desc($id){
 
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $sql = "SELECT * FROM `users_logs` WHERE  `id`='{$id}'";
         
@@ -530,7 +530,7 @@ class User
     }
     public function get_user_login_session($username){
 
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
 
         $sql = "SELECT * FROM `users_login_sessions` WHERE  `username`='$username' ORDER BY `id` DESC Limit 25";
         
@@ -553,7 +553,7 @@ class User
         $uip             = $_SERVER['REMOTE_ADDR'];
         // end of getting brwoser data 
         
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $lower_case_username = $this->lower_case($username);
         
@@ -572,7 +572,7 @@ class User
     }
     
     public function get_company_image_by_id($company_id){
-        $inquiry_db   = new ArabicssDB;
+        $inquiry_db   = new ElmasriaDB;
         $sql = "SELECT `companyLogo` FROM `companies`  
         WHERE `companyid`='{$company_id}'";
 
@@ -591,7 +591,7 @@ class User
 
     }
     public function get_company_name_by_id($company_id){
-        $inquiry_db   = new ArabicssDB;
+        $inquiry_db   = new ElmasriaDB;
         $sql = "SELECT `companyName` FROM `companies`  
         WHERE `companyid`='{$company_id}'";
 
@@ -617,7 +617,7 @@ class User
     protected function initiate_user($username, $system_type)
     {
         
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $lower_case_username = $this->lower_case($username);
         
@@ -665,7 +665,7 @@ class User
     
     protected function block_user($username, $system_type)
     {
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $trial = $this->get_login_failed_trials_last_hour($username, $system_type);
         
@@ -699,7 +699,7 @@ class User
     
     protected function get_login_failed_trials_last_hour($username, $system_type)
     {
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $logoutdate = date(' Y-m-d H:i:s ', strtotime('-1 hour ', strtotime(date('Y-m-d H:i:s '))));
         
@@ -721,7 +721,7 @@ class User
     protected function validate_user_blocked($username, $system_type)
     {
         
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $lower_case_username = $this->lower_case($username);
         
@@ -748,7 +748,7 @@ class User
     protected function validate_user_status($username, $system_type)
     {
         
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $lower_case_username = $this->lower_case($username);
         
@@ -774,7 +774,7 @@ class User
     protected function user_exists($username, $system_type)
     {
         
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $lower_case_username = $this->lower_case($username);
         
@@ -799,7 +799,7 @@ class User
     protected function validate_password($login_username, $login_password, $system_type)
     {
         
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $password      = $this->encyript_password($login_password);
         $password_hash = $this->hashing_password($login_password);
@@ -827,7 +827,7 @@ class User
   
     protected function user_login_new_token($username, $system_type)
     {
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         $lower_case_username = $this->lower_case($username);
         $token = $this->generate_token();
         $this->user_token=$token;
@@ -847,7 +847,7 @@ class User
     protected function lower_case($username)
     {
         
-        $userdb              = new ArabicssDB;
+        $userdb              = new ElmasriaDB;
         $username_escaped    = $userdb->escape_string("$username");
         $lower_case = strtolower($username_escaped);
         return $lower_case;
@@ -857,7 +857,7 @@ class User
     protected function encyript_password($password)
     {
         
-        $userdb              = new ArabicssDB;
+        $userdb              = new ElmasriaDB;
         $password_escaped    = $userdb->escape_string("$password");
         $encyripted_password = md5($password_escaped);
         return $encyripted_password;
@@ -867,7 +867,7 @@ class User
     protected function hashing_password($password)
     {
         
-        $userdb           = new ArabicssDB;
+        $userdb           = new ElmasriaDB;
         $password_escaped = $userdb->escape_string("$password");
         $hashed_password  = sha1($password_escaped);
         return $hashed_password;
@@ -897,7 +897,7 @@ class User
 
     protected function get_user_profile_img(){
 
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
 
         $sql = "SELECT `Profile_image` FROM `users_profiles` WHERE `user_id`='{$this->id}';";
 
@@ -941,7 +941,7 @@ class User
         $uip             = $_SERVER['REMOTE_ADDR'];
         // end of getting brwoser data 
         
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $lower_case_username = $this->lower_case($username);
         
@@ -972,7 +972,7 @@ class User
         $uip             = $_SERVER['REMOTE_ADDR'];
         // end of getting brwoser data 
         
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $lower_case_username = $this->lower_case($username);
         
@@ -1003,7 +1003,7 @@ class User
         $uip             = $_SERVER['REMOTE_ADDR'];
         // end of getting brwoser data 
         
-        $userdb   = new ArabicssDB;
+        $userdb   = new ElmasriaDB;
         $actionBy = $this->username;
         
         $lower_case_username = $this->lower_case($username,$system_type);
@@ -1036,7 +1036,7 @@ class User
         $uip             = $_SERVER['REMOTE_ADDR'];
         // end of getting brwoser data 
         
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $lower_case_username = $this->lower_case($username);
         
@@ -1066,7 +1066,7 @@ class User
         $uip             = $_SERVER['REMOTE_ADDR'];
         // end of getting brwoser data 
         
-        $userdb              = new ArabicssDB;
+        $userdb              = new ElmasriaDB;
         $created_by          = $this->username;
         $lower_case_username = $this->lower_case($username);
         
@@ -1098,7 +1098,7 @@ class User
         $uip             = $_SERVER['REMOTE_ADDR'];
         // end of getting brwoser data 
         
-        $userdb              = new ArabicssDB;
+        $userdb              = new ElmasriaDB;
         $actionBy            = $this->username;
         $lower_case_username = $this->lower_case($username);
         
@@ -1131,7 +1131,7 @@ class User
         $uip             = $_SERVER['REMOTE_ADDR'];
         // end of getting brwoser data 
         
-        $userdb   = new ArabicssDB;
+        $userdb   = new ElmasriaDB;
         $actionBy = $this->username;
         
         $lower_case_username = $this->lower_case($username);
@@ -1166,7 +1166,7 @@ class User
         $uip             = $_SERVER['REMOTE_ADDR'];
         // end of getting brwoser data 
         
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $lower_case_username = $this->lower_case($username);
         
@@ -1199,7 +1199,7 @@ class User
         $uip             = $_SERVER['REMOTE_ADDR'];
         // end of getting brwoser data 
         
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $lower_case_username = $this->lower_case($username, $system_type);
         
@@ -1232,7 +1232,7 @@ class User
         $uip             = $_SERVER['REMOTE_ADDR'];
         // end of getting brwoser data 
         
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $lower_case_username = $this->lower_case($username);
         
@@ -1264,7 +1264,7 @@ class User
         $uip             = $_SERVER['REMOTE_ADDR'];
         // end of getting brwoser data 
         
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $lower_case_username = $this->lower_case($username);
         
@@ -1296,7 +1296,7 @@ class User
         $uip             = $_SERVER['REMOTE_ADDR'];
         // end of getting brwoser data 
         
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $lower_case_username = $this->lower_case($username);
         
@@ -1328,7 +1328,7 @@ class User
         $uip             = $_SERVER['REMOTE_ADDR'];
         // end of getting brwoser data 
         
-        $userdb   = new ArabicssDB;
+        $userdb   = new ElmasriaDB;
         $actionBy = $this->username;
         
         $lower_case_username = $this->lower_case($username);
@@ -1364,7 +1364,7 @@ class User
         $uip             = $_SERVER['REMOTE_ADDR'];
         // end of getting brwoser data 
         
-        $userdb   = new ArabicssDB;
+        $userdb   = new ElmasriaDB;
         $actionBy = $this->username;
         
         $lower_case_username = $this->lower_case($username);

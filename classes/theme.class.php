@@ -43,7 +43,7 @@
 class Theme{
 
     public function get_user_theme($user){
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $sql = "SELECT `theme` FROM `gui_theme` WHERE `id`= (SELECT `gui_theme` FROM `users` WHERE `username`='{$user}');";
         
@@ -57,7 +57,7 @@ class Theme{
     }
 
     public function set_user_theme($theme,$user){
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $sql = "UPDATE `users` SET `gui_theme`=(SELECT `id` FROM `gui_theme` WHERE `theme`='{$theme}') WHERE `username`='{$user}';";
         

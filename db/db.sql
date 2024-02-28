@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2024 at 09:06 AM
+-- Generation Time: Feb 28, 2024 at 03:07 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -238,7 +238,8 @@ INSERT INTO `users_login_sessions` (`id`, `username`, `systemtype`, `token`, `lo
 (460, 'administrator', 'web', '5569fd9d4854f75893277ba5133594a7OYPx8M4B9b87a30a5cafd08aab22dc1893f55098d80880ed72', '2024-02-11 18:45:39', '2024-02-11 18:48:42'),
 (461, 'muhammad.elnahtta', 'web', '7a0fa4d61f9871382f2e2e017d57ce2dgEBmkjqwaped70c753fcdb8596c3b68804870da41c6b65e6e2', '2024-02-11 18:48:56', '2024-02-21 03:19:52'),
 (462, 'muhammad.elnahtta', 'web', 'f8745f2556243e396383c9cb45c8ba10YmyM6phm8Kc0ba33ed43068e89eb8c5d0fd6b203a9c98a103e', '2024-02-21 03:19:48', '2024-02-26 03:22:33'),
-(463, 'muhammad.elnahtta', 'web', 'e8109e4d3e57a9acd66116e8bcec9c33lSSmcl1v7M8211af9a31a92ea5ea8c2b356d06af63288f58cb', '2024-02-26 03:22:26', NULL);
+(463, 'muhammad.elnahtta', 'web', 'e8109e4d3e57a9acd66116e8bcec9c33lSSmcl1v7M8211af9a31a92ea5ea8c2b356d06af63288f58cb', '2024-02-26 03:22:26', '2024-02-28 16:04:57'),
+(464, 'muhammad.elnahtta', 'web', '37ce22e926fbd6e4c607070ea89809909fRBzxjNot72e25cfdc827184f068ad233e7945a3d75fdfd86', '2024-02-28 16:05:16', NULL);
 
 -- --------------------------------------------------------
 
@@ -333,7 +334,9 @@ INSERT INTO `users_logs` (`id`, `username`, `systemtype`, `userIP`, `action`, `d
 (1252, '', 'web', '127.0.0.1', 'log out', '', 'Success', '2024-02-26 03:18:37', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
 (1253, '', 'web', '127.0.0.1', 'log out', '', 'Success', '2024-02-26 03:18:57', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
 (1254, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log in', '', 'Success', '2024-02-26 03:22:27', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
-(1255, 'muhammad.elnahtta', 'web', '127.0.0.1', 'destroy other session token', '', 'Success', '2024-02-26 03:22:33', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved');
+(1255, 'muhammad.elnahtta', 'web', '127.0.0.1', 'destroy other session token', '', 'Success', '2024-02-26 03:22:33', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1256, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log out', '', 'Success', '2024-02-28 16:04:57', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1257, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log in', '', 'Success', '2024-02-28 16:05:16', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved');
 
 -- --------------------------------------------------------
 
@@ -591,13 +594,13 @@ ALTER TABLE `users_blocked`
 -- AUTO_INCREMENT for table `users_login_sessions`
 --
 ALTER TABLE `users_login_sessions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=464;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=465;
 
 --
 -- AUTO_INCREMENT for table `users_logs`
 --
 ALTER TABLE `users_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1256;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1258;
 
 --
 -- AUTO_INCREMENT for table `users_profiles`

@@ -44,7 +44,7 @@
 class Language{
 
     public function get_user_langauage($user){
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $sql = "SELECT `lang` FROM `gui_lanuage` WHERE `id`= (SELECT `gui_language` FROM `users` WHERE `username`='{$user}');";
         
@@ -58,7 +58,7 @@ class Language{
     }
 
     public function set_user_langauage($language,$user){
-        $userdb = new ArabicssDB;
+        $userdb = new ElmasriaDB;
         
         $sql = "UPDATE `users` SET `gui_language`=(SELECT `id` FROM `gui_lanuage` WHERE `lang`='{$language}') WHERE `username`='{$user}';";
         

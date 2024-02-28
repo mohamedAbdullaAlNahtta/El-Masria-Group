@@ -107,7 +107,7 @@ class NavBarMenu
 
     public function get_first_module_page($user_role_mo)
     {
-      $db = new ArabicssDB;
+      $db = new ElmasriaDB;
       $sql ='SELECT `link` FROM `module_menu` 
       WHERE `id` IN (SELECT `module_menu_id` FROM `user_role_module_menu` 
       WHERE `user_role_id`=(SELECT `users`.`user_role_id` FROM `users` WHERE `username`="'.$user_role_mo.'" )) 
@@ -131,7 +131,7 @@ class NavBarMenu
     public function check_module_authorization($user_role_mo, $modulename)
     {
       $modulelink ="index?module=".$modulename;
-      $db = new ArabicssDB;
+      $db = new ElmasriaDB;
       $sql ='SELECT * FROM `user_role_module_menu` WHERE `user_role_id`=(SELECT `users`.`user_role_id` FROM `users` WHERE `username`="'.$user_role_mo.'") AND `module_menu_id`=(SELECT `id` FROM `module_menu` WHERE `link`LIKE"'.$modulelink.'%"LIMIT 1)';
       $result = $db->query($sql);
 
@@ -301,7 +301,7 @@ class NavBarMenu
         //////////////////////////////////////////////////////// 
 
         // new object for Arabicss db 
-        $db = new ArabicssDB;
+        $db = new ElmasriaDB;
         //php Creating a dynamic search query with PHP and MySQL
         $whereArr = array();
         if ($get_id != "")

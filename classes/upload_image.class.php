@@ -74,7 +74,7 @@ class Upload_image
     }
 
     private function update_db_with_with_file_upload($tableName, $condition, $value, $coulmnName , $path){
-        $inquiry_db   = new ArabicssDB;
+        $inquiry_db   = new ElmasriaDB;
         $sql="SELECT * FROM `{$tableName}`  WHERE  `{$condition}`='{$value}'";
 
         $result = $inquiry_db ->query($sql);

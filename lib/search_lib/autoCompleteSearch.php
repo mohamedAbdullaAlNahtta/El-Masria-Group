@@ -14,10 +14,10 @@ require($Lang_path);
 
 
 // Database configuration 
-$arbicssDbClassPath = $root_path."/AMCC/classes/arabicssDB.class.php";
+$arbicssDbClassPath = $root_path."/AMCC/classes/ElmasriaDB.class.php";
 require_once($arbicssDbClassPath);
 
-$userdb = new ArabicssDB;
+$userdb = new ElmasriaDB;
 $searcValue  = $userdb->escape_string($searcValue);
 $searchTerm  = $userdb->escape_string($searchTerm);
 $searchLanguage  = $userdb->escape_string($searchLanguage);

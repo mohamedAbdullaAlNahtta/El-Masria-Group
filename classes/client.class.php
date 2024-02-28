@@ -46,7 +46,7 @@ class Client{
 
     public function get_unregistered_client()
     {
-        $db   = new ArabicssDB;
+        $db   = new ElmasriaDB;
         $sql  = "SELECT * FROM `client_user` WHERE `reg_status`!='registered'";
         $result = $db ->query($sql);
         return $result;
@@ -56,7 +56,7 @@ class Client{
         $user = new Client();
         $National_ID = $user->decrypt_pin_num($pin_number);
 
-        $db   = new ArabicssDB;
+        $db   = new ElmasriaDB;
         $sql  = "SELECT * FROM `client_user` WHERE `national_ID`='$National_ID';";
         $result = $db ->query($sql);
 
@@ -81,7 +81,7 @@ class Client{
         $user = new Client();
         $National_ID = $user->decrypt_pin_num($pin_number);
 
-        $db   = new ArabicssDB;
+        $db   = new ElmasriaDB;
         $sql  = "SELECT * FROM `client_user` WHERE `email`='$email';";
         $result = $db ->query($sql);
 
@@ -105,7 +105,7 @@ class Client{
         $user_role_id = '6';
         $user_status = 'D';
 
-        $db   = new ArabicssDB;
+        $db   = new ElmasriaDB;
         $sql  = "INSERT INTO `users` (`userId`, `name`, `username`, `secureH`, `password`, 
         `companyId`, `user_role_id`, `userType`, `systemtype`, `gui_language`, `gui_theme`, `Status`, 
         `creationDate`, `createdBy`, `client_id`)
@@ -121,7 +121,7 @@ class Client{
 
         $secureH = sha1($new_password);
         $pass = md5($new_password);
-        $db   = new ArabicssDB;
+        $db   = new ElmasriaDB;
         $sql = "UPDATE `users` SET `secureH` = '$secureH' WHERE `users`.`username` = '$username'; 
         UPDATE `users` SET `password` = '$pass' WHERE `users`.`username` = '$username'; ";
         $result = $db ->query($sql);
@@ -130,7 +130,7 @@ class Client{
     } 
 
     public function acivate_user($username){
-        $db   = new ArabicssDB;
+        $db   = new ElmasriaDB;
         $sql = "UPDATE `users` SET `users`.`Status` = 'A' WHERE `users`.`username` = '$username';";
         $result = $db ->query($sql);
         return $result;
@@ -139,7 +139,7 @@ class Client{
 
     public function get_reg_status($email){
         $reg_status ='';
-        $db   = new ArabicssDB;
+        $db   = new ElmasriaDB;
         $sql = "SELECT `reg_status` FROM `client_user` WHERE `client_user`.`email`='$email'";
         $result = $db ->query($sql);
         if ($result->num_rows > 0) {
@@ -152,7 +152,7 @@ class Client{
     }
     public function set_reg_status($email, $status){
         $reg_status ='';
-        $db   = new ArabicssDB;
+        $db   = new ElmasriaDB;
         $sql = " UPDATE `client_user` set `reg_status`='$status' WHERE `client_user`.`email`='$email'";
         $result = $db ->query($sql);
         return $reg_status;
@@ -210,7 +210,7 @@ class Client{
     }
 
     public function check_if_user_exists($client_id, $email, $full_name){
-        $db   = new ArabicssDB;
+        $db   = new ElmasriaDB;
         $sql  = "SELECT * FROM `users` WHERE `username`='$email' AND `client_id`='$client_id' AND `name`='$full_name';";
         $result = $db ->query($sql);
         if ($result->num_rows > 0) {
