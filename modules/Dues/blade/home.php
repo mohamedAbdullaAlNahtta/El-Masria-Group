@@ -131,7 +131,7 @@
                                     for ($x = 0; $x < count($new_client->Dues); $x++) {
                                         echo "<tr>";
                                         echo "<td><i class='mdi mdi-calendar-text'></i> ".$new_client->Dues[$x]["InstallmentDate"] ."</td>";
-                                        echo "<td><i class='mdi mdi-note-text'></i> ".$new_client->Dues[$x]["InstallmentName"] ."</td>";
+                                        echo "<td><i class='mdi mdi-note-plus-outline'></i> ".$new_client->Dues[$x]["InstallmentName"] ."</td>";
                                         echo "<td><i class='mdi mdi-note-text'></i> ".$new_client->Dues[$x]["InstallmentValue"] ."</td>";
 
                                         ////////////////////////////////////////////////////////
