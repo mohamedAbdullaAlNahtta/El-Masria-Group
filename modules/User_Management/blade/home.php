@@ -83,7 +83,7 @@
                                         <th><?php echo $lang['user name'];?>  </th>
                                         <th><?php echo $lang['Access Type'];?>  </th>
                                         <th><?php echo $lang['user role'];?>  </th>
-                                        <th><?php echo $lang['creation Date'];?>  </th>
+                                        <th><?php echo $lang['creation date'];?>  </th>
                                         <th><?php echo $lang['created by'];?>  </th>
 										<th><?php echo $lang['user status'];?>  </th>
                                     </tr>
@@ -95,7 +95,7 @@
                                         <th><?php echo $lang['user name'];?>  </th>
                                         <th><?php echo $lang['Access Type'];?>  </th>
                                         <th><?php echo $lang['user role'];?>  </th>
-                                        <th><?php echo $lang['creation Date'];?>  </th>
+                                        <th><?php echo $lang['creation date'];?>  </th>
                                         <th><?php echo $lang['created by'];?>  </th>
 										<th><?php echo $lang['user status'];?>  </th>
                                     </tr>
@@ -123,7 +123,13 @@
                                         echo "<td>".$row["user_role_id"]." </td>";
                                         echo "<td> <i class='mdi mdi-update'></i> ".$row["creationDate"]." </td>";
                                         echo "<td>".$row["createdBy"]." </td>";
-                                        echo "<td> <i class='mdi mdi-update'></i> ".$row["Status"]." </td>";
+                                        // echo "<td> <i class='mdi mdi-update'></i> ".$row["Status"]." </td>";
+                                        if ($row["Status"]==='A') {
+                                            echo "<td> Active </td>";
+                                        } else {
+                                            echo "<td> Inactive </td>";
+                                        }
+                                        ?>
                                         ?>
                                        
                                         <?php 
