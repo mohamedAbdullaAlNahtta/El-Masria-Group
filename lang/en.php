@@ -112,6 +112,7 @@ $lang['Review Payments']='Review Payments';
 $lang['Dues']='Dues';
 $lang['Paid Values']='Paid Values';
 $lang['No Suggestion']='No Suggestion';
+$lang['User Management']='User Management';
 
 
 
