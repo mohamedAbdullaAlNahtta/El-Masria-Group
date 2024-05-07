@@ -102,34 +102,34 @@
                                 </tfoot>
                                 <tbody>
                                 <?php 
-                                $user_manage = new User_manager;
-                                // $result = $user_manage->get_system_users();
+                                $user_manage = new user_management;
+                                $result = $user_manage->get_system_users();
 
-                                // if ($result->num_rows > 0) {
-                                //     // output data of each row
-                                //     while($row = $result->fetch_assoc()) {               
-                                //         echo "<tr>";
-                                //         echo "<td> <i class='mdi mdi-update'></i> ".$row["client_id"]." </td>";
-                                //         echo "<td> ".$row["name"]." </td>";
-                                //         echo "<td> <img class='img-circle' style='width:30px;height:30px;' src='".$user->get_user_profile_image_by_user_name($row["username"])."'> ".$row["username"]." </td>";
-                                //         if ($row["systemtype"]==='web') {
-                                //             echo "<td><i class='mdi mdi-google-chrome'></i>  ".$row["systemtype"]." </td>";
-                                //         } else {
-                                //             echo "<td> ".$row["systemtype"]." </td>";
-                                //         }
-                                //         ?>
+                                if ($result->num_rows > 0) {
+                                    // output data of each row
+                                    while($row = $result->fetch_assoc()) {               
+                                        echo "<tr>";
+                                        echo "<td> <i class='mdi mdi-update'></i> ".$row["client_id"]." </td>";
+                                        echo "<td> ".$row["name"]." </td>";
+                                        echo "<td> <img class='img-circle' style='width:30px;height:30px;' src='".$user->get_user_profile_image_by_user_name($row["username"])."'> ".$row["username"]." </td>";
+                                        if ($row["systemtype"]==='web') {
+                                            echo "<td><i class='mdi mdi-google-chrome'></i>  ".$row["systemtype"]." </td>";
+                                        } else {
+                                            echo "<td> ".$row["systemtype"]." </td>";
+                                        }
+                                        ?>
                                         
                                          <?php 
-                                //         echo "<td> <i class='mdi mdi-update'></i> ".$row["user_role_id"]." </td>";
-                                //         echo "<td> <i class='mdi mdi-update'></i> ".$row["creationDate"]." </td>";
-                                //         echo "<td> <i class='mdi mdi-update'></i> ".$row["createdBy"]." </td>";
-                                //         echo "<td> <i class='mdi mdi-update'></i> ".$row["Status"]." </td>";
-                                //         ?>
+                                        echo "<td>".$row["user_role_id"]." </td>";
+                                        echo "<td> <i class='mdi mdi-update'></i> ".$row["creationDate"]." </td>";
+                                        echo "<td>".$row["createdBy"]." </td>";
+                                        echo "<td> <i class='mdi mdi-update'></i> ".$row["Status"]." </td>";
+                                        ?>
                                        
                                         <?php 
-                                //         echo "</tr>";          
-                                //     }
-                                // }
+                                        echo "</tr>";          
+                                    }
+                                }
                                 ?>	
                                 </tbody>
                             </table>

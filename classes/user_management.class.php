@@ -41,7 +41,7 @@
 // Powered by ENG Muhammad Abdullah El Nahtta 
 /////////////////////////////////////////////////////////////////////////////////
 
-class User_manager{
+class user_management{
 
     
     public function get_system_users()
