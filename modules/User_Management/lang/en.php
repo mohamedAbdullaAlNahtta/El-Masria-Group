@@ -63,4 +63,15 @@ $lang['User has been unblocked.  Thanks for trusting US....... Software Developm
 $lang['failed to unblock user please contact your Developer if the problem repeated']='failed to unblock user please contact your Developer if the problem repeated';
 $lang['Check']='Check';
 
+$lang['name']='name';
+$lang['user name']='user name';
+$lang['user role']='user role';
+$lang['creation date']='creation date';
+$lang['created by']='created by';
+$lang['client id']='client id';
+$lang['user type']='user type';
+$lang['access type']='access type';
+$lang['user status']='user status';
+
+
 ?>

@@ -78,58 +78,58 @@
                             <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th><img style='width:20px;height:20px;' src='modules/Blocked_Users/img/incorrect_title.png'></th>
-                                        <th><?php echo $lang['ID'];?> </th>
-                                        <th><?php echo $lang['User Name'];?>  </th>
+                                        <th><?php echo $lang['client id'];?> </th>
+                                        <th><?php echo $lang['name'];?> </th>
+                                        <th><?php echo $lang['user name'];?>  </th>
                                         <th><?php echo $lang['Access Type'];?>  </th>
-                                        <th style="width: 10%;"><?php echo $lang['IP'];?>  </th>
-                                        <th><?php echo $lang['Block Date'];?>  </th>
-										<th><?php echo $lang['view'];?>  </th>
+                                        <th><?php echo $lang['user role'];?>  </th>
+                                        <th><?php echo $lang['creation Date'];?>  </th>
+                                        <th><?php echo $lang['created by'];?>  </th>
+										<th><?php echo $lang['user status'];?>  </th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th><img style='width:20px;height:20px;' src='modules/Blocked_Users/img/incorrect_title.png'></th>
-										<th><?php echo $lang['ID'];?> </th>
-                                        <th><?php echo $lang['User Name'];?>  </th>
+                                        <th><?php echo $lang['client id'];?> </th>
+                                        <th><?php echo $lang['name'];?> </th>
+                                        <th><?php echo $lang['user name'];?>  </th>
                                         <th><?php echo $lang['Access Type'];?>  </th>
-                                        <th style="width: 10%;"><?php echo $lang['IP'];?>  </th>
-                                        <th><?php echo $lang['Block Date'];?>  </th>
-										<th><?php echo $lang['view'];?>  </th>
+                                        <th><?php echo $lang['user role'];?>  </th>
+                                        <th><?php echo $lang['creation Date'];?>  </th>
+                                        <th><?php echo $lang['created by'];?>  </th>
+										<th><?php echo $lang['user status'];?>  </th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
                                 <?php 
-                                $result = $user->get_blocked_users();
+                                $user_manage = new User_manager;
+                                // $result = $user_manage->get_system_users();
 
-                                if ($result->num_rows > 0) {
-                                    // output data of each row
-                                    while($row = $result->fetch_assoc()) {               
-                                        echo "<tr>";
-                                        echo"<td><img style='width:20px;height:20px;' src='modules/Blocked_Users/img/incorrect.png'></td>";
-                                        echo "<td> ".$row["id"]." </td>";
-                                        echo "<td> <img class='img-circle' style='width:30px;height:30px;' src='".$user->get_user_profile_image_by_user_name($row["username"])."'> ".$row["username"]." </td>";
-                                        if ($row["systemtype"]==='web') {
-                                            echo "<td><i class='mdi mdi-google-chrome'></i>  ".$row["systemtype"]." </td>";
-                                        } else {
-                                            echo "<td> ".$row["systemtype"]." </td>";
-                                        }
-                                        ?>
+                                // if ($result->num_rows > 0) {
+                                //     // output data of each row
+                                //     while($row = $result->fetch_assoc()) {               
+                                //         echo "<tr>";
+                                //         echo "<td> <i class='mdi mdi-update'></i> ".$row["client_id"]." </td>";
+                                //         echo "<td> ".$row["name"]." </td>";
+                                //         echo "<td> <img class='img-circle' style='width:30px;height:30px;' src='".$user->get_user_profile_image_by_user_name($row["username"])."'> ".$row["username"]." </td>";
+                                //         if ($row["systemtype"]==='web') {
+                                //             echo "<td><i class='mdi mdi-google-chrome'></i>  ".$row["systemtype"]." </td>";
+                                //         } else {
+                                //             echo "<td> ".$row["systemtype"]." </td>";
+                                //         }
+                                //         ?>
                                         
+                                         <?php 
+                                //         echo "<td> <i class='mdi mdi-update'></i> ".$row["user_role_id"]." </td>";
+                                //         echo "<td> <i class='mdi mdi-update'></i> ".$row["creationDate"]." </td>";
+                                //         echo "<td> <i class='mdi mdi-update'></i> ".$row["createdBy"]." </td>";
+                                //         echo "<td> <i class='mdi mdi-update'></i> ".$row["Status"]." </td>";
+                                //         ?>
+                                       
                                         <?php 
-                                        echo "<td> <i class='mdi mdi-update'></i> ".$row["IP"]." </td>";
-                                        echo "<td> <i class='mdi mdi-update'></i> ".$row["blockDate"]." </td>";
-                                        ?>
-                                        <td>
-                                            <button onclick="window.open('index?module=Blocked_Users&view_user_logs=<?php echo $row['username'];?>',' ','width=1500,height=800');" style="width: 35px; height: 35px; padding: 0px; font-size: 18px;" class="btn btn-info btn-circle btn-xl">
-                                                <i class="fa fa-unlock"></i>
-                                            </button>
-                                            <?php echo $lang['Check']; ?>
-                                        </td>
-                                        <?php 
-                                        echo "</tr>";          
-                                    }
-                                }
+                                //         echo "</tr>";          
+                                //     }
+                                // }
                                 ?>	
                                 </tbody>
                             </table>

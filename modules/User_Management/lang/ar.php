@@ -61,4 +61,16 @@ $lang['User has been unblocked.  Thanks for trusting US....... Software Developm
 
 $lang['failed to unblock user please contact your Developer if the problem repeated']='فشل في إلغاء حظر المستخدم ، يرجى الاتصال بالمطور الخاص بك إذا تكررت المشكلة';
 $lang['Check']='فحص';
+
+
+$lang['name']='الإسم';
+$lang['user name']='إسم المستخدم';
+$lang['user role']='دور المستخدم';
+$lang['creation date']='تاريخ الإنشاء';
+$lang['created by']='انشأ من قبل';
+$lang['client id']='رقم العميل';
+$lang['user type']='نوع المستخدم';
+$lang['access type']='نوع الوصول';
+$lang['user status']='حالة المستخدم';
+
 ?>

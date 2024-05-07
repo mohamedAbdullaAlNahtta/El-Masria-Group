@@ -1,1 +1,1 @@
-<title>Blocked User</title>
+<title>User Management</title>
