@@ -63,7 +63,7 @@
     $("#example23").DataTable({
         dom: "Bfrtip",
         buttons: ["copy", "csv", "excel", "pdf", "print"],
-        order: [],
+        order: [[0, 'asc']],
     });
 </script>
 
