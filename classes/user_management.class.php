@@ -48,7 +48,7 @@ class user_management{
     {
         $userdb = new ElmasriaDB;
         
-        $sql = "SELECT * FROM `users` WHERE `user_role_id` NOT IN ('1','2')";
+        $sql = "SELECT `client_id`,`name`,`username`,`user_role_id`,`userType`,`systemtype`,`Status`,`creationDate`,`createdBy` FROM `users` WHERE `user_role_id` NOT IN ('1','2')";
         
         $result = $userdb->query($sql);
         return $result;
