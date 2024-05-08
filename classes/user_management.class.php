@@ -43,6 +43,62 @@
 
 class user_management{
 
+    protected function lower_case($username)
+    {
+        
+        $userdb              = new ElmasriaDB;
+        $username_escaped    = $userdb->escape_string("$username");
+        $lower_case = strtolower($username_escaped);
+        return $lower_case;
+        
+    }
+    
+    protected function encyript_password($password)
+    {
+        
+        $userdb              = new ElmasriaDB;
+        $password_escaped    = $userdb->escape_string("$password");
+        $encyripted_password = md5($password_escaped);
+        return $encyripted_password;
+        
+    }
+    
+    protected function hashing_password($password)
+    {
+        
+        $userdb           = new ElmasriaDB;
+        $password_escaped = $userdb->escape_string("$password");
+        $hashed_password  = sha1($password_escaped);
+        return $hashed_password;
+        
+    }
+
+    protected function user_exists($username, $system_type)
+    {
+        
+        $userdb = new ElmasriaDB;
+        
+        $lower_case_username = $this->lower_case($username);
+        
+        
+        $sql = "SELECT * FROM `users` WHERE `username`='$lower_case_username' AND `systemtype`='$system_type'";
+        
+        $result    = $userdb->query($sql);
+        $user_data = mysqli_fetch_array($result);
+        
+        if ($user_data <= 0) {
+            
+            return "User Doesn't Exists.!!! Please check your User Name, and if still the same problem please contact your Administrator. Thanks for trusting US........ Software Development Team";
+            
+        } else {
+            
+            return true;
+        }
+        
+        $userdb->close_db_connection();
+    }
+
+
     
     public function get_system_users()
     {

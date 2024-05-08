@@ -70,53 +70,49 @@
                                     <h3 class="card-title">New Ticket</h3>
                                     <div class="row p-t-20" bis_skin_checked="1">
                                         <!--/span-->
-                                        <div class="col-md-2" bis_skin_checked="1">
-                                            <label class="control-label">Company</label>
-                                            <div class="form-group" bis_skin_checked="1">
-                                                <select id="myselect" name="new_ticket_company" class="form-control form-control-line">
-                                                    <option value="1">Arabicss</option>
-                                                    <option value="215">Diet-Hub</option>
-                                                    <option value="216">Shefae</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <!--/span-->
-                                        <div class="col-md-2" bis_skin_checked="1">
-                                            <label class="control-label">Ticket Type</label>
-                                            <div class="form-group" bis_skin_checked="1">
-                                                <select id="new_ticket_type" name="new_ticket_type" class="form-control form-control-line">
-                                                    <option value="Inquiry">Inquiry</option>
-
-                                                    <option value="Request">Request</option>
-
-                                                    <option value="Technical Issue">Technical Issue</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <!--/span-->
                                         <div class="col-md-3" bis_skin_checked="1">
-                                            <label class="control-label">Reported By</label>
+                                            <label class="control-label">Name</label>
                                             <div class="form-group" bis_skin_checked="1">
                                                 <input type="text" id="" name="new_reported_by" class="form-control" placeholder="" required="required" />
                                             </div>
                                         </div>
                                         <!--/span-->
+                                        <div class="col-md-3" bis_skin_checked="1">
+                                            <label class="control-label">User Name</label>
+                                            <div class="form-group" bis_skin_checked="1">
+                                                <input type="text" id="" name="new_reported_by" class="form-control" placeholder="" required="required" />
+                                            </div>
+                                        </div>
+                                         <!--/span-->
+                                         <div class="col-md-3" id="new_remote_session_num" bis_skin_checked="1">
+                                            <label class="control-label">Password</label>
+                                            <div class="form-group" bis_skin_checked="1">
+                                                <input type="text" id="new_remote_session_num_inp" name="new_remote_session_num" class="form-control" placeholder="" />
+                                            </div>
+                                        </div>
                                         <!--/span-->
                                         <div class="col-md-3" id="new_remote_session_num" bis_skin_checked="1">
-                                            <label class="control-label">Remote Session number</label>
+                                            <label class="control-label">Confirm Password</label>
                                             <div class="form-group" bis_skin_checked="1">
                                                 <input type="text" id="new_remote_session_num_inp" name="new_remote_session_num" class="form-control" placeholder="" />
                                             </div>
                                         </div>
                                         <!--/span-->
                                         <div class="col-md-2" bis_skin_checked="1">
-                                            <label>Status</label>
+                                            <label class="control-label">Access Type</label>
+                                            <div class="form-group" bis_skin_checked="1">
+                                                <select id="new_ticket_type" name="new_ticket_type" class="form-control form-control-line">
+                                                    <option value="Inquiry">Inquiry</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                        <!--/span-->
+                                        <div class="col-md-2" bis_skin_checked="1">
+                                            <label>User Role</label>
                                             <div class="form-group" bis_skin_checked="1">
                                                 <select id="new_ticket_status" name="new_ticket_status" class="form-control form-control-line">
                                                     <option value="Open">Open</option>
-                                                    <option value="Pending">Pending</option>
-                                                    <option value="Handled">Handled</option>
-                                                    <option value="Cancelled">Cancelled</option>
                                                 </select>
                                             </div>
                                         </div>
