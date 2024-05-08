@@ -48,7 +48,12 @@ class user_management{
     {
         $userdb = new ElmasriaDB;
         
-        $sql = "SELECT `client_id`,`name`,`username`,`user_role_id`,`userType`,`systemtype`,`Status`,`creationDate`,`createdBy` FROM `users` WHERE `user_role_id` NOT IN ('1','2')";
+        $sql = "SELECT `A`.`name`, `A`.`username`, `A`.`userType`, `A`.`systemtype`, `A`.`Status`, `A`.`creationDate`, `A`.`createdBy`,
+         `B`.`name` AS  `user_role_id` 
+         FROM (SELECT `client_id`,`name`,`username`,`user_role_id`,`userType`,
+         `systemtype`,`Status`,`creationDate`,`createdBy` 
+         FROM `users` WHERE `user_role_id` NOT IN ('1','2')) AS `A`, `user_role` AS `B`
+          WHERE `A`.`user_role_id`=`B`.`id`;";
         
         $result = $userdb->query($sql);
         return $result;

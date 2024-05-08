@@ -72,6 +72,7 @@
 		<div class="col-12">
                 <div class="card">
                     <div class="card-block">
+                        <button class="btn pull-right hidden-sm-down btn-success"><i class="mdi mdi-plus-circle"></i> Create</button>
                         <h4 class="card-title"><?php echo $lang['Data Export'] ;?></h4>
                         <h6 class="card-subtitle"><?php echo $lang['Export data to Copy, CSV, Excel, PDF & Print'] ;?></h6>
                         <div class="table-responsive m-t-40">
@@ -117,20 +118,19 @@
                                         } else {
                                             echo "<td> ".$row["systemtype"]." </td>";
                                         }
-                                        ?>
-                                        
-                                         <?php 
                                         echo "<td>".$row["user_role_id"]." </td>";
                                         echo "<td> <i class='mdi mdi-update'></i> ".$row["creationDate"]." </td>";
                                         echo "<td>".$row["createdBy"]." </td>";
                                         // echo "<td> <i class='mdi mdi-update'></i> ".$row["Status"]." </td>";
                                         if ($row["Status"]==='A') {
-                                            echo "<td> Active </td>";
+                                            echo "<td> <img style='width:20px;height:20px;' src='modules/\User_Management/img/correct.png'>
+                                            <button class='btn btn-danger waves-effect waves-light'> deactivate </button></td>";
                                         } else {
-                                            echo "<td> Inactive </td>";
+                                            echo "<td> <img style='width:20px;height:20px;' src='modules/\User_Management/img/incorrect.png'>
+                                            <button class='btn btn-success waves-effect waves-light'> Activate </button> </td>";
                                         }
                                         ?>
-                                        ?>
+    
                                        
                                         <?php 
                                         echo "</tr>";          
