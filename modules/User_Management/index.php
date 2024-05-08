@@ -47,10 +47,10 @@
 
 
 
-if (isset($_GET['view_user_logs']))
+if (isset($_GET['create_user']))
 {
     //loading create page
-    require_once ("blade/view.php");
+    require_once ("blade/new_user.php");
 }
 else
 {

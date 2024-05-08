@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2024 at 07:14 PM
+-- Generation Time: May 08, 2024 at 02:47 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -405,8 +405,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`userId`, `name`, `username`, `secureH`, `password`, `companyId`, `user_role_id`, `userType`, `systemtype`, `gui_language`, `gui_theme`, `Status`, `creationDate`, `createdBy`, `client_id`) VALUES
 (1, 'Eng Muhammad ElNahtta', 'muhammad.elnahtta', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 2, 'P', 'web', 1, 1, 'A', '2023-12-07 09:22:14', 'Muhammad.AlNahtta', 0),
-(9, 'admin', 'Administrator', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 3, 'P', 'web', 1, 1, 'A', '2023-12-07 09:22:14', 'Muhammad.AlNahtta', 0),
-(13, 'Muhammad Soliman', 'Muhammad.Soliman', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 3, 'P', 'web', 1, 1, 'A', '2023-12-07 09:22:14', 'Muhammad.AlNahtta', 0),
+(9, 'admin', 'Administrator', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 2, 'P', 'web', 1, 1, 'A', '2023-12-07 09:22:14', 'Muhammad.AlNahtta', 0),
+(13, 'Muhammad Soliman', 'Muhammad.Soliman', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 3, 'P', 'web', 1, 1, 'I', '2023-12-07 09:22:14', 'Muhammad.AlNahtta', 0),
 (14, 'Nabile', 'Nabile', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 3, 'P', 'web', 1, 1, 'A', '2023-12-07 09:22:14', 'Muhammad.AlNahtta', 0);
 
 -- --------------------------------------------------------
@@ -468,7 +468,9 @@ INSERT INTO `users_login_sessions` (`id`, `username`, `systemtype`, `token`, `lo
 (464, 'muhammad.elnahtta', 'web', '37ce22e926fbd6e4c607070ea89809909fRBzxjNot72e25cfdc827184f068ad233e7945a3d75fdfd86', '2024-02-28 16:05:16', '2024-04-25 05:26:33'),
 (465, 'muhammad.elnahtta', 'web', 'ec39c25f196e1eb70520f130a9834a528LS9zmuXnL4066a1d73b19fed526f35bb51d618794218d0dcf', '2024-04-25 05:26:29', '2024-04-28 21:24:47'),
 (466, 'muhammad.elnahtta', 'web', '65f42d8933111f66be0f045f475a28a9SeibZHcXkd96ca380232d255c6e433a54cc0655743c5dd9d9f', '2024-04-28 21:24:42', '2024-05-07 19:13:17'),
-(467, 'muhammad.elnahtta', 'web', '6b8d47cc43c596a9d89763ff35a4e5d5xIP392hPup18b6a4e7edb8e004d9f604779b94037ea32a7911', '2024-05-07 19:13:11', NULL);
+(467, 'muhammad.elnahtta', 'web', '6b8d47cc43c596a9d89763ff35a4e5d5xIP392hPup18b6a4e7edb8e004d9f604779b94037ea32a7911', '2024-05-07 19:13:11', '2024-05-07 19:27:11'),
+(468, 'muhammad.elnahtta', 'web', 'f1c84e370fe4d04c0b116e7fa72abdb47WeTiA4EhQ784ee56a86795c4dc33d6b48fca90b6dfd1d8813', '2024-05-07 19:27:44', '2024-05-08 02:24:22'),
+(469, 'muhammad.elnahtta', 'web', '7d4f3deac02d4b1836aeff4813e63910GXxrzVnP2Rcc18f0679e94900d8336ffc2b7f5debc567f38be', '2024-05-08 02:24:17', NULL);
 
 -- --------------------------------------------------------
 
@@ -579,7 +581,11 @@ INSERT INTO `users_logs` (`id`, `username`, `systemtype`, `userIP`, `action`, `d
 (1268, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log in', '', 'Success', '2024-04-28 21:24:42', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
 (1269, 'muhammad.elnahtta', 'web', '127.0.0.1', 'destroy other session token', '', 'Success', '2024-04-28 21:24:47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
 (1270, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log in', '', 'Success', '2024-05-07 19:13:12', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
-(1271, 'muhammad.elnahtta', 'web', '127.0.0.1', 'destroy other session token', '', 'Success', '2024-05-07 19:13:17', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved');
+(1271, 'muhammad.elnahtta', 'web', '127.0.0.1', 'destroy other session token', '', 'Success', '2024-05-07 19:13:17', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1272, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log out', '', 'Success', '2024-05-07 19:27:11', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1273, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log in', '', 'Success', '2024-05-07 19:27:44', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1274, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log in', '', 'Success', '2024-05-08 02:24:17', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1275, 'muhammad.elnahtta', 'web', '127.0.0.1', 'destroy other session token', '', 'Success', '2024-05-08 02:24:22', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved');
 
 -- --------------------------------------------------------
 
@@ -639,10 +645,8 @@ CREATE TABLE `user_role` (
 
 INSERT INTO `user_role` (`id`, `name`, `description`, `status`, `creationDate`, `createdBy`) VALUES
 (1, 'Forbidden', 'Forbidden', 'Active', '2022-08-15 11:28:28', 'Muhammad El Nahtta'),
-(2, 'Super Admin', 'Super Admin', 'Active', '2022-05-23 15:31:42', 'Muhammad El Nahtta'),
-(3, 'Admin', 'Admin', 'Active', '2022-05-23 15:31:42', 'Muhammad El Nahtta'),
-(4, 'Technical Team', 'Technical Support Team', 'Active', '2022-05-23 15:32:33', 'Muhammad El Nahtta'),
-(5, 'Sales Team', 'Sales Support Team', 'Active', '2022-05-23 15:32:33', 'Muhammad El Nahtta'),
+(2, 'Admin', 'Admin', 'Active', '2022-05-23 15:31:42', 'Muhammad El Nahtta'),
+(3, 'Sales Team', 'Sales Support Team', 'Active', '2022-05-23 15:32:33', 'Muhammad El Nahtta'),
 (6, 'client', 'client', 'Active', '2023-12-24 17:09:16', 'Muhammad El Nahtta');
 
 -- --------------------------------------------------------
@@ -680,6 +684,7 @@ INSERT INTO `user_role_module_menu` (`user_role_id`, `module_menu_id`, `access_t
 (2, 'Security', 'write'),
 (2, 'Setting', 'write'),
 (2, 'System Administration', 'write'),
+(2, 'User Management', 'write'),
 (2, 'Users Activity Logs', 'write'),
 (3, 'Change language', 'write'),
 (3, 'Change Password', 'write'),
@@ -695,6 +700,7 @@ INSERT INTO `user_role_module_menu` (`user_role_id`, `module_menu_id`, `access_t
 (3, 'Review Payments', 'write'),
 (3, 'Setting', 'write'),
 (3, 'System Administration', 'read'),
+(3, 'User Management', 'write'),
 (6, 'Change language', 'read'),
 (6, 'Change Password', 'read'),
 (6, 'Change Profile Image', 'read'),
@@ -837,13 +843,13 @@ ALTER TABLE `users_blocked`
 -- AUTO_INCREMENT for table `users_login_sessions`
 --
 ALTER TABLE `users_login_sessions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=468;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=470;
 
 --
 -- AUTO_INCREMENT for table `users_logs`
 --
 ALTER TABLE `users_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1272;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1276;
 
 --
 -- AUTO_INCREMENT for table `users_profiles`

@@ -72,7 +72,7 @@
 		<div class="col-12">
                 <div class="card">
                     <div class="card-block">
-                        <button class="btn pull-right hidden-sm-down btn-success"><i class="mdi mdi-plus-circle"></i> Create</button>
+                        <button class="btn pull-right hidden-sm-down btn-success"><i class="mdi mdi-plus-circle"></i> Create user </button>
                         <h4 class="card-title"><?php echo $lang['Data Export'] ;?></h4>
                         <h6 class="card-subtitle"><?php echo $lang['Export data to Copy, CSV, Excel, PDF & Print'] ;?></h6>
                         <div class="table-responsive m-t-40">
@@ -110,7 +110,7 @@
                                     // output data of each row
                                     while($row = $result->fetch_assoc()) {               
                                         echo "<tr>";
-                                        echo "<td> <i class='mdi mdi-update'></i> ".$row["client_id"]." </td>";
+                                        echo "<td> <i class='mdi mdi-account-convert'></i> ".$row["client_id"]." </td>";
                                         echo "<td> ".$row["name"]." </td>";
                                         echo "<td> <img class='img-circle' style='width:30px;height:30px;' src='".$user->get_user_profile_image_by_user_name($row["username"])."'> ".$row["username"]." </td>";
                                         if ($row["systemtype"]==='web') {
