@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2024 at 02:48 AM
+-- Generation Time: May 08, 2024 at 04:06 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -394,7 +394,7 @@ CREATE TABLE `users` (
   `gui_language` int(11) NOT NULL DEFAULT 1,
   `gui_theme` int(11) NOT NULL DEFAULT 1,
   `Status` varchar(1) NOT NULL DEFAULT 'A',
-  `creationDate` datetime NOT NULL,
+  `creationDate` datetime NOT NULL DEFAULT current_timestamp(),
   `createdBy` varchar(250) NOT NULL,
   `client_id` int(18) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -470,7 +470,8 @@ INSERT INTO `users_login_sessions` (`id`, `username`, `systemtype`, `token`, `lo
 (466, 'muhammad.elnahtta', 'web', '65f42d8933111f66be0f045f475a28a9SeibZHcXkd96ca380232d255c6e433a54cc0655743c5dd9d9f', '2024-04-28 21:24:42', '2024-05-07 19:13:17'),
 (467, 'muhammad.elnahtta', 'web', '6b8d47cc43c596a9d89763ff35a4e5d5xIP392hPup18b6a4e7edb8e004d9f604779b94037ea32a7911', '2024-05-07 19:13:11', '2024-05-07 19:27:11'),
 (468, 'muhammad.elnahtta', 'web', 'f1c84e370fe4d04c0b116e7fa72abdb47WeTiA4EhQ784ee56a86795c4dc33d6b48fca90b6dfd1d8813', '2024-05-07 19:27:44', '2024-05-08 02:24:22'),
-(469, 'muhammad.elnahtta', 'web', '7d4f3deac02d4b1836aeff4813e63910GXxrzVnP2Rcc18f0679e94900d8336ffc2b7f5debc567f38be', '2024-05-08 02:24:17', NULL);
+(469, 'muhammad.elnahtta', 'web', '7d4f3deac02d4b1836aeff4813e63910GXxrzVnP2Rcc18f0679e94900d8336ffc2b7f5debc567f38be', '2024-05-08 02:24:17', '2024-05-08 03:20:49'),
+(470, 'muhammad.elnahtta', 'web', '65b58b392edba17bb009bc14d5c90c4dbreWGCDzjx777d160caae35071f30482d12581e98985d7cda2', '2024-05-08 03:20:45', NULL);
 
 -- --------------------------------------------------------
 
@@ -585,7 +586,10 @@ INSERT INTO `users_logs` (`id`, `username`, `systemtype`, `userIP`, `action`, `d
 (1272, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log out', '', 'Success', '2024-05-07 19:27:11', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
 (1273, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log in', '', 'Success', '2024-05-07 19:27:44', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
 (1274, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log in', '', 'Success', '2024-05-08 02:24:17', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
-(1275, 'muhammad.elnahtta', 'web', '127.0.0.1', 'destroy other session token', '', 'Success', '2024-05-08 02:24:22', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved');
+(1275, 'muhammad.elnahtta', 'web', '127.0.0.1', 'destroy other session token', '', 'Success', '2024-05-08 02:24:22', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1276, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log out', '', 'Success', '2024-05-08 03:17:36', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1277, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log in', '', 'Success', '2024-05-08 03:20:45', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1278, 'muhammad.elnahtta', 'web', '127.0.0.1', 'destroy other session token', '', 'Success', '2024-05-08 03:20:49', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved');
 
 -- --------------------------------------------------------
 
@@ -843,13 +847,13 @@ ALTER TABLE `users_blocked`
 -- AUTO_INCREMENT for table `users_login_sessions`
 --
 ALTER TABLE `users_login_sessions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=470;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=471;
 
 --
 -- AUTO_INCREMENT for table `users_logs`
 --
 ALTER TABLE `users_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1276;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1279;
 
 --
 -- AUTO_INCREMENT for table `users_profiles`

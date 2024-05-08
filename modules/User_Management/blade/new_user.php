@@ -67,7 +67,7 @@
                         <div class="tab-pane active" id="TicketInfo" role="tabpanel"  aria-expanded="true">
                             <div class="card-block" >
                                 <div class="form-body" >
-                                    <h3 class="card-title">New Ticket</h3>
+                                    <h3 class="card-title">New User Account</h3>
                                     <div class="row p-t-20" >
                                         <!--/span-->
                                         <div class="col-md-3" >
@@ -89,7 +89,7 @@
                                             <div class="form-group" >
                                                 <div class="input-group" >
                                                     <div class="input-group-addon" ><i style="font-size: 20px;" class="mdi mdi-key"></i></div>
-                                                    <input type="password" name="new_password" class="form-control" id="new_password" placeholder="new password" required="required" onkeyup="checkPasswordStrength();">
+                                                    <input type="password" name="new_password" class="form-control" id="new_password" placeholder="new password" required="required">
                                                     <div class="input-group-addon" style="cursor: pointer;" onclick="myFunctionShowPass();" ><i style="font-size: 20px;" id="showPass" class="mdi mdi-eye"></i></div>
                                                 </div>
                                             </div>
@@ -147,7 +147,7 @@
                                     <div class="row" >
                                         <!--/span-->
                                         <div id="" class="col-md-.5 col-xs-6" style="padding-left: 1%;" >
-                                            <img src="modules/Technical_Support_Ticket/img/dateicon.png" style="border-radius: 50%; border: 1px solid #000; margin-top: 20px;" width="50" />
+                                            <img src="modules/User_Management/img/dateicon.png" style="border-radius: 50%; border: 1px solid #000; margin-top: 20px;" width="50" />
                                         </div>
                                         <div class="col-md-3" >
                                             <label class="control-label">Creation Date</label>
@@ -158,12 +158,12 @@
                                         <!--/span-->
                                         <!--/span-->
                                         <div id="" class="col-md-.5 col-xs-6" >
-                                            <img alt="user image" src="assets/images/User_profile_img/User-default.png" style="border-radius: 50%; border: 1px solid #000; margin-top: 20px;" width="50" />
+                                            <img alt="user image" src="<?php echo $user->user_profile_img; ?>" style="border-radius: 50%; border: 1px solid #000; margin-top: 20px;" width="50" />
                                         </div>
                                         <div class="col-md-2.5 col-xs-6" >
                                             <label class="control-label"> Created By</label>
                                             <div class="form-group" >
-                                                <input type="text" id="" name="new_created_by" class="form-control" readonly="true" value="admin.01" placeholder="admin.01" />
+                                                <input type="text" id="" name="new_created_by" class="form-control" readonly="true" value="<?php echo $user->name; ?>" placeholder="<?php echo $user->name; ?>" />
                                             </div>
                                         </div>
                                         <!--/span-->

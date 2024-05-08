@@ -1,4 +1,40 @@
+<script>
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
+// Show New Password Function
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
 
+function myFunctionShowPass() {
+    var li = document.getElementById("showPass").className;
+    if (li === "mdi mdi-eye") {
+        document.getElementById("showPass").setAttribute("class", "mdi mdi-eye-off");
+        document.getElementById("new_password").setAttribute("type", "text");
+    } else if (li === "mdi mdi-eye-off") {
+        document.getElementById("showPass").setAttribute("class", "mdi mdi-eye");
+        document.getElementById("new_password").setAttribute("type", "password");
+    }
+}
+ //////////////////////////////////////////////////
+//////////////////////////////////////////////////
+// check compar new password with confirm password
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
+function myFunctionCompareNewPassWithConfirmPass() {
+    var newPasswordUserInput = document.getElementById("new_password").value;
+    var confirmPasswordUserInput = document.getElementById("confirm_password").value;
+    if (newPasswordUserInput === confirmPasswordUserInput) {
+        document.getElementById("incorrectRetype").style.display = "none";
+        document.getElementById("correctRetype").style.display = "block";
+        return true;
+    } else {
+        document.getElementById("incorrectRetype").style.display = "block";
+        document.getElementById("correctRetype").style.display = "none";
+        return false;
+    }
+}
+
+</script>
 
 <!-- This is data table -->
 <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
@@ -68,67 +104,5 @@
 </script>
 
 
-<?php 
-if (isset($_GET['view_user_logs'])) {
-?>
-<script>
-document.getElementsByTagName("header")[0].style.display = "none";
-document.getElementsByTagName("aside")[0].style.display = "none";
-document.getElementsByClassName("page-wrapper")[0].style.margin = "0px 0px 0px 0px"; 
-document.getElementsByClassName("page-wrapper")[0].style.paddingBottom  = "0px"; 
-document.getElementsByTagName("footer")[0].style.display = "none";
-</script>
-<?php
-}
 
-?>
 
-<?php 
-if (isset($GLOBALS['unblock_user'])) {
-    if($GLOBALS['unblock_user']!== false){ 
-?>
-<!-- reset form values after refresh  -->
-<script type="text/javascript">
-    if (window.history.replaceState) {
-        window.history.replaceState(null, null, window.location.href);
-    }
-</script>
-<script type="text/javascript">
-        swal({
-                title: "Good job", 
-                text: "<?php echo $GLOBALS['lang']['User has been unblocked.  Thanks for trusting US....... Software Development Team']; ?>", 
-                type: "success"
-                },
-            function(){ 
-                window.close();
-            }
-        );
-</script>
-
-<?php
-
-}else{
-?>
- <!-- reset form values after refresh  -->
- <script type="text/javascript">
-           if (window.history.replaceState) {
-               window.history.replaceState(null, null, window.location.href);
-           }
-       </script>
-       <script type="text/javascript">
-            swal({
-                title: "Opps!",   
-                text: "<?php echo $GLOBALS['lang']['failed to unblock user please contact your Developer if the problem repeated'];?>",   
-                type: "warning",   
-                showCancelButton: true, 
-                showConfirmButton: false,   
-                cancelButtonColor: "#DD6B55",   
-            });
-
-       </script>
-
-<?php 
-}
-}
-
-?>
