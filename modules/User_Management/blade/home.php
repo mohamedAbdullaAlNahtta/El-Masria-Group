@@ -72,7 +72,7 @@
 		<div class="col-12">
                 <div class="card">
                     <div class="card-block">
-                        <button class="btn pull-right hidden-sm-down btn-success"><i class="mdi mdi-plus-circle"></i> Create user </button>
+                        <button class="btn pull-right hidden-sm-down btn-success" onclick="location.href='index?module=User_Management&create_user=true';"><i class="mdi mdi-plus-circle"></i> Create user </button>
                         <h4 class="card-title"><?php echo $lang['Data Export'] ;?></h4>
                         <h6 class="card-subtitle"><?php echo $lang['Export data to Copy, CSV, Excel, PDF & Print'] ;?></h6>
                         <div class="table-responsive m-t-40">
@@ -86,7 +86,8 @@
                                         <th><?php echo $lang['user role'];?>  </th>
                                         <th><?php echo $lang['creation date'];?>  </th>
                                         <th><?php echo $lang['created by'];?>  </th>
-										<th><?php echo $lang['user status'];?>  </th>
+										<th><?php echo $lang['Status'];?>  </th>
+                                        <th><?php echo $lang['Action'];?>  </th>
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -98,13 +99,15 @@
                                         <th><?php echo $lang['user role'];?>  </th>
                                         <th><?php echo $lang['creation date'];?>  </th>
                                         <th><?php echo $lang['created by'];?>  </th>
-										<th><?php echo $lang['user status'];?>  </th>
+										<th><?php echo $lang['Status'];?>  </th>
+                                        <th><?php echo $lang['Action'];?>  </th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
                                 <?php 
                                 $user_manage = new user_management;
                                 $result = $user_manage->get_system_users();
+                                
 
                                 if ($result->num_rows > 0) {
                                     // output data of each row
@@ -123,11 +126,11 @@
                                         echo "<td>".$row["createdBy"]." </td>";
                                         // echo "<td> <i class='mdi mdi-update'></i> ".$row["Status"]." </td>";
                                         if ($row["Status"]==='A') {
-                                            echo "<td> <img style='width:20px;height:20px;' src='modules/\User_Management/img/correct.png'>
-                                            <button class='btn btn-danger waves-effect waves-light'> deactivate </button></td>";
+                                            echo "<td> <img style='width:25px;height:25px;' src='modules/\User_Management/img/correct.png'></td>
+                                            <td><button class='btn btn-danger waves-effect waves-light'> deactivate </button></td>";
                                         } else {
-                                            echo "<td> <img style='width:20px;height:20px;' src='modules/\User_Management/img/incorrect.png'>
-                                            <button class='btn btn-success waves-effect waves-light'> Activate </button> </td>";
+                                            echo "<td> <img style='width:25px;height:25px;' src='modules/\User_Management/img/incorrect.png'> </td>
+                                            <td><button class='btn btn-success waves-effect waves-light'> Activate </button> </td>";
                                         }
                                         ?>
     

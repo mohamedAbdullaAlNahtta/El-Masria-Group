@@ -71,7 +71,8 @@ $lang['created by']='created by';
 $lang['client id']='client id';
 $lang['user type']='user type';
 $lang['access type']='access type';
-$lang['user status']='user status';
+$lang['Status']='Status';
+$lang['Action']='Action';
 
 
 ?>

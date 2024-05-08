@@ -52,6 +52,11 @@ if (isset($_GET['create_user']))
     //loading create page
     require_once ("blade/new_user.php");
 }
+elseif (isset($_GET['change_user_status']))
+{
+    //loading create page
+    require_once ("blade/change_user_status.php");
+}
 else
 {
     //...

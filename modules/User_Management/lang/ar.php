@@ -71,6 +71,7 @@ $lang['created by']='انشأ من قبل';
 $lang['client id']='رقم العميل';
 $lang['user type']='نوع المستخدم';
 $lang['access type']='نوع الوصول';
-$lang['user status']='حالة المستخدم';
+$lang['Status']='الحالة';
+$lang['Action']='إجراء';
 
 ?>
