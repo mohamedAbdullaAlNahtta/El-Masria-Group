@@ -184,6 +184,18 @@ class user_management{
         
     }
 
+    public function get_client_id()
+    {
+        $userdb = new ElmasriaDB;
+        
+        $sql = "SELECT `id` FROM `client_user`;";
+        
+        $result = $userdb->query($sql);
+        return $result;
+        $userdb->close_db_connection();  
+        
+    }
+
     public function add_user($name, $username, $password, $company_id, $group_id, $user_Type, $system_type)
     {
         

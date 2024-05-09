@@ -73,5 +73,17 @@ $lang['user type']='نوع المستخدم';
 $lang['access type']='نوع الوصول';
 $lang['Status']='الحالة';
 $lang['Action']='إجراء';
+$lang['ID'] = 'بطاقة تعريف';
+$lang['User Name'] = 'اسم المستخدم';
+$lang['Access Type'] = 'نوع الوصول';
+$lang['User IP'] = 'بروتوكول إنترنت';
+$lang['action'] = 'العملية';
+$lang['Date'] = 'التاريخ';
+$lang['Platform'] = 'نوع النظام';
+$lang['Status'] = 'الحالة';
 
+$lang['Full Name'] ='الاسم بالكامل';
+$lang['Phone Number'] ='رقم التليفون';
+$lang['National ID']= 'الرقم القومى';
+$lang['Email'] = 'بريد إلكتروني';
 ?>

@@ -67,6 +67,9 @@
                         <div class="tab-pane active" id="TicketInfo" role="tabpanel"  aria-expanded="true">
                             <div class="card-block" >
                                 <div class="form-body" >
+                                    <div  id="main_container"> 
+                                        <button onclick="myBlurFunction(1)">Whatever</button>
+                                    </div>
                                     <h3 class="card-title">New User Account</h3>
                                     <div class="row p-t-20" >
                                         <!--/span-->
@@ -110,10 +113,21 @@
                                         </div>
                                         <!--/span-->
                                         <div class="col-md-3" >
+                                        <?php 
+                                        $user_manage = new user_management;
+                                        $result3 = $user_manage->get_client_id();
+                                        ?>
                                             <label class="control-label">Linked Customer</label>
                                             <div class="form-group" >
-                                                <select id="new_ticket_type" name="new_ticket_type" class="form-control form-control-line">
-                                                    <option value="Inquiry">Inquiry</option>
+                                                <select id="new_client_id" name="new_client_id" class="form-control form-control-line">
+                                                <?php 
+                                                if ($result3->num_rows > 0) {
+                                                    // output data of each row
+                                                    while($row = $result3->fetch_assoc()) { 
+                                                        echo "<option value='".$row["id"]."'>".$row["id"]."</option>";
+                                                    }
+                                                }
+                                                ?>
                                                 </select>
                                             </div>
                                         </div>
@@ -121,7 +135,6 @@
                                         <!--/span-->
                                         <div class="col-md-2" >
                                         <?php 
-                                        $user_manage = new user_management;
                                         $result = $user_manage->get_user_role();
                                         ?>
                                             <label>User Role</label>
@@ -199,6 +212,55 @@
                             </div>
                         </div>
 
+                    </div>
+                </div>
+                <div id="overlay"> 
+                    <div class="card" id="popup">
+                        <!-- <a href="javascript:myBlurFunction(0);">X</a>  -->
+                            <div class="card-block">
+                            <button onclick="location.href='javascript:myBlurFunction(0);'" class="btn btn-inverse"> X </button>
+                            <h1>
+                            <?php
+                            $xx = new Client();
+                            // var_dump($xx->gett_reg_status('12345678912378'));
+                            // var_dump($xx->encrypt_pin_num('12345678912345'));
+                            // var_dump($xx->decrypt_pin_num('4VcqfMk%2FL9p%2BzqaiELQ%3D'));
+                            ?>
+                            </h1>
+                            <h4 class="card-title"><?php echo $lang['Data Export'] ?></h4>
+                            <h6 class="card-subtitle"><?php echo $lang['Export data to Copy, CSV, Excel, PDF & Print'] ?></h6>
+                            <div class="table-responsive m-t-40">
+                                <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th><i class='mdi mdi-account-convert'></i></th>
+                                            <th><?php echo $lang['ID'] ?></th>
+                                            <th><?php echo $lang['Full Name'] ?></th>
+                                            <th><?php echo $lang['Phone Number'] ?></th>
+                                            <th><?php echo $lang['National ID'] ?></th>
+                                            <th><?php echo $lang['Email'] ?></th>
+                                            <th><?php echo $lang['Status'] ?></th>
+                                            <th><i class="mdi mdi-eye"></i></th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th><i class='mdi mdi-account-convert'></i></th>
+                                            <th><?php echo $lang['ID'] ?></th>
+                                            <th><?php echo $lang['Full Name'] ?></th>
+                                            <th><?php echo $lang['Phone Number'] ?></th>
+                                            <th><?php echo $lang['National ID'] ?></th>
+                                            <th><?php echo $lang['Email'] ?></th>
+                                            <th><?php echo $lang['Status'] ?></th>
+                                            <th><i class="mdi mdi-eye"></i></th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                   
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+</head>
+<body>
+<p>Change selected option by value:</p>
+<select id="mySelect">
+   <option value="1">Ann Frank</option>
+   <option value="2" selected>Paul Allen</option>
+   <option value="3">Steve Jobs</option>
+</select>
+
+<button class="changeSelected">Change Selected</button>
+
+<script>
+const changeSelected = (e) => {
+  const $select = document.querySelector('#mySelect');
+  $select.value = '3'
+};
+
+document.querySelector('.changeSelected').addEventListener('click', changeSelected);
+
+</script>
+
+</body>
+</html>
+

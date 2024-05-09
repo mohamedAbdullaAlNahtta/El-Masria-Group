@@ -73,6 +73,20 @@ $lang['user type']='user type';
 $lang['access type']='access type';
 $lang['Status']='Status';
 $lang['Action']='Action';
+$lang['ID'] = 'ID';
+$lang['User Name'] = 'User Name';
+$lang['Access Type'] = 'Access Type';
+$lang['User IP'] = 'User IP';
+$lang['action'] = 'action';
+$lang['Date'] = 'Date';
+$lang['Platform'] = 'Platform';
+$lang['Status'] = 'Status';
+
+$lang['Full Name'] ='Full Name';
+$lang['Phone Number'] ='Phone Number';
+$lang['National ID']= 'National ID';
+$lang['Email'] = 'Email';
+
 
 
 ?>
