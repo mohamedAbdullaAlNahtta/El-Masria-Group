@@ -1,4 +1,19 @@
 <script>
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
+// Change select linked customer 
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
+function myFunctionChangeSelectedClient(st){
+	const $select = document.querySelector('#new_client_id');
+  $select.value = st;
+}
+
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
+// show all client on a popup window 
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
 myBlurFunction = function(state) {
     var containerElement = document.getElementById('main_container');
     var overlayEle = document.getElementById('overlay');
@@ -115,7 +130,7 @@ function myFunctionCompareNewPassWithConfirmPass() {
     });
     $("#example24").DataTable({
         dom: "Bfrtip",
-        buttons: ["copy", "csv", "excel", "pdf", "print"],
+        buttons: [],
         order: [],
         pageLength: 3
     });

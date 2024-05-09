@@ -1,7 +1,7 @@
 <?php
 /////////////////////////////////////////////////////////////////////////////////
 // Powered by ENG Muhammad Abdullah El Nahtta 
-// This Class auto loader created from scratch by Powered by ENG Muhammad Abdullah El Nahtta
+// This Class created from scratch by Powered by ENG Muhammad Abdullah El Nahtta
 // Powered by ENG Muhammad Abdullah El Nahtta 
 /////////////////////////////////////////////////////////////////////////////////
 // you can contact me through mobile number 201093001070 or lanline 20 48 2327352
@@ -36,17 +36,22 @@
 // you can contact me through mobile number 201093001070 or lanline 20 48 2327352
 /////////////////////////////////////////////////////////////////////////////////
 // Powered by ENG Muhammad Abdullah El Nahtta 
-// This Class auto loader created from scratch by Powered by ENG Muhammad Abdullah El Nahtta
+// This Class created from scratch by Powered by ENG Muhammad Abdullah El Nahtta
 // Powered by ENG Muhammad Abdullah El Nahtta 
 /////////////////////////////////////////////////////////////////////////////////
 
-spl_autoload_register("myAutoLoader");
-function myAutoLoader($className){
-    $server = $_SERVER['DOCUMENT_ROOT'];
-    $path = "$server/El-Masria-Group/classes/";
-    $extensiontype = ".class.php";
-    $fullpath = $path . $className . $extensiontype;
+$server = $_SERVER['DOCUMENT_ROOT'];
+ include("$server/El-Masria-Group/includes/classautoloader.inc.php");
+ session_start();
+ error_reporting(0);   
 
-	include $fullpath;
+ $user = $_SESSION['user'];
 
-}
+ $A= $_GET['user'];
+ $B= $_GET['system_type'];
+
+ $dodeactivate = $user->deactivate_user($A, $B);
+
+ echo $dodeactivate;
+
+?>

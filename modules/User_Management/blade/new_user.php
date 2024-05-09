@@ -38,6 +38,16 @@
 <!-- // This Module  created bye ENG Muhammad Abdullah El Nahtta////////////////////// -->
 <!-- // Powered by ENG Muhammad Abdullah El Nahtta//////////////////////////////////// -->
 <!-- ///////////////////////////////////////////////////////////////////////////////// -->
+<?php 
+$_GET['new_full_name'];
+$_GET['new_user_name'];
+$_GET['new_password'];
+$_GET['confirm_password'];
+$_GET['new_client_id'];
+$_GET['new_user_role'];
+$_GET['new_user_access_type'];
+?>
+
 <div class="page-wrapper">
     <!-- ============================================================== -->
     <!-- Container fluid  -->
@@ -66,149 +76,151 @@
                     <div class="card-block">
                         <div class="tab-pane active" id="TicketInfo" role="tabpanel"  aria-expanded="true">
                             <div class="card-block" >
-                                <div class="form-body" >
-                                    <div  id="main_container"> 
-                                        <button onclick="myBlurFunction(1)">Whatever</button>
-                                    </div>
-                                    <h3 class="card-title">New User Account</h3>
-                                    <div class="row p-t-20" >
-                                        <!--/span-->
-                                        <div class="col-md-3" >
-                                            <label class="control-label">Name</label>
-                                            <div class="form-group" >
-                                                <input type="text" id="" name="new_reported_by" class="form-control" placeholder="" required="required" />
-                                            </div>
-                                        </div>
-                                        <!--/span-->
-                                        <div class="col-md-2" >
-                                            <label class="control-label">User Name</label>
-                                            <div class="form-group" >
-                                                <input type="text" id="" name="new_reported_by" class="form-control" placeholder="" required="required" />
-                                            </div>
-                                        </div>
-                                         <!--/span-->
-                                         <div class="col-md-3" id="new_remote_session_num" >
-                                            <label class="control-label">Password</label>
-                                            <div class="form-group" >
-                                                <div class="input-group" >
-                                                    <div class="input-group-addon" ><i style="font-size: 20px;" class="mdi mdi-key"></i></div>
-                                                    <input type="password" name="new_password" class="form-control" id="new_password" placeholder="new password" required="required">
-                                                    <div class="input-group-addon" style="cursor: pointer;" onclick="myFunctionShowPass();" ><i style="font-size: 20px;" id="showPass" class="mdi mdi-eye"></i></div>
+                                <form>
+                                    <div class="form-body" >
+                                        <h3 class="card-title">New User Account</h3>
+                                        <div class="row p-t-20" >
+                                            <!--/span-->
+                                            <div class="col-md-3" >
+                                                <label class="control-label">Name</label>
+                                                <div class="form-group" >
+                                                    <input type="text" id="full_name" name="new_full_name" class="form-control" placeholder="" required="required" />
                                                 </div>
                                             </div>
-                                        </div>
-                                        <!--/span-->
-                                        <div class="col-md-3" id="new_remote_session_num" >
-                                            <label class="control-label">Confirm Password</label>
-                                            <div class="form-group" >
-                                                <div class="input-group" >
-                                                    <div class="input-group-addon" ><i style="font-size: 20px;" class="mdi mdi-key-change"></i></div>
-                                                    <input type="password" name="confirm_password" class="form-control" id="confirm_password" placeholder="confirm password" required="required" onkeyup="myFunctionCompareNewPassWithConfirmPass();myFunctionReadyToChnage()">
-                                                    <div class="input-group-addon" >
-                                                        <img id="correctRetype" style="width: 30px; display: none;" src="modules/Change_Password/img/correct.png">
-                                                        <img id="incorrectRetype" style="width: 30px;" src="modules/Change_Password/img/incorrect.png">
+                                            <!--/span-->
+                                            <div class="col-md-2" >
+                                                <label class="control-label">User Name</label>
+                                                <div class="form-group" >
+                                                    <input type="text" id="new_user_name" name="new_user_name" class="form-control" placeholder="" required="required" />
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                            <div class="col-md-3" id="new_remote_session_num" >
+                                                <label class="control-label">Password</label>
+                                                <div class="form-group" >
+                                                    <div class="input-group" >
+                                                        <div class="input-group-addon" ><i style="font-size: 20px;" class="mdi mdi-key"></i></div>
+                                                        <input type="password" name="new_password" class="form-control" id="new_password" placeholder="new password" required="required">
+                                                        <div class="input-group-addon" style="cursor: pointer;" onclick="myFunctionShowPass();" ><i style="font-size: 20px;" id="showPass" class="mdi mdi-eye"></i></div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <!--/span-->
-                                        <div class="col-md-3" >
-                                        <?php 
-                                        $user_manage = new user_management;
-                                        $result3 = $user_manage->get_client_id();
-                                        ?>
-                                            <label class="control-label">Linked Customer</label>
-                                            <div class="form-group" >
-                                                <select id="new_client_id" name="new_client_id" class="form-control form-control-line">
-                                                <?php 
-                                                if ($result3->num_rows > 0) {
-                                                    // output data of each row
-                                                    while($row = $result3->fetch_assoc()) { 
-                                                        echo "<option value='".$row["id"]."'>".$row["id"]."</option>";
-                                                    }
-                                                }
-                                                ?>
-                                                </select>
+                                            <!--/span-->
+                                            <div class="col-md-3" id="new_remote_session_num" >
+                                                <label class="control-label">Confirm Password</label>
+                                                <div class="form-group" >
+                                                    <div class="input-group" >
+                                                        <div class="input-group-addon" ><i style="font-size: 20px;" class="mdi mdi-key-change"></i></div>
+                                                        <input type="password" name="confirm_password" class="form-control" id="confirm_password" placeholder="confirm password" required="required" onkeyup="myFunctionCompareNewPassWithConfirmPass();myFunctionReadyToChnage()">
+                                                        <div class="input-group-addon" >
+                                                            <img id="correctRetype" style="width: 30px; display: none;" src="modules/Change_Password/img/correct.png">
+                                                            <img id="incorrectRetype" style="width: 30px;" src="modules/Change_Password/img/incorrect.png">
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <!--/span-->
-                                        <!--/span-->
-                                        <div class="col-md-2" >
-                                        <?php 
-                                        $result = $user_manage->get_user_role();
-                                        ?>
-                                            <label>User Role</label>
-                                            <div class="form-group" >
-                                                <select id="new_user_role" name="new_user_role" class="form-control form-control-line">
-                                                <?php 
-                                                if ($result->num_rows > 0) {
-                                                    // output data of each row
-                                                    while($row = $result->fetch_assoc()) { 
-                                                        echo "<option value='".$row["id"]."'>".$row["name"]."</option>";
-                                                    }
-                                                }
-                                                ?>
-                                                </select>
+                                            <!--/span-->
+                                            <div class="col-md-3" >
+                                            <?php 
+                                            $user_manage = new user_management;
+                                            $result3 = $user_manage->get_client_id();
+                                            ?>
+                                                <label class="control-label">Linked Customer</label>
+                                                <div class="form-group" >
+                                                    <div class="input-group" bis_skin_checked="1">
+                                                        <select id="new_client_id" name="new_client_id" class="form-control form-control-line">
+                                                        <?php 
+                                                        if ($result3->num_rows > 0) {
+                                                            // output data of each row
+                                                            while($row = $result3->fetch_assoc()) { 
+                                                                echo "<option value='".$row["id"]."'>".$row["id"]."</option>";
+                                                            }
+                                                        }
+                                                        ?>
+                                                        </select>
+                                                        <div class="input-group-addon" style="cursor: pointer;" onclick="myBlurFunction(1)"><i style="font-size: 20px;" class="mdi mdi-account-search"></i></div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <!--/span-->
-                                        <!--/span-->
-                                        <div class="col-md-3" id="new_handled_by">
-                                        <?php 
-                                        $result1 = $user_manage->get_user_systemtype();
-                                        ?>
-                                            <label class="control-label">Access Type</label>
-                                            <div class="form-group" >
-                                                <select id="new_user_access_type" name="new_user_access_type" class="form-control form-control-line">
+                                            <!--/span-->
+                                            <!--/span-->
+                                            <div class="col-md-2" >
+                                            <?php 
+                                            $result = $user_manage->get_user_role();
+                                            ?>
+                                                <label>User Role</label>
+                                                <div class="form-group" >
+                                                    <select id="new_user_role" name="new_user_role" class="form-control form-control-line">
                                                     <?php 
-                                                    if ($result1->num_rows > 0) {
+                                                    if ($result->num_rows > 0) {
                                                         // output data of each row
-                                                        while($row = $result1->fetch_assoc()) { 
-                                                            echo "<option value='".$row["systemType"]."'>".$row["systemType"]."</option>";
+                                                        while($row = $result->fetch_assoc()) { 
+                                                            echo "<option value='".$row["id"]."'>".$row["name"]."</option>";
                                                         }
                                                     }
                                                     ?>
-                                                </select>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                            <!--/span-->
+                                            <div class="col-md-3" id="new_handled_by">
+                                            <?php 
+                                            $result1 = $user_manage->get_user_systemtype();
+                                            ?>
+                                                <label class="control-label">Access Type</label>
+                                                <div class="form-group" >
+                                                    <select id="new_user_access_type" name="new_user_access_type" class="form-control form-control-line">
+                                                        <?php 
+                                                        if ($result1->num_rows > 0) {
+                                                            // output data of each row
+                                                            while($row = $result1->fetch_assoc()) { 
+                                                                echo "<option value='".$row["systemType"]."'>".$row["systemType"]."</option>";
+                                                            }
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                        </div>
+                                        <!--/row-->
+                                        <!--/row-->
+                                        <hr />
+                                        <div class="row" >
+                                            <!--/span-->
+                                            <div id="" class="col-md-.5 col-xs-6" style="padding-left: 1%;" >
+                                                <img src="modules/User_Management/img/dateicon.png" style="border-radius: 50%; border: 1px solid #000; margin-top: 20px;" width="50" />
+                                            </div>
+                                            <div class="col-md-3" >
+                                                <label class="control-label">Creation Date</label>
+                                                <div class="form-group" >
+                                                    <input type="text" id="" name="new_creation_date" class="form-control" readonly="true" placeholder="<?php echo htmlentities(date("Y-m-d h:i:s A")); ?>" />
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                            <!--/span-->
+                                            <div id="" class="col-md-.5 col-xs-6" >
+                                                <img alt="user image" src="<?php echo $user->user_profile_img; ?>" style="border-radius: 50%; border: 1px solid #000; margin-top: 20px;" width="50" />
+                                            </div>
+                                            <div class="col-md-2.5 col-xs-6" >
+                                                <label class="control-label"> Created By</label>
+                                                <div class="form-group" >
+                                                    <input type="text" id="" name="new_created_by" class="form-control" readonly="true" value="<?php echo $user->name; ?>" placeholder="<?php echo $user->name; ?>" />
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                        </div>
+                                        <div class="card-block" >
+                                            <!--/hr-->
+                                            <hr>
+                                            <div class="form-actions" >
+                                                <button type="submit" name="submit" class="btn btn-success"><i class="fa fa-check"></i> Save</button>
+                                                <button type="button" onclick="location.href='index?module=User_Management'" class="btn btn-inverse">Cancel</button>
                                             </div>
                                         </div>
-                                        <!--/span-->
                                     </div>
-                                    <!--/row-->
-                                    <!--/row-->
-                                    <hr />
-                                    <div class="row" >
-                                        <!--/span-->
-                                        <div id="" class="col-md-.5 col-xs-6" style="padding-left: 1%;" >
-                                            <img src="modules/User_Management/img/dateicon.png" style="border-radius: 50%; border: 1px solid #000; margin-top: 20px;" width="50" />
-                                        </div>
-                                        <div class="col-md-3" >
-                                            <label class="control-label">Creation Date</label>
-                                            <div class="form-group" >
-                                                <input type="text" id="" name="new_creation_date" class="form-control" readonly="true" placeholder="<?php echo htmlentities(date("Y-m-d h:i:s A")); ?>" />
-                                            </div>
-                                        </div>
-                                        <!--/span-->
-                                        <!--/span-->
-                                        <div id="" class="col-md-.5 col-xs-6" >
-                                            <img alt="user image" src="<?php echo $user->user_profile_img; ?>" style="border-radius: 50%; border: 1px solid #000; margin-top: 20px;" width="50" />
-                                        </div>
-                                        <div class="col-md-2.5 col-xs-6" >
-                                            <label class="control-label"> Created By</label>
-                                            <div class="form-group" >
-                                                <input type="text" id="" name="new_created_by" class="form-control" readonly="true" value="<?php echo $user->name; ?>" placeholder="<?php echo $user->name; ?>" />
-                                            </div>
-                                        </div>
-                                        <!--/span-->
-                                    </div>
-                                    <div class="card-block" >
-                                        <!--/hr-->
-                                        <hr>
-                                        <div class="form-actions" >
-                                            <button type="submit" name="submit" class="btn btn-success"><i class="fa fa-check"></i> Save</button>
-                                            <button type="button" onclick="location.href='index?module=User_Management'" class="btn btn-inverse">Cancel</button>
-                                        </div>
-                                    </div>
-                                </div>
+                                </form>    
                             </div>
                         </div>
 
@@ -218,14 +230,12 @@
                     <div class="card" id="popup">
                         <!-- <a href="javascript:myBlurFunction(0);">X</a>  -->
                             <div class="card-block">
-                            <button onclick="location.href='javascript:myBlurFunction(0);'" class="btn btn-inverse"> X </button>
+                            <button onclick="myBlurFunction(0);" class="btn btn-inverse"> X </button>
                             <h1>
                             <?php
                             $xx = new Client();
                             ?>
                             </h1>
-                            <h4 class="card-title"><?php echo $lang['Data Export'] ?></h4>
-                            <h6 class="card-subtitle"><?php echo $lang['Export data to Copy, CSV, Excel, PDF & Print'] ?></h6>
                             <div class="table-responsive m-t-40">
                                 <table id="example24" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                     <thead>
@@ -237,7 +247,7 @@
                                             <th><?php echo $lang['National ID'] ?></th>
                                             <th><?php echo $lang['Email'] ?></th>
                                             <th><?php echo $lang['Status'] ?></th>
-                                            <th><i class="mdi mdi-eye"></i></th>
+                                            <th><i class="mdi mdi-account-check"></i> Select</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -249,7 +259,7 @@
                                             <th><?php echo $lang['National ID'] ?></th>
                                             <th><?php echo $lang['Email'] ?></th>
                                             <th><?php echo $lang['Status'] ?></th>
-                                            <th><i class="mdi mdi-eye"></i></th>
+                                            <th><i class="mdi mdi-account-check"></i> Select</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -272,7 +282,7 @@
                                                 echo "<td> <img style='width:20px;height:20px;' src='modules/Client_Registration/img/incorrect.png'> ".$row["reg_status"]." </td>";
                                             }
                                             ?>
-                                            <td><button onclick="window.open('modules/Client_Registration/blade/view?national_id=<?php echo htmlentities($row['national_ID']); ?>',' ','width=1000,height=500');" style="width: 35px;height: 35px;padding: 0px;font-size: 18px;" class="btn btn-info btn-circle btn-xl"><i class="mdi mdi-email"></i> </button></td>
+                                            <td><button onclick="myFunctionChangeSelectedClient(<?php echo $row['id']; ?>);myBlurFunction(0);" style="width: 35px;height: 35px;padding: 0px;font-size: 18px;" class="btn btn-info btn-circle btn-xl"><i class="mdi mdi-account-check"></i> </button></td>
                                             <?php        
                                             echo "</tr>";          
                                         }

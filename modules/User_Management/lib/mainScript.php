@@ -18,7 +18,7 @@
 		}
 		#popup {
 		    position: absolute;
-		    width: 90%;
+		    width: 95%;
 		    height: 95%;
 		    left: 0px;
 		    right: 0px;
