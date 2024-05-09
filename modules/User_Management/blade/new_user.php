@@ -77,7 +77,7 @@
                                             </div>
                                         </div>
                                         <!--/span-->
-                                        <div class="col-md-3" >
+                                        <div class="col-md-2" >
                                             <label class="control-label">User Name</label>
                                             <div class="form-group" >
                                                 <input type="text" id="" name="new_reported_by" class="form-control" placeholder="" required="required" />
@@ -109,8 +109,8 @@
                                             </div>
                                         </div>
                                         <!--/span-->
-                                        <div class="col-md-2" >
-                                            <label class="control-label">Access Type</label>
+                                        <div class="col-md-3" >
+                                            <label class="control-label">Linked Customer</label>
                                             <div class="form-group" >
                                                 <select id="new_ticket_type" name="new_ticket_type" class="form-control form-control-line">
                                                     <option value="Inquiry">Inquiry</option>
@@ -120,22 +120,41 @@
                                         <!--/span-->
                                         <!--/span-->
                                         <div class="col-md-2" >
+                                        <?php 
+                                        $user_manage = new user_management;
+                                        $result = $user_manage->get_user_role();
+                                        ?>
                                             <label>User Role</label>
                                             <div class="form-group" >
-                                                <select id="new_ticket_status" name="new_ticket_status" class="form-control form-control-line">
-                                                    <option value="Open">Open</option>
+                                                <select id="new_user_role" name="new_user_role" class="form-control form-control-line">
+                                                <?php 
+                                                if ($result->num_rows > 0) {
+                                                    // output data of each row
+                                                    while($row = $result->fetch_assoc()) { 
+                                                        echo "<option value='".$row["id"]."'>".$row["name"]."</option>";
+                                                    }
+                                                }
+                                                ?>
                                                 </select>
                                             </div>
                                         </div>
                                         <!--/span-->
                                         <!--/span-->
-                                        <div class="col-md-3" id="new_handled_by" style="display: none;" >
-                                            <label class="control-label">Handled By</label>
+                                        <div class="col-md-3" id="new_handled_by">
+                                        <?php 
+                                        $result1 = $user_manage->get_user_systemtype();
+                                        ?>
+                                            <label class="control-label">Access Type</label>
                                             <div class="form-group" >
-                                                <select id="new_handled_by_select" name="new_handled_by" class="form-control form-control-line">
-                                                    <option value="">Choose One</option>
-                                                    <option value="Eng Muhammad ElNahtta">Eng Muhammad ElNahtta</option>
-                                                    <option value="Eng Marwa Awad">Eng Marwa Awad</option>
+                                                <select id="new_user_access_type" name="new_user_access_type" class="form-control form-control-line">
+                                                    <?php 
+                                                    if ($result1->num_rows > 0) {
+                                                        // output data of each row
+                                                        while($row = $result1->fetch_assoc()) { 
+                                                            echo "<option value='".$row["systemType"]."'>".$row["systemType"]."</option>";
+                                                        }
+                                                    }
+                                                    ?>
                                                 </select>
                                             </div>
                                         </div>
@@ -152,7 +171,7 @@
                                         <div class="col-md-3" >
                                             <label class="control-label">Creation Date</label>
                                             <div class="form-group" >
-                                                <input type="text" id="" name="new_creation_date" class="form-control" readonly="true" placeholder="2024-05-08 02:18:41 AM" />
+                                                <input type="text" id="" name="new_creation_date" class="form-control" readonly="true" placeholder="<?php echo htmlentities(date("Y-m-d h:i:s A")); ?>" />
                                             </div>
                                         </div>
                                         <!--/span-->

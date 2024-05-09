@@ -117,6 +117,29 @@ class user_management{
         
     }
 
+    public function get_user_role()
+    {
+        $userdb = new ElmasriaDB;
+        
+        $sql = "SELECT * FROM `user_role` WHERE `id` NOT IN (1,2)";
+        
+        $result = $userdb->query($sql);
+        return $result;
+        $userdb->close_db_connection();  
+        
+    }
+    public function get_user_systemtype()
+    {
+        $userdb = new ElmasriaDB;
+        
+        $sql = "SELECT DISTINCT `systemType` FROM `users`;";
+        
+        $result = $userdb->query($sql);
+        return $result;
+        $userdb->close_db_connection();  
+        
+    }
+
     public function add_user($name, $username, $password, $company_id, $group_id, $user_Type, $system_type)
     {
         
