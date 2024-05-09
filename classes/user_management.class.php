@@ -139,6 +139,50 @@ class user_management{
         $userdb->close_db_connection();  
         
     }
+    public function get_count_of_user()
+    {
+        $userdb = new ElmasriaDB;
+        
+        $sql = "SELECT count(*) FROM `users`";
+        
+        $result = $userdb->query($sql);
+        return $result;
+        $userdb->close_db_connection();  
+        
+    }
+    public function get_count_active_user()
+    {
+        $userdb = new ElmasriaDB;
+        
+        $sql = "SELECT count(*) FROM `users`; WHERE `status`='A'";
+        
+        $result = $userdb->query($sql);
+        return $result;
+        $userdb->close_db_connection();  
+        
+    }
+    public function get_count_inactive_user()
+    {
+        $userdb = new ElmasriaDB;
+        
+        $sql = "SELECT count(*) FROM `users`; WHERE `status`='I'";
+        
+        $result = $userdb->query($sql);
+        return $result;
+        $userdb->close_db_connection();  
+        
+    }
+    public function get_count_blocked_user()
+    {
+        $userdb = new ElmasriaDB;
+        
+        $sql = "SELECT * FROM `user_role` WHERE `id` NOT IN (1,2)";
+        
+        $result = $userdb->query($sql);
+        return $result;
+        $userdb->close_db_connection();  
+        
+    }
 
     public function add_user($name, $username, $password, $company_id, $group_id, $user_Type, $system_type)
     {

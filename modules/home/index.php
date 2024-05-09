@@ -77,10 +77,10 @@
 						<!-- Column -->
 						<div class="col p-r-0">
 							<h1 class="font-light">86</h1>
-							<h6 class="text-muted">New Clients</h6></div>
+							<h6 class="text-muted">Users</h6></div>
 						<!-- Column -->
 						<div class="col text-right align-self-center">
-							<div data-label="20%" class="css-bar m-b-0 css-bar-primary css-bar-20"><i class="mdi mdi-account-circle"></i></div>
+						<img src="modules/home/img/user.4.png" style="border-radius: 50%; border: 1px solid rgb(179,148,84);" width="80" height="80" />
 						</div>
 					</div>
 				</div>
@@ -93,10 +93,10 @@
 						<!-- Column -->
 						<div class="col p-r-0">
 							<h1 class="font-light">248</h1>
-							<h6 class="text-muted">All Projects</h6></div>
+							<h6 class="text-muted">Active Users</h6></div>
 						<!-- Column -->
 						<div class="col text-right align-self-center">
-							<div data-label="30%" class="css-bar m-b-0 css-bar-danger css-bar-20"><i class="mdi mdi-briefcase-check"></i></div>
+							<img src="modules/home/img/user.1.png" style="border-radius: 50%; border: 1px solid rgb(179,148,84);" width="80" height="80" />
 						</div>
 					</div>
 				</div>
@@ -109,10 +109,10 @@
 						<!-- Column -->
 						<div class="col p-r-0">
 							<h1 class="font-light">352</h1>
-							<h6 class="text-muted">New Items</h6></div>
+							<h6 class="text-muted">InActive Users</h6></div>
 						<!-- Column -->
 						<div class="col text-right align-self-center">
-							<div data-label="40%" class="css-bar m-b-0 css-bar-warning css-bar-40"><i class="mdi mdi-star-circle"></i></div>
+							<img src="modules/home/img/user.3.png" style="border-radius: 50%; border: 1px solid rgb(179,148,84);"  width="80" height="80" />
 						</div>
 					</div>
 				</div>
@@ -125,10 +125,10 @@
 						<!-- Column -->
 						<div class="col p-r-0">
 							<h1 class="font-light">159</h1>
-							<h6 class="text-muted">Invoices</h6></div>
+							<h6 class="text-muted">Blocked Users</h6></div>
 						<!-- Column -->
 						<div class="col text-right align-self-center">
-							<div data-label="60%" class="css-bar m-b-0 css-bar-info css-bar-60"><i class="mdi mdi-receipt"></i></div>
+							<img src="modules/home/img/user.2.png" style="border-radius: 50%; border: 1px solid rgb(179,148,84);" width="80" height="80" />
 						</div>
 					</div>
 				</div>
