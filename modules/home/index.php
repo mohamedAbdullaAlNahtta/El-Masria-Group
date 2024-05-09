@@ -51,7 +51,7 @@
 				<h3 class="text-themecolor m-b-0 m-t-0">Dashboard</h3>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="javascript:void(0)">Reports</a></li>
-					<li class="breadcrumb-item active">ٍSome Report Goes Here </li>
+					<li class="breadcrumb-item active">ٍDashboard </li>
 				</ol>
 			</div>
 		</div>
@@ -69,15 +69,26 @@
 		<!--==================================================================================================-->
 		<!--==================================================================================================-->
 		<div class="row">
+		<?php
+		$user_manage = new user_management;
+		$result = $user_manage->get_count_of_user();
+		?>
 			<!-- Column -->
 			<div class="col-sm-3">
-				<div class="card card-block">
+				<div class="card card-block"style="background-color: #f9b5ff;">
 					<!-- Row -->
 					<div class="row p-t-10 p-b-10">
 						<!-- Column -->
 						<div class="col p-r-0">
-							<h1 class="font-light">86</h1>
-							<h6 class="text-muted">Users</h6></div>
+							<?php 
+							if ($result->num_rows > 0) {
+								// output data of each row
+								while($row = $result->fetch_assoc()) { 
+									echo "<h1 class='font-light'>".$row["users"]."</h1>";
+								}
+							}
+							?>
+							<h6>Total Users</h6></div>
 						<!-- Column -->
 						<div class="col text-right align-self-center">
 						<img src="modules/home/img/user.4.png" style="border-radius: 50%; border: 1px solid rgb(179,148,84);" width="80" height="80" />
@@ -86,14 +97,24 @@
 				</div>
 			</div>
 			<!-- Column -->
+			<?php
+			$result1 = $user_manage->get_count_active_user();
+			?>
 			<div class="col-sm-3">
-				<div class="card card-block">
+				<div class="card card-block" style="background-color: green;">
 					<!-- Row -->
 					<div class="row p-t-10 p-b-10">
 						<!-- Column -->
 						<div class="col p-r-0">
-							<h1 class="font-light">248</h1>
-							<h6 class="text-muted">Active Users</h6></div>
+							<?php 
+							if ($result1->num_rows > 0) {
+								// output data of each row
+								while($row = $result1->fetch_assoc()) { 
+									echo "<h1 class='font-light'>".$row["users"]."</h1>";
+								}
+							}
+							?>
+							<h6>Active Users</h6></div>
 						<!-- Column -->
 						<div class="col text-right align-self-center">
 							<img src="modules/home/img/user.1.png" style="border-radius: 50%; border: 1px solid rgb(179,148,84);" width="80" height="80" />
@@ -102,14 +123,24 @@
 				</div>
 			</div>
 			<!-- Column -->
+			<?php
+			$result2 = $user_manage->get_count_inactive_user();
+			?>
 			<div class="col-sm-3">
-				<div class="card card-block">
+				<div class="card card-block" style="background-color: yellow;">
 					<!-- Row -->
 					<div class="row p-t-10 p-b-10">
 						<!-- Column -->
 						<div class="col p-r-0">
-							<h1 class="font-light">352</h1>
-							<h6 class="text-muted">InActive Users</h6></div>
+							<?php 
+							if ($result2->num_rows > 0) {
+								// output data of each row
+								while($row = $result2->fetch_assoc()) { 
+									echo "<h1 class='font-light'>".$row["users"]."</h1>";
+								}
+							}
+							?>
+							<h6>InActive Users</h6></div>
 						<!-- Column -->
 						<div class="col text-right align-self-center">
 							<img src="modules/home/img/user.3.png" style="border-radius: 50%; border: 1px solid rgb(179,148,84);"  width="80" height="80" />
@@ -118,14 +149,24 @@
 				</div>
 			</div>
 			<!-- Column -->
+			<?php
+			$result3 = $user_manage->get_count_blocked_user();
+			?>
 			<div class="col-sm-3">
-				<div class="card card-block">
+				<div class="card card-block" style="background-color: red;">
 					<!-- Row -->
 					<div class="row p-t-10 p-b-10">
 						<!-- Column -->
 						<div class="col p-r-0">
-							<h1 class="font-light">159</h1>
-							<h6 class="text-muted">Blocked Users</h6></div>
+							<?php 
+							if ($result3->num_rows > 0) {
+								// output data of each row
+								while($row = $result3->fetch_assoc()) { 
+									echo "<h1 class='font-light'>".$row["users"]."</h1>";
+								}
+							}
+							?>
+							<h6>Blocked Users</h6></div>
 						<!-- Column -->
 						<div class="col text-right align-self-center">
 							<img src="modules/home/img/user.2.png" style="border-radius: 50%; border: 1px solid rgb(179,148,84);" width="80" height="80" />

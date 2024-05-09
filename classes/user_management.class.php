@@ -143,7 +143,7 @@ class user_management{
     {
         $userdb = new ElmasriaDB;
         
-        $sql = "SELECT count(*) FROM `users`";
+        $sql = "SELECT count(*) as `users` FROM `users`";
         
         $result = $userdb->query($sql);
         return $result;
@@ -154,7 +154,7 @@ class user_management{
     {
         $userdb = new ElmasriaDB;
         
-        $sql = "SELECT count(*) FROM `users`; WHERE `status`='A'";
+        $sql = "SELECT count(*) as `users` FROM `users` WHERE `status`='A'";
         
         $result = $userdb->query($sql);
         return $result;
@@ -165,7 +165,7 @@ class user_management{
     {
         $userdb = new ElmasriaDB;
         
-        $sql = "SELECT count(*) FROM `users`; WHERE `status`='I'";
+        $sql = "SELECT count(*) as `users` FROM `users` WHERE `status`='I'";
         
         $result = $userdb->query($sql);
         return $result;
@@ -176,7 +176,7 @@ class user_management{
     {
         $userdb = new ElmasriaDB;
         
-        $sql = "SELECT count(*) FROM `users_blocked`";
+        $sql = "SELECT count(*) as `users` FROM `users_blocked`";
         
         $result = $userdb->query($sql);
         return $result;
