@@ -176,7 +176,7 @@ class user_management{
     {
         $userdb = new ElmasriaDB;
         
-        $sql = "SELECT * FROM `user_role` WHERE `id` NOT IN (1,2)";
+        $sql = "SELECT count(*) FROM `users_blocked`";
         
         $result = $userdb->query($sql);
         return $result;
