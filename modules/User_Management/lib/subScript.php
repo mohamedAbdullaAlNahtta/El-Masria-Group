@@ -113,6 +113,12 @@ function myFunctionCompareNewPassWithConfirmPass() {
         buttons: ["copy", "csv", "excel", "pdf", "print"],
         order: [],
     });
+    $("#example24").DataTable({
+        dom: "Bfrtip",
+        buttons: ["copy", "csv", "excel", "pdf", "print"],
+        order: [],
+        pageLength: 3
+    });
 </script>
 
 

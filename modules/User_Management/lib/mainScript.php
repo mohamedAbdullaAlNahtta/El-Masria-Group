@@ -18,11 +18,11 @@
 		}
 		#popup {
 		    position: absolute;
-		    width: 80%;
-		    height: 60%;
+		    width: 90%;
+		    height: 95%;
 		    left: 0px;
 		    right: 0px;
-		    top: 0px;
+		    top: 1%;
 		    bottom: 0px;
 		    margin: auto;
 		}
