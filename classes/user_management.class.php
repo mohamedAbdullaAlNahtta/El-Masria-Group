@@ -104,7 +104,7 @@ class user_management{
     {
         $userdb = new ElmasriaDB;
         
-        $sql = "SELECT `A`.`userId`,`A`.`name`, `A`.`username`, `A`.`userType`, `A`.`systemtype`, `A`.`Status`, `A`.`creationDate`, `A`.`createdBy`,
+        $sql = "SELECT `A`.`client_id`,`A`.`userId`,`A`.`name`, `A`.`username`, `A`.`userType`, `A`.`systemtype`, `A`.`Status`, `A`.`creationDate`, `A`.`createdBy`,
          `B`.`name` AS  `user_role_id` 
          FROM (SELECT`userId`, `client_id`,`name`,`username`,`user_role_id`,`userType`,
          `systemtype`,`Status`,`creationDate`,`createdBy` 
