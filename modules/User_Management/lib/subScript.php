@@ -135,6 +135,28 @@ function myFunctionCompareNewPassWithConfirmPass() {
         pageLength: 3
     });
 </script>
+<script src="assets/js/custom.min.js"></script>
+<script src="assets/plugins/toast-master/js/jquery.toast.js"></script>
+<!-- <script src="assets/js/toastr.js"></script> -->
+<script>
+$(function() {
+    "use strict";
+      $(".clientIdSelected").click(function(){
+           $.toast({
+            heading: 'Client ID Selected',
+            text: 'the user will have access to the client unit data.',
+            position: 'top-right',
+            loaderBg:'#ff6849',
+            icon: 'success',
+            hideAfter: 3000, 
+            stack: 6
+          });
+
+     });
+});
+    
+</script>
+
 
 
 

@@ -27,3 +27,5 @@
 		    margin: auto;
 		}
 </style>
+<!-- toast CSS -->
+<link href="assets/plugins/toast-master/css/jquery.toast.css" rel="stylesheet">
