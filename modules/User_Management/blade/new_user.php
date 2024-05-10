@@ -119,11 +119,11 @@ echo $new_user_access_type;
                                             <div class="col-md-2" >
                                                 <label class="control-label">User Name</label>
                                                 <div class="form-group" >
-                                                    <input type="text" id="new_user_name" name="new_user_name" class="form-control" placeholder="" required="required" />
+                                                    <input type="text" id="new_user_name" name="new_user_name" class="new_user_name form-control" placeholder="" required="required" />
                                                 </div>
                                             </div>
                                             <!--/span-->
-                                            <div class="col-md-3" id="new_remote_session_num" >
+                                            <div class="col-md-3">
                                                 <label class="control-label">Password</label>
                                                 <div class="form-group" >
                                                     <div class="input-group" >
@@ -134,7 +134,7 @@ echo $new_user_access_type;
                                                 </div>
                                             </div>
                                             <!--/span-->
-                                            <div class="col-md-3" id="new_remote_session_num" >
+                                            <div class="col-md-3">
                                                 <label class="control-label">Confirm Password</label>
                                                 <div class="form-group" >
                                                     <div class="input-group" >
@@ -192,7 +192,7 @@ echo $new_user_access_type;
                                             </div>
                                             <!--/span-->
                                             <!--/span-->
-                                            <div class="col-md-3" id="new_handled_by">
+                                            <div class="col-md-3">
                                             <?php 
                                             $result1 = $user_manage->get_user_systemtype();
                                             ?>
@@ -207,6 +207,17 @@ echo $new_user_access_type;
                                                             }
                                                         }
                                                         ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                            <!--/span-->
+                                            <div class="col-md-3">
+                                                <label class="control-label">User Status</label>
+                                                <div class="form-group" >
+                                                    <select id="new_user_status" name="new_user_status" class="form-control form-control-line">
+                                                    <option value='A'>Active</option>
+                                                    <option value='I'>Inactive</option>     
                                                     </select>
                                                 </div>
                                             </div>

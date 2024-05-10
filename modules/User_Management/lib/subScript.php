@@ -153,6 +153,18 @@ $(function() {
           });
 
      });
+     $(".new_user_name").click(function(){
+           $.toast({
+            heading: 'be careful',
+            text: 'please select the user role carefully.',
+            position: 'top-right',
+            loaderBg:'#ff6849',
+            icon: 'error',
+            hideAfter: 5000, 
+            stack: 6
+          });
+
+     });
 });
     
 </script>
