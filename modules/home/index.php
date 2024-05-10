@@ -75,7 +75,7 @@
 		?>
 			<!-- Column -->
 			<div class="col-sm-3">
-				<div class="card card-block animate__animated animate__swing animate__slow"style="background-color: #d0186e;">
+				<div class="card card-block animate__animated animate__bounceInDown"style="background-color: #d0186e;">
 					<!-- Row -->
 					<div class="row p-t-10 p-b-10">
 						<!-- Column -->
@@ -101,7 +101,7 @@
 			$result1 = $user_manage->get_count_active_user();
 			?>
 			<div class="col-sm-3">
-				<div class="card card-block animate__animated animate__swing animate__slow" style="background-color: green;">
+				<div class="card card-block animate__animated animate__bounceInDown" style="background-color: green;">
 					<!-- Row -->
 					<div class="row p-t-10 p-b-10">
 						<!-- Column -->
@@ -127,7 +127,7 @@
 			$result2 = $user_manage->get_count_inactive_user();
 			?>
 			<div class="col-sm-3">
-				<div class="card card-block animate__animated animate__swing animate__slow" style="background-color: yellow;">
+				<div class="card card-block animate__animated animate__bounceInDown" style="background-color: yellow;">
 					<!-- Row -->
 					<div class="row p-t-10 p-b-10">
 						<!-- Column -->
@@ -153,7 +153,7 @@
 			$result3 = $user_manage->get_count_blocked_user();
 			?>
 			<div class="col-sm-3">
-				<div class="card card-block animate__animated animate__swing animate__slow" style="background-color: red;">
+				<div class="card card-block animate__animated animate__bounceInDown" style="background-color: red;">
 					<!-- Row -->
 					<div class="row p-t-10 p-b-10">
 						<!-- Column -->

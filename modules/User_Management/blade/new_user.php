@@ -39,13 +39,22 @@
 <!-- // Powered by ENG Muhammad Abdullah El Nahtta//////////////////////////////////// -->
 <!-- ///////////////////////////////////////////////////////////////////////////////// -->
 <?php 
-$_GET['new_full_name'];
-$_GET['new_user_name'];
-$_GET['new_password'];
-$_GET['confirm_password'];
-$_GET['new_client_id'];
-$_GET['new_user_role'];
-$_GET['new_user_access_type'];
+
+if(isset($_POST['submit'])){
+
+    $new_full_name = $_POST['new_full_name'];
+    $new_user_name = $_POST['new_user_name'];
+    $new_password = $_POST['new_password'];
+    $confirm_password = $_POST['confirm_password'];
+    $new_client_id = $_POST['new_client_id'];
+    $new_user_role = $_POST['new_user_role'];
+    $new_user_access_type =$_POST['new_user_access_type'];
+
+} else {
+    // do nothing 
+}
+
+
 ?>
 
 <div class="page-wrapper">
@@ -76,7 +85,7 @@ $_GET['new_user_access_type'];
                     <div class="card-block">
                         <div class="tab-pane active" id="TicketInfo" role="tabpanel"  aria-expanded="true">
                             <div class="card-block" >
-                                <form>
+                                <form action="index?module=User_Management&create_user=true" method="post" enctype="multipart/form-data">
                                     <div class="form-body" >
                                         <h3 class="card-title">New User Account</h3>
                                         <div class="row p-t-20" >
@@ -282,7 +291,7 @@ $_GET['new_user_access_type'];
                                                 echo "<td> <img style='width:20px;height:20px;' src='modules/Client_Registration/img/incorrect.png'> ".$row["reg_status"]." </td>";
                                             }
                                             ?>
-                                            <td><button onclick="myFunctionChangeSelectedClient(<?php echo $row['id']; ?>);myBlurFunction(0);" style="width: 35px;height: 35px;padding: 0px;font-size: 18px;" class="btn btn-info btn-circle btn-xl"><i class="mdi mdi-account-check"></i> </button></td>
+                                            <td><button onclick="myFunctionChangeSelectedClient(<?php echo $row['id']; ?>);myBlurFunction(0);" style="width: 35px;height: 35px;padding: 0px;font-size: 18px;" class="clientIdSelected btn btn-info btn-circle btn-xl"><i class="mdi mdi-account-check"></i> </button></td>
                                             <?php        
                                             echo "</tr>";          
                                         }
