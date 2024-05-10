@@ -40,15 +40,20 @@
 <!-- ///////////////////////////////////////////////////////////////////////////////// -->
 <?php 
 
+$user_manage = new user_management;
+
 if(isset($_POST['submit'])){
 
     $new_full_name = $_POST['new_full_name'];
     $new_user_name = $_POST['new_user_name'];
     $new_password = $_POST['new_password'];
-    $confirm_password = $_POST['confirm_password'];
     $new_client_id = $_POST['new_client_id'];
     $new_user_role = $_POST['new_user_role'];
     $new_user_access_type =$_POST['new_user_access_type'];
+    $new_user_status = $_POST['new_user_status'];
+    $created_by = $user->username;
+
+    $create_new_user = $user_manage->add_user($new_full_name, $new_user_name, $new_password, $new_user_role,  $new_user_access_type, $new_user_status, $created_by, $new_client_id);
 
 } else {
     // do nothing 
@@ -88,25 +93,6 @@ if(isset($_POST['submit'])){
                                 <form action="index?module=User_Management&create_user=true" method="post" enctype="multipart/form-data">
                                     <div class="form-body" >
                                         <h3 class="card-title">New User Account</h3>
-                                        <?php 
-
-if(isset($_POST['submit'])){
-echo $new_full_name;
-echo '<br>';
-echo $new_user_name;
-echo '<br>';
-echo $new_password;
-echo '<br>';
-echo $confirm_password;
-echo '<br>';
-echo $new_client_id;
-echo '<br>';
-echo $new_user_role;
-echo '<br>';
-echo $new_user_access_type;
-}
-
-                                        ?>
                                         <div class="row p-t-20" >
                                             <!--/span-->
                                             <div class="col-md-3" >
@@ -139,7 +125,7 @@ echo $new_user_access_type;
                                                 <div class="form-group" >
                                                     <div class="input-group" >
                                                         <div class="input-group-addon" ><i style="font-size: 20px;" class="mdi mdi-key-change"></i></div>
-                                                        <input type="password" name="confirm_password" class="form-control" id="confirm_password" placeholder="confirm password" required="required" onkeyup="myFunctionCompareNewPassWithConfirmPass();myFunctionReadyToChnage()">
+                                                        <input type="password" name="confirm_password" class="form-control" id="confirm_password" placeholder="confirm password" required="required" onkeyup="myFunctionCompareNewPassWithConfirmPass();">
                                                         <div class="input-group-addon" >
                                                             <img id="correctRetype" style="width: 30px; display: none;" src="modules/Change_Password/img/correct.png">
                                                             <img id="incorrectRetype" style="width: 30px;" src="modules/Change_Password/img/incorrect.png">
@@ -150,7 +136,6 @@ echo $new_user_access_type;
                                             <!--/span-->
                                             <div class="col-md-3" >
                                             <?php 
-                                            $user_manage = new user_management;
                                             $result3 = $user_manage->get_client_id();
                                             ?>
                                                 <label class="control-label">Linked Customer</label>
@@ -254,7 +239,7 @@ echo $new_user_access_type;
                                             <!--/hr-->
                                             <hr>
                                             <div class="form-actions" >
-                                                <button type="submit" name="submit" class="btn btn-success"><i class="fa fa-check"></i> Save</button>
+                                                <button type="submit" id='submit' name="submit" class="btn btn-success" disabled><i class="fa fa-check"></i> Save</button>
                                                 <button type="button" onclick="location.href='index?module=User_Management'" class="btn btn-inverse">Cancel</button>
                                             </div>
                                         </div>

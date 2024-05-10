@@ -53,10 +53,12 @@ function myFunctionCompareNewPassWithConfirmPass() {
     if (newPasswordUserInput === confirmPasswordUserInput) {
         document.getElementById("incorrectRetype").style.display = "none";
         document.getElementById("correctRetype").style.display = "block";
+        document.getElementById("submit").disabled = false; 
         return true;
     } else {
         document.getElementById("incorrectRetype").style.display = "block";
         document.getElementById("correctRetype").style.display = "none";
+        document.getElementById("submit").disabled = true; 
         return false;
     }
 }
@@ -153,14 +155,19 @@ $(function() {
           });
 
      });
+});
+</script>
+<script>
+$(function() {
+    "use strict";
      $(".new_user_name").click(function(){
            $.toast({
             heading: 'be careful',
             text: 'please select the user role carefully.',
             position: 'top-right',
             loaderBg:'#ff6849',
-            icon: 'error',
-            hideAfter: 5000, 
+            icon: 'warning',
+            hideAfter: 6000, 
             stack: 6
           });
 
@@ -174,12 +181,12 @@ $(function() {
 if (isset($GLOBALS['create_new_user'])) {
     $xxx = $GLOBALS['create_new_user'][0];
 
-$xxxx = str_replace('.', '.\n ', $xxx );
+// $GLOBALS['create_new_user'][1]= str_replace('xxx', '.\n ', $GLOBALS['create_new_user'][1]);
 
 if ($xxx === true) { ?>
 <script type="text/javascript">
 
- swal("Good job!", "New user has been created successfully", "success"); 
+ swal("Good job!", "<?php echo$GLOBALS['create_new_user'][1]; ?>", "success"); 
 
 // Your application has indicated there's an error
 window.setTimeout(function () {
@@ -190,11 +197,11 @@ window.setTimeout(function () {
 </script>
 <?php
 
-} else if(is_string($GLOBALS['create_new_user'])) {?>
+} else {?>
 <script type="text/javascript">
  swal({   
             title: "Opps!",   
-            text: "<?php echo 'You have an Error which is\n '.htmlentities('please contact your Administrator Arabicss softwar development team '.$GLOBALS['create_new_user']); ?>",   
+            text: "<?php echo 'You have an Error which is\n '.htmlentities('please contact your Administrator Arabicss softwar development team '.$GLOBALS['create_new_user'][1]); ?>",   
             type: "warning",   
             showCancelButton: true, 
             showConfirmButton: false,   
@@ -205,7 +212,12 @@ window.setTimeout(function () {
 }
 
 ?>
-
+<!-- reset form values after refresh  -->
+<script type="text/javascript">
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+</script>
 
 
 

@@ -196,12 +196,11 @@ class user_management{
         
     }
 
-    public function add_user($name, $username, $password, $company_id, $group_id, $user_Type, $system_type)
+    public function add_user($name, $username, $password, $group_id, $system_type, $userStatus, $created_by, $client_id)
     {
         
         $userdb = new ElmasriaDB;
         
-        $created_by = $this->username;
         
         $lower_case_username = $this->lower_case($username);
         $lower_case_system_type = $this->lower_case($system_type);
@@ -212,7 +211,7 @@ class user_management{
         if ($user_already_exists === true) {
             return $user_not_created_successfully_user_exists= array(false," The User Name : (($username)) ,  with System Type : (($system_type)) ... Is already exists !!! .... please try another user name.  Thanks for trusting US....... Software Development Team");
         } else {
-            $sql = "INSERT INTO `users` (`userId`, `name`, `username`, `secureH`, `password`, `companyId`, `groupId`, `userType`, `systemtype`, `Status`, `creationDate`, `createdBy`) VALUES (NULL, '$name', '$lower_case_username', '$hashed_password', '$encyripted_password', '$company_id', '$group_id', '$user_Type', '$system_type', 'I', SYSDATE(), '$created_by');";
+            $sql = "INSERT INTO `users` (`userId`, `name`, `username`, `secureH`, `password`, `companyId`, `user_role_id`, `userType`, `systemtype`, `Status`, `creationDate`, `createdBy`, `client_id`) VALUES (NULL, '$name', '$lower_case_username', '$hashed_password', '$encyripted_password', '1', '$group_id', 'C', '$system_type', '$userStatus', SYSDATE(), '$created_by', '$client_id');";
             
             $insert_user = $userdb->query($sql);
             
@@ -223,7 +222,7 @@ class user_management{
                 }
                 return $user_created_successfully_log_error = array(true,"New User Account has been Created successfully. $log_action  Thanks for trusting US....... Software Development Team");
             } else {
-                return $user_not_created_successfully= array(false, " The User Not created... Something Went Wrong please contact the Developer ");
+                return $user_not_created_successfully= array(false, " The User Not created... Something Went Wrong please contact the Developer ", $insert_user);
             }
         }
         
