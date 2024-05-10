@@ -51,7 +51,6 @@ $server = $_SERVER['DOCUMENT_ROOT'];
  $B= $_GET['system_type'];
 
  $dodeactivate = $user->deactivate_user($A, $B);
-
- echo $dodeactivate;
+ echo json_encode($dodeactivate);
 
 ?>

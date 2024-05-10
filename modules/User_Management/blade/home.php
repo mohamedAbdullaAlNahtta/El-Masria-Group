@@ -126,11 +126,15 @@
                                         echo "<td>".$row["createdBy"]." </td>";
                                         // echo "<td> <i class='mdi mdi-update'></i> ".$row["Status"]." </td>";
                                         if ($row["Status"]==='A') {
-                                            echo "<td> <img style='width:25px;height:25px;' src='modules/\User_Management/img/correct.png'></td>
-                                            <td><button class='btn btn-danger waves-effect waves-light'> deactivate </button></td>";
+                                            ?>
+                                            <td> <img style='width:25px;height:25px;' src='modules/User_Management/img/correct.png'></td>
+                                            <td><button onclick='doDeactivateUser("<?php echo $row["username"]; ?>")' class='btn btn-danger waves-effect waves-light'> deactivate </button></td>
+                                            <?php 
                                         } else {
-                                            echo "<td> <img style='width:25px;height:25px;' src='modules/\User_Management/img/incorrect.png'> </td>
-                                            <td><button class='btn btn-success waves-effect waves-light'> Activate </button> </td>";
+                                            ?>
+                                            <td> <img style='width:25px;height:25px;' src='modules/User_Management/img/incorrect.png'> </td>
+                                            <td><button onclick='doActivateUser("<?php echo $row["username"]; ?>")' class='btn btn-success waves-effect waves-light'> Activate </button> </td>
+                                            <?php 
                                         }
                                         ?>
     

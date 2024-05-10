@@ -284,13 +284,13 @@ class User
             
             $log_action = $this->log_activate_user($username, $system_type);
             if ($log_action !== true) {
-                return "User has been Activated." . $log_action . "  Thanks for trusting US....... Software Development Team";
+                return $activate_user_log_failed= array(true, "User has been Activated." . $log_action . "  Thanks for trusting US....... Software Development Team");
             } else {
-                return "User has been Activated.  Thanks for trusting US....... Software Development Team";
+                return $activate_user= array(true, "User has been Activated.  Thanks for trusting US....... Software Development Team");
             }
             
         } else {
-            return false;
+            return $activate_user_failed= array(false, "failed to activate user. please contact Software Development Team Thanks for trusting US.......");
         }
         
         $userdb->close_db_connection();
@@ -310,12 +310,12 @@ class User
         if ($deactivate_user === true) {
             $log_action = $this->log_deactivate_user($username, $system_type);
             if ($log_action !== true) {
-                return "User has been Deactivated." . $log_action . "  Thanks for trusting US....... Software Development Team";
+                return $deactivate_user_log_failed= array(true,"User has been Deactivated." . $log_action . "  Thanks for trusting US....... Software Development Team");
             } else {
-                return "User has been Deactivated.  Thanks for trusting US....... Software Development Team";
+                return $deactivate_user= array(true,"User has been Deactivated.  Thanks for trusting US....... Software Development Team");
             }
         } else {
-            return false;
+            return $dactivate_user_failed= array(false, "failed to deactivate user. please contact Software Development Team Thanks for trusting US.......");
         }
         
         $userdb->close_db_connection();

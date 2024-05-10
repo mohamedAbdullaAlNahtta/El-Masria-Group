@@ -212,6 +212,57 @@ window.setTimeout(function () {
 }
 
 ?>
+
+<!-- activate user -->
+<script type="text/javascript">
+function doActivateUser(user) {
+    $.ajax({
+        url: 'modules/User_Management/inc/activate_user.php?user='+user+'&system_type=web', // returns "[1,2,3,4,5,6]"
+        dataType: 'json', // jQuery will parse the response as JSON
+        success: function (outputfromserver) {
+            // outputfromserver is an array in this case
+            // just access it like one
+            // swal("Good job!", outputfromserver[1], "success");
+            swal({
+                        title: "Good job", 
+                        text: outputfromserver[1] , 
+                        type: "success",
+                        confirmButtonText: "Reload", 
+                        closeOnConfirm: false,
+                        closeOnCancel: false
+                        },
+                    function(){ 
+                        location.reload();
+                    }
+                );
+        }
+    });
+}
+function doDeactivateUser(user) {
+    $.ajax({
+        url: 'modules/User_Management/inc/deactivate_user.php?user='+user+'&system_type=web', // returns "[1,2,3,4,5,6]"
+        dataType: 'json', // jQuery will parse the response as JSON
+        success: function (outputfromserver) {
+            // outputfromserver is an array in this case
+            // just access it like one
+            swal({
+                        title: "Good job", 
+                        text: outputfromserver[1] , 
+                        type: "success",
+                        confirmButtonText: "Reload", 
+                        closeOnConfirm: false,
+                        closeOnCancel: false
+                        },
+                    function(){ 
+                        location.reload();
+                    }
+                );
+        }
+    });
+}
+</script>
+
+
 <!-- reset form values after refresh  -->
 <script type="text/javascript">
     if (window.history.replaceState) {

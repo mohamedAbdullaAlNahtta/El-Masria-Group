@@ -52,6 +52,6 @@ $server = $_SERVER['DOCUMENT_ROOT'];
 
  $doactivate = $user->activate_user($A, $B);
 
- echo $doactivate;
+ echo json_encode($doactivate);
 
 ?>
