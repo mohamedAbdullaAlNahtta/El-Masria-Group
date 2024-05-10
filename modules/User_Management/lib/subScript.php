@@ -157,6 +157,7 @@ $(function() {
      });
 });
 </script>
+
 <script>
 $(function() {
     "use strict";
@@ -186,7 +187,18 @@ if (isset($GLOBALS['create_new_user'])) {
 if ($xxx === true) { ?>
 <script type="text/javascript">
 
- swal("Good job!", "<?php echo$GLOBALS['create_new_user'][1]; ?>", "success"); 
+  swal({
+            title: "Good job", 
+            text: "<?php echo$GLOBALS['create_new_user'][1]; ?>", 
+            type: "success",
+            confirmButtonText: "Reload", 
+            closeOnConfirm: false,
+            closeOnCancel: false
+            },
+        function(){ 
+            window.location.href = "index?module=User_Management";
+        }
+    );
 
 // Your application has indicated there's an error
 window.setTimeout(function () {
