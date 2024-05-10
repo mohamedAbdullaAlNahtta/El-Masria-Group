@@ -88,6 +88,25 @@ if(isset($_POST['submit'])){
                                 <form action="index?module=User_Management&create_user=true" method="post" enctype="multipart/form-data">
                                     <div class="form-body" >
                                         <h3 class="card-title">New User Account</h3>
+                                        <?php 
+
+if(isset($_POST['submit'])){
+echo $new_full_name;
+echo '<br>';
+echo $new_user_name;
+echo '<br>';
+echo $new_password;
+echo '<br>';
+echo $confirm_password;
+echo '<br>';
+echo $new_client_id;
+echo '<br>';
+echo $new_user_role;
+echo '<br>';
+echo $new_user_access_type;
+}
+
+                                        ?>
                                         <div class="row p-t-20" >
                                             <!--/span-->
                                             <div class="col-md-3" >

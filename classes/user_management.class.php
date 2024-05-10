@@ -210,7 +210,7 @@ class user_management{
         $user_already_exists = $this->user_exists($lower_case_username, $lower_case_system_type);
         
         if ($user_already_exists === true) {
-            return " The User Name : (($username)) ,  with System Type : (($system_type)) ... Is already exists !!! .... please try another user name.  Thanks for trusting US....... Software Development Team";
+            return $user_not_created_successfully_user_exists= array(false," The User Name : (($username)) ,  with System Type : (($system_type)) ... Is already exists !!! .... please try another user name.  Thanks for trusting US....... Software Development Team");
         } else {
             $sql = "INSERT INTO `users` (`userId`, `name`, `username`, `secureH`, `password`, `companyId`, `groupId`, `userType`, `systemtype`, `Status`, `creationDate`, `createdBy`) VALUES (NULL, '$name', '$lower_case_username', '$hashed_password', '$encyripted_password', '$company_id', '$group_id', '$user_Type', '$system_type', 'I', SYSDATE(), '$created_by');";
             
@@ -219,12 +219,47 @@ class user_management{
             if ($insert_user === true) {
                 $log_action = $this->log_add_new_user_success($name, $username, $company_id, $group_id, $user_Type, $system_type);
                 if ($log_action === true) {
-                    return "New User Account has been Created successfully.  Thanks for trusting US....... Software Development Team";
+                    return $user_created_successfully = array(true, "New User Account has been Created successfully.  Thanks for trusting US....... Software Development Team") ;
                 }
-                return "New User Account has been Created successfully. $log_action  Thanks for trusting US....... Software Development Team";
+                return $user_created_successfully_log_error = array(true,"New User Account has been Created successfully. $log_action  Thanks for trusting US....... Software Development Team");
             } else {
-                return " The User Not created... Something Went Wrong please contact the Developer ... Eng Muhammad El Nahtta as critical ";
+                return $user_not_created_successfully= array(false, " The User Not created... Something Went Wrong please contact the Developer ");
             }
+        }
+        
+        $userdb->close_db_connection();
+        
+    }
+    protected function log_add_new_user_success($name, $username, $company_id, $group_id, $user_Type, $system_type)
+    {
+        //get browser data
+        $x               = new UserAgent();
+        $y               = $x->getBrowser();
+        $userAgent       = $y['userAgent'];
+        $browserName     = $y['name'];
+        $browserVersion  = $y['version'];
+        $browserPlatform = $y['platform'];
+        $browserPattern  = $y['pattern'];
+        $uip             = $_SERVER['REMOTE_ADDR'];
+        // end of getting brwoser data 
+        
+        $userdb   = new ElmasriaDB;
+        $actionBy = $this->username;
+        
+        $lower_case_username = $this->lower_case($username);
+        
+        $sql = "INSERT INTO `users_logs` (`username`,`systemtype`, `userIP`, `action`, `status`, `description`,   `userAgent`, `browserName`, `browserVersion`, `browserPlatform`, `browserPattern`)
+        VALUES ('$lower_case_username', '$system_type', '$uip', ' User Created ',  'Success', 'the User has been Created by $actionBy', '$userAgent', '$browserName', '$browserVersion', '$browserPlatform', '$browserPattern');";
+        
+        $sql .= "INSERT INTO `users_logs` (`username`, `systemtype`, `userIP`, `action`, `status`, `description`,   `userAgent`, `browserName`, `browserVersion`, `browserPlatform`, `browserPattern`)
+        VALUES ('$actionBy', '$system_type', '$uip', 'Create User ',  'Success', ' Create User:  $lower_case_username With Name: $name, Company ID: $company_id,  User Group ID: $group_id, User Type: $user_Type, and System Type: $system_type', '$userAgent', '$browserName', '$browserVersion', '$browserPlatform', '$browserPattern')";
+        
+        $add_log = $userdb->multi_query($sql);
+        
+        if ($add_log === true) {
+            return true;
+        } else {
+            return "falied to log the process in the System logs";
         }
         
         $userdb->close_db_connection();

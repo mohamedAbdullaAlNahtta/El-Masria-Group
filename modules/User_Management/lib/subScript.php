@@ -157,6 +157,43 @@ $(function() {
     
 </script>
 
+<?php
+
+if (isset($GLOBALS['create_new_user'])) {
+    $xxx = $GLOBALS['create_new_user'][0];
+
+$xxxx = str_replace('.', '.\n ', $xxx );
+
+if ($xxx === true) { ?>
+<script type="text/javascript">
+
+ swal("Good job!", "New user has been created successfully", "success"); 
+
+// Your application has indicated there's an error
+window.setTimeout(function () {
+    // Move to a new location or you can do something else
+    window.location.href = "index?module=User_Management";
+}, 3000);
+
+</script>
+<?php
+
+} else if(is_string($GLOBALS['create_new_user'])) {?>
+<script type="text/javascript">
+ swal({   
+            title: "Opps!",   
+            text: "<?php echo 'You have an Error which is\n '.htmlentities('please contact your Administrator Arabicss softwar development team '.$GLOBALS['create_new_user']); ?>",   
+            type: "warning",   
+            showCancelButton: true, 
+            showConfirmButton: false,   
+            cancelButtonColor: "#DD6B55",   
+        });   
+</script>
+<?php }
+}
+
+?>
+
 
 
 
