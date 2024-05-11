@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2024 at 04:06 AM
+-- Generation Time: May 11, 2024 at 04:15 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -371,7 +371,9 @@ INSERT INTO `module_menu` (`id`, `id_parent`, `icon`, `link`, `name`, `type`, `o
 ('Review Payments', 'Payment Reports', 'mdi mdi-calendar', 'index?module=Review_Payments', 'Review Payments', 'tab', 0, 1, 12),
 ('Security', 'System Administration', 'mdi mdi-security', '#', 'Security', 'men', 3, 1, 40),
 ('Setting', NULL, 'mdi mdi-settings', '#', 'Setting', 'men', 11, 0, 21),
+('Support', NULL, 'mdi mdi-animation', '#', 'Support', 'men', 9, 0, 15),
 ('System Administration', NULL, 'mdi mdi-camera-front-variant', '#', 'System Administration', 'tab', 12, 0, 32),
+('Tickets', 'Support', 'mdi mdi-ticket-account', 'index?module=Tickets', 'Tickets', 'tab', 0, 1, 16),
 ('User Management', 'System Administration', 'mdi mdi-account-multiple', 'index?module=User_Management', 'User Management', 'tab', 0, 1, 36),
 ('Users Activity Logs', 'Security', 'mdi mdi-account-convert', 'index?module=Users_Activity_Logs', 'Users Activity Logs', 'tab', 2, 2, 42);
 
@@ -407,7 +409,10 @@ INSERT INTO `users` (`userId`, `name`, `username`, `secureH`, `password`, `compa
 (1, 'Eng Muhammad ElNahtta', 'muhammad.elnahtta', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 2, 'P', 'web', 1, 1, 'A', '2023-12-07 09:22:14', 'Muhammad.AlNahtta', 0),
 (9, 'admin', 'Administrator', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 2, 'P', 'web', 1, 1, 'A', '2023-12-07 09:22:14', 'Muhammad.AlNahtta', 0),
 (13, 'Muhammad Soliman', 'Muhammad.Soliman', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 3, 'P', 'web', 1, 1, 'I', '2023-12-07 09:22:14', 'Muhammad.AlNahtta', 0),
-(14, 'Nabile', 'Nabile', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 3, 'P', 'web', 1, 1, 'A', '2023-12-07 09:22:14', 'Muhammad.AlNahtta', 0);
+(14, 'Nabile', 'Nabile', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 3, 'P', 'web', 1, 1, 'A', '2023-12-07 09:22:14', 'Muhammad.AlNahtta', 0),
+(215, 'full name', 'user.name', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 6, 'C', 'web', 1, 1, 'A', '2024-05-10 23:28:57', 'muhammad.elnahtta', 21958),
+(216, 'Ahmed Abdullah El Nahtta', 'ahmed.alnahtta', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 3, 'C', 'web', 1, 1, 'A', '2024-05-11 00:27:40', 'muhammad.elnahtta', 21444),
+(218, 'ahmed hisham', 'ahmed.hisham', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 3, 'C', 'web', 1, 1, 'I', '2024-05-11 00:30:56', 'muhammad.elnahtta', 20758);
 
 -- --------------------------------------------------------
 
@@ -471,7 +476,8 @@ INSERT INTO `users_login_sessions` (`id`, `username`, `systemtype`, `token`, `lo
 (467, 'muhammad.elnahtta', 'web', '6b8d47cc43c596a9d89763ff35a4e5d5xIP392hPup18b6a4e7edb8e004d9f604779b94037ea32a7911', '2024-05-07 19:13:11', '2024-05-07 19:27:11'),
 (468, 'muhammad.elnahtta', 'web', 'f1c84e370fe4d04c0b116e7fa72abdb47WeTiA4EhQ784ee56a86795c4dc33d6b48fca90b6dfd1d8813', '2024-05-07 19:27:44', '2024-05-08 02:24:22'),
 (469, 'muhammad.elnahtta', 'web', '7d4f3deac02d4b1836aeff4813e63910GXxrzVnP2Rcc18f0679e94900d8336ffc2b7f5debc567f38be', '2024-05-08 02:24:17', '2024-05-08 03:20:49'),
-(470, 'muhammad.elnahtta', 'web', '65b58b392edba17bb009bc14d5c90c4dbreWGCDzjx777d160caae35071f30482d12581e98985d7cda2', '2024-05-08 03:20:45', NULL);
+(470, 'muhammad.elnahtta', 'web', '65b58b392edba17bb009bc14d5c90c4dbreWGCDzjx777d160caae35071f30482d12581e98985d7cda2', '2024-05-08 03:20:45', '2024-05-09 03:47:16'),
+(471, 'muhammad.elnahtta', 'web', '88788ab9c8e1a17186cb6925d6c990fbjRFKwlluegd4bc268d9abe8f2e273a7d4e65c79d7c875a717a', '2024-05-09 03:47:57', NULL);
 
 -- --------------------------------------------------------
 
@@ -589,7 +595,98 @@ INSERT INTO `users_logs` (`id`, `username`, `systemtype`, `userIP`, `action`, `d
 (1275, 'muhammad.elnahtta', 'web', '127.0.0.1', 'destroy other session token', '', 'Success', '2024-05-08 02:24:22', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
 (1276, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log out', '', 'Success', '2024-05-08 03:17:36', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
 (1277, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log in', '', 'Success', '2024-05-08 03:20:45', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
-(1278, 'muhammad.elnahtta', 'web', '127.0.0.1', 'destroy other session token', '', 'Success', '2024-05-08 03:20:49', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved');
+(1278, 'muhammad.elnahtta', 'web', '127.0.0.1', 'destroy other session token', '', 'Success', '2024-05-08 03:20:49', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1279, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log out', '', 'Success', '2024-05-09 03:47:15', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1280, '', 'web', '127.0.0.1', 'log out', '', 'Success', '2024-05-09 03:47:25', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1281, 'nabile', 'web', '127.0.0.1', 'log in', 'Account has been blocked', 'Failed', '2024-05-09 03:47:32', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1282, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log in', '', 'Success', '2024-05-09 03:47:57', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1283, '', '', '127.0.0.1', ' User Activated ', 'the User has been activated by muhammad.elnahtta', 'Success', '2024-05-09 16:37:07', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1284, 'muhammad.elnahtta', '', '127.0.0.1', 'Activate User ', ' Activated User  ', 'Success', '2024-05-09 16:37:08', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1285, '', '', '127.0.0.1', ' User Activated ', 'the User has been activated by muhammad.elnahtta', 'Success', '2024-05-09 16:37:32', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1286, 'muhammad.elnahtta', '', '127.0.0.1', 'Activate User ', ' Activated User  ', 'Success', '2024-05-09 16:37:32', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1287, 'nabile', 'web', '127.0.0.1', ' User Activated ', 'the User has been activated by muhammad.elnahtta', 'Success', '2024-05-09 16:38:41', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1288, 'muhammad.elnahtta', 'web', '127.0.0.1', 'Activate User ', ' Activated User  nabile', 'Success', '2024-05-09 16:38:41', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1289, 'nabile', 'web', '127.0.0.1', ' user deactivated ', 'the User has been deactivated by muhammad.elnahtta', 'Success', '2024-05-09 16:41:35', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1290, 'muhammad.elnahtta', 'web', '127.0.0.1', 'dectivate user ', ' Deactivated User  nabile', 'Success', '2024-05-09 16:41:36', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1291, 'nabile', 'web', '127.0.0.1', ' User Activated ', 'the User has been activated by muhammad.elnahtta', 'Success', '2024-05-09 16:41:44', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1292, 'muhammad.elnahtta', 'web', '127.0.0.1', 'Activate User ', ' Activated User  nabile', 'Success', '2024-05-09 16:41:44', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1293, 'nabile', 'web', '127.0.0.1', ' user deactivated ', 'the User has been deactivated by muhammad.elnahtta', 'Success', '2024-05-09 16:41:57', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1294, 'muhammad.elnahtta', 'web', '127.0.0.1', 'dectivate user ', ' Deactivated User  nabile', 'Success', '2024-05-09 16:41:57', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1295, 'nabile', 'web', '127.0.0.1', ' user deactivated ', 'the User has been deactivated by muhammad.elnahtta', 'Success', '2024-05-09 16:42:16', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1296, 'muhammad.elnahtta', 'web', '127.0.0.1', 'dectivate user ', ' Deactivated User  nabile', 'Success', '2024-05-09 16:42:16', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1297, 'nabile', 'web', '127.0.0.1', ' user deactivated ', 'the User has been deactivated by muhammad.elnahtta', 'Success', '2024-05-09 16:42:20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1298, 'muhammad.elnahtta', 'web', '127.0.0.1', 'dectivate user ', ' Deactivated User  nabile', 'Success', '2024-05-09 16:42:20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1299, 'nabile', 'web', '127.0.0.1', ' User Activated ', 'the User has been activated by muhammad.elnahtta', 'Success', '2024-05-09 16:42:22', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1300, 'muhammad.elnahtta', 'web', '127.0.0.1', 'Activate User ', ' Activated User  nabile', 'Success', '2024-05-09 16:42:22', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1301, 'nabile', 'web', '127.0.0.1', ' user deactivated ', 'the User has been deactivated by muhammad.elnahtta', 'Success', '2024-05-09 20:38:29', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1302, 'muhammad.elnahtta', 'web', '127.0.0.1', 'dectivate user ', ' Deactivated User  nabile', 'Success', '2024-05-09 20:38:29', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1303, 'nabile', 'web', '127.0.0.1', ' User Activated ', 'the User has been activated by muhammad.elnahtta', 'Success', '2024-05-09 20:38:58', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1304, 'muhammad.elnahtta', 'web', '127.0.0.1', 'Activate User ', ' Activated User  nabile', 'Success', '2024-05-09 20:38:58', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1305, 'user.name', 'web', '127.0.0.1', ' User Created ', 'the User has been Created by ', 'Success', '2024-05-10 22:57:51', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1306, '', 'web', '127.0.0.1', 'Create User ', ' Create User:  user.name With Name: full name, Company ID: ,  User Group ID: 3, User Type: , and System Type: web', 'Success', '2024-05-10 22:57:51', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1307, 'user.name', 'web', '127.0.0.1', ' User Created ', 'the User has been Created by ', 'Success', '2024-05-10 23:28:57', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1308, '', 'web', '127.0.0.1', 'Create User ', ' Create User:  user.name With Name: full name, Company ID: ,  User Group ID: 6, User Type: , and System Type: web', 'Success', '2024-05-10 23:28:57', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1309, 'nabile', 'web', '127.0.0.1', ' User Activated ', 'the User has been activated by muhammad.elnahtta', 'Success', '2024-05-10 23:50:33', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1310, 'muhammad.elnahtta', 'web', '127.0.0.1', 'Activate User ', ' Activated User  nabile', 'Success', '2024-05-10 23:50:33', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1311, 'nabile', 'web', '127.0.0.1', ' User Activated ', 'the User has been activated by muhammad.elnahtta', 'Success', '2024-05-10 23:51:14', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1312, 'muhammad.elnahtta', 'web', '127.0.0.1', 'Activate User ', ' Activated User  nabile', 'Success', '2024-05-10 23:51:14', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1313, 'nabile', 'web', '127.0.0.1', ' User Activated ', 'the User has been activated by muhammad.elnahtta', 'Success', '2024-05-10 23:51:51', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1314, 'muhammad.elnahtta', 'web', '127.0.0.1', 'Activate User ', ' Activated User  nabile', 'Success', '2024-05-10 23:51:51', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1315, 'nabile', 'web', '127.0.0.1', ' User Activated ', 'the User has been activated by muhammad.elnahtta', 'Success', '2024-05-10 23:52:25', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1316, 'muhammad.elnahtta', 'web', '127.0.0.1', 'Activate User ', ' Activated User  nabile', 'Success', '2024-05-10 23:52:25', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1317, 'nabile', 'web', '127.0.0.1', ' User Activated ', 'the User has been activated by muhammad.elnahtta', 'Success', '2024-05-10 23:53:32', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1318, 'muhammad.elnahtta', 'web', '127.0.0.1', 'Activate User ', ' Activated User  nabile', 'Success', '2024-05-10 23:53:32', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1319, 'nabile', 'web', '127.0.0.1', ' User Activated ', 'the User has been activated by muhammad.elnahtta', 'Success', '2024-05-10 23:53:48', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1320, 'muhammad.elnahtta', 'web', '127.0.0.1', 'Activate User ', ' Activated User  nabile', 'Success', '2024-05-10 23:53:48', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1321, 'nabile', 'web', '127.0.0.1', ' User Activated ', 'the User has been activated by muhammad.elnahtta', 'Success', '2024-05-10 23:54:11', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1322, 'muhammad.elnahtta', 'web', '127.0.0.1', 'Activate User ', ' Activated User  nabile', 'Success', '2024-05-10 23:54:12', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1323, 'nabile', 'web', '127.0.0.1', ' User Activated ', 'the User has been activated by muhammad.elnahtta', 'Success', '2024-05-10 23:54:22', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1324, 'muhammad.elnahtta', 'web', '127.0.0.1', 'Activate User ', ' Activated User  nabile', 'Success', '2024-05-10 23:54:23', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1325, 'nabile', 'web', '127.0.0.1', ' User Activated ', 'the User has been activated by muhammad.elnahtta', 'Success', '2024-05-10 23:54:26', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1326, 'muhammad.elnahtta', 'web', '127.0.0.1', 'Activate User ', ' Activated User  nabile', 'Success', '2024-05-10 23:54:26', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1327, 'nabile', 'web', '127.0.0.1', ' User Activated ', 'the User has been activated by muhammad.elnahtta', 'Success', '2024-05-10 23:54:28', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1328, 'muhammad.elnahtta', 'web', '127.0.0.1', 'Activate User ', ' Activated User  nabile', 'Success', '2024-05-10 23:54:28', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1329, 'nabile', 'web', '127.0.0.1', ' User Activated ', 'the User has been activated by muhammad.elnahtta', 'Success', '2024-05-10 23:55:05', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1330, 'muhammad.elnahtta', 'web', '127.0.0.1', 'Activate User ', ' Activated User  nabile', 'Success', '2024-05-10 23:55:05', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1331, 'nabile', 'web', '127.0.0.1', ' User Activated ', 'the User has been activated by muhammad.elnahtta', 'Success', '2024-05-10 23:55:08', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1332, 'muhammad.elnahtta', 'web', '127.0.0.1', 'Activate User ', ' Activated User  nabile', 'Success', '2024-05-10 23:55:08', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1333, 'nabile', 'web', '127.0.0.1', ' User Activated ', 'the User has been activated by muhammad.elnahtta', 'Success', '2024-05-10 23:59:15', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1334, 'muhammad.elnahtta', 'web', '127.0.0.1', 'Activate User ', ' Activated User  nabile', 'Success', '2024-05-10 23:59:15', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1335, 'nabile', 'web', '127.0.0.1', ' User Activated ', 'the User has been activated by muhammad.elnahtta', 'Success', '2024-05-10 23:59:19', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1336, 'muhammad.elnahtta', 'web', '127.0.0.1', 'Activate User ', ' Activated User  nabile', 'Success', '2024-05-10 23:59:19', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1337, 'nabile', 'web', '127.0.0.1', ' User Activated ', 'the User has been activated by muhammad.elnahtta', 'Success', '2024-05-11 00:00:11', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1338, 'muhammad.elnahtta', 'web', '127.0.0.1', 'Activate User ', ' Activated User  nabile', 'Success', '2024-05-11 00:00:11', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1339, 'nabile', 'web', '127.0.0.1', ' User Activated ', 'the User has been activated by muhammad.elnahtta', 'Success', '2024-05-11 00:03:16', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1340, 'muhammad.elnahtta', 'web', '127.0.0.1', 'Activate User ', ' Activated User  nabile', 'Success', '2024-05-11 00:03:16', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1341, 'snabile', 'web', '127.0.0.1', ' User Activated ', 'the User has been activated by muhammad.elnahtta', 'Success', '2024-05-11 00:09:33', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved');
+INSERT INTO `users_logs` (`id`, `username`, `systemtype`, `userIP`, `action`, `description`, `status`, `actionDateTime`, `userAgent`, `browserName`, `browserVersion`, `browserPlatform`, `browserPattern`, `actionApproval`) VALUES
+(1342, 'muhammad.elnahtta', 'web', '127.0.0.1', 'Activate User ', ' Activated User  snabile', 'Success', '2024-05-11 00:09:33', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1343, 'nabile', 'web', '127.0.0.1', ' User Activated ', 'the User has been activated by muhammad.elnahtta', 'Success', '2024-05-11 00:14:25', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1344, 'muhammad.elnahtta', 'web', '127.0.0.1', 'Activate User ', ' Activated User  nabile', 'Success', '2024-05-11 00:14:26', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1345, 'nabile', 'web', '127.0.0.1', ' user deactivated ', 'the User has been deactivated by muhammad.elnahtta', 'Success', '2024-05-11 00:23:27', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1346, 'muhammad.elnahtta', 'web', '127.0.0.1', 'dectivate user ', ' Deactivated User  nabile', 'Success', '2024-05-11 00:23:28', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1347, 'user.name', 'web', '127.0.0.1', ' user deactivated ', 'the User has been deactivated by muhammad.elnahtta', 'Success', '2024-05-11 00:23:34', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1348, 'muhammad.elnahtta', 'web', '127.0.0.1', 'dectivate user ', ' Deactivated User  user.name', 'Success', '2024-05-11 00:23:34', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1349, 'user.name', 'web', '127.0.0.1', ' User Activated ', 'the User has been activated by muhammad.elnahtta', 'Success', '2024-05-11 00:23:39', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1350, 'muhammad.elnahtta', 'web', '127.0.0.1', 'Activate User ', ' Activated User  user.name', 'Success', '2024-05-11 00:23:39', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1351, 'nabile', 'web', '127.0.0.1', ' User Activated ', 'the User has been activated by muhammad.elnahtta', 'Success', '2024-05-11 00:25:53', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1352, 'muhammad.elnahtta', 'web', '127.0.0.1', 'Activate User ', ' Activated User  nabile', 'Success', '2024-05-11 00:25:53', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1353, 'user.name', 'web', '127.0.0.1', ' user deactivated ', 'the User has been deactivated by muhammad.elnahtta', 'Success', '2024-05-11 00:25:56', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1354, 'muhammad.elnahtta', 'web', '127.0.0.1', 'dectivate user ', ' Deactivated User  user.name', 'Success', '2024-05-11 00:25:56', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1355, 'nabile', 'web', '127.0.0.1', ' user deactivated ', 'the User has been deactivated by muhammad.elnahtta', 'Success', '2024-05-11 00:25:59', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1356, 'muhammad.elnahtta', 'web', '127.0.0.1', 'dectivate user ', ' Deactivated User  nabile', 'Success', '2024-05-11 00:25:59', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1357, 'nabile', 'web', '127.0.0.1', ' User Activated ', 'the User has been activated by muhammad.elnahtta', 'Success', '2024-05-11 00:26:02', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1358, 'muhammad.elnahtta', 'web', '127.0.0.1', 'Activate User ', ' Activated User  nabile', 'Success', '2024-05-11 00:26:02', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1359, 'user.name', 'web', '127.0.0.1', ' User Activated ', 'the User has been activated by muhammad.elnahtta', 'Success', '2024-05-11 00:26:05', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1360, 'muhammad.elnahtta', 'web', '127.0.0.1', 'Activate User ', ' Activated User  user.name', 'Success', '2024-05-11 00:26:05', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1361, 'ahmed.alnahtta', 'web', '127.0.0.1', ' User Created ', 'the User has been Created by ', 'Success', '2024-05-11 00:27:41', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1362, '', 'web', '127.0.0.1', 'Create User ', ' Create User:  ahmed.alnahtta With Name: Ahmed Abdullah El Nahtta, Company ID: ,  User Group ID: 3, User Type: , and System Type: web', 'Success', '2024-05-11 00:27:41', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1363, 'ahmed.hisham', 'web', '127.0.0.1', ' User Created ', 'the User has been Created by ', 'Success', '2024-05-11 00:29:44', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1364, '', 'web', '127.0.0.1', 'Create User ', ' Create User:  ahmed.hisham With Name: ahmed hisham, Company ID: ,  User Group ID: 3, User Type: , and System Type: web', 'Success', '2024-05-11 00:29:44', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1365, 'ahmed.hisham', 'web', '127.0.0.1', ' User Created ', 'the User has been Created by ', 'Success', '2024-05-11 00:30:56', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1366, '', 'web', '127.0.0.1', 'Create User ', ' Create User:  ahmed.hisham With Name: ahmed hisham, Company ID: ,  User Group ID: 3, User Type: , and System Type: web', 'Success', '2024-05-11 00:30:56', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1367, 'ahmed.hisham', 'web', '127.0.0.1', ' user deactivated ', 'the User has been deactivated by muhammad.elnahtta', 'Success', '2024-05-11 00:31:03', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1368, 'muhammad.elnahtta', 'web', '127.0.0.1', 'dectivate user ', ' Deactivated User  ahmed.hisham', 'Success', '2024-05-11 00:31:03', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved');
 
 -- --------------------------------------------------------
 
@@ -612,21 +709,6 @@ CREATE TABLE `users_profiles` (
 INSERT INTO `users_profiles` (`id`, `user_id`, `Profile_image`, `Job_Title`, `job_description`) VALUES
 (1, 1, 'assets/images/User_profile_img/5a9fd0f10360264ccadf48177b961d00.jpg', 'Senior Software Developer', ''),
 (2, 4, 'assets/images/User_profile_img/MarwaAwad.png', 'Software Developer', '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user_log`
---
-
-CREATE TABLE `user_log` (
-  `id` int(11) NOT NULL,
-  `username` varchar(250) NOT NULL,
-  `userIP` varchar(250) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `loginTime` datetime NOT NULL DEFAULT current_timestamp(),
-  `logoutTime` datetime NOT NULL,
-  `loginStatus` varchar(250) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -687,7 +769,9 @@ INSERT INTO `user_role_module_menu` (`user_role_id`, `module_menu_id`, `access_t
 (2, 'Review Payments', 'write'),
 (2, 'Security', 'write'),
 (2, 'Setting', 'write'),
+(2, 'Support', 'write'),
 (2, 'System Administration', 'write'),
+(2, 'Tickets', 'read'),
 (2, 'User Management', 'write'),
 (2, 'Users Activity Logs', 'write'),
 (3, 'Change language', 'write'),
@@ -703,7 +787,9 @@ INSERT INTO `user_role_module_menu` (`user_role_id`, `module_menu_id`, `access_t
 (3, 'Payment Reports', 'write'),
 (3, 'Review Payments', 'write'),
 (3, 'Setting', 'write'),
+(3, 'Support', 'write'),
 (3, 'System Administration', 'read'),
+(3, 'Tickets', 'write'),
 (3, 'User Management', 'write'),
 (6, 'Change language', 'read'),
 (6, 'Change Password', 'read'),
@@ -716,7 +802,9 @@ INSERT INTO `user_role_module_menu` (`user_role_id`, `module_menu_id`, `access_t
 (6, 'Paid Values', 'read'),
 (6, 'Payment Reports', 'write'),
 (6, 'Review Payments', 'read'),
-(6, 'Setting', 'read');
+(6, 'Setting', 'read'),
+(6, 'Support', 'write'),
+(6, 'Tickets', 'read');
 
 --
 -- Indexes for dumped tables
@@ -786,12 +874,6 @@ ALTER TABLE `users_profiles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user_log`
---
-ALTER TABLE `user_log`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `user_role`
 --
 ALTER TABLE `user_role`
@@ -835,7 +917,7 @@ ALTER TABLE `leaveamessage`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=213;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=219;
 
 --
 -- AUTO_INCREMENT for table `users_blocked`
@@ -847,25 +929,19 @@ ALTER TABLE `users_blocked`
 -- AUTO_INCREMENT for table `users_login_sessions`
 --
 ALTER TABLE `users_login_sessions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=471;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=472;
 
 --
 -- AUTO_INCREMENT for table `users_logs`
 --
 ALTER TABLE `users_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1279;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1369;
 
 --
 -- AUTO_INCREMENT for table `users_profiles`
 --
 ALTER TABLE `users_profiles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
--- AUTO_INCREMENT for table `user_log`
---
-ALTER TABLE `user_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41414;
 
 --
 -- AUTO_INCREMENT for table `user_role`
