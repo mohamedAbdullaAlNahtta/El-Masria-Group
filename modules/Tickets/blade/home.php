@@ -48,10 +48,10 @@
         <!-- ============================================================== -->
         <div class="row page-titles">
             <div class="col-md-6 col-8 align-self-center">
-                <h3 class="text-themecolor m-b-0 m-t-0"><?php echo $lang['System Administration']; ?></h3>
+                <h3 class="text-themecolor m-b-0 m-t-0"><?php echo $lang['Tickets']; ?></h3>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="javascript:void(0)"><?php echo $lang['Security']; ?></a></li>
-                    <li class="breadcrumb-item active"><?php echo $lang['User Management']; ?></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0)"><?php echo $lang['Support']; ?></a></li>
+                    <li class="breadcrumb-item active"><?php echo $lang['Tickets']; ?></li>
                 </ol>
             </div>
         </div>
@@ -72,7 +72,7 @@
 		<div class="col-12">
                 <div class="card">
                     <div class="card-block">
-                        <button class="btn pull-right hidden-sm-down btn-success" onclick="location.href='index?module=User_Management&create_user=true';"><i class="mdi mdi-plus-circle"></i> Create user </button>
+                        <button class="btn pull-right hidden-sm-down btn-success" onclick="location.href='index?module=Tickets&create_ticket=true';"><i class="mdi mdi-plus-circle"></i> Create Ticket </button>
                         <h4 class="card-title"><?php echo $lang['Data Export'] ;?></h4>
                         <h6 class="card-subtitle"><?php echo $lang['Export data to Copy, CSV, Excel, PDF & Print'] ;?></h6>
                         <div class="table-responsive m-t-40">
