@@ -114,6 +114,9 @@ $lang['Paid Values']='Paid Values';
 $lang['No Suggestion']='No Suggestion';
 $lang['User Management']='User Management';
 
+$lang['Support']='Support';
+$lang['Tickets']='Tickets';
+
 
 
 $lang['Show Token']='Show Token';

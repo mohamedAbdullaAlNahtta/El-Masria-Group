@@ -47,15 +47,15 @@
 
 
 
-if (isset($_GET['create_user']))
+if (isset($_GET['create_ticket']))
 {
     //loading create page
-    require_once ("blade/new_user.php");
+    require_once ("blade/new_ticket.php");
 }
-elseif (isset($_GET['change_user_status']))
+elseif (isset($_GET['edit_ticket']))
 {
     //loading create page
-    require_once ("blade/change_user_status.php");
+    require_once ("blade/edit_ticket.php");
 }
 else
 {

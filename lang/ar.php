@@ -118,6 +118,9 @@ $lang['No Suggestion']='لا يوجد اقتراح';
 
 $lang['User Management']='إدارة المستخدمين';
 
+$lang['Support']='الدعم';
+$lang['Tickets']='تذاكر الدعم';
+
 
 $lang['marqueeDirection'] = 'right';
 $lang['Error during upload !!!  please make sure that your file size less than 0.5 MB for file'] = 'خطأ أثناء الرفع !!! يرجى التأكد من أن حجم الملف أقل من 0.5 ميغا بايت للملف';
