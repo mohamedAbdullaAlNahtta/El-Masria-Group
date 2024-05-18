@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2024 at 04:15 AM
+-- Generation Time: May 18, 2024 at 03:07 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -376,6 +376,37 @@ INSERT INTO `module_menu` (`id`, `id_parent`, `icon`, `link`, `name`, `type`, `o
 ('Tickets', 'Support', 'mdi mdi-ticket-account', 'index?module=Tickets', 'Tickets', 'tab', 0, 1, 16),
 ('User Management', 'System Administration', 'mdi mdi-account-multiple', 'index?module=User_Management', 'User Management', 'tab', 0, 1, 36),
 ('Users Activity Logs', 'Security', 'mdi mdi-account-convert', 'index?module=Users_Activity_Logs', 'Users Activity Logs', 'tab', 2, 2, 42);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `support_tickets`
+--
+
+CREATE TABLE `support_tickets` (
+  `id` int(11) NOT NULL,
+  `ticket_type` enum('Request','Complaint','inquiry') NOT NULL,
+  `client_id` varchar(250) NOT NULL,
+  `user_input` varchar(250) NOT NULL,
+  `Project_Name` varchar(250) NOT NULL,
+  `unit_number` varchar(250) NOT NULL,
+  `building_name` varchar(250) NOT NULL,
+  `ticket_status` varchar(250) NOT NULL,
+  `support_input` text NOT NULL,
+  `created_by` varchar(250) NOT NULL,
+  `creation_date` datetime NOT NULL,
+  `contact_number` varchar(250) NOT NULL,
+  `last_update_date` datetime NOT NULL,
+  `ast_update_by` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `support_tickets`
+--
+
+INSERT INTO `support_tickets` (`id`, `ticket_type`, `client_id`, `user_input`, `Project_Name`, `unit_number`, `building_name`, `ticket_status`, `support_input`, `created_by`, `creation_date`, `contact_number`, `last_update_date`, `ast_update_by`) VALUES
+(1, 'Complaint', '1', 'Dr Zinab has a bad impression today as she laughed loudly today at her work looks like she working at a night club and sadly her coworker Hend had more loud voice than her and off course she will be grounded for that, i forget to say something her vo', 'Zinab failed to absorb ', '010930010', 'El3ezba el\'3arbya', 'open ', '', 'Muhammad.elnahtta', '2024-05-15 11:00:09', '01093001070', '2024-05-15 11:00:09', ''),
+(2, 'Request', '1', 'Dr Zinab has a bad impression today as she laughed loudly today at her work looks like she working at a night club and sadly her coworker Hend had more loud voice than her and off course she will be grounded for that, i forget to say something her vo', 'Zinab failed to absorb ', '010930010', 'El3ezba el\'3arbya', 'open ', '', 'Muhammad.elnahtta', '2024-05-15 11:00:09', '01093001070', '2024-05-15 11:00:09', '');
 
 -- --------------------------------------------------------
 
@@ -844,6 +875,12 @@ ALTER TABLE `module_menu`
   ADD UNIQUE KEY `id` (`id`);
 
 --
+-- Indexes for table `support_tickets`
+--
+ALTER TABLE `support_tickets`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -893,7 +930,7 @@ ALTER TABLE `user_role_module_menu`
 -- AUTO_INCREMENT for table `client_user`
 --
 ALTER TABLE `client_user`
-  MODIFY `id` int(18) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21959;
+  MODIFY `id` int(18) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22061;
 
 --
 -- AUTO_INCREMENT for table `gui_lanuage`
@@ -912,6 +949,12 @@ ALTER TABLE `gui_theme`
 --
 ALTER TABLE `leaveamessage`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `support_tickets`
+--
+ALTER TABLE `support_tickets`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`

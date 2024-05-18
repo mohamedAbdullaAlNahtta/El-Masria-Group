@@ -79,67 +79,66 @@
                             <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th><?php echo $lang['client id'];?> </th>
-                                        <th><?php echo $lang['name'];?> </th>
-                                        <th><?php echo $lang['user name'];?>  </th>
-                                        <th><?php echo $lang['Access Type'];?>  </th>
-                                        <th><?php echo $lang['user role'];?>  </th>
-                                        <th><?php echo $lang['creation date'];?>  </th>
-                                        <th><?php echo $lang['created by'];?>  </th>
-										<th><?php echo $lang['Status'];?>  </th>
-                                        <th><?php echo $lang['Action'];?>  </th>
+                                        <th><i class='mdi mdi-account-convert'></i></th>
+                                        <th>ID</th>
+                                        <th>Ticket Type</th>
+                                        <th>Client ID</th>
+                                        <!-- <th>user_input</th>
+                                        <th>Project_Name</th>
+                                        <th>unit_number</th>
+                                        <th>building_name</th> -->
+                                        <!-- <th>support_input</th> -->
+                                        <th>Created By</th>
+                                        <th>Creation Date</th>
+                                        <th>Contact Number</th>
+                                        <th>Ticket Status</th>
+                                        <th>Last Update</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th><?php echo $lang['client id'];?> </th>
-                                        <th><?php echo $lang['name'];?> </th>
-                                        <th><?php echo $lang['user name'];?>  </th>
-                                        <th><?php echo $lang['Access Type'];?>  </th>
-                                        <th><?php echo $lang['user role'];?>  </th>
-                                        <th><?php echo $lang['creation date'];?>  </th>
-                                        <th><?php echo $lang['created by'];?>  </th>
-										<th><?php echo $lang['Status'];?>  </th>
-                                        <th><?php echo $lang['Action'];?>  </th>
+                                        <th><i class='mdi mdi-account-convert'></i></th>
+                                        <th>id</th>
+                                        <th>ticket_type</th>
+                                        <th>client_id</th>
+                                        <!-- <th>user_input</th>
+                                        <th>Project_Name</th>
+                                        <th>unit_number</th>
+                                        <th>building_name</th> -->
+                                        <!-- <th>support_input</th> -->
+                                        <th>created_by</th>
+                                        <th>creation_date</th>
+                                        <th>contact_number</th>
+                                        <th>Ticket Status</th>
+                                        <th>Last Update</th>
+                                        <th>Action</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
                                 <?php 
-                                $user_manage = new user_management;
-                                $result = $user_manage->get_system_users();
-                                
+                                $user_support_tickets = new support_ticket;
+                                $result = $user_support_tickets->get_all_tickets();
+                                $end_user= new user();
 
                                 if ($result->num_rows > 0) {
                                     // output data of each row
                                     while($row = $result->fetch_assoc()) {               
                                         echo "<tr>";
-                                        echo "<td> <i class='mdi mdi-account-convert'></i> ".$row["client_id"]." </td>";
-                                        echo "<td> ".$row["name"]." </td>";
-                                        echo "<td> <img class='img-circle' style='width:30px;height:30px;' src='".$user->get_user_profile_image_by_user_name($row["username"])."'> ".$row["username"]." </td>";
-                                        if ($row["systemtype"]==='web') {
-                                            echo "<td><i class='mdi mdi-google-chrome'></i>  ".$row["systemtype"]." </td>";
-                                        } else {
-                                            echo "<td> ".$row["systemtype"]." </td>";
-                                        }
-                                        echo "<td>".$row["user_role_id"]." </td>";
-                                        echo "<td> <i class='mdi mdi-update'></i> ".$row["creationDate"]." </td>";
-                                        echo "<td>".$row["createdBy"]." </td>";
-                                        // echo "<td> <i class='mdi mdi-update'></i> ".$row["Status"]." </td>";
-                                        if ($row["Status"]==='A') {
-                                            ?>
-                                            <td> <img style='width:25px;height:25px;' src='modules/User_Management/img/correct.png'></td>
-                                            <td><button onclick='doDeactivateUser("<?php echo $row["username"]; ?>")' class='btn btn-danger waves-effect waves-light'> deactivate </button></td>
-                                            <?php 
-                                        } else {
-                                            ?>
-                                            <td> <img style='width:25px;height:25px;' src='modules/User_Management/img/incorrect.png'> </td>
-                                            <td><button onclick='doActivateUser("<?php echo $row["username"]; ?>")' class='btn btn-success waves-effect waves-light'> Activate </button> </td>
-                                            <?php 
-                                        }
-                                        ?>
-    
-                                       
-                                        <?php 
+                                        echo "<td> <i class='mdi mdi-account-convert'></i></td>";
+                                        echo "<td> ".$row["id"]." </td>";
+                                        echo "<td> ".$row["ticket_type"]." </td>";
+                                        echo "<td> ".$row["client_id"]." </td>";
+                                        echo "<td>  <img alt='user image' src='".$end_user->get_user_profile_image_by_user_name($row["created_by"])."' 
+                                        style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$row["created_by"]." </td>";
+                                        echo "<td> <img src='modules/Tickets/img/dateicon.png' style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$row["creation_date"]." </td>";
+                                        echo "<td> <img src='assets/images/test/custom-select.png' style='border-radius: 50%; border: 1px solid #000;' width='35'>  ".$row["contact_number"]." </td>";
+                                        echo "<td>  ".$row["ticket_status"]." </td>";
+                                        echo "<td>  ".$row["last_update_date"]." </td>";
+                                        echo"<td>
+                                                <a href='index?module=Tickets&view_ticket=".$row["id"]."' data-toggle='tooltip' data-original-title='View'><i class='mdi mdi-eye'></i></a> 
+                                                <a href='index?module=Tickets&edit_ticket=".$row["id"]."' data-toggle='tooltip' data-original-title='Edit'><i class='mdi mdi-lead-pencil'></i></a> 
+                                            </td>";
                                         echo "</tr>";          
                                     }
                                 }

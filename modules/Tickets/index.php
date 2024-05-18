@@ -57,6 +57,11 @@ elseif (isset($_GET['edit_ticket']))
     //loading create page
     require_once ("blade/edit_ticket.php");
 }
+elseif (isset($_GET['view_ticket']))
+{
+    //loading create page
+    require_once ("blade/view_ticket.php");
+}
 else
 {
     //...
