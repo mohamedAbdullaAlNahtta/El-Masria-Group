@@ -75,7 +75,7 @@ class support_ticket{
         `Project_Name`, `unit_number`, `building_name`, `ticket_status`, 
         `support_input`, `created_by`, `creation_date`, `contact_number`, `last_update_date`) 
         VALUES (NULL, 'Request', '1', 'kindly i need your advice', 'Zinab failed to absorb ',
-         '010930010', 'El3ezba el'3arbya', 'open ', '', 'Muhammad.elnahtta', 
+         '010930010', 'El3ezba el3arbya', 'open ', '', 'Muhammad.elnahtta', 
          '2024-05-15 11:00:09.000000', '01093001070', '2024-05-15 11:00:09.000000');";
         
         $result = $userdb->query($sql);

@@ -1,0 +1,365 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: May 22, 2024 at 03:39 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.0.13
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `el-masria-group-commission-system`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `area`
+--
+
+CREATE TABLE `area` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `area`
+--
+
+INSERT INTO `area` (`id`, `name`, `description`) VALUES
+(1, 'East', 'East'),
+(2, 'West', 'West');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `area_direct_confilict`
+--
+
+CREATE TABLE `area_direct_confilict` (
+  `id` int(11) NOT NULL,
+  `department_id` int(11) NOT NULL,
+  `is_over_seas` enum('yes','no') NOT NULL,
+  `area_master_percentage` varchar(255) NOT NULL,
+  `area_slave_percentage` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `area_direct_confilict`
+--
+
+INSERT INTO `area_direct_confilict` (`id`, `department_id`, `is_over_seas`, `area_master_percentage`, `area_slave_percentage`) VALUES
+(1, 1, 'yes', '50', '50'),
+(2, 1, 'no', '50', '50'),
+(3, 2, 'yes', '50', '50'),
+(4, 2, 'no', '50', '50'),
+(5, 3, 'no', '75', '25'),
+(6, 3, 'yes', '50', '50');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `area_indirect_confilict`
+--
+
+CREATE TABLE `area_indirect_confilict` (
+  `id` int(11) NOT NULL,
+  `broker_type` varchar(255) NOT NULL,
+  `is_over_seas` enum('yes','no') NOT NULL,
+  `sales_percentage` varchar(255) NOT NULL,
+  `broker_percentage` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `area_indirect_confilict`
+--
+
+INSERT INTO `area_indirect_confilict` (`id`, `broker_type`, `is_over_seas`, `sales_percentage`, `broker_percentage`) VALUES
+(1, 'mega', 'yes', '50%', '50%'),
+(2, 'solo', 'yes', '75%', '25%'),
+(3, 'mega', 'no', '75%', '25%'),
+(4, 'solo', 'no', '75%', '25%');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `broker_commission_stack_holder`
+--
+
+CREATE TABLE `broker_commission_stack_holder` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `commission_percentage` varchar(255) NOT NULL,
+  `commission_value` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `department`
+--
+
+CREATE TABLE `department` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `department`
+--
+
+INSERT INTO `department` (`id`, `name`, `description`) VALUES
+(1, 'Contract', 'Contract'),
+(2, 'Operation', 'Operation'),
+(3, 'Sales', 'Sales');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employee`
+--
+
+CREATE TABLE `employee` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `department_id` int(11) NOT NULL,
+  `manger_id` int(11) NOT NULL,
+  `area_id` int(11) NOT NULL,
+  `job_title` int(11) NOT NULL,
+  `mobile` varchar(11) NOT NULL,
+  `bank_account` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `job_title`
+--
+
+CREATE TABLE `job_title` (
+  `id` int(11) NOT NULL,
+  `job_title` varchar(255) NOT NULL,
+  `commission_percentage` varchar(11) DEFAULT NULL,
+  `commission_value` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `job_title`
+--
+
+INSERT INTO `job_title` (`id`, `job_title`, `commission_percentage`, `commission_value`) VALUES
+(1, 'Contract Manager', NULL, 150),
+(2, 'Contract Specialist', NULL, 200),
+(3, 'CCO', '0.4', NULL),
+(4, 'Sales Director', '0.4', NULL),
+(5, 'Sales Sepecialist', '1', NULL),
+(6, 'Operation Manager', NULL, 150),
+(7, 'Sales Admin', NULL, 200);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project`
+--
+
+CREATE TABLE `project` (
+  `id` int(11) NOT NULL,
+  `Name` varchar(250) NOT NULL,
+  `area_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `project`
+--
+
+INSERT INTO `project` (`id`, `Name`, `area_id`) VALUES
+(1, 'ISOLA - OCTOBER GARDENS', 2),
+(2, 'ISOLA - SHERATON', 1),
+(3, 'ISOLA VILLA', 2),
+(4, 'Bait Elmasria', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `unit_commission_direct`
+--
+
+CREATE TABLE `unit_commission_direct` (
+  `id` int(11) NOT NULL,
+  `emplyee_id` int(11) NOT NULL,
+  `emplyee_name` varchar(255) NOT NULL,
+  `department` varchar(255) NOT NULL,
+  `manger` varchar(255) NOT NULL,
+  `area` varchar(255) NOT NULL,
+  `job_title` varchar(255) NOT NULL,
+  `mobile` varchar(255) NOT NULL,
+  `unit_number` varchar(255) NOT NULL,
+  `building_name` varchar(255) NOT NULL,
+  `project_name` varchar(255) NOT NULL,
+  `unit_price` varchar(255) NOT NULL,
+  `contract_date` varchar(255) NOT NULL,
+  `is_over_seas` varchar(255) NOT NULL,
+  `unit_commission_value` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `unit_sold`
+--
+
+CREATE TABLE `unit_sold` (
+  `id` int(11) NOT NULL,
+  `unit_number` varchar(255) NOT NULL,
+  `building_name` varchar(255) NOT NULL,
+  `project_name` varchar(255) NOT NULL,
+  `unit_price` varchar(255) NOT NULL,
+  `Contract Date` datetime NOT NULL,
+  `is_over_seas` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `area`
+--
+ALTER TABLE `area`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `area_direct_confilict`
+--
+ALTER TABLE `area_direct_confilict`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `area_indirect_confilict`
+--
+ALTER TABLE `area_indirect_confilict`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `broker_commission_stack_holder`
+--
+ALTER TABLE `broker_commission_stack_holder`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `department`
+--
+ALTER TABLE `department`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `employee`
+--
+ALTER TABLE `employee`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `job_title`
+--
+ALTER TABLE `job_title`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `project`
+--
+ALTER TABLE `project`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `unit_commission_direct`
+--
+ALTER TABLE `unit_commission_direct`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `unit_sold`
+--
+ALTER TABLE `unit_sold`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `area`
+--
+ALTER TABLE `area`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `area_direct_confilict`
+--
+ALTER TABLE `area_direct_confilict`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `area_indirect_confilict`
+--
+ALTER TABLE `area_indirect_confilict`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `broker_commission_stack_holder`
+--
+ALTER TABLE `broker_commission_stack_holder`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `department`
+--
+ALTER TABLE `department`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `employee`
+--
+ALTER TABLE `employee`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `job_title`
+--
+ALTER TABLE `job_title`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `project`
+--
+ALTER TABLE `project`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `unit_commission_direct`
+--
+ALTER TABLE `unit_commission_direct`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `unit_sold`
+--
+ALTER TABLE `unit_sold`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

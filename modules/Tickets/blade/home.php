@@ -118,30 +118,66 @@
                                 <tbody>
                                 <?php 
                                 $user_support_tickets = new support_ticket;
-                                $result = $user_support_tickets->get_all_tickets();
-                                $end_user= new user();
+                                $user_manger = new user_management;
+                                $result11 = $user_manger->get_my_user_role_by_username($user->username);
+                                // output data of each row
+                                while($row = $result11->fetch_assoc()) {
+                                        $my_user_role_name =  $row["name"];
+                                }
 
-                                if ($result->num_rows > 0) {
-                                    // output data of each row
-                                    while($row = $result->fetch_assoc()) {               
-                                        echo "<tr>";
-                                        echo "<td> <i class='mdi mdi-account-convert'></i></td>";
-                                        echo "<td> ".$row["id"]." </td>";
-                                        echo "<td> ".$row["ticket_type"]." </td>";
-                                        echo "<td> ".$row["client_id"]." </td>";
-                                        echo "<td>  <img alt='user image' src='".$end_user->get_user_profile_image_by_user_name($row["created_by"])."' 
-                                        style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$row["created_by"]." </td>";
-                                        echo "<td> <img src='modules/Tickets/img/dateicon.png' style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$row["creation_date"]." </td>";
-                                        echo "<td> <img src='assets/images/test/custom-select.png' style='border-radius: 50%; border: 1px solid #000;' width='35'>  ".$row["contact_number"]." </td>";
-                                        echo "<td>  ".$row["ticket_status"]." </td>";
-                                        echo "<td>  ".$row["last_update_date"]." </td>";
-                                        echo"<td>
-                                                <a href='index?module=Tickets&view_ticket=".$row["id"]."' data-toggle='tooltip' data-original-title='View'><i class='mdi mdi-eye'></i></a> 
-                                                <a href='index?module=Tickets&edit_ticket=".$row["id"]."' data-toggle='tooltip' data-original-title='Edit'><i class='mdi mdi-lead-pencil'></i></a> 
-                                            </td>";
-                                        echo "</tr>";          
+                                if ($my_user_role_name=="client") {
+                                    $result = $user_support_tickets->get_client_tickets($user_manger->get_user_client_id($user->username));
+                                    $end_user= new user();
+
+                                    if ($result->num_rows > 0) {
+                                        // output data of each row
+                                        while($row = $result->fetch_assoc()) {               
+                                            echo "<tr>";
+                                            echo "<td> <i class='mdi mdi-account-convert'></i></td>";
+                                            echo "<td> ".$row["id"]." </td>";
+                                            echo "<td> ".$row["ticket_type"]." </td>";
+                                            echo "<td> ".$row["client_id"]." </td>";
+                                            echo "<td>  <img alt='user image' src='".$end_user->get_user_profile_image_by_user_name($row["created_by"])."' 
+                                            style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$row["created_by"]." </td>";
+                                            echo "<td> <img src='modules/Tickets/img/dateicon.png' style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$row["creation_date"]." </td>";
+                                            echo "<td> <img src='assets/images/test/custom-select.png' style='border-radius: 50%; border: 1px solid #000;' width='35'>  ".$row["contact_number"]." </td>";
+                                            echo "<td>  ".$row["ticket_status"]." </td>";
+                                            echo "<td>  ".$row["last_update_date"]." </td>";
+                                            echo"<td>
+                                                    <a href='index?module=Tickets&view_ticket=".$row["id"]."' data-toggle='tooltip' data-original-title='View'><i class='mdi mdi-eye'></i></a> 
+                                                    <a href='index?module=Tickets&edit_ticket=".$row["id"]."' data-toggle='tooltip' data-original-title='Edit'><i class='mdi mdi-lead-pencil'></i></a> 
+                                                </td>";
+                                            echo "</tr>";          
+                                        }
+                                    }
+                                } else {
+                                    $result = $user_support_tickets->get_all_tickets();
+                                    $end_user= new user();
+
+                                    if ($result->num_rows > 0) {
+                                        // output data of each row
+                                        while($row = $result->fetch_assoc()) {               
+                                            echo "<tr>";
+                                            echo "<td> <i class='mdi mdi-account-convert'></i></td>";
+                                            echo "<td> ".$row["id"]." </td>";
+                                            echo "<td> ".$row["ticket_type"]." </td>";
+                                            echo "<td> ".$row["client_id"]." </td>";
+                                            echo "<td>  <img alt='user image' src='".$end_user->get_user_profile_image_by_user_name($row["created_by"])."' 
+                                            style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$row["created_by"]." </td>";
+                                            echo "<td> <img src='modules/Tickets/img/dateicon.png' style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$row["creation_date"]." </td>";
+                                            echo "<td> <img src='assets/images/test/custom-select.png' style='border-radius: 50%; border: 1px solid #000;' width='35'>  ".$row["contact_number"]." </td>";
+                                            echo "<td>  ".$row["ticket_status"]." </td>";
+                                            echo "<td>  ".$row["last_update_date"]." </td>";
+                                            echo"<td>
+                                                    <a href='index?module=Tickets&view_ticket=".$row["id"]."' data-toggle='tooltip' data-original-title='View'><i class='mdi mdi-eye'></i></a> 
+                                                    <a href='index?module=Tickets&edit_ticket=".$row["id"]."' data-toggle='tooltip' data-original-title='Edit'><i class='mdi mdi-lead-pencil'></i></a> 
+                                                </td>";
+                                            echo "</tr>";          
+                                        }
                                     }
                                 }
+                                
+                                
                                 ?>	
                                 </tbody>
                             </table>

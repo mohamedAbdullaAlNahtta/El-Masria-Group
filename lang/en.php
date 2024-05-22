@@ -117,6 +117,10 @@ $lang['User Management']='User Management';
 $lang['Support']='Support';
 $lang['Tickets']='Tickets';
 
+$lang['Commission System']='Commission System';
+$lang['Sold Units']='Sold Units';
+$lang['Configuration']='Configuration';
+
 
 
 $lang['Show Token']='Show Token';

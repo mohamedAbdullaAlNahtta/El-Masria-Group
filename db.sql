@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2024 at 03:06 PM
+-- Generation Time: May 21, 2024 at 09:30 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -354,28 +354,31 @@ CREATE TABLE `module_menu` (
 
 INSERT INTO `module_menu` (`id`, `id_parent`, `icon`, `link`, `name`, `type`, `order_no`, `level`, `nahtta_order`) VALUES
 ('Access Denied', NULL, '', 'index?module=Access_Denied', 'Access Denied', 'tab', 4, 0, 4),
-('Blocked Users', 'Security', 'mdi mdi-server-remove', 'index?module=Blocked_Users', 'Blocked Users', 'tab', 1, 2, 41),
-('Change language', 'Setting', 'fa fa-language', 'index?module=Change_Language', 'Change language', 'tab', 6, 1, 28),
-('Change Password', 'Setting', 'mdi mdi-account-key', 'index?module=Change_Password ', 'Change Password', 'tab', 3, 1, 25),
-('Change Profile Image', 'Setting', 'mdi mdi-account-card-details', 'index?module=Change_Profile_Image', 'Change Profile Image', 'tab', 2, 1, 24),
-('Change theme', 'Setting', 'mdi mdi-theme-light-dark', 'index?module=Change_Theme', 'Change theme', 'tab', 5, 1, 27),
-('Client Registration', 'System Administration', 'mdi mdi-account-convert', 'index?module=Client_Registration', 'Client Registration', 'tab', 1, 1, 33),
+('Blocked Users', 'Security', 'mdi mdi-server-remove', 'index?module=Blocked_Users', 'Blocked Users', 'tab', 1, 2, 51),
+('Change language', 'Setting', 'fa fa-language', 'index?module=Change_Language', 'Change language', 'tab', 6, 1, 38),
+('Change Password', 'Setting', 'mdi mdi-account-key', 'index?module=Change_Password ', 'Change Password', 'tab', 3, 1, 35),
+('Change Profile Image', 'Setting', 'mdi mdi-account-card-details', 'index?module=Change_Profile_Image', 'Change Profile Image', 'tab', 2, 1, 34),
+('Change theme', 'Setting', 'mdi mdi-theme-light-dark', 'index?module=Change_Theme', 'Change theme', 'tab', 5, 1, 37),
+('Client Registration', 'System Administration', 'mdi mdi-account-convert', 'index?module=Client_Registration', 'Client Registration', 'tab', 1, 1, 43),
+('Commission System', NULL, 'mdi mdi-calculator', '#', 'Commission System', 'men', 10, 0, 19),
+('Configuration', 'Commission System', 'mdi mdi-settings', NULL, 'Configuration', 'men', 3, 1, 25),
 ('Dashboard', NULL, 'mdi mdi-gauge', 'index?module=home', 'Dashboard', 'tab', 5, 0, 5),
 ('Dues', 'Payment Reports', 'mdi mdi-calendar-clock', 'index?module=Dues', 'Dues', 'tab', 2, 1, 14),
-('log Management', 'Setting', 'mdi mdi-account-multiple-outline', 'index?module=log_Management', 'log Management', 'tab', 1, 1, 23),
-('Login History', 'Setting', 'mdi mdi-account-convert', 'index?module=Login_History', 'Login History', 'tab', 0, 1, 22),
-('Manage Extensions Profile', 'Setting', 'mdi mdi-account-settings-variant', 'index?module=Manage_Extensions_Profile', 'Manage Extensions Profile', 'tab', 4, 1, 26),
+('log Management', 'Setting', 'mdi mdi-account-multiple-outline', 'index?module=log_Management', 'log Management', 'tab', 1, 1, 33),
+('Login History', 'Setting', 'mdi mdi-account-convert', 'index?module=Login_History', 'Login History', 'tab', 0, 1, 32),
+('Manage Extensions Profile', 'Setting', 'mdi mdi-account-settings-variant', 'index?module=Manage_Extensions_Profile', 'Manage Extensions Profile', 'tab', 4, 1, 36),
 ('Paid Values', 'Payment Reports', 'mdi mdi-calendar-check', 'index?module=Paid_Values', 'Paid Values', 'tab', 1, 1, 13),
 ('Payment Reports', NULL, 'mdi mdi-calendar-text', '#', 'Payment Reports', 'men', 8, 0, 11),
-('Reset User Password', 'Security', 'mdi mdi-account-key', 'index?module=Reset_User_Password', 'Reset User Password', 'tab', 0, 2, 41),
+('Reset User Password', 'Security', 'mdi mdi-account-key', 'index?module=Reset_User_Password', 'Reset User Password', 'tab', 0, 2, 61),
 ('Review Payments', 'Payment Reports', 'mdi mdi-calendar', 'index?module=Review_Payments', 'Review Payments', 'tab', 0, 1, 12),
-('Security', 'System Administration', 'mdi mdi-security', '#', 'Security', 'men', 3, 1, 40),
-('Setting', NULL, 'mdi mdi-settings', '#', 'Setting', 'men', 11, 0, 21),
+('Security', 'System Administration', 'mdi mdi-security', '#', 'Security', 'men', 3, 1, 50),
+('Setting', NULL, 'mdi mdi-settings', '#', 'Setting', 'men', 11, 0, 31),
+('Sold Units', 'Commission System', 'mdi mdi-home', NULL, 'Sold Units', 'tab', 0, 1, 20),
 ('Support', NULL, 'mdi mdi-animation', '#', 'Support', 'men', 9, 0, 15),
-('System Administration', NULL, 'mdi mdi-camera-front-variant', '#', 'System Administration', 'tab', 12, 0, 32),
+('System Administration', NULL, 'mdi mdi-camera-front-variant', '#', 'System Administration', 'tab', 12, 0, 42),
 ('Tickets', 'Support', 'mdi mdi-ticket-account', 'index?module=Tickets', 'Tickets', 'tab', 0, 1, 16),
-('User Management', 'System Administration', 'mdi mdi-account-multiple', 'index?module=User_Management', 'User Management', 'tab', 0, 1, 36),
-('Users Activity Logs', 'Security', 'mdi mdi-account-convert', 'index?module=Users_Activity_Logs', 'Users Activity Logs', 'tab', 2, 2, 42);
+('User Management', 'System Administration', 'mdi mdi-account-multiple', 'index?module=User_Management', 'User Management', 'tab', 0, 1, 46),
+('Users Activity Logs', 'Security', 'mdi mdi-account-convert', 'index?module=Users_Activity_Logs', 'Users Activity Logs', 'tab', 2, 2, 62);
 
 -- --------------------------------------------------------
 
@@ -406,7 +409,11 @@ CREATE TABLE `support_tickets` (
 
 INSERT INTO `support_tickets` (`id`, `ticket_type`, `client_id`, `user_input`, `Project_Name`, `unit_number`, `building_name`, `ticket_status`, `support_input`, `created_by`, `creation_date`, `contact_number`, `last_update_date`, `ast_update_by`) VALUES
 (1, 'Complaint', '1', 'Dr Zinab has a bad impression today as she laughed loudly today at her work looks like she working at a night club and sadly her coworker Hend had more loud voice than her and off course she will be grounded for that, i forget to say something her vo', 'Zinab failed to absorb ', '010930010', 'El3ezba el\'3arbya', 'open ', '', 'Muhammad.elnahtta', '2024-05-15 11:00:09', '01093001070', '2024-05-15 11:00:09', ''),
-(2, 'Request', '1', 'Dr Zinab has a bad impression today as she laughed loudly today at her work looks like she working at a night club and sadly her coworker Hend had more loud voice than her and off course she will be grounded for that, i forget to say something her vo', 'Zinab failed to absorb ', '010930010', 'El3ezba el\'3arbya', 'open ', '', 'Muhammad.elnahtta', '2024-05-15 11:00:09', '01093001070', '2024-05-15 11:00:09', '');
+(2, 'Request', '1', 'Dr Zinab has a bad impression today as she laughed loudly today at her work looks like she working at a night club and sadly her coworker Hend had more loud voice than her and off course she will be grounded for that, i forget to say something her vo', 'Zinab failed to absorb ', '010930010', 'El3ezba el\'3arbya', 'open ', '', 'Muhammad.elnahtta', '2024-05-15 11:00:09', '01093001070', '2024-05-15 11:00:09', ''),
+(3, 'Request', '20758', 'kindly i need your advice', 'Zinab failed to absorb ', '010930010', 'El3ezba el3arbya', 'open ', '', 'Muhammad.elnahtta', '2024-05-15 11:00:09', '01093001070', '2024-05-15 11:00:09', ''),
+(4, 'Request', '1', 'kindly i need your advice', 'Zinab failed to absorb ', '010930010', 'El3ezba el3arbya', 'open ', '', 'Muhammad.elnahtta', '2024-05-15 11:00:09', '01093001070', '2024-05-15 11:00:09', ''),
+(5, 'Request', '1', 'kindly i need your advice', 'Zinab failed to absorb ', '010930010', 'El3ezba el3arbya', 'open ', '', 'Muhammad.elnahtta', '2024-05-15 11:00:09', '01093001070', '2024-05-15 11:00:09', ''),
+(6, 'Request', '1', 'kindly i need your advice', 'Zinab failed to absorb ', '010930010', 'El3ezba el3arbya', 'open ', '', 'Muhammad.elnahtta', '2024-05-15 11:00:09', '01093001070', '2024-05-15 11:00:09', '');
 
 -- --------------------------------------------------------
 
@@ -437,10 +444,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userId`, `name`, `username`, `secureH`, `password`, `companyId`, `user_role_id`, `userType`, `systemtype`, `gui_language`, `gui_theme`, `Status`, `creationDate`, `createdBy`, `client_id`) VALUES
-(1, 'Eng Muhammad ElNahtta', 'muhammad.elnahtta', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 2, 'P', 'web', 1, 1, 'A', '2023-12-07 09:22:14', 'Muhammad.AlNahtta', 0),
+(1, 'Eng Muhammad ElNahtta', 'muhammad.elnahtta', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 2, 'P', 'web', 1, 1, 'A', '2023-12-07 09:22:14', 'Muhammad.AlNahtta', 20758),
 (9, 'admin', 'Administrator', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 2, 'P', 'web', 1, 1, 'A', '2023-12-07 09:22:14', 'Muhammad.AlNahtta', 0),
 (13, 'Muhammad Soliman', 'Muhammad.Soliman', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 3, 'P', 'web', 1, 1, 'I', '2023-12-07 09:22:14', 'Muhammad.AlNahtta', 0),
-(14, 'Nabile', 'Nabile', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 3, 'P', 'web', 1, 1, 'A', '2023-12-07 09:22:14', 'Muhammad.AlNahtta', 0),
+(14, 'Nabile', 'Nabile', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 3, 'P', 'web', 1, 1, 'A', '2023-12-07 09:22:14', 'Muhammad.AlNahtta', 20758),
 (215, 'full name', 'user.name', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 6, 'C', 'web', 1, 1, 'A', '2024-05-10 23:28:57', 'muhammad.elnahtta', 21958),
 (216, 'Ahmed Abdullah El Nahtta', 'ahmed.alnahtta', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 3, 'C', 'web', 1, 1, 'A', '2024-05-11 00:27:40', 'muhammad.elnahtta', 21444),
 (218, 'ahmed hisham', 'ahmed.hisham', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 3, 'C', 'web', 1, 1, 'I', '2024-05-11 00:30:56', 'muhammad.elnahtta', 20758);
@@ -508,7 +515,8 @@ INSERT INTO `users_login_sessions` (`id`, `username`, `systemtype`, `token`, `lo
 (468, 'muhammad.elnahtta', 'web', 'f1c84e370fe4d04c0b116e7fa72abdb47WeTiA4EhQ784ee56a86795c4dc33d6b48fca90b6dfd1d8813', '2024-05-07 19:27:44', '2024-05-08 02:24:22'),
 (469, 'muhammad.elnahtta', 'web', '7d4f3deac02d4b1836aeff4813e63910GXxrzVnP2Rcc18f0679e94900d8336ffc2b7f5debc567f38be', '2024-05-08 02:24:17', '2024-05-08 03:20:49'),
 (470, 'muhammad.elnahtta', 'web', '65b58b392edba17bb009bc14d5c90c4dbreWGCDzjx777d160caae35071f30482d12581e98985d7cda2', '2024-05-08 03:20:45', '2024-05-09 03:47:16'),
-(471, 'muhammad.elnahtta', 'web', '88788ab9c8e1a17186cb6925d6c990fbjRFKwlluegd4bc268d9abe8f2e273a7d4e65c79d7c875a717a', '2024-05-09 03:47:57', NULL);
+(471, 'muhammad.elnahtta', 'web', '88788ab9c8e1a17186cb6925d6c990fbjRFKwlluegd4bc268d9abe8f2e273a7d4e65c79d7c875a717a', '2024-05-09 03:47:57', '2024-05-21 07:47:53'),
+(472, 'muhammad.elnahtta', 'web', '2d991a056c8b6814dfd2fd8d4c84197fRXux13Bl1d63f7310b4dddb9c033923be869661d1984e4a69b', '2024-05-21 07:47:48', NULL);
 
 -- --------------------------------------------------------
 
@@ -717,7 +725,9 @@ INSERT INTO `users_logs` (`id`, `username`, `systemtype`, `userIP`, `action`, `d
 (1365, 'ahmed.hisham', 'web', '127.0.0.1', ' User Created ', 'the User has been Created by ', 'Success', '2024-05-11 00:30:56', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
 (1366, '', 'web', '127.0.0.1', 'Create User ', ' Create User:  ahmed.hisham With Name: ahmed hisham, Company ID: ,  User Group ID: 3, User Type: , and System Type: web', 'Success', '2024-05-11 00:30:56', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
 (1367, 'ahmed.hisham', 'web', '127.0.0.1', ' user deactivated ', 'the User has been deactivated by muhammad.elnahtta', 'Success', '2024-05-11 00:31:03', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
-(1368, 'muhammad.elnahtta', 'web', '127.0.0.1', 'dectivate user ', ' Deactivated User  ahmed.hisham', 'Success', '2024-05-11 00:31:03', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved');
+(1368, 'muhammad.elnahtta', 'web', '127.0.0.1', 'dectivate user ', ' Deactivated User  ahmed.hisham', 'Success', '2024-05-11 00:31:03', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1369, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log in', '', 'Success', '2024-05-21 07:47:48', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1370, 'muhammad.elnahtta', 'web', '127.0.0.1', 'destroy other session token', '', 'Success', '2024-05-21 07:47:53', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved');
 
 -- --------------------------------------------------------
 
@@ -790,6 +800,8 @@ INSERT INTO `user_role_module_menu` (`user_role_id`, `module_menu_id`, `access_t
 (2, 'Change Profile Image', 'write'),
 (2, 'Change theme', 'write'),
 (2, 'Client Registration', 'write'),
+(2, 'Commission System', 'write'),
+(2, 'Configuration', 'read'),
 (2, 'Dashboard', 'write'),
 (2, 'Dues', 'read'),
 (2, 'log Management', 'write'),
@@ -800,6 +812,7 @@ INSERT INTO `user_role_module_menu` (`user_role_id`, `module_menu_id`, `access_t
 (2, 'Review Payments', 'write'),
 (2, 'Security', 'write'),
 (2, 'Setting', 'write'),
+(2, 'Sold Units', 'read'),
 (2, 'Support', 'write'),
 (2, 'System Administration', 'write'),
 (2, 'Tickets', 'read'),
@@ -810,6 +823,8 @@ INSERT INTO `user_role_module_menu` (`user_role_id`, `module_menu_id`, `access_t
 (3, 'Change Profile Image', 'write'),
 (3, 'Change theme', 'write'),
 (3, 'Client Registration', 'write'),
+(3, 'Commission System', 'read'),
+(3, 'Configuration', 'read'),
 (3, 'Dashboard', 'write'),
 (3, 'Dues', 'read'),
 (3, 'log Management', 'write'),
@@ -818,6 +833,7 @@ INSERT INTO `user_role_module_menu` (`user_role_id`, `module_menu_id`, `access_t
 (3, 'Payment Reports', 'write'),
 (3, 'Review Payments', 'write'),
 (3, 'Setting', 'write'),
+(3, 'Sold Units', 'read'),
 (3, 'Support', 'write'),
 (3, 'System Administration', 'read'),
 (3, 'Tickets', 'write'),
@@ -954,7 +970,7 @@ ALTER TABLE `leaveamessage`
 -- AUTO_INCREMENT for table `support_tickets`
 --
 ALTER TABLE `support_tickets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -972,13 +988,13 @@ ALTER TABLE `users_blocked`
 -- AUTO_INCREMENT for table `users_login_sessions`
 --
 ALTER TABLE `users_login_sessions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=472;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=473;
 
 --
 -- AUTO_INCREMENT for table `users_logs`
 --
 ALTER TABLE `users_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1369;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1371;
 
 --
 -- AUTO_INCREMENT for table `users_profiles`

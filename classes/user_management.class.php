@@ -128,6 +128,17 @@ class user_management{
         $userdb->close_db_connection();  
         
     }
+    public function get_my_user_role_by_username($username)
+    {
+        $userdb = new ElmasriaDB;
+        
+        $sql = "SELECT `users`.`user_role_id`, `user_role`.`name` FROM `users`, `user_role` WHERE `username`='$username' and `users`.`user_role_id`=`user_role`.`id`; ";
+        
+        $result = $userdb->query($sql);
+        return $result;
+        $userdb->close_db_connection();  
+        
+    }
     public function get_user_systemtype()
     {
         $userdb = new ElmasriaDB;
@@ -192,6 +203,20 @@ class user_management{
         
         $result = $userdb->query($sql);
         return $result;
+        $userdb->close_db_connection();  
+        
+    }
+    public function get_user_client_id($username)
+    {
+        $userdb = new ElmasriaDB;
+        
+        $sql = "SELECT `client_id` FROM `users` WHERE `username`='$username';";
+        
+        $result = $userdb->query($sql);
+        while($row = $result->fetch_assoc()) {
+            $my_user_role_name =  $row["client_id"];
+        }
+        return $my_user_role_name;
         $userdb->close_db_connection();  
         
     }
