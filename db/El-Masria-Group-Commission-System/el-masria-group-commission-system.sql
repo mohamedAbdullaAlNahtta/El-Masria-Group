@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2024 at 03:39 AM
+-- Generation Time: May 22, 2024 at 08:00 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -143,6 +143,30 @@ CREATE TABLE `employee` (
   `bank_account` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`id`, `name`, `department_id`, `manger_id`, `area_id`, `job_title`, `mobile`, `bank_account`) VALUES
+(1, 'Moustafa Mohamed Ibrahim', 1, 0, 1, 1, '1001234567', 'XXX-XXX-XXX'),
+(2, 'Ahmed Tamer Ibrahim', 2, 0, 1, 3, '1001234568', 'XXX-XXX-XXX'),
+(3, 'Ibrahim Mohamed Ibrahim', 3, 0, 1, 5, '1001234569', 'XXX-XXX-XXX'),
+(4, 'Wagdy Mohamed Ibrahim', 3, 3, 1, 6, '1001234570', 'XXX-XXX-XXX'),
+(5, 'Ahmed Wagdy Ibrahim', 3, 4, 1, 7, '1001234571', 'XXX-XXX-XXX'),
+(6, 'Alla Wagdy Ibrahim', 1, 1, 1, 2, '1001234572', 'XXX-XXX-XXX'),
+(7, 'Ahmed Wagdy Alla', 2, 2, 1, 4, '1001234573', 'XXX-XXX-XXX'),
+(8, 'Ahmed Kamal Ibrahim', 3, 5, 1, 8, '1001234574', 'XXX-XXX-XXX'),
+(9, 'Mohamed Wagdy Mohamed', 1, 1, 1, 2, '1001234575', 'XXX-XXX-XXX'),
+(10, 'Rady Wagdy Rady', 2, 2, 1, 4, '1001234576', 'XXX-XXX-XXX'),
+(11, 'teleb Wagdy teleb', 3, 0, 1, 8, '1001234577', 'XXX-XXX-XXX'),
+(12, 'Ahmed Moustafa Moustafa', 1, 1, 1, 2, '1001234578', 'XXX-XXX-XXX'),
+(13, 'Dalya Wagdy Wagdy', 2, 2, 1, 4, '1001234579', 'XXX-XXX-XXX'),
+(14, 'Mohamed Magdy Ibrahim', 1, 5, 1, 8, '1001234580', 'XXX-XXX-XXX'),
+(15, 'Magdy MagdyAdel', 1, 0, 1, 8, '1001234581', 'XXX-XXX-XXX'),
+(16, 'Adel Magdy Ibrahim', 1, 0, 1, 8, '1001234582', 'XXX-XXX-XXX'),
+(17, 'Adel Adel Ibrahim', 1, 0, 1, 8, '1001234583', 'XXX-XXX-XXX'),
+(19, 'Walaa Wagdy Mohamed', 3, 0, 1, 7, '1001234583', 'XXX-XXX-XXX');
+
 -- --------------------------------------------------------
 
 --
@@ -163,11 +187,12 @@ CREATE TABLE `job_title` (
 INSERT INTO `job_title` (`id`, `job_title`, `commission_percentage`, `commission_value`) VALUES
 (1, 'Contract Manager', NULL, 150),
 (2, 'Contract Specialist', NULL, 200),
-(3, 'CCO', '0.4', NULL),
-(4, 'Sales Director', '0.4', NULL),
-(5, 'Sales Sepecialist', '1', NULL),
-(6, 'Operation Manager', NULL, 150),
-(7, 'Sales Admin', NULL, 200);
+(3, 'Operation Manager', NULL, 150),
+(4, 'Sales Admin', NULL, 200),
+(5, 'CCO', '0.4', NULL),
+(6, 'Sales Director', '0.4', NULL),
+(7, 'Sales Manager', '0.02', NULL),
+(8, 'Sales Sepecialist', '1', NULL);
 
 -- --------------------------------------------------------
 
@@ -227,9 +252,18 @@ CREATE TABLE `unit_sold` (
   `building_name` varchar(255) NOT NULL,
   `project_name` varchar(255) NOT NULL,
   `unit_price` varchar(255) NOT NULL,
-  `Contract Date` datetime NOT NULL,
-  `is_over_seas` varchar(255) NOT NULL
+  `Contract_Date` datetime NOT NULL,
+  `is_over_seas` enum('yes','no') NOT NULL,
+  `is_launch` enum('yes','no') NOT NULL,
+  `area` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `unit_sold`
+--
+
+INSERT INTO `unit_sold` (`id`, `unit_number`, `building_name`, `project_name`, `unit_price`, `Contract_Date`, `is_over_seas`, `is_launch`, `area`) VALUES
+(1, '111', 'سكنى', 'Elmasria Simple', '1000000', '2010-11-13 07:42:51', 'no', 'no', 2);
 
 --
 -- Indexes for dumped tables
@@ -333,13 +367,13 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `job_title`
 --
 ALTER TABLE `job_title`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `project`
@@ -357,7 +391,7 @@ ALTER TABLE `unit_commission_direct`
 -- AUTO_INCREMENT for table `unit_sold`
 --
 ALTER TABLE `unit_sold`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

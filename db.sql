@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2024 at 09:30 AM
+-- Generation Time: May 22, 2024 at 08:00 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -364,6 +364,7 @@ INSERT INTO `module_menu` (`id`, `id_parent`, `icon`, `link`, `name`, `type`, `o
 ('Configuration', 'Commission System', 'mdi mdi-settings', NULL, 'Configuration', 'men', 3, 1, 25),
 ('Dashboard', NULL, 'mdi mdi-gauge', 'index?module=home', 'Dashboard', 'tab', 5, 0, 5),
 ('Dues', 'Payment Reports', 'mdi mdi-calendar-clock', 'index?module=Dues', 'Dues', 'tab', 2, 1, 14),
+('Employee Commission', 'Commission System', 'mdi mdi-square-inc-cash', 'index?module=Employee_Commission', 'Employee Commission', 'tab', 1, 1, 21),
 ('log Management', 'Setting', 'mdi mdi-account-multiple-outline', 'index?module=log_Management', 'log Management', 'tab', 1, 1, 33),
 ('Login History', 'Setting', 'mdi mdi-account-convert', 'index?module=Login_History', 'Login History', 'tab', 0, 1, 32),
 ('Manage Extensions Profile', 'Setting', 'mdi mdi-account-settings-variant', 'index?module=Manage_Extensions_Profile', 'Manage Extensions Profile', 'tab', 4, 1, 36),
@@ -373,7 +374,7 @@ INSERT INTO `module_menu` (`id`, `id_parent`, `icon`, `link`, `name`, `type`, `o
 ('Review Payments', 'Payment Reports', 'mdi mdi-calendar', 'index?module=Review_Payments', 'Review Payments', 'tab', 0, 1, 12),
 ('Security', 'System Administration', 'mdi mdi-security', '#', 'Security', 'men', 3, 1, 50),
 ('Setting', NULL, 'mdi mdi-settings', '#', 'Setting', 'men', 11, 0, 31),
-('Sold Units', 'Commission System', 'mdi mdi-home', NULL, 'Sold Units', 'tab', 0, 1, 20),
+('Sold Units', 'Commission System', 'mdi mdi-home', 'index?module=Sold_Units', 'Sold Units', 'tab', 0, 1, 20),
 ('Support', NULL, 'mdi mdi-animation', '#', 'Support', 'men', 9, 0, 15),
 ('System Administration', NULL, 'mdi mdi-camera-front-variant', '#', 'System Administration', 'tab', 12, 0, 42),
 ('Tickets', 'Support', 'mdi mdi-ticket-account', 'index?module=Tickets', 'Tickets', 'tab', 0, 1, 16),
@@ -727,7 +728,8 @@ INSERT INTO `users_logs` (`id`, `username`, `systemtype`, `userIP`, `action`, `d
 (1367, 'ahmed.hisham', 'web', '127.0.0.1', ' user deactivated ', 'the User has been deactivated by muhammad.elnahtta', 'Success', '2024-05-11 00:31:03', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
 (1368, 'muhammad.elnahtta', 'web', '127.0.0.1', 'dectivate user ', ' Deactivated User  ahmed.hisham', 'Success', '2024-05-11 00:31:03', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
 (1369, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log in', '', 'Success', '2024-05-21 07:47:48', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
-(1370, 'muhammad.elnahtta', 'web', '127.0.0.1', 'destroy other session token', '', 'Success', '2024-05-21 07:47:53', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved');
+(1370, 'muhammad.elnahtta', 'web', '127.0.0.1', 'destroy other session token', '', 'Success', '2024-05-21 07:47:53', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1371, 'muhammad.elnahtta', 'web', '127.0.0.1', 'destroy other session token', '', 'Success', '2024-05-22 03:40:10', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved');
 
 -- --------------------------------------------------------
 
@@ -804,6 +806,7 @@ INSERT INTO `user_role_module_menu` (`user_role_id`, `module_menu_id`, `access_t
 (2, 'Configuration', 'read'),
 (2, 'Dashboard', 'write'),
 (2, 'Dues', 'read'),
+(2, 'Employee Commission', 'write'),
 (2, 'log Management', 'write'),
 (2, 'Login History', 'write'),
 (2, 'Paid Values', 'write'),
@@ -827,6 +830,7 @@ INSERT INTO `user_role_module_menu` (`user_role_id`, `module_menu_id`, `access_t
 (3, 'Configuration', 'read'),
 (3, 'Dashboard', 'write'),
 (3, 'Dues', 'read'),
+(3, 'Employee Commission', 'read'),
 (3, 'log Management', 'write'),
 (3, 'Login History', 'write'),
 (3, 'Paid Values', 'read'),
@@ -994,7 +998,7 @@ ALTER TABLE `users_login_sessions`
 -- AUTO_INCREMENT for table `users_logs`
 --
 ALTER TABLE `users_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1371;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1372;
 
 --
 -- AUTO_INCREMENT for table `users_profiles`

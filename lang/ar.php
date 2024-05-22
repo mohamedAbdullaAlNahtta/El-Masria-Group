@@ -123,6 +123,7 @@ $lang['Tickets']='تذاكر الدعم';
 
 $lang['Commission System']='نظام العمولة';
 $lang['Sold Units']='الوحدات المباعة';
+$lang['Employee Commission']='عمولة الموظفين';
 $lang['Configuration']='إعدادات';
 
 
