@@ -45,12 +45,12 @@ class CommissionSystem{
 
     public function get_sold_units()
     {
-        $userdb = new CommissionSystemDB;
+        $commissiondb = new CommissionSystemDB;
         
-        $sql = "SELECT * FROM `unit_sold`;";
+        $sql = "SELECT * FROM `unit_sold`";
         
-        $result = $userdb->query($sql);
-        return $result
+        $result = $commissiondb->query($sql);
+        return $result;
         $userdb->close_db_connection();  
         
     }

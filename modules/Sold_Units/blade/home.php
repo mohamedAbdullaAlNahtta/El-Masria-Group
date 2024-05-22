@@ -106,27 +106,27 @@
                                 </tfoot>
                                 <tbody>
                                 <?php 
-                                $commissionSystem = new CommissionSystem;
+                                $newCommissionSystem = new CommissionSystem;
 
-                                // $result = $commissionSystem->get_sold_units();
+                                $result = $newCommissionSystem->get_sold_units();
 
-                                // if ($result->num_rows > 0) {
-                                //     // output data of each row
-                                //     while($row = $result->fetch_assoc()) {               
-                                //         echo "<tr>";
-                                //         echo"<td><i class='mdi mdi-home'></i> </td>";
-                                //         echo "<td> ".$row["id"]." </td>"; 
-                                //         echo "<td> ".$row["unit_number"]." </td>"; 
-                                //         echo "<td> ".$row["building_name"]." </td>"; 
-                                //         echo "<td> ".$row["project_name"]." </td>"; 
-                                //         echo "<td> ".$row["unit_price"]." </td>"; 
-                                //         echo "<td> ".$row["Contract_Date"]." </td>"; 
-                                //         echo "<td> ".$row["is_over_seas"]." </td>"; 
-                                //         echo "<td> ".$row["is_launch"]." </td>"; 
-                                //         echo "<td> ".$row["area"]." </td>"; 
-                                //         echo "</tr>";          
-                                //     }
-                                // }
+                                if ($result->num_rows > 0) {
+                                    // output data of each row
+                                    while($row = $result->fetch_assoc()) {               
+                                        echo "<tr>";
+                                        echo"<td><i class='mdi mdi-home'></i> </td>";
+                                        echo "<td> ".$row["id"]." </td>"; 
+                                        echo "<td> ".$row["unit_number"]." </td>"; 
+                                        echo "<td> ".$row["building_name"]." </td>"; 
+                                        echo "<td> ".$row["project_name"]." </td>"; 
+                                        echo "<td> ".$row["unit_price"]." </td>"; 
+                                        echo "<td><img src='modules/\Sold_Units/img/dateicon.png' style='border-radius: 50%; border: 1px solid #000;' width='35'>".$row["Contract_Date"]." </td>"; 
+                                        echo "<td> ".$row["is_over_seas"]." </td>"; 
+                                        echo "<td> ".$row["is_launch"]." </td>"; 
+                                        echo "<td> ".$row["area"]." </td>"; 
+                                        echo "</tr>";          
+                                    }
+                                }
                                 ?>	
                                 </tbody>
                             </table>
