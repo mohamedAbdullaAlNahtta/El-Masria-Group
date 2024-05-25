@@ -120,7 +120,7 @@
                                         echo "<td> ".$row["building_name"]." </td>"; 
                                         echo "<td> ".$row["project_name"]." </td>"; 
                                         echo "<td> ".$row["unit_price"]." </td>"; 
-                                        echo "<td><img src='modules/\Sold_Units/img/dateicon.png' style='border-radius: 50%; border: 1px solid #000;' width='35'>".$row["Contract_Date"]." </td>"; 
+                                        echo "<td><img src='modules/Sold_Units/img/dateicon.png' style='border-radius: 50%; border: 1px solid #000;' width='35'>".$row["Contract_Date"]." </td>"; 
                                         echo "<td> ".$row["is_over_seas"]." </td>"; 
                                         echo "<td> ".$row["is_launch"]." </td>"; 
                                         echo "<td> ".$row["area"]." </td>"; 

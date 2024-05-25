@@ -1,5 +1,32 @@
+<script>
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
+// Change select linked customer 
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
+function myFunctionChangeSelectedUnit(st){
+	const $select = document.querySelector('#new_unit_id');
+  $select.value = st;
+}
 
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
+// show all client on a popup window 
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
+myBlurFunction = function(state) {
+    var containerElement = document.getElementById('main_container');
+    var overlayEle = document.getElementById('overlay');
 
+    if (state) {
+        overlayEle.style.display = 'block';
+        containerElement.setAttribute('class', 'blur');
+    } else {
+        overlayEle.style.display = 'none';
+        containerElement.setAttribute('class', null);
+    }
+};
+</script>
 <!-- This is data table -->
 <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
 <!-- start - This is for export functionality only -->
@@ -49,15 +76,6 @@
                         });
                 },
             });
-            // Order by the grouping
-            $("#example tbody").on("click", "tr.group", function () {
-                var currentOrder = table.order()[0];
-                if (currentOrder[0] === 2 && currentOrder[1] === "asc") {
-                    table.order([2, "desc"]).draw();
-                } else {
-                    table.order([2, "asc"]).draw();
-                }
-            });
         });
     });
     $("#example23").DataTable({
@@ -66,3 +84,53 @@
         order: [],
     });
 </script>
+<!-- This page plugins -->
+    <!-- ============================================================== -->
+    <script src="assets/plugins/switchery/dist/switchery.min.js"></script>
+    <script src="assets/plugins/select2/dist/js/select2.full.min.js" type="text/javascript"></script>
+    <script src="assets/plugins/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
+    <script src="assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+    <script src="assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="assets/plugins/multiselect/js/jquery.multi-select.js"></script>
+    <script>
+    jQuery(document).ready(function() {
+        // For multiselect
+        $('#pre-selected-options').multiSelect();
+        $('#optgroup').multiSelect({
+            selectableOptgroup: true
+        });
+        $(".ajax").select2({
+            ajax: {
+                url: "https://api.github.com/search/repositories",
+                dataType: 'json',
+                delay: 250,
+                data: function(params) {
+                    return {
+                        q: params.term, // search term
+                        page: params.page
+                    };
+                },
+                processResults: function(data, params) {
+                    // parse the results into the format expected by Select2
+                    // since we are using custom formatting functions we do not need to
+                    // alter the remote JSON data, except to indicate that infinite
+                    // scrolling can be used
+                    params.page = params.page || 1;
+                    return {
+                        results: data.items,
+                        pagination: {
+                            more: (params.page * 30) < data.total_count
+                        }
+                    };
+                },
+                cache: true
+            },
+            escapeMarkup: function(markup) {
+                return markup;
+            }, // let our custom formatter work
+            minimumInputLength: 1,
+            templateResult: formatRepo, // omitted for brevity, see the source of this page
+            templateSelection: formatRepoSelection // omitted for brevity, see the source of this page
+        });
+    });
+    </script>

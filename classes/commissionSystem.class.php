@@ -160,7 +160,18 @@ class CommissionSystem{
     }
 
     public function remove_duplicated_value($arr){
-        return array_unique($arr));
+        return array_unique($arr);
+
+    }
+
+    public function get_all_emp(){
+        $commissiondb = new CommissionSystemDB;
+        
+        $sql = "SELECT `employee`.`id`, `employee`.`name`, `employee`.`manger_id`, `department`.`name` AS `department`, `area`.`name` AS `area` , `job_title`.`name` AS `job_title`, `employee`.`mobile`FROM `employee`, `department`, `area`, `job_title` WHERE `employee`.`department_id`=`department`.`id` AND `employee`.`area_id`= `area`.`id` AND `employee`.`job_title`= `job_title`.`id`;";
+        
+        $result = $commissiondb->query($sql);
+        return $result;
+        $commissiondb->close_db_connection();  
 
     }
 
