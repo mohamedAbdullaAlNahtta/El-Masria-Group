@@ -94,11 +94,10 @@ myBlurFunction = function(state) {
     <script type="text/javascript" src="assets/plugins/multiselect/js/jquery.multi-select.js"></script>
     <script>
     jQuery(document).ready(function() {
-        // For multiselect
-        $('#pre-selected-options').multiSelect();
-        $('#optgroup').multiSelect({
-            selectableOptgroup: true
-        });
+        // For multiselect0
+        $('#pre-selected-options0').multiSelect();
+        $('#pre-selected-options1').multiSelect();
+        $('#pre-selected-options2').multiSelect();
         $(".ajax").select2({
             ajax: {
                 url: "https://api.github.com/search/repositories",

@@ -71,7 +71,6 @@
         <!--==================================================================================================-->
         <?php
         $newCommissionSystem = new CommissionSystem;
-        $result = $newCommissionSystem->get_all_emp();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $selectedOptions = $_POST['empMySelect'];
@@ -113,20 +112,72 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!--/span-->
-                                <div class="col-lg-12 col-xlg-12  m-b-30">
-                                    <h5 class="box-title">selected options Name===Job Title===area</h5>
-                                    <select id='pre-selected-options'  name="empMySelect[]" multiple='multiple'>
+                                <!-- <table  class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th><i class="mdi mdi-homee"></i></th>
+                                            <th><?php echo $lang['ID']; ?></th>
+                                            <th><?php echo $lang['Unit Number']; ?></th> 
+                                            <th><?php echo $lang['Building Number']; ?></th>
+                                            <th><?php echo $lang['Project Name']; ?></th>
+                                            <th><?php echo $lang['Unit Price']; ?></th>
+                                            <th><?php echo $lang['Contract Date']; ?></th>
+                                            <th><?php echo $lang['Is Over Seas']; ?></th>
+                                            <th><?php echo $lang['Is Launch']; ?></th>
+                                            <th><?php echo $lang['area']; ?></th>
+                                            <th><i class="mdi mdi-account-check"></i> Select</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                   
+                                    </tbody>
+                                </table> -->
+                                 <!--/span-->
+                                 <div class="col-lg-12 col-xlg-12  m-b-30">
+                                    <h5 class="box-title">Select Employees from <code>Sales</code> Department Shown as Name===Job Title===area</h5>
+                                    <select id='pre-selected-options2'  name="empMySelect[]" multiple='multiple'>
                                         <?php
-                                        if ($result->num_rows > 0) {
+                                        $result02 = $newCommissionSystem->get_all_sales_emp();
+                                        if ($result02->num_rows > 0) {
                                             // output data of each row
-                                            while($row = $result->fetch_assoc()) {               
+                                            while($row = $result02->fetch_assoc()) {               
                                                 echo "<option value='".$row["id"]."'> ".$row["name"]."===".$row["job_title"]."===".$row["area"]."</option>";         
                                             }
                                         }
                                         ?>
                                     </select>
                                 </div>
+                                <!--/span-->
+                                <div class="col-lg-6 col-xlg-6  m-b-30">
+                                    <h5 class="box-title">Select Employees from <code>Contract</code> Department Shown as Name===Job Title</h5>
+                                    <select id='pre-selected-options0'  name="empMySelect[]" multiple='multiple'>
+                                        <?php
+                                        $result00 = $newCommissionSystem->get_all_Contract_emp();
+                                        if ($result00->num_rows > 0) {
+                                            // output data of each row
+                                            while($row = $result00->fetch_assoc()) {               
+                                                echo "<option value='".$row["id"]."'> ".$row["name"]."===".$row["job_title"]."</option>";         
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                 <!--/span-->
+                                 <div class="col-lg-6 col-xlg-6  m-b-30">
+                                    <h5 class="box-title">Select Employees from <code>Operation</code> Department Shown as Name===Job Title</h5>
+                                    <select id='pre-selected-options1'  name="empMySelect[]" multiple='multiple'>
+                                        <?php
+                                        $result01 = $newCommissionSystem->get_all_operation_emp();
+                                        if ($result01->num_rows > 0) {
+                                            // output data of each row
+                                            while($row = $result01->fetch_assoc()) {               
+                                                echo "<option value='".$row["id"]."'> ".$row["name"]."===".$row["job_title"]."</option>";         
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                
                             </div>
                             <hr>
                             <div class="form-actions" >

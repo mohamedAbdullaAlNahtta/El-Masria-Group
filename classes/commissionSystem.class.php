@@ -83,7 +83,7 @@ class CommissionSystem{
 
     }
 
-    protected function get_emp_manger($emp_id){
+    public function get_emp_manger($emp_id){
         $commissiondb = new CommissionSystemDB;
         
         $sql = "SELECT `manger_id` FROM `employee` WHERE `id`={$emp_id}";
@@ -159,15 +159,82 @@ class CommissionSystem{
         $userdb->close_db_connection();
     }
 
+    public function get_root_emp_arr_manager_array($emp_id_arr){
+        //employee array should have indexed array for the employee id 
+        $Count_of_employee= count($emp_id_arr);
+        $all_emp_manger=array();
+        for ($x = 0; $x < $Count_of_employee; $x++) {
+            $emp_manager= $this->get_root_emp_manager_array($emp_id_arr[$x]);
+            $all_emp_manger = array_merge($all_emp_manger, $emp_manager);
+          }
+        return $all_emp_manger;
+          
+    }
+
     public function remove_duplicated_value($arr){
         return array_unique($arr);
 
     }
 
+
     public function get_all_emp(){
         $commissiondb = new CommissionSystemDB;
         
-        $sql = "SELECT `employee`.`id`, `employee`.`name`, `employee`.`manger_id`, `department`.`name` AS `department`, `area`.`name` AS `area` , `job_title`.`name` AS `job_title`, `employee`.`mobile`FROM `employee`, `department`, `area`, `job_title` WHERE `employee`.`department_id`=`department`.`id` AND `employee`.`area_id`= `area`.`id` AND `employee`.`job_title`= `job_title`.`id`;";
+        $sql = "SELECT `employee`.`id`, `employee`.`name`, `employee`.`manger_id`,
+         `department`.`name` AS `department`, `area`.`name` AS `area` ,
+          `job_title`.`name` AS `job_title`, `employee`.`mobile`
+          FROM `employee`, `department`, `area`, `job_title` 
+          WHERE `employee`.`department_id`=`department`.`id` 
+          AND `employee`.`area_id`= `area`.`id` 
+          AND `employee`.`job_title`= `job_title`.`id`;";
+        
+        $result = $commissiondb->query($sql);
+        return $result;
+        $commissiondb->close_db_connection();  
+
+    }
+    public function get_all_sales_emp(){
+        $commissiondb = new CommissionSystemDB;
+        
+        $sql = "SELECT * FROM (SELECT `employee`.`id`, `employee`.`name`, `employee`.`manger_id`,
+         `department`.`name` AS `department`, `area`.`name` AS `area` ,
+          `job_title`.`name` AS `job_title`, `employee`.`mobile`
+          FROM `employee`, `department`, `area`, `job_title` 
+          WHERE `employee`.`department_id`=`department`.`id` 
+          AND `employee`.`area_id`= `area`.`id` 
+          AND `employee`.`job_title`= `job_title`.`id`) AS `T1` WHERE department ='Sales';";
+        
+        $result = $commissiondb->query($sql);
+        return $result;
+        $commissiondb->close_db_connection();  
+
+    }
+    public function get_all_operation_emp(){
+        $commissiondb = new CommissionSystemDB;
+        
+        $sql = "SELECT * FROM (SELECT `employee`.`id`, `employee`.`name`, `employee`.`manger_id`,
+        `department`.`name` AS `department`, `area`.`name` AS `area` ,
+         `job_title`.`name` AS `job_title`, `employee`.`mobile`
+         FROM `employee`, `department`, `area`, `job_title` 
+         WHERE `employee`.`department_id`=`department`.`id` 
+         AND `employee`.`area_id`= `area`.`id` 
+         AND `employee`.`job_title`= `job_title`.`id`) AS `T1` WHERE department ='Operation';";
+        
+        $result = $commissiondb->query($sql);
+        return $result;
+        $commissiondb->close_db_connection();  
+
+    }
+    public function get_all_Contract_emp(){
+        $commissiondb = new CommissionSystemDB;
+        
+        $sql = "SELECT * FROM (SELECT `employee`.`id`, `employee`.`name`, `employee`.`manger_id`,
+        `department`.`name` AS `department`, `area`.`name` AS `area` ,
+         `job_title`.`name` AS `job_title`, `employee`.`mobile`
+         FROM `employee`, `department`, `area`, `job_title` 
+         WHERE `employee`.`department_id`=`department`.`id` 
+         AND `employee`.`area_id`= `area`.`id` 
+         AND `employee`.`job_title`= `job_title`.`id`) AS `T1` WHERE department ='Contract';";
         
         $result = $commissiondb->query($sql);
         return $result;

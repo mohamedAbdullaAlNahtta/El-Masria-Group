@@ -14,17 +14,26 @@ var_dump($newCommissionSystem->get_emp_commission_by_count_value("1000000", $car
 // array(4) { ["Volvo"]=> float(5000) ["BMW"]=> float(5000) ["Toyota"]=> float(5000) ["Tyota"]=> float(5000) } 
 echo "<br>";
 
-// var_dump(get_emp_commission_by_count_value("1000000", $cars, NULL, 2000));
+var_dump($newCommissionSystem->get_emp_commission_by_count_value("1000000", $cars, NULL, 2000));
 echo "<br>";
 // result should be like this 
 // array(4) { ["Volvo"]=> int(500) ["BMW"]=> int(500) ["Toyota"]=> int(500) ["Tyota"]=> int(500) } 
 echo "<br>";
-
 var_dump($newCommissionSystem->get_emp_manger(2));
 echo "<br>";
-// var_dump($newCommissionSystem->get_emp_name_by_id(4));
+var_dump($newCommissionSystem->get_emp_name_by_id(4));
 echo "<br>";
-var_dump($newCommissionSystem->get_root_emp_manager_array(12));
+echo "<br>";
+echo "<br>";
+var_dump($newCommissionSystem->get_root_emp_manager_array(7));
+echo "<br>";
+var_dump($newCommissionSystem->get_root_emp_manager_array(8));
+echo "<br>";
+var_dump($newCommissionSystem->get_root_emp_manager_array(9));
+echo "<br>";
+
+$xarra= array(7,8,9);
+var_dump($newCommissionSystem->get_root_emp_arr_manager_array($xarra));
 echo "<br>";
 
 
