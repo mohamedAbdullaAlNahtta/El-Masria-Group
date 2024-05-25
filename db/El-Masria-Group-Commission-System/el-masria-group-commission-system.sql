@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2024 at 08:00 AM
+-- Generation Time: May 25, 2024 at 11:40 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -136,36 +136,37 @@ CREATE TABLE `employee` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `department_id` int(11) NOT NULL,
-  `manger_id` int(11) NOT NULL,
+  `manger_id` int(11) DEFAULT NULL,
   `area_id` int(11) NOT NULL,
   `job_title` int(11) NOT NULL,
   `mobile` varchar(11) NOT NULL,
-  `bank_account` varchar(255) NOT NULL
+  `bank_account` varchar(255) NOT NULL,
+  `level` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`id`, `name`, `department_id`, `manger_id`, `area_id`, `job_title`, `mobile`, `bank_account`) VALUES
-(1, 'Moustafa Mohamed Ibrahim', 1, 0, 1, 1, '1001234567', 'XXX-XXX-XXX'),
-(2, 'Ahmed Tamer Ibrahim', 2, 0, 1, 3, '1001234568', 'XXX-XXX-XXX'),
-(3, 'Ibrahim Mohamed Ibrahim', 3, 0, 1, 5, '1001234569', 'XXX-XXX-XXX'),
-(4, 'Wagdy Mohamed Ibrahim', 3, 3, 1, 6, '1001234570', 'XXX-XXX-XXX'),
-(5, 'Ahmed Wagdy Ibrahim', 3, 4, 1, 7, '1001234571', 'XXX-XXX-XXX'),
-(6, 'Alla Wagdy Ibrahim', 1, 1, 1, 2, '1001234572', 'XXX-XXX-XXX'),
-(7, 'Ahmed Wagdy Alla', 2, 2, 1, 4, '1001234573', 'XXX-XXX-XXX'),
-(8, 'Ahmed Kamal Ibrahim', 3, 5, 1, 8, '1001234574', 'XXX-XXX-XXX'),
-(9, 'Mohamed Wagdy Mohamed', 1, 1, 1, 2, '1001234575', 'XXX-XXX-XXX'),
-(10, 'Rady Wagdy Rady', 2, 2, 1, 4, '1001234576', 'XXX-XXX-XXX'),
-(11, 'teleb Wagdy teleb', 3, 0, 1, 8, '1001234577', 'XXX-XXX-XXX'),
-(12, 'Ahmed Moustafa Moustafa', 1, 1, 1, 2, '1001234578', 'XXX-XXX-XXX'),
-(13, 'Dalya Wagdy Wagdy', 2, 2, 1, 4, '1001234579', 'XXX-XXX-XXX'),
-(14, 'Mohamed Magdy Ibrahim', 1, 5, 1, 8, '1001234580', 'XXX-XXX-XXX'),
-(15, 'Magdy MagdyAdel', 1, 0, 1, 8, '1001234581', 'XXX-XXX-XXX'),
-(16, 'Adel Magdy Ibrahim', 1, 0, 1, 8, '1001234582', 'XXX-XXX-XXX'),
-(17, 'Adel Adel Ibrahim', 1, 0, 1, 8, '1001234583', 'XXX-XXX-XXX'),
-(19, 'Walaa Wagdy Mohamed', 3, 0, 1, 7, '1001234583', 'XXX-XXX-XXX');
+INSERT INTO `employee` (`id`, `name`, `department_id`, `manger_id`, `area_id`, `job_title`, `mobile`, `bank_account`, `level`) VALUES
+(1, 'Moustafa Mohamed Ibrahim', 1, NULL, 1, 1, '1001234567', 'XXX-XXX-XXX', 0),
+(2, 'Ahmed Tamer Ibrahim', 2, NULL, 1, 3, '1001234568', 'XXX-XXX-XXX', 0),
+(3, 'Ibrahim Mohamed Ibrahim', 3, NULL, 1, 5, '1001234569', 'XXX-XXX-XXX', 0),
+(4, 'Wagdy Mohamed Ibrahim', 3, 3, 1, 6, '1001234570', 'XXX-XXX-XXX', 1),
+(5, 'Ahmed Wagdy Ibrahim', 3, 4, 1, 7, '1001234571', 'XXX-XXX-XXX', 2),
+(6, 'Alla Wagdy Ibrahim', 1, 1, 1, 2, '1001234572', 'XXX-XXX-XXX', 1),
+(7, 'Ahmed Wagdy Alla', 2, 2, 1, 4, '1001234573', 'XXX-XXX-XXX', 1),
+(8, 'Ahmed Kamal Ibrahim', 3, 5, 1, 8, '1001234574', 'XXX-XXX-XXX', 1),
+(9, 'Mohamed Wagdy Mohamed', 1, 1, 1, 2, '1001234575', 'XXX-XXX-XXX', 1),
+(10, 'Rady Wagdy Rady', 2, 2, 1, 4, '1001234576', 'XXX-XXX-XXX', 1),
+(11, 'teleb Wagdy teleb', 3, NULL, 1, 8, '1001234577', 'XXX-XXX-XXX', 3),
+(12, 'Ahmed Moustafa Moustafa', 1, 1, 1, 2, '1001234578', 'XXX-XXX-XXX', 1),
+(13, 'Dalya Wagdy Wagdy', 2, 2, 1, 4, '1001234579', 'XXX-XXX-XXX', 1),
+(14, 'Mohamed Magdy Ibrahim', 3, 5, 1, 8, '1001234580', 'XXX-XXX-XXX', 3),
+(15, 'Magdy MagdyAdel', 3, NULL, 1, 8, '1001234581', 'XXX-XXX-XXX', 3),
+(16, 'Adel Magdy Ibrahim', 3, NULL, 1, 8, '1001234582', 'XXX-XXX-XXX', 3),
+(17, 'Adel Adel Ibrahim', 3, NULL, 1, 8, '1001234583', 'XXX-XXX-XXX', 3),
+(19, 'Walaa Wagdy Mohamed', 3, NULL, 1, 7, '1001234583', 'XXX-XXX-XXX', 2);
 
 -- --------------------------------------------------------
 
@@ -175,7 +176,7 @@ INSERT INTO `employee` (`id`, `name`, `department_id`, `manger_id`, `area_id`, `
 
 CREATE TABLE `job_title` (
   `id` int(11) NOT NULL,
-  `job_title` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `commission_percentage` varchar(11) DEFAULT NULL,
   `commission_value` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -184,7 +185,7 @@ CREATE TABLE `job_title` (
 -- Dumping data for table `job_title`
 --
 
-INSERT INTO `job_title` (`id`, `job_title`, `commission_percentage`, `commission_value`) VALUES
+INSERT INTO `job_title` (`id`, `name`, `commission_percentage`, `commission_value`) VALUES
 (1, 'Contract Manager', NULL, 150),
 (2, 'Contract Specialist', NULL, 200),
 (3, 'Operation Manager', NULL, 150),
@@ -192,7 +193,7 @@ INSERT INTO `job_title` (`id`, `job_title`, `commission_percentage`, `commission
 (5, 'CCO', '0.4', NULL),
 (6, 'Sales Director', '0.4', NULL),
 (7, 'Sales Manager', '0.02', NULL),
-(8, 'Sales Sepecialist', '1', NULL);
+(8, 'Sales Sepecialist', '0.01', NULL);
 
 -- --------------------------------------------------------
 

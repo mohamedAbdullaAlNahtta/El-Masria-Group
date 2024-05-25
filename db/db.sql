@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2024 at 07:59 AM
+-- Generation Time: May 25, 2024 at 11:39 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -361,10 +361,11 @@ INSERT INTO `module_menu` (`id`, `id_parent`, `icon`, `link`, `name`, `type`, `o
 ('Change theme', 'Setting', 'mdi mdi-theme-light-dark', 'index?module=Change_Theme', 'Change theme', 'tab', 5, 1, 37),
 ('Client Registration', 'System Administration', 'mdi mdi-account-convert', 'index?module=Client_Registration', 'Client Registration', 'tab', 1, 1, 43),
 ('Commission System', NULL, 'mdi mdi-calculator', '#', 'Commission System', 'men', 10, 0, 19),
-('Configuration', 'Commission System', 'mdi mdi-settings', NULL, 'Configuration', 'men', 3, 1, 25),
+('Configuration', 'Commission System', 'mdi mdi-settings', NULL, 'Configuration', 'men', 4, 1, 25),
 ('Dashboard', NULL, 'mdi mdi-gauge', 'index?module=home', 'Dashboard', 'tab', 5, 0, 5),
 ('Dues', 'Payment Reports', 'mdi mdi-calendar-clock', 'index?module=Dues', 'Dues', 'tab', 2, 1, 14),
-('Employee Commission', 'Commission System', 'mdi mdi-square-inc-cash', 'index?module=Employee_Commission', 'Employee Commission', 'tab', 1, 1, 21),
+('Employee', 'Commission System', 'mdi mdi-account-card-details', 'index?module=Employee', 'Employee', 'tab', 0, 1, 20),
+('Employee Commission', 'Commission System', 'mdi mdi-square-inc-cash', 'index?module=Employee_Commission', 'Employee Commission', 'tab', 2, 1, 22),
 ('log Management', 'Setting', 'mdi mdi-account-multiple-outline', 'index?module=log_Management', 'log Management', 'tab', 1, 1, 33),
 ('Login History', 'Setting', 'mdi mdi-account-convert', 'index?module=Login_History', 'Login History', 'tab', 0, 1, 32),
 ('Manage Extensions Profile', 'Setting', 'mdi mdi-account-settings-variant', 'index?module=Manage_Extensions_Profile', 'Manage Extensions Profile', 'tab', 4, 1, 36),
@@ -374,7 +375,7 @@ INSERT INTO `module_menu` (`id`, `id_parent`, `icon`, `link`, `name`, `type`, `o
 ('Review Payments', 'Payment Reports', 'mdi mdi-calendar', 'index?module=Review_Payments', 'Review Payments', 'tab', 0, 1, 12),
 ('Security', 'System Administration', 'mdi mdi-security', '#', 'Security', 'men', 3, 1, 50),
 ('Setting', NULL, 'mdi mdi-settings', '#', 'Setting', 'men', 11, 0, 31),
-('Sold Units', 'Commission System', 'mdi mdi-home', 'index?module=Sold_Units', 'Sold Units', 'tab', 0, 1, 20),
+('Sold Units', 'Commission System', 'mdi mdi-home', 'index?module=Sold_Units', 'Sold Units', 'tab', 1, 1, 21),
 ('Support', NULL, 'mdi mdi-animation', '#', 'Support', 'men', 9, 0, 15),
 ('System Administration', NULL, 'mdi mdi-camera-front-variant', '#', 'System Administration', 'tab', 12, 0, 42),
 ('Tickets', 'Support', 'mdi mdi-ticket-account', 'index?module=Tickets', 'Tickets', 'tab', 0, 1, 16),
@@ -806,6 +807,7 @@ INSERT INTO `user_role_module_menu` (`user_role_id`, `module_menu_id`, `access_t
 (2, 'Configuration', 'read'),
 (2, 'Dashboard', 'write'),
 (2, 'Dues', 'read'),
+(2, 'Employee', 'write'),
 (2, 'Employee Commission', 'write'),
 (2, 'log Management', 'write'),
 (2, 'Login History', 'write'),
@@ -830,6 +832,7 @@ INSERT INTO `user_role_module_menu` (`user_role_id`, `module_menu_id`, `access_t
 (3, 'Configuration', 'read'),
 (3, 'Dashboard', 'write'),
 (3, 'Dues', 'read'),
+(3, 'Employee', 'read'),
 (3, 'Employee Commission', 'read'),
 (3, 'log Management', 'write'),
 (3, 'Login History', 'write'),
