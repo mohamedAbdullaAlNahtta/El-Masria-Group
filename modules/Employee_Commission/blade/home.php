@@ -115,18 +115,7 @@
                                 <!-- <table  class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                     <thead>
                                         <tr>
-                                            <th><i class="mdi mdi-homee"></i></th>
-                                            <th><?php echo $lang['ID']; ?></th>
-                                            <th><?php echo $lang['Unit Number']; ?></th> 
-                                            <th><?php echo $lang['Building Number']; ?></th>
-                                            <th><?php echo $lang['Project Name']; ?></th>
-                                            <th><?php echo $lang['Unit Price']; ?></th>
-                                            <th><?php echo $lang['Contract Date']; ?></th>
-                                            <th><?php echo $lang['Is Over Seas']; ?></th>
-                                            <th><?php echo $lang['Is Launch']; ?></th>
-                                            <th><?php echo $lang['area']; ?></th>
-                                            <th><i class="mdi mdi-account-check"></i> Select</th>
-                                        </tr>
+
                                     </thead>
                                     <tbody>
                                    

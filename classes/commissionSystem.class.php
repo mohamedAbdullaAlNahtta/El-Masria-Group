@@ -55,6 +55,84 @@ class CommissionSystem{
         
     }
 
+    public function get_emp_job_title_by_id($emp_id){
+        $commissiondb = new CommissionSystemDB;
+        
+        $sql = "SELECT `job_title` FROM  (SELECT `employee`.`id`, `job_title`.`name` AS `job_title`
+        FROM `employee`,  `job_title` 
+        WHERE `employee`.`job_title`= `job_title`.`id`) AS `T1` WHERE `id`=$emp_id;";
+        
+        $result = $commissiondb->query($sql);
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            $job_title = $row["job_title"];
+        }
+
+        return $job_title;
+        $commissiondb->close_db_connection(); 
+
+
+    }
+
+    public function get_commission_value_by_title($title){
+        $sql = "SELECT * FROM `job_title` WHERE `name`={$title};";
+        
+        $result = $commissiondb->query($sql);
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            $commission_value = $row["commission_value"];
+        }
+
+        return $commission_value;
+        $commissiondb->close_db_connection();
+
+    }
+
+    public function get_commission_percentage_by_title($title){
+        $sql = "SELECT * FROM `job_title` WHERE `name`={$title};";
+        
+        $result = $commissiondb->query($sql);
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            $commission_percentage = $row["commission_percentage"];
+        }
+
+        return $commission_percentage;
+        $commissiondb->close_db_connection();
+
+    }
+
+    // old techniqe 
+    public function calculate_operation_commession($emp_id_arr){
+
+        // get All participated emp
+        $all_emp_and_mangers = array();
+        $arrCount= count($emp_id_arr);
+        for ($x = 0; $x < $arrCount; $x++) {
+            $emp_root_managers= $this->get_root_emp_manager_array($emp_id_arr[$x]);
+            $all_emp_and_mangers = array_merge($all_emp_and_mangers, $emp_root_managers);
+            $all_emp_and_mangers = $this->remove_duplicated_value($all_emp_and_mangers);
+          }
+          
+        // catagories emp based on title  
+        $arrCount_all= count($all_emp_and_mangers);
+        $OperationManager=array();
+        $SalesAdmin=array();
+
+        for ($z = 0; $z < $arrCount_all; $z++) {
+            $emp_job_title = $this->get_emp_job_title_by_id($all_emp_and_mangers[$z]);
+            if($emp_job_title==="Operation Manager"){
+                $OperationManager[]= $all_emp_and_mangers[$z];
+                $OperationManager = $this->remove_duplicated_value($OperationManager);
+            }elseif($emp_job_title==="Sales Admin"){
+                $SalesAdmin [] = $all_emp_and_mangers[$z];
+                $SalesAdmin = $this->remove_duplicated_value($SalesAdmin);
+            } 
+        }
+        $participated_emp =array("OperationManager"=>$OperationManager, "SalesAdmin"=>$SalesAdmin );
+        return $participated_emp;   
+    }
+
 
     public function get_emp_commission_by_count_value($unit_price, $empArray, $Precentage, $Value){
 
@@ -167,6 +245,7 @@ class CommissionSystem{
             $emp_manager= $this->get_root_emp_manager_array($emp_id_arr[$x]);
             $all_emp_manger = array_merge($all_emp_manger, $emp_manager);
           }
+        $all_emp_manger = $this->remove_duplicated_value($all_emp_manger);
         return $all_emp_manger;
           
     }

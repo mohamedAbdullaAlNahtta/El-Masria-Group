@@ -29,11 +29,16 @@ var_dump($newCommissionSystem->get_root_emp_manager_array(7));
 echo "<br>";
 var_dump($newCommissionSystem->get_root_emp_manager_array(8));
 echo "<br>";
-var_dump($newCommissionSystem->get_root_emp_manager_array(9));
+var_dump($newCommissionSystem->get_root_emp_manager_array(2));
 echo "<br>";
 
 $xarra= array(7,8,9);
 var_dump($newCommissionSystem->get_root_emp_arr_manager_array($xarra));
+echo "<br>";
+var_dump($newCommissionSystem->get_emp_job_title_by_id("1"));
+echo "<br>";
+$yarray=array(7,10,13);
+var_dump($newCommissionSystem->calculate_operation_commession($yarray));
 echo "<br>";
 
 

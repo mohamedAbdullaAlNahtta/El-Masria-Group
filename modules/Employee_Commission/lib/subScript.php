@@ -27,6 +27,7 @@ myBlurFunction = function(state) {
     }
 };
 </script>
+
 <!-- This is data table -->
 <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
 <!-- start - This is for export functionality only -->
@@ -94,7 +95,7 @@ myBlurFunction = function(state) {
     <script type="text/javascript" src="assets/plugins/multiselect/js/jquery.multi-select.js"></script>
     <script>
     jQuery(document).ready(function() {
-        // For multiselect0
+        // For multiselect
         $('#pre-selected-options0').multiSelect();
         $('#pre-selected-options1').multiSelect();
         $('#pre-selected-options2').multiSelect();
