@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2024 at 11:39 AM
+-- Generation Time: May 25, 2024 at 09:21 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -354,6 +354,8 @@ CREATE TABLE `module_menu` (
 
 INSERT INTO `module_menu` (`id`, `id_parent`, `icon`, `link`, `name`, `type`, `order_no`, `level`, `nahtta_order`) VALUES
 ('Access Denied', NULL, '', 'index?module=Access_Denied', 'Access Denied', 'tab', 4, 0, 4),
+('area.conf', 'Configuration', '', 'index?module=area_conf', 'area.conf', 'tab', 2, 2, 28),
+('area.direct.conflict.conf', 'Configuration', '', 'index?module=area_direct_conflict_conf', 'area.direct.conflict.conf', 'tab', 3, 2, 29),
 ('Blocked Users', 'Security', 'mdi mdi-server-remove', 'index?module=Blocked_Users', 'Blocked Users', 'tab', 1, 2, 51),
 ('Change language', 'Setting', 'fa fa-language', 'index?module=Change_Language', 'Change language', 'tab', 6, 1, 38),
 ('Change Password', 'Setting', 'mdi mdi-account-key', 'index?module=Change_Password ', 'Change Password', 'tab', 3, 1, 35),
@@ -363,9 +365,11 @@ INSERT INTO `module_menu` (`id`, `id_parent`, `icon`, `link`, `name`, `type`, `o
 ('Commission System', NULL, 'mdi mdi-calculator', '#', 'Commission System', 'men', 10, 0, 19),
 ('Configuration', 'Commission System', 'mdi mdi-settings', NULL, 'Configuration', 'men', 4, 1, 25),
 ('Dashboard', NULL, 'mdi mdi-gauge', 'index?module=home', 'Dashboard', 'tab', 5, 0, 5),
+('department.conf', 'Configuration', '', 'index?module=department_conf', 'department.conf', 'tab', 0, 2, 26),
 ('Dues', 'Payment Reports', 'mdi mdi-calendar-clock', 'index?module=Dues', 'Dues', 'tab', 2, 1, 14),
 ('Employee', 'Commission System', 'mdi mdi-account-card-details', 'index?module=Employee', 'Employee', 'tab', 0, 1, 20),
 ('Employee Commission', 'Commission System', 'mdi mdi-square-inc-cash', 'index?module=Employee_Commission', 'Employee Commission', 'tab', 2, 1, 22),
+('job.title.conf', 'Configuration', '', 'index?module=job_title_conf', 'job.title.conf', 'tab', 1, 2, 27),
 ('log Management', 'Setting', 'mdi mdi-account-multiple-outline', 'index?module=log_Management', 'log Management', 'tab', 1, 1, 33),
 ('Login History', 'Setting', 'mdi mdi-account-convert', 'index?module=Login_History', 'Login History', 'tab', 0, 1, 32),
 ('Manage Extensions Profile', 'Setting', 'mdi mdi-account-settings-variant', 'index?module=Manage_Extensions_Profile', 'Manage Extensions Profile', 'tab', 4, 1, 36),
@@ -797,6 +801,8 @@ CREATE TABLE `user_role_module_menu` (
 
 INSERT INTO `user_role_module_menu` (`user_role_id`, `module_menu_id`, `access_type`) VALUES
 (1, 'Access Denied', 'write'),
+(2, 'area.conf', 'write'),
+(2, 'area.direct.conflict.conf', 'write'),
 (2, 'Blocked Users', 'write'),
 (2, 'Change language', 'write'),
 (2, 'Change Password', 'write'),
@@ -806,9 +812,11 @@ INSERT INTO `user_role_module_menu` (`user_role_id`, `module_menu_id`, `access_t
 (2, 'Commission System', 'write'),
 (2, 'Configuration', 'read'),
 (2, 'Dashboard', 'write'),
+(2, 'department.conf', 'write'),
 (2, 'Dues', 'read'),
 (2, 'Employee', 'write'),
 (2, 'Employee Commission', 'write'),
+(2, 'job.title.conf', 'write'),
 (2, 'log Management', 'write'),
 (2, 'Login History', 'write'),
 (2, 'Paid Values', 'write'),
@@ -823,6 +831,8 @@ INSERT INTO `user_role_module_menu` (`user_role_id`, `module_menu_id`, `access_t
 (2, 'Tickets', 'read'),
 (2, 'User Management', 'write'),
 (2, 'Users Activity Logs', 'write'),
+(3, 'area.conf', 'read'),
+(3, 'area.direct.conflict.conf', 'read'),
 (3, 'Change language', 'write'),
 (3, 'Change Password', 'write'),
 (3, 'Change Profile Image', 'write'),
@@ -831,9 +841,11 @@ INSERT INTO `user_role_module_menu` (`user_role_id`, `module_menu_id`, `access_t
 (3, 'Commission System', 'read'),
 (3, 'Configuration', 'read'),
 (3, 'Dashboard', 'write'),
+(3, 'department.conf', 'read'),
 (3, 'Dues', 'read'),
 (3, 'Employee', 'read'),
 (3, 'Employee Commission', 'read'),
+(3, 'job.title.conf', 'read'),
 (3, 'log Management', 'write'),
 (3, 'Login History', 'write'),
 (3, 'Paid Values', 'read'),
