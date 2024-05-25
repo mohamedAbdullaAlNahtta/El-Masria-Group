@@ -92,7 +92,7 @@
                                 <?php 
                                 $newCommissionSystem = new CommissionConfiguration;
 
-                                $result = $newCommissionSystem->get_department();
+                                $result = $newCommissionSystem->get_job_title();
 
                                 if ($result->num_rows > 0) {
                                     // output data of each row

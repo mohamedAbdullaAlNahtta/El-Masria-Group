@@ -1,1 +1,1 @@
-<title>Employe</title>
+<title>Department Configuration</title>
