@@ -119,6 +119,7 @@ $lang['Tickets']='Tickets';
 $lang['Employee']='Employee';
 $lang['department.conf']='department.conf';
 $lang['job.title.conf']='job.title.conf';
+$lang['area.conf']='area.conf';
 
 $lang['Commission System']='Commission System';
 $lang['Sold Units']='Sold Units';

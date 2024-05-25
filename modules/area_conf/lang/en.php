@@ -45,9 +45,8 @@ $lang['Setting'] = 'Setting';
 $lang['log Management']='log Management';
 
 $lang['ID'] = 'ID';
-$lang['Department Name'] = 'Department Name';
-$lang['Commission Percentage'] = 'Commission Percentage';
-$lang['Commission Value'] = 'Commission Value';
+$lang['Name'] = 'Name';
+$lang['description'] = 'description';
 
 
 ?>

@@ -46,7 +46,9 @@ $lang['log Management']='إدارة السجل';
 
 $lang['ID'] = 'بطاقة تعريف';
 $lang['Department Name'] = 'الاسم';
-$lang['description'] = 'الوصف';
+$lang['Commission Percentage'] = 'نسبة العمولة';
+$lang['Commission Value'] = 'قيمة العمولة';
+
 
 
 

@@ -72,14 +72,14 @@
                                 <thead>
                                     <tr>
                                         <th><?php echo $lang['ID']; ?></th>
-                                        <th><?php echo $lang['Department Name']; ?></th> 
+                                        <th><?php echo $lang['Name']; ?></th> 
                                         <th><?php echo $lang['description']; ?></th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
                                         <th><?php echo $lang['ID']; ?></th>
-                                        <th><?php echo $lang['Department Name']; ?></th> 
+                                        <th><?php echo $lang['Name']; ?></th> 
                                         <th><?php echo $lang['description']; ?></th>
                                     </tr>
                                 </tfoot>
@@ -87,7 +87,7 @@
                                 <?php 
                                 $newCommissionSystem = new CommissionConfiguration;
 
-                                $result = $newCommissionSystem->get_department();
+                                $result = $newCommissionSystem->get_area();
 
                                 if ($result->num_rows > 0) {
                                     // output data of each row

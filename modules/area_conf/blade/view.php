@@ -48,6 +48,11 @@
         <!-- ============================================================== -->
         <div class="row page-titles">
             <div class="col-md-6 col-8 align-self-center">
+                <h3 class="text-themecolor m-b-0 m-t-0">Login History</h3>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Report</a></li>
+                    <li class="breadcrumb-item active">Log description</li>
+                </ol>
             </div>
         </div>
         <!-- ============================================================== -->
@@ -67,42 +72,7 @@
 		<div class="col-12">
                 <div class="card">
                     <div class="card-block">
-                        <div class="table-responsive m-t-40">
-                            <table class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
-                                <thead>
-                                    <tr>
-                                        <th><?php echo $lang['ID']; ?></th>
-                                        <th><?php echo $lang['Department Name']; ?></th> 
-                                        <th><?php echo $lang['description']; ?></th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th><?php echo $lang['ID']; ?></th>
-                                        <th><?php echo $lang['Department Name']; ?></th> 
-                                        <th><?php echo $lang['description']; ?></th>
-                                    </tr>
-                                </tfoot>
-                                <tbody>
-                                <?php 
-                                $newCommissionSystem = new CommissionConfiguration;
-
-                                $result = $newCommissionSystem->get_department();
-
-                                if ($result->num_rows > 0) {
-                                    // output data of each row
-                                    while($row = $result->fetch_assoc()) {               
-                                        echo "<tr>";
-                                        echo "<td>".$row["id"]." </td>"; 
-                                        echo "<td> ".$row["name"]." </td>"; 
-                                        echo "<td> ".$row["description"]." </td>"; 
-                                        echo "</tr>";          
-                                    }
-                                }
-                                ?>	
-                                </tbody>
-                            </table>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

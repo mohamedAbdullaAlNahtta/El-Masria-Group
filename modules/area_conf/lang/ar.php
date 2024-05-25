@@ -39,15 +39,16 @@
 // This module created from scratch by Powered by ENG Muhammad Abdullah El Nahtta
 // Powered by ENG Muhammad Abdullah El Nahtta 
 /////////////////////////////////////////////////////////////////////////////////
-$lang['Data Export'] = 'Data Export';
-$lang['Export data to Copy, CSV, Excel, PDF & Print'] = 'Export data to Copy, CSV, Excel, PDF & Print';
-$lang['Setting'] = 'Setting';
-$lang['log Management']='log Management';
+$lang['Data Export'] = 'إستخراج البيانات';
+$lang['Export data to Copy, CSV, Excel, PDF & Print'] = 'إستخراج البيانات المراد نسخها و CSV و Excel و PDF والطباعة';
+$lang['Setting'] = 'الإعدادات';
+$lang['log Management']='إدارة السجل';
 
-$lang['ID'] = 'ID';
-$lang['Department Name'] = 'Department Name';
-$lang['Commission Percentage'] = 'Commission Percentage';
-$lang['Commission Value'] = 'Commission Value';
+$lang['ID'] = 'بطاقة تعريف';
+$lang['Name'] = 'الاسم';
+$lang['description'] = 'الوصف';
+
+
 
 
 ?>
