@@ -116,6 +116,7 @@ $lang['User Management']='User Management';
 
 $lang['Support']='Support';
 $lang['Tickets']='Tickets';
+$lang['Employee']='Employee';
 
 $lang['Commission System']='Commission System';
 $lang['Sold Units']='Sold Units';

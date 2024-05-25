@@ -261,8 +261,6 @@ class CommissionSystem{
         return $emp_name;
         $commissiondb->close_db_connection();
 
-
-
     }
 
     public function get_root_emp_manager_array($emp_id){
