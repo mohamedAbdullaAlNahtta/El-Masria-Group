@@ -198,6 +198,16 @@ class CommissionSystem{
         return $participated_emp;   
     }
 
+    public function calculate_operation_commission($empArr, $unitPrice, $area, $IsLaunch, $IsOverSeas ){
+        if ($IsLaunch==="yes") {
+            # code...
+        } else {
+            # code...
+        }
+        
+
+    }
+
 
     public function get_emp_commission_by_count_value($unit_price, $empArray, $Precentage, $Value){
 
