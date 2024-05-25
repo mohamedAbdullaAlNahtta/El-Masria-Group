@@ -121,7 +121,7 @@
                                         echo "<td> ".$row["department"]." </td>"; 
                                         echo "<td> ".$row["area"]." </td>"; 
                                         echo "<td> ".$row["job_title"]." </td>"; 
-                                        echo "<td> ".$row["mobile"]." </td>"; 
+                                        echo "<td> <img src='assets/images/test/custom-select.png' style='border-radius: 50%; border: 1px solid #000;' width='35'>".$row["mobile"]." </td>"; 
                                         echo "<td> ".$row["bank_account"]." </td>"; 
                                         echo "<td> ".$row["level"]." </td>"; 
                                         echo "</tr>";          
