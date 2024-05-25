@@ -102,8 +102,7 @@ class CommissionSystem{
 
     }
 
-    // old techniqe 
-    public function calculate_operation_commession($emp_id_arr){
+    public function calculate_operation_participated_emp($emp_id_arr){
 
         // get All participated emp
         $all_emp_and_mangers = array();
@@ -130,6 +129,72 @@ class CommissionSystem{
             } 
         }
         $participated_emp =array("OperationManager"=>$OperationManager, "SalesAdmin"=>$SalesAdmin );
+        return $participated_emp;   
+    }
+    public function calculate_Contract_participated_emp($emp_id_arr){
+
+        // get All participated emp
+        $all_emp_and_mangers = array();
+        $arrCount= count($emp_id_arr);
+        for ($x = 0; $x < $arrCount; $x++) {
+            $emp_root_managers= $this->get_root_emp_manager_array($emp_id_arr[$x]);
+            $all_emp_and_mangers = array_merge($all_emp_and_mangers, $emp_root_managers);
+            $all_emp_and_mangers = $this->remove_duplicated_value($all_emp_and_mangers);
+          }
+          
+        // catagories emp based on title  
+        $arrCount_all= count($all_emp_and_mangers);
+        $ContractManager=array();
+        $ContractSpecialist=array();
+
+        for ($z = 0; $z < $arrCount_all; $z++) {
+            $emp_job_title = $this->get_emp_job_title_by_id($all_emp_and_mangers[$z]);
+            if($emp_job_title==="Contract Manager"){
+                $ContractManager[]= $all_emp_and_mangers[$z];
+                $ContractManager = $this->remove_duplicated_value($ContractManager);
+            }elseif($emp_job_title==="Contract Specialist"){
+                $ContractSpecialist [] = $all_emp_and_mangers[$z];
+                $ContractSpecialist = $this->remove_duplicated_value($ContractSpecialist);
+            } 
+        }
+        $participated_emp =array("ContractManager"=>$ContractManager, "ContractSpecialist"=>$ContractSpecialist );
+        return $participated_emp;   
+    }
+    public function calculate_Sales_participated_emp($emp_id_arr){
+
+        // get All participated emp
+        $all_emp_and_mangers = array();
+        $arrCount= count($emp_id_arr);
+        for ($x = 0; $x < $arrCount; $x++) {
+            $emp_root_managers= $this->get_root_emp_manager_array($emp_id_arr[$x]);
+            $all_emp_and_mangers = array_merge($all_emp_and_mangers, $emp_root_managers);
+            $all_emp_and_mangers = $this->remove_duplicated_value($all_emp_and_mangers);
+          }
+          
+        // catagories emp based on title  
+        $arrCount_all= count($all_emp_and_mangers);
+        $SalesSepecialist=array();
+        $SalesManager=array();
+        $CCO=array();
+        $SalesDirector=array();
+
+        for ($z = 0; $z < $arrCount_all; $z++) {
+            $emp_job_title = $this->get_emp_job_title_by_id($all_emp_and_mangers[$z]);
+            if($emp_job_title==="Sales Sepecialist"){
+                $SalesSepecialist[]= $all_emp_and_mangers[$z];
+                $SalesSepecialist = $this->remove_duplicated_value($SalesSepecialist);
+            }elseif($emp_job_title==="Sales Manager"){
+                $SalesManager [] = $all_emp_and_mangers[$z];
+                $SalesManager = $this->remove_duplicated_value($SalesManager);
+            }elseif($emp_job_title==="CCO"){
+                $CCO [] = $all_emp_and_mangers[$z];
+                $CCO = $this->remove_duplicated_value($CCO);
+            }elseif($emp_job_title==="Sales Director"){
+                $SalesDirector [] = $all_emp_and_mangers[$z];
+                $SalesDirector = $this->remove_duplicated_value($SalesDirector);
+            } 
+        }
+        $participated_emp =array("SalesSepecialist"=>$SalesSepecialist, "SalesManager"=>$SalesManager, "CCO"=>$CCO, "SalesDirector"=>$SalesDirector );
         return $participated_emp;   
     }
 

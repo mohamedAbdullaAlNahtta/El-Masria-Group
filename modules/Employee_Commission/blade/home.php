@@ -184,7 +184,6 @@
                                 <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                     <thead>
                                         <tr>
-                                            <th><i class="mdi mdi-homee"></i></th>
                                             <th><?php echo $lang['ID']; ?></th>
                                             <th><?php echo $lang['Unit Number']; ?></th> 
                                             <th><?php echo $lang['Building Number']; ?></th>
@@ -194,12 +193,11 @@
                                             <th><?php echo $lang['Is Over Seas']; ?></th>
                                             <th><?php echo $lang['Is Launch']; ?></th>
                                             <th><?php echo $lang['area']; ?></th>
-                                            <th><i class="mdi mdi-account-check"></i> Select</th>
+                                            <th>Select</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th><i class="mdi mdi-homee"></i></th>
                                             <th><?php echo $lang['ID']; ?></th>
                                             <th><?php echo $lang['Unit Number']; ?></th> 
                                             <th><?php echo $lang['Building Number']; ?></th>
@@ -209,7 +207,7 @@
                                             <th><?php echo $lang['Is Over Seas']; ?></th>
                                             <th><?php echo $lang['Is Launch']; ?></th>
                                             <th><?php echo $lang['area']; ?></th>
-                                            <th><i class="mdi mdi-account-check"></i> Select</th>
+                                            <th>Select</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -222,7 +220,6 @@
                                         // output data of each row
                                         while($row = $result->fetch_assoc()) {               
                                             echo "<tr>";
-                                            echo"<td><i class='mdi mdi-home'></i> </td>";
                                             echo "<td> ".$row["id"]." </td>"; 
                                             echo "<td> ".$row["unit_number"]." </td>"; 
                                             echo "<td> ".$row["building_name"]." </td>"; 

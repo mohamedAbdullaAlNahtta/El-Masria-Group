@@ -38,7 +38,13 @@ echo "<br>";
 var_dump($newCommissionSystem->get_emp_job_title_by_id("1"));
 echo "<br>";
 $yarray=array(7,10,13);
-var_dump($newCommissionSystem->calculate_operation_commession($yarray));
+var_dump($newCommissionSystem->calculate_operation_participated_emp($yarray));
+echo "<br>";
+$zarray=array(9,6);
+var_dump($newCommissionSystem->calculate_Contract_participated_emp($zarray));
+echo "<br>";
+$zzarray=array(14,15);
+var_dump($newCommissionSystem->calculate_Sales_participated_emp($zzarray));
 echo "<br>";
 
 
