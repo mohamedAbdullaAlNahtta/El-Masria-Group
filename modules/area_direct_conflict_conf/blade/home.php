@@ -72,26 +72,26 @@
                                 <thead>
                                     <tr>
                                         <th><?php echo $lang['ID']; ?></th>
-                                        <th><?php echo $lang['Name']; ?></th> 
-                                        <th><?php echo $lang['description']; ?></th>
-                                        <th><?php echo $lang['description']; ?></th>
-                                        <th><?php echo $lang['description']; ?></th>
+                                        <th><?php echo $lang['department']; ?></th> 
+                                        <th><?php echo $lang['is_over_seas']; ?></th>
+                                        <th><?php echo $lang['area_master_percentage']; ?></th>
+                                        <th><?php echo $lang['area_slave_percentage']; ?></th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
                                         <th><?php echo $lang['ID']; ?></th>
-                                        <th><?php echo $lang['Name']; ?></th> 
-                                        <th><?php echo $lang['description']; ?></th>
-                                        <th><?php echo $lang['description']; ?></th>
-                                        <th><?php echo $lang['description']; ?></th>
+                                        <th><?php echo $lang['department']; ?></th> 
+                                        <th><?php echo $lang['is_over_seas']; ?></th>
+                                        <th><?php echo $lang['area_master_percentage']; ?></th>
+                                        <th><?php echo $lang['area_slave_percentage']; ?></th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
                                 <?php 
                                 $newCommissionSystem = new CommissionConfiguration;
 
-                                $result = $newCommissionSystem->get_area();
+                                $result = $newCommissionSystem->get_area_direct_confilict();
 
                                 if ($result->num_rows > 0) {
                                     // output data of each row
@@ -99,9 +99,9 @@
                                         echo "<tr>";
                                         echo "<td>".$row["id"]." </td>"; 
                                         echo "<td> ".$row["department"]." </td>"; 
-                                        echo "<td> ".$row["description"]." </td>"; 
-                                        echo "<td> ".$row["description"]." </td>"; 
-                                        echo "<td> ".$row["description"]." </td>"; 
+                                        echo "<td> ".$row["is_over_seas"]." </td>"; 
+                                        echo "<td> ".$row["area_master_percentage"]." </td>"; 
+                                        echo "<td> ".$row["area_slave_percentage"]." </td>"; 
                                         echo "</tr>";          
                                     }
                                 }
