@@ -322,13 +322,41 @@ class CommissionSystem{
     public function get_all_emp(){
         $commissiondb = new CommissionSystemDB;
         
-        $sql = "SELECT `employee`.`id`, `employee`.`name`, `employee`.`manger_id`,
-         `department`.`name` AS `department`, `area`.`name` AS `area` ,
-          `job_title`.`name` AS `job_title`, `employee`.`mobile`
-          FROM `employee`, `department`, `area`, `job_title` 
-          WHERE `employee`.`department_id`=`department`.`id` 
-          AND `employee`.`area_id`= `area`.`id` 
-          AND `employee`.`job_title`= `job_title`.`id`;";
+        $sql = "SELECT 
+        `emp1`.`id`, 
+        `emp1`.`name`, 
+        `emp1`.`manger_id`, 
+        `emp2`.`name` AS `Manager`, 
+        `emp1`.`department`, 
+        `emp1`.`area`, 
+        `emp1`.`job_title`, 
+        `emp1`.`mobile`, 
+        `emp1`.`bank_account`, 
+        `emp1`.`level` 
+      FROM 
+        (
+          SELECT 
+            `e1`.`id`, 
+            `e1`.`name`, 
+            `e1`.`manger_id`, 
+            `department`.`name` AS `department`, 
+            `area`.`name` AS `area`, 
+            `job_title`.`name` AS `job_title`, 
+            `e1`.`mobile`, 
+            `e1`.`bank_account`, 
+            `e1`.`level` 
+          FROM 
+            `employee` AS `e1`, 
+            `department`, 
+            `area`, 
+            `job_title` 
+          WHERE 
+            `e1`.`department_id` = `department`.`id` 
+            AND `e1`.`area_id` = `area`.`id` 
+            AND `e1`.`job_title` = `job_title`.`id`
+        ) AS `emp1` 
+        LEFT OUTER JOIN `employee` AS `emp2` ON `emp1`.`manger_id` = `emp2`.`id`;
+      ";
         
         $result = $commissiondb->query($sql);
         return $result;

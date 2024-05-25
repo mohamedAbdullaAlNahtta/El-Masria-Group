@@ -45,14 +45,16 @@ $lang['Setting'] = 'Setting';
 $lang['log Management']='log Management';
 
 $lang['ID'] = 'ID';
-$lang['Unit Number'] = 'Unit Number'; 
-$lang['Building Number'] = 'Building Number';
-$lang['Project Name'] = 'Project Name';
-$lang['Unit Price'] = 'Unit Price';
-$lang['Contract Date'] = 'Contract Date';
-$lang['Is Over Seas'] = 'Is Over Seas';
-$lang['Is Launch'] = 'Is Launch';
+$lang['name'] = 'name';
+$lang['manger_id'] = 'manger_id';
+$lang['Manager'] = 'Manager';
+$lang['department'] = 'department';
 $lang['area'] = 'area';
+$lang['job title'] = 'job title';
+$lang['mobile'] = 'mobile';
+$lang['bank account'] = 'bank account';
+$lang['level'] = 'level';
+
 
 
 ?>

@@ -78,52 +78,52 @@
                             <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th><i class="mdi mdi-homee"></i></th>
+                                        <th><i class='mdi mdi-account-card-details'></i> </th>
                                         <th><?php echo $lang['ID']; ?></th>
-                                        <th><?php echo $lang['Unit Number']; ?></th> 
-                                        <th><?php echo $lang['Building Number']; ?></th>
-                                        <th><?php echo $lang['Project Name']; ?></th>
-                                        <th><?php echo $lang['Unit Price']; ?></th>
-                                        <th><?php echo $lang['Contract Date']; ?></th>
-                                        <th><?php echo $lang['Is Over Seas']; ?></th>
-                                        <th><?php echo $lang['Is Launch']; ?></th>
+                                        <th><?php echo $lang['name']; ?></th> 
+                                        <th><?php echo $lang['Manager']; ?></th>
+                                        <th><?php echo $lang['department']; ?></th>
                                         <th><?php echo $lang['area']; ?></th>
+                                        <th><?php echo $lang['job title']; ?></th>
+                                        <th><?php echo $lang['mobile']; ?></th>
+                                        <th><?php echo $lang['bank account']; ?></th>
+                                        <th><?php echo $lang['level']; ?></th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th><i class="mdi mdi-homee"></i></th>
+                                        <th><i class='mdi mdi-account-card-details'></i> </th>
                                         <th><?php echo $lang['ID']; ?></th>
-                                        <th><?php echo $lang['Unit Number']; ?></th> 
-                                        <th><?php echo $lang['Building Number']; ?></th>
-                                        <th><?php echo $lang['Project Name']; ?></th>
-                                        <th><?php echo $lang['Unit Price']; ?></th>
-                                        <th><?php echo $lang['Contract Date']; ?></th>
-                                        <th><?php echo $lang['Is Over Seas']; ?></th>
-                                        <th><?php echo $lang['Is Launch']; ?></th>
+                                        <th><?php echo $lang['name']; ?></th> 
+                                        <th><?php echo $lang['Manager']; ?></th>
+                                        <th><?php echo $lang['department']; ?></th>
                                         <th><?php echo $lang['area']; ?></th>
+                                        <th><?php echo $lang['job title']; ?></th>
+                                        <th><?php echo $lang['mobile']; ?></th>
+                                        <th><?php echo $lang['bank account']; ?></th>
+                                        <th><?php echo $lang['level']; ?></th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
                                 <?php 
                                 $newCommissionSystem = new CommissionSystem;
 
-                                $result = $newCommissionSystem->get_sold_units();
+                                $result = $newCommissionSystem->get_all_emp();
 
                                 if ($result->num_rows > 0) {
                                     // output data of each row
                                     while($row = $result->fetch_assoc()) {               
                                         echo "<tr>";
-                                        echo"<td><i class='mdi mdi-home'></i> </td>";
-                                        echo "<td> ".$row["id"]." </td>"; 
-                                        echo "<td> ".$row["unit_number"]." </td>"; 
-                                        echo "<td> ".$row["building_name"]." </td>"; 
-                                        echo "<td> ".$row["project_name"]." </td>"; 
-                                        echo "<td> ".$row["unit_price"]." </td>"; 
-                                        echo "<td><img src='modules/Sold_Units/img/dateicon.png' style='border-radius: 50%; border: 1px solid #000;' width='35'>".$row["Contract_Date"]." </td>"; 
-                                        echo "<td> ".$row["is_over_seas"]." </td>"; 
-                                        echo "<td> ".$row["is_launch"]." </td>"; 
+                                        echo "<td><i class='mdi mdi-account-card-details'></i> </td>"; 
+                                        echo "<td>".$row["id"]." </td>"; 
+                                        echo "<td> ".$row["name"]." </td>"; 
+                                        echo "<td> ".$row["Manager"]." </td>"; 
+                                        echo "<td> ".$row["department"]." </td>"; 
                                         echo "<td> ".$row["area"]." </td>"; 
+                                        echo "<td> ".$row["job_title"]." </td>"; 
+                                        echo "<td> ".$row["mobile"]." </td>"; 
+                                        echo "<td> ".$row["bank_account"]." </td>"; 
+                                        echo "<td> ".$row["level"]." </td>"; 
                                         echo "</tr>";          
                                     }
                                 }

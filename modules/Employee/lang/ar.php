@@ -45,13 +45,15 @@ $lang['Setting'] = 'الإعدادات';
 $lang['log Management']='إدارة السجل';
 
 $lang['ID'] = 'بطاقة تعريف';
-$lang['Unit Number'] = 'رقم الوحدة'; 
-$lang['Building Number'] = 'رقم المبنى';
-$lang['Project Name'] = 'اسم المشروع';
-$lang['Unit Price'] = 'سعر الوحدة';
-$lang['Contract Date'] = 'تاريخ التعاقد';
-$lang['Is Over Seas'] = 'ID';
-$lang['Is Launch'] = 'ID';
-$lang['area'] = 'ID';
+$lang['name'] = 'الاسم';
+$lang['manger_id'] = 'رقم المدير';
+$lang['Manager'] = 'Manager';
+$lang['department'] = 'القسم';
+$lang['area'] = 'المنطقة';
+$lang['job title'] = 'الوظيفة';
+$lang['mobile'] = 'الموبيل';
+$lang['bank account'] = 'الحساب البنكى';
+$lang['level'] = 'الدرجة';
+
 
 ?>
