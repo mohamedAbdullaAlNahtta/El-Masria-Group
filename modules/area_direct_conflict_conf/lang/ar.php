@@ -44,10 +44,11 @@ $lang['Export data to Copy, CSV, Excel, PDF & Print'] = 'إستخراج البي
 $lang['Setting'] = 'الإعدادات';
 $lang['log Management']='إدارة السجل';
 
-$lang['ID'] = 'بطاقة تعريف';
-$lang['Name'] = 'الاسم';
-$lang['description'] = 'الوصف';
-
+$lang['ID'] = 'ID';
+$lang['department'] = 'department';
+$lang['is_over_seas'] = 'is_over_seas';
+$lang['area_master_percentage'] = 'area_master_percentage';
+$lang['area_slave_percentage'] = 'area_slave_percentage';
 
 
 

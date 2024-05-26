@@ -200,7 +200,18 @@ class CommissionSystem{
 
     public function calculate_operation_commission($empArr, $unitPrice, $area, $IsLaunch, $IsOverSeas ){
         if ($IsLaunch==="yes") {
-            # code...
+            $emp_id_and_commission = array();
+            $participated_emp = $this->calculate_operation_participated_emp($empArr);
+            // check if OperationManager array not empty 
+            if(count($participated_emp["OperationManager"])!==0){
+                
+
+            }
+            // check if OperationManager array not empty 
+            if(count($participated_emp["SalesAdmin"])!==0){
+
+            }
+
         } else {
             # code...
         }

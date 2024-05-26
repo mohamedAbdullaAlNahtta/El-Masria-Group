@@ -43,9 +43,13 @@ echo "<br>";
 $zarray=array(9,6);
 var_dump($newCommissionSystem->calculate_Contract_participated_emp($zarray));
 echo "<br>";
-$zzarray=array(14,15);
-var_dump($newCommissionSystem->calculate_Sales_participated_emp($zzarray));
+$zzarray=array(15);
+$nahtta = $newCommissionSystem->calculate_Sales_participated_emp($zzarray) ;
 echo "<br>";
+if(count($nahtta ["SalesManager"])===0){
+echo "empty";
+}
+// $nahtta ["SalesManager"]
 
 
 

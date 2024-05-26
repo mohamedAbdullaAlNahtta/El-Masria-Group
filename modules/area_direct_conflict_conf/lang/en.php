@@ -45,8 +45,10 @@ $lang['Setting'] = 'Setting';
 $lang['log Management']='log Management';
 
 $lang['ID'] = 'ID';
-$lang['Name'] = 'Name';
-$lang['description'] = 'description';
+$lang['department'] = 'department';
+$lang['is_over_seas'] = 'is_over_seas';
+$lang['area_master_percentage'] = 'area_master_percentage';
+$lang['area_slave_percentage'] = 'area_slave_percentage';
 
 
 ?>
