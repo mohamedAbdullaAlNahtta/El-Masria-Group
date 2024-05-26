@@ -72,4 +72,8 @@ echo "<br>";
 echo "<br>";
 var_dump($newCommissionSystem->calculate_operation_participated_emp_conflict($yarray,"West"));
 
+$yzzarray=array(12,9);
+echo "<br>";
+var_dump($newCommissionSystem->calculate_Contract_participated_emp_conflict($yzzarray,"East"));
+
 ?>

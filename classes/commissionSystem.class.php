@@ -270,9 +270,10 @@ class CommissionSystem{
         }
 
 
-        $participated_emp =array("ContractManager"=>$ContractManager, "ContractSpecialist"=>$ContractSpecialist );
+        $participated_emp =array("ContractManagerMaster"=>$ContractManagerMaster, "ContractManagerSlave"=>$ContractManagerSlave,
+        "ContractSpecialistMaster"=>$ContractSpecialistMaster,
+        "ContractSpecialistSlave"=>$ContractSpecialistSlave);
 
-        
         return $participated_emp;   
     }
 
