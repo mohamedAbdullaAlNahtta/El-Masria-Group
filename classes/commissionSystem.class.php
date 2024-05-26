@@ -75,7 +75,9 @@ class CommissionSystem{
     }
 
     public function get_commission_value_by_title($title){
-        $sql = "SELECT * FROM `job_title` WHERE `name`={$title};";
+        $commissiondb = new CommissionSystemDB;
+
+        $sql = "SELECT * FROM `job_title` WHERE `name`='{$title}'";
         
         $result = $commissiondb->query($sql);
         // output data of each row
@@ -89,7 +91,9 @@ class CommissionSystem{
     }
 
     public function get_commission_percentage_by_title($title){
-        $sql = "SELECT * FROM `job_title` WHERE `name`={$title};";
+
+        $commissiondb = new CommissionSystemDB;
+        $sql = "SELECT * FROM `job_title` WHERE `name`='{$title}';";
         
         $result = $commissiondb->query($sql);
         // output data of each row
@@ -199,23 +203,35 @@ class CommissionSystem{
     }
 
     public function calculate_operation_commission($empArr, $unitPrice, $area, $IsLaunch, $IsOverSeas ){
+
+        $emp_id_and_commission = array();
         if ($IsLaunch==="yes") {
-            $emp_id_and_commission = array();
+            $OperationManagercommission_value= $this->get_commission_value_by_title("Operation Manager");
+            $SalesAdmincommission_value= $this->get_commission_value_by_title("Sales Admin");
             $participated_emp = $this->calculate_operation_participated_emp($empArr);
+
+            // operation manager array 
+            $OperationManager= $participated_emp["OperationManager"];
+            // Sales Admin array 
+            $SalesAdmin=$participated_emp["SalesAdmin"] ;
+            
             // check if OperationManager array not empty 
             if(count($participated_emp["OperationManager"])!==0){
-                
-
+                $OperationManager_and_commission = $this->get_emp_commission_by_count_value($unitPrice, $OperationManager, NULL, $OperationManagercommission_value);
+                $emp_id_and_commission+= $OperationManager_and_commission; 
             }
             // check if OperationManager array not empty 
             if(count($participated_emp["SalesAdmin"])!==0){
-
+                $OperationManager_and_commission = $this->get_emp_commission_by_count_value($unitPrice, $SalesAdmin, NULL, $SalesAdmincommission_value);
+                $emp_id_and_commission+= $OperationManager_and_commission; 
             }
 
         } else {
             # code...
         }
-        
+
+
+        return $emp_id_and_commission;
 
     }
 

@@ -8,7 +8,7 @@ $newCommissionSystem = new CommissionSystem;
 // $result = $newCommissionSystem->get_sold_units();
 
 
-$cars=array("Volvo","BMW","Toyota","Tyota");
+$cars=array(7,10,13);
 var_dump($newCommissionSystem->get_emp_commission_by_count_value("1000000", $cars, "0.02", NULL));
 // result should be like this 
 // array(4) { ["Volvo"]=> float(5000) ["BMW"]=> float(5000) ["Toyota"]=> float(5000) ["Tyota"]=> float(5000) } 
@@ -50,6 +50,15 @@ if(count($nahtta ["SalesManager"])===0){
 echo "empty";
 }
 // $nahtta ["SalesManager"]
+echo "<br>";
+
+var_dump($newCommissionSystem->get_commission_percentage_by_title("Sales Manager"));
+
+echo "<br>";
+echo "<br>";
+echo "<br>";
+
+var_dump($newCommissionSystem->calculate_operation_commission($yarray, "1000000", "East", "yes", "yes" ));
 
 
 
