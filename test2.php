@@ -68,5 +68,8 @@ echo "<br>";
 echo "<br>";
 echo "<br>";
 var_dump($newCommissionSystem->check_area_master_precentage("3", "master","no"));
+echo "<br>";
+echo "<br>";
+var_dump($newCommissionSystem->calculate_operation_participated_emp_conflict($yarray,"West"));
 
 ?>

@@ -43,7 +43,7 @@
 
 class CommissionSystem{
 
-
+    // this function is to retrive an array of operation manger and sales admin 
     public function calculate_operation_participated_emp($emp_id_arr){
 
         // get All participated emp
@@ -73,6 +73,7 @@ class CommissionSystem{
         $participated_emp =array("OperationManager"=>$OperationManager, "SalesAdmin"=>$SalesAdmin );
         return $participated_emp;   
     }
+    // this function is to retrive an array of contract manger and contract specialist
     public function calculate_Contract_participated_emp($emp_id_arr){
 
         // get All participated emp
@@ -102,6 +103,7 @@ class CommissionSystem{
         $participated_emp =array("ContractManager"=>$ContractManager, "ContractSpecialist"=>$ContractSpecialist );
         return $participated_emp;   
     }
+    // this function is to retrive an array of Sales Sepecialist, Sales Manager, CCO, and Sales Director 
     public function calculate_Sales_participated_emp($emp_id_arr){
 
         // get All participated emp
@@ -140,6 +142,7 @@ class CommissionSystem{
         return $participated_emp;   
     }
 
+    // this function is retrive an array with all operation mangers and sales admin master and slaves 
     public function calculate_operation_participated_emp_conflict($emp_id_arr, $area){
 
         // get All participated emp
@@ -173,13 +176,13 @@ class CommissionSystem{
                 // get operation manger Master and slave 
                 $OperationManagerCount= count($OperationManager);
                 for ($z = 0; $z <$OperationManagerCount; $z++) {
-                    $emp_own= $this->check_area_master_by_id_area($OperationManager[$z], $area);
-                    if ($emp_own===true) {
+                    $OperationManager_emp_own= $this->check_area_master_by_id_area($OperationManager[$z], $area);
+                    if ($OperationManager_emp_own===true) {
                         $OperationManagerMaster[]= $OperationManager[$z];
                         $OperationManagerMaster = $this->remove_duplicated_value($OperationManagerMaster);
                     } else {
                         $OperationManagerSlave[]= $OperationManager[$z];
-                    $OperationManagerSlave = $this->remove_duplicated_value($OperationManagerSlave);
+                        $OperationManagerSlave = $this->remove_duplicated_value($OperationManagerSlave);
                     }
                 
                 }
@@ -189,16 +192,15 @@ class CommissionSystem{
                 $SalesAdmin [] = $all_emp_and_mangers[$z];
                 $SalesAdmin = $this->remove_duplicated_value($SalesAdmin);
 
-
                 // get Sales Admin Master and slave 
-                $OperationManagerCount= count($OperationManager);
-                for ($y = 0; $y <$OperationManagerCount; $y++) {
-                    $emp_own= $this->check_area_master_by_id_area($OperationManager[$y], $area);
-                    if ($emp_own===true) {
-                        $SalesAdminMaster[]= $SalesAdmin[$y];
+                $SalesAdminCount= count($SalesAdmin);
+                for ($cc = 0; $cc <$SalesAdminCount; $cc++) {
+                    $SalesAdmin_emp_own= $this->check_area_master_by_id_area($SalesAdmin[$cc], $area);
+                    if ($SalesAdmin_emp_own===true) {
+                        $SalesAdminMaster[]= $SalesAdmin[$cc];
                         $SalesAdminMaster = $this->remove_duplicated_value($SalesAdminMaster);
                     } else {
-                        $SalesAdminSlave[]= $SalesAdmin[$y];
+                        $SalesAdminSlave[]= $SalesAdmin[$cc];
                         $SalesAdminSlave = $this->remove_duplicated_value($SalesAdminSlave);
                     }
                 
@@ -209,7 +211,10 @@ class CommissionSystem{
 
             } 
         }
-        $participated_emp =array("OperationManager"=>$OperationManager, "SalesAdmin"=>$SalesAdmin );
+        $participated_emp =array("OperationManagerMaster"=>$OperationManagerMaster,
+        "OperationManagerSlave"=>$OperationManagerSlave, 
+        "SalesAdminMaster"=>$SalesAdminMaster, 
+        "SalesAdminMaster"=>$SalesAdminSlave );
         return $participated_emp;   
     }
 
