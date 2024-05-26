@@ -59,7 +59,14 @@ echo "<br>";
 echo "<br>";
 
 var_dump($newCommissionSystem->calculate_operation_commission($yarray, "1000000", "East", "yes", "yes" ));
+echo "<br>";
+echo "<br>";
+echo "<br>";
+var_dump($newCommissionSystem->check_area_master_by_id_area("19", "East"));
 
-
+echo "<br>";
+echo "<br>";
+echo "<br>";
+var_dump($newCommissionSystem->check_area_master_precentage("3", "master","no"));
 
 ?>

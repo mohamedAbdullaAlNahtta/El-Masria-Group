@@ -43,68 +43,6 @@
 
 class CommissionSystem{
 
-    public function get_sold_units()
-    {
-        $commissiondb = new CommissionSystemDB;
-        
-        $sql = "SELECT * FROM `unit_sold`";
-        
-        $result = $commissiondb->query($sql);
-        return $result;
-        $commissiondb->close_db_connection();  
-        
-    }
-
-    public function get_emp_job_title_by_id($emp_id){
-        $commissiondb = new CommissionSystemDB;
-        
-        $sql = "SELECT `job_title` FROM  (SELECT `employee`.`id`, `job_title`.`name` AS `job_title`
-        FROM `employee`,  `job_title` 
-        WHERE `employee`.`job_title`= `job_title`.`id`) AS `T1` WHERE `id`=$emp_id;";
-        
-        $result = $commissiondb->query($sql);
-        // output data of each row
-        while($row = $result->fetch_assoc()) {
-            $job_title = $row["job_title"];
-        }
-
-        return $job_title;
-        $commissiondb->close_db_connection(); 
-
-
-    }
-
-    public function get_commission_value_by_title($title){
-        $commissiondb = new CommissionSystemDB;
-
-        $sql = "SELECT * FROM `job_title` WHERE `name`='{$title}'";
-        
-        $result = $commissiondb->query($sql);
-        // output data of each row
-        while($row = $result->fetch_assoc()) {
-            $commission_value = $row["commission_value"];
-        }
-
-        return $commission_value;
-        $commissiondb->close_db_connection();
-
-    }
-
-    public function get_commission_percentage_by_title($title){
-
-        $commissiondb = new CommissionSystemDB;
-        $sql = "SELECT * FROM `job_title` WHERE `name`='{$title}';";
-        
-        $result = $commissiondb->query($sql);
-        // output data of each row
-        while($row = $result->fetch_assoc()) {
-            $commission_percentage = $row["commission_percentage"];
-        }
-
-        return $commission_percentage;
-        $commissiondb->close_db_connection();
-
-    }
 
     public function calculate_operation_participated_emp($emp_id_arr){
 
@@ -202,6 +140,81 @@ class CommissionSystem{
         return $participated_emp;   
     }
 
+    public function calculate_operation_participated_emp_conflict($emp_id_arr, $area){
+
+        // get All participated emp
+        $all_emp_and_mangers = array();
+        $arrCount= count($emp_id_arr);
+        for ($x = 0; $x < $arrCount; $x++) {
+            $emp_root_managers= $this->get_root_emp_manager_array($emp_id_arr[$x]);
+            $all_emp_and_mangers = array_merge($all_emp_and_mangers, $emp_root_managers);
+            $all_emp_and_mangers = $this->remove_duplicated_value($all_emp_and_mangers);
+          }
+          
+        // catagories emp based on title  
+        $arrCount_all= count($all_emp_and_mangers);
+        $OperationManager=array();
+        $SalesAdmin=array();
+        
+        $OperationManagerMaster=array();
+        $OperationManagerSlave=array();
+        $SalesAdminMaster=array();
+        $SalesAdminSlave=array();
+        
+
+        for ($z = 0; $z < $arrCount_all; $z++) {
+            $emp_job_title = $this->get_emp_job_title_by_id($all_emp_and_mangers[$z]);
+            if($emp_job_title==="Operation Manager"){
+                $OperationManager[]= $all_emp_and_mangers[$z];
+                $OperationManager = $this->remove_duplicated_value($OperationManager);
+
+                
+                
+                // get operation manger Master and slave 
+                $OperationManagerCount= count($OperationManager);
+                for ($z = 0; $z <$OperationManagerCount; $z++) {
+                    $emp_own= $this->check_area_master_by_id_area($OperationManager[$z], $area);
+                    if ($emp_own===true) {
+                        $OperationManagerMaster[]= $OperationManager[$z];
+                        $OperationManagerMaster = $this->remove_duplicated_value($OperationManagerMaster);
+                    } else {
+                        $OperationManagerSlave[]= $OperationManager[$z];
+                    $OperationManagerSlave = $this->remove_duplicated_value($OperationManagerSlave);
+                    }
+                
+                }
+
+
+            }elseif($emp_job_title==="Sales Admin"){
+                $SalesAdmin [] = $all_emp_and_mangers[$z];
+                $SalesAdmin = $this->remove_duplicated_value($SalesAdmin);
+
+
+                // get Sales Admin Master and slave 
+                $OperationManagerCount= count($OperationManager);
+                for ($y = 0; $y <$OperationManagerCount; $y++) {
+                    $emp_own= $this->check_area_master_by_id_area($OperationManager[$y], $area);
+                    if ($emp_own===true) {
+                        $SalesAdminMaster[]= $SalesAdmin[$y];
+                        $SalesAdminMaster = $this->remove_duplicated_value($SalesAdminMaster);
+                    } else {
+                        $SalesAdminSlave[]= $SalesAdmin[$y];
+                        $SalesAdminSlave = $this->remove_duplicated_value($SalesAdminSlave);
+                    }
+                
+                }
+
+
+
+
+            } 
+        }
+        $participated_emp =array("OperationManager"=>$OperationManager, "SalesAdmin"=>$SalesAdmin );
+        return $participated_emp;   
+    }
+
+
+    // final Algo for operation
     public function calculate_operation_commission($empArr, $unitPrice, $area, $IsLaunch, $IsOverSeas ){
 
         $emp_id_and_commission = array();
@@ -262,6 +275,67 @@ class CommissionSystem{
         }
 
     }
+
+    
+
+
+
+
+
+    public function check_area_master_by_id_area($empId, $area){
+
+        $commissiondb = new CommissionSystemDB;
+        
+        $sql = "SELECT `area name` AS `area` 
+        FROM (SELECT `e`.`id`, `e`.`name`,
+        `e`.`area_id`, `a`.`name` AS `area name` 
+        FROM `employee` AS `e`, `area` AS `a` 
+        WHERE `e`.`area_id`=`a`.`id`) AS `T1` 
+        WHERE `id`='{$empId}'";
+        
+        $result = $commissiondb->query($sql);
+        while($row = $result->fetch_assoc()) {
+            $area_name = $row["area"];
+        }
+
+        if($area===$area_name){
+        $master= true;
+        }else{
+        $master= false;
+        }
+
+        return $master;
+        $commissiondb->close_db_connection();
+
+    }
+
+    public function check_area_master_precentage($dep_id, $masterOrSlave,$isOverSeas){
+        $commissiondb = new CommissionSystemDB;
+
+        if($masterOrSlave= "master"){
+            $sql = "SELECT `area_master_percentage` FROM `area_direct_confilict` WHERE `department_id`='{$dep_id}' AND `is_over_seas`='{$isOverSeas}'";
+            
+            $result = $commissiondb->query($sql);
+            while($row = $result->fetch_assoc()) {
+                $percentage = $row["area_master_percentage"];
+            }
+        }else{
+            $sql = "SELECT `area_slave_percentage` FROM `area_direct_confilict` WHERE `department_id`='{$dep_id}' AND `is_over_seas`='{$isOverSeas}'";
+            
+            $result = $commissiondb->query($sql);
+            while($row = $result->fetch_assoc()) {
+                $percentage = $row["area_slave_percentage"];
+            }
+
+        }
+
+        $percentage =$percentage/100;
+        return $percentage;
+        $commissiondb->close_db_connection();
+
+    }
+
+
 
     public function get_emp_manger($emp_id){
         $commissiondb = new CommissionSystemDB;
@@ -352,6 +426,69 @@ class CommissionSystem{
 
     public function remove_duplicated_value($arr){
         return array_unique($arr);
+
+    }
+
+    public function get_sold_units()
+    {
+        $commissiondb = new CommissionSystemDB;
+        
+        $sql = "SELECT * FROM `unit_sold`";
+        
+        $result = $commissiondb->query($sql);
+        return $result;
+        $commissiondb->close_db_connection();  
+        
+    }
+
+    public function get_emp_job_title_by_id($emp_id){
+        $commissiondb = new CommissionSystemDB;
+        
+        $sql = "SELECT `job_title` FROM  (SELECT `employee`.`id`, `job_title`.`name` AS `job_title`
+        FROM `employee`,  `job_title` 
+        WHERE `employee`.`job_title`= `job_title`.`id`) AS `T1` WHERE `id`=$emp_id;";
+        
+        $result = $commissiondb->query($sql);
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            $job_title = $row["job_title"];
+        }
+
+        return $job_title;
+        $commissiondb->close_db_connection(); 
+
+
+    }
+
+    public function get_commission_value_by_title($title){
+        $commissiondb = new CommissionSystemDB;
+
+        $sql = "SELECT * FROM `job_title` WHERE `name`='{$title}'";
+        
+        $result = $commissiondb->query($sql);
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            $commission_value = $row["commission_value"];
+        }
+
+        return $commission_value;
+        $commissiondb->close_db_connection();
+
+    }
+
+    public function get_commission_percentage_by_title($title){
+
+        $commissiondb = new CommissionSystemDB;
+        $sql = "SELECT * FROM `job_title` WHERE `name`='{$title}';";
+        
+        $result = $commissiondb->query($sql);
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            $commission_percentage = $row["commission_percentage"];
+        }
+
+        return $commission_percentage;
+        $commissiondb->close_db_connection();
 
     }
 
