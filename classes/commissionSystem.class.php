@@ -153,7 +153,7 @@ class CommissionSystem{
             $all_emp_and_mangers = array_merge($all_emp_and_mangers, $emp_root_managers);
             $all_emp_and_mangers = $this->remove_duplicated_value($all_emp_and_mangers);
           }
-          
+
         // catagories emp based on title  
         $arrCount_all= count($all_emp_and_mangers);
         $OperationManager=array();
@@ -163,16 +163,12 @@ class CommissionSystem{
         $OperationManagerSlave=array();
         $SalesAdminMaster=array();
         $SalesAdminSlave=array();
-        
 
         for ($z = 0; $z < $arrCount_all; $z++) {
             $emp_job_title = $this->get_emp_job_title_by_id($all_emp_and_mangers[$z]);
             if($emp_job_title==="Operation Manager"){
                 $OperationManager[]= $all_emp_and_mangers[$z];
                 $OperationManager = $this->remove_duplicated_value($OperationManager);
-
-                
-                
                 // get operation manger Master and slave 
                 $OperationManagerCount= count($OperationManager);
                 for ($z = 0; $z <$OperationManagerCount; $z++) {
@@ -186,8 +182,6 @@ class CommissionSystem{
                     }
                 
                 }
-
-
             }elseif($emp_job_title==="Sales Admin"){
                 $SalesAdmin [] = $all_emp_and_mangers[$z];
                 $SalesAdmin = $this->remove_duplicated_value($SalesAdmin);
@@ -206,15 +200,79 @@ class CommissionSystem{
                 
                 }
 
-
-
-
             } 
         }
         $participated_emp =array("OperationManagerMaster"=>$OperationManagerMaster,
         "OperationManagerSlave"=>$OperationManagerSlave, 
         "SalesAdminMaster"=>$SalesAdminMaster, 
         "SalesAdminMaster"=>$SalesAdminSlave );
+        return $participated_emp;   
+    }
+
+    public function calculate_Contract_participated_emp_conflict($emp_id_arr, $area){
+
+        // get All participated emp
+        $all_emp_and_mangers = array();
+        $arrCount= count($emp_id_arr);
+
+        for ($x = 0; $x < $arrCount; $x++) {
+            $emp_root_managers= $this->get_root_emp_manager_array($emp_id_arr[$x]);
+            $all_emp_and_mangers = array_merge($all_emp_and_mangers, $emp_root_managers);
+            $all_emp_and_mangers = $this->remove_duplicated_value($all_emp_and_mangers);
+          }
+          
+        // catagories emp based on title  
+        $arrCount_all= count($all_emp_and_mangers);
+        $ContractManager=array();
+        $ContractSpecialist=array();
+
+        $ContractManagerMaster=array();
+        $ContractManagerSlave=array();
+        $ContractSpecialistMaster=array();
+        $ContractSpecialistSlave=array();
+
+        for ($z = 0; $z < $arrCount_all; $z++) {
+            $emp_job_title = $this->get_emp_job_title_by_id($all_emp_and_mangers[$z]);
+            if($emp_job_title==="Contract Manager"){
+                $ContractManager[]= $all_emp_and_mangers[$z];
+                $ContractManager = $this->remove_duplicated_value($ContractManager);
+                 // get operation manger Master and slave 
+                $ContractManagerCount= count($ContractManager);
+                for ($z = 0; $z <$ContractManagerCount; $z++) {
+                    $ContractManager_emp_own= $this->check_area_master_by_id_area($ContractManager[$z], $area);
+                    if ($ContractManager_emp_own===true) {
+                        $ContractManagerMaster[]= $ContractManager[$z];
+                        $ContractManagerMaster = $this->remove_duplicated_value($ContractManagerMaster);
+                    } else {
+                        $ContractManagerSlave[]= $ContractManager[$z];
+                        $ContractManagerSlave = $this->remove_duplicated_value($ContractManagerSlave);
+                    }
+                
+                }
+            }elseif($emp_job_title==="Contract Specialist"){
+                $ContractSpecialist [] = $all_emp_and_mangers[$z];
+                $ContractSpecialist = $this->remove_duplicated_value($ContractSpecialist);
+                
+                // get Sales Admin Master and slave 
+                $ContractSpecialistCount= count($ContractSpecialist);
+                for ($cc = 0; $cc <$ContractSpecialistCount; $cc++) {
+                    $SalesAdmin_emp_own= $this->check_area_master_by_id_area($ContractSpecialist[$cc], $area);
+                    if ($SalesAdmin_emp_own===true) {
+                        $ContractSpecialistMaster[]= $ContractSpecialist[$cc];
+                        $ContractSpecialistMaster = $this->remove_duplicated_value($ContractSpecialistMaster);
+                    } else {
+                        $ContractSpecialistSlave[]= $ContractSpecialist[$cc];
+                        $ContractSpecialistSlave = $this->remove_duplicated_value($ContractSpecialistSlave);
+                    }
+                
+                }
+            } 
+        }
+
+
+        $participated_emp =array("ContractManager"=>$ContractManager, "ContractSpecialist"=>$ContractSpecialist );
+
+        
         return $participated_emp;   
     }
 
