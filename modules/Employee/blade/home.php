@@ -78,7 +78,6 @@
                             <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th><i class='mdi mdi-account-card-details'></i> </th>
                                         <th><?php echo $lang['ID']; ?></th>
                                         <th><?php echo $lang['name']; ?></th> 
                                         <th><?php echo $lang['Manager']; ?></th>
@@ -92,7 +91,6 @@
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th><i class='mdi mdi-account-card-details'></i> </th>
                                         <th><?php echo $lang['ID']; ?></th>
                                         <th><?php echo $lang['name']; ?></th> 
                                         <th><?php echo $lang['Manager']; ?></th>
@@ -114,15 +112,14 @@
                                     // output data of each row
                                     while($row = $result->fetch_assoc()) {               
                                         echo "<tr>";
-                                        echo "<td><i class='mdi mdi-account-card-details'></i> </td>"; 
-                                        echo "<td>".$row["id"]." </td>"; 
+                                        echo "<td><i class='mdi mdi-account-card-details'></i> ".$row["id"]." </td>"; 
                                         echo "<td> ".$row["name"]." </td>"; 
                                         echo "<td> ".$row["Manager"]." </td>"; 
-                                        echo "<td> ".$row["department"]." </td>"; 
+                                        echo "<td> <img src='assets/images/bg/department.png' style='border-radius: 50%; border: 1px solid #000;' width='35'>".$row["department"]." </td>"; 
                                         echo "<td> ".$row["area"]." </td>"; 
                                         echo "<td> ".$row["job_title"]." </td>"; 
                                         echo "<td> <img src='assets/images/test/custom-select.png' style='border-radius: 50%; border: 1px solid #000;' width='35'>".$row["mobile"]." </td>"; 
-                                        echo "<td> ".$row["bank_account"]." </td>"; 
+                                        echo "<td> <img src='assets/images/bg/bank.png' style='border-radius: 50%; border: 1px solid #000;' width='35'>".$row["bank_account"]." </td>"; 
                                         echo "<td> ".$row["level"]." </td>"; 
                                         echo "</tr>";          
                                     }

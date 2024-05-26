@@ -114,12 +114,12 @@
                                     // output data of each row
                                     while($row = $result->fetch_assoc()) {               
                                         echo "<tr>";
-                                        echo"<td><i class='mdi mdi-home'></i> </td>";
+                                        echo"<td><img src='assets/images/bg/home.png' style='border-radius: 50%; border: 1px solid #000;' width='35'> </td>";
                                         echo "<td> ".$row["id"]." </td>"; 
                                         echo "<td> ".$row["unit_number"]." </td>"; 
                                         echo "<td> ".$row["building_name"]." </td>"; 
                                         echo "<td> ".$row["project_name"]." </td>"; 
-                                        echo "<td> ".$row["unit_price"]." </td>"; 
+                                        echo "<td><img src='assets/images/bg/dollar.png' style='border-radius: 50%; border: 1px solid #000;' width='35'>".$row["unit_price"]." </td>"; 
                                         echo "<td><img src='modules/Sold_Units/img/dateicon.png' style='border-radius: 50%; border: 1px solid #000;' width='35'>".$row["Contract_Date"]." </td>"; 
                                         echo "<td> ".$row["is_over_seas"]." </td>"; 
                                         echo "<td> ".$row["is_launch"]." </td>"; 
