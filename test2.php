@@ -76,4 +76,7 @@ $yzzarray=array(12,9);
 echo "<br>";
 var_dump($newCommissionSystem->calculate_Contract_participated_emp_conflict($yzzarray,"East"));
 
+echo "<br>";
+var_dump($newCommissionSystem->is_there_is_confilict($yzzarray));
+
 ?>

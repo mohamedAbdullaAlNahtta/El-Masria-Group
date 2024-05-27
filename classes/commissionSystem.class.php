@@ -44,6 +44,7 @@
 class CommissionSystem{
 
     // this function is to retrive an array of operation manger and sales admin 
+    // wiil be used incase there is no confilict (employess not different area)
     public function calculate_operation_participated_emp($emp_id_arr){
 
         // get All participated emp
@@ -74,6 +75,7 @@ class CommissionSystem{
         return $participated_emp;   
     }
     // this function is to retrive an array of contract manger and contract specialist
+    // wiil be used incase there is no confilict (employess not different area)
     public function calculate_Contract_participated_emp($emp_id_arr){
 
         // get All participated emp
@@ -104,6 +106,7 @@ class CommissionSystem{
         return $participated_emp;   
     }
     // this function is to retrive an array of Sales Sepecialist, Sales Manager, CCO, and Sales Director 
+    // wiil be used incase there is no confilict (employess not different area)
     public function calculate_Sales_participated_emp($emp_id_arr){
 
         // get All participated emp
@@ -141,8 +144,11 @@ class CommissionSystem{
         $participated_emp =array("SalesSepecialist"=>$SalesSepecialist, "SalesManager"=>$SalesManager, "CCO"=>$CCO, "SalesDirector"=>$SalesDirector );
         return $participated_emp;   
     }
-
-    // this function is retrive an array with all operation mangers and sales admin master and slaves 
+    
+    /////////////////////////////////////////////////////////////////////////////////////////////////
+    // this function is retrive an array with all operation mangers and sales admin master and slaves  
+    // wiil be used incase there is a confilict (employess in different area)
+    /////////////////////////////////////////////////////////////////////////////////////////////////
     public function calculate_operation_participated_emp_conflict($emp_id_arr, $area){
 
         // get All participated emp
@@ -208,7 +214,11 @@ class CommissionSystem{
         "SalesAdminMaster"=>$SalesAdminSlave );
         return $participated_emp;   
     }
-
+    
+    /////////////////////////////////////////////////////////////////////////////////////////////////
+    // this function is retrive an array with all operation mangers and sales admin master and slaves  
+    // wiil be used incase there is a confilict (employess in different area)
+    /////////////////////////////////////////////////////////////////////////////////////////////////
     public function calculate_Contract_participated_emp_conflict($emp_id_arr, $area){
 
         // get All participated emp
@@ -278,11 +288,95 @@ class CommissionSystem{
     }
 
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////
+    // this function is retrive an array with all Sales master and slaves  
+    // wiil be used incase there is a confilict (employess in different area)
+    /////////////////////////////////////////////////////////////////////////////////////////////////
+    public function calculate_Sales_participated_emp_conflict($emp_id_arr, $area){
+
+        // get All participated emp
+        $all_emp_and_mangers = array();
+        $arrCount= count($emp_id_arr);
+        for ($x = 0; $x < $arrCount; $x++) {
+            $emp_root_managers= $this->get_root_emp_manager_array($emp_id_arr[$x]);
+            $all_emp_and_mangers = array_merge($all_emp_and_mangers, $emp_root_managers);
+            $all_emp_and_mangers = $this->remove_duplicated_value($all_emp_and_mangers);
+          }
+          
+        // catagories emp based on title  
+        $arrCount_all= count($all_emp_and_mangers);
+        $SalesSepecialist=array();
+        $SalesManager=array();
+        $CCO=array();
+        $SalesDirector=array();
+
+
+        $SalesSepecialistMaster=array();
+        $SalesSepecialistSlave=array();
+        $SalesManagerMaster=array();
+        $SalesManagerSlave=array();
+        $CCOMaster=array();
+        $CCOSlave=array();
+        $SalesDirectorMaster=array()
+        $SalesDirectorSlave=array()
+
+        for ($z = 0; $z < $arrCount_all; $z++) {
+            $emp_job_title = $this->get_emp_job_title_by_id($all_emp_and_mangers[$z]);
+            if($emp_job_title==="Contract Manager"){
+                $ContractManager[]= $all_emp_and_mangers[$z];
+                $ContractManager = $this->remove_duplicated_value($ContractManager);
+                 // get operation manger Master and slave 
+                $ContractManagerCount= count($ContractManager);
+                for ($z = 0; $z <$ContractManagerCount; $z++) {
+                    $ContractManager_emp_own= $this->check_area_master_by_id_area($ContractManager[$z], $area);
+                    if ($ContractManager_emp_own===true) {
+                        $ContractManagerMaster[]= $ContractManager[$z];
+                        $ContractManagerMaster = $this->remove_duplicated_value($ContractManagerMaster);
+                    } else {
+                        $ContractManagerSlave[]= $ContractManager[$z];
+                        $ContractManagerSlave = $this->remove_duplicated_value($ContractManagerSlave);
+                    }
+                
+                }
+            }elseif($emp_job_title==="Contract Specialist"){
+                $ContractSpecialist [] = $all_emp_and_mangers[$z];
+                $ContractSpecialist = $this->remove_duplicated_value($ContractSpecialist);
+                
+                // get Sales Admin Master and slave 
+                $ContractSpecialistCount= count($ContractSpecialist);
+                for ($cc = 0; $cc <$ContractSpecialistCount; $cc++) {
+                    $SalesAdmin_emp_own= $this->check_area_master_by_id_area($ContractSpecialist[$cc], $area);
+                    if ($SalesAdmin_emp_own===true) {
+                        $ContractSpecialistMaster[]= $ContractSpecialist[$cc];
+                        $ContractSpecialistMaster = $this->remove_duplicated_value($ContractSpecialistMaster);
+                    } else {
+                        $ContractSpecialistSlave[]= $ContractSpecialist[$cc];
+                        $ContractSpecialistSlave = $this->remove_duplicated_value($ContractSpecialistSlave);
+                    }
+                
+                }
+            } 
+        }
+
+
+        $participated_emp =array("ContractManagerMaster"=>$ContractManagerMaster, "ContractManagerSlave"=>$ContractManagerSlave,
+        "ContractSpecialistMaster"=>$ContractSpecialistMaster,
+        "ContractSpecialistSlave"=>$ContractSpecialistSlave);
+
+        return $participated_emp;   
+    }
+
+
+
+
+
+
     // final Algo for operation
     public function calculate_operation_commission($empArr, $unitPrice, $area, $IsLaunch, $IsOverSeas ){
 
         $emp_id_and_commission = array();
-        if ($IsLaunch==="yes") {
+        $isConfilict = $this->is_there_is_confilict($empArr);
+        if ($IsLaunch==="yes"&& $isConfilict===False) {
             $OperationManagercommission_value= $this->get_commission_value_by_title("Operation Manager");
             $SalesAdmincommission_value= $this->get_commission_value_by_title("Sales Admin");
             $participated_emp = $this->calculate_operation_participated_emp($empArr);
@@ -341,11 +435,24 @@ class CommissionSystem{
     }
 
     
+    public function is_there_is_confilict($empArr){
+        $commissiondb = new CommissionSystemDB;
+        $employeeList = implode(", ",$empArr);
+        $sql = "SELECT DISTINCT `area_id` FROM `employee` WHERE `id`IN ({$employeeList})";
+        
+        $result = $commissiondb->query($sql);
+        
+        if ($result->num_rows > 1) {
+            return True;
+          } else {
+            return False;
+          }
 
+        $commissiondb->close_db_connection();
 
+    }
 
-
-
+    // this function is to check all emp array has the same area or not 
     public function check_area_master_by_id_area($empId, $area){
 
         $commissiondb = new CommissionSystemDB;
