@@ -58,6 +58,8 @@ echo "<br>";
 echo "<br>";
 echo "<br>";
 
+echo "calculate_operation_commission";
+echo "<br>";
 var_dump($newCommissionSystem->calculate_operation_commission($yarray, "1000000", "East", "yes", "yes" ));
 echo "<br>";
 echo "<br>";

@@ -170,48 +170,54 @@ class CommissionSystem{
         $SalesAdminMaster=array();
         $SalesAdminSlave=array();
 
-        for ($z = 0; $z < $arrCount_all; $z++) {
-            $emp_job_title = $this->get_emp_job_title_by_id($all_emp_and_mangers[$z]);
+        for ($AA = 0; $AA < $arrCount_all; $AA++) {
+            $emp_job_title = $this->get_emp_job_title_by_id($all_emp_and_mangers[$AA]);
             if($emp_job_title==="Operation Manager"){
-                $OperationManager[]= $all_emp_and_mangers[$z];
+                $OperationManager[]= $all_emp_and_mangers[$AA];
                 $OperationManager = $this->remove_duplicated_value($OperationManager);
                 // get operation manger Master and slave 
                 $OperationManagerCount= count($OperationManager);
-                for ($z = 0; $z <$OperationManagerCount; $z++) {
-                    $OperationManager_emp_own= $this->check_area_master_by_id_area($OperationManager[$z], $area);
-                    if ($OperationManager_emp_own===true) {
-                        $OperationManagerMaster[]= $OperationManager[$z];
-                        $OperationManagerMaster = $this->remove_duplicated_value($OperationManagerMaster);
-                    } else {
-                        $OperationManagerSlave[]= $OperationManager[$z];
-                        $OperationManagerSlave = $this->remove_duplicated_value($OperationManagerSlave);
+                if ($OperationManagerCount>1) {
+                    for ($BB = 0; $BB <$OperationManagerCount; $BB++) {
+                        $OperationManager_emp_own= $this->check_area_master_by_id_area($OperationManager[$BB], $area);
+                        if ($OperationManager_emp_own===true) {
+                            $OperationManagerMaster[]= $OperationManager[$BB];
+                            $OperationManagerMaster = $this->remove_duplicated_value($OperationManagerMaster);
+                        } else {
+                            $OperationManagerSlave[]= $OperationManager[$BB];
+                            $OperationManagerSlave = $this->remove_duplicated_value($OperationManagerSlave);
+                        }
+                    
                     }
-                
                 }
+               
             }elseif($emp_job_title==="Sales Admin"){
-                $SalesAdmin [] = $all_emp_and_mangers[$z];
+                $SalesAdmin [] = $all_emp_and_mangers[$AA];
                 $SalesAdmin = $this->remove_duplicated_value($SalesAdmin);
 
                 // get Sales Admin Master and slave 
                 $SalesAdminCount= count($SalesAdmin);
-                for ($cc = 0; $cc <$SalesAdminCount; $cc++) {
-                    $SalesAdmin_emp_own= $this->check_area_master_by_id_area($SalesAdmin[$cc], $area);
-                    if ($SalesAdmin_emp_own===true) {
-                        $SalesAdminMaster[]= $SalesAdmin[$cc];
-                        $SalesAdminMaster = $this->remove_duplicated_value($SalesAdminMaster);
-                    } else {
-                        $SalesAdminSlave[]= $SalesAdmin[$cc];
-                        $SalesAdminSlave = $this->remove_duplicated_value($SalesAdminSlave);
+                if ($SalesAdminCount>1) {
+                    for ($cc = 0; $cc <$SalesAdminCount; $cc++) {
+                        $SalesAdmin_emp_own= $this->check_area_master_by_id_area($SalesAdmin[$cc], $area);
+                        if ($SalesAdmin_emp_own===true) {
+                            $SalesAdminMaster[]= $SalesAdmin[$cc];
+                            $SalesAdminMaster = $this->remove_duplicated_value($SalesAdminMaster);
+                        } else {
+                            $SalesAdminSlave[]= $SalesAdmin[$cc];
+                            $SalesAdminSlave = $this->remove_duplicated_value($SalesAdminSlave);
+                        }
+                    
                     }
-                
                 }
+                
 
             } 
         }
         $participated_emp =array("OperationManagerMaster"=>$OperationManagerMaster,
         "OperationManagerSlave"=>$OperationManagerSlave, 
         "SalesAdminMaster"=>$SalesAdminMaster, 
-        "SalesAdminMaster"=>$SalesAdminSlave );
+        "SalesAdminSlave"=>$SalesAdminSlave );
         return $participated_emp;   
     }
     
@@ -241,41 +247,47 @@ class CommissionSystem{
         $ContractSpecialistMaster=array();
         $ContractSpecialistSlave=array();
 
-        for ($z = 0; $z < $arrCount_all; $z++) {
-            $emp_job_title = $this->get_emp_job_title_by_id($all_emp_and_mangers[$z]);
+        for ($AA = 0; $AA < $arrCount_all; $AA++) {
+            $emp_job_title = $this->get_emp_job_title_by_id($all_emp_and_mangers[$AA]);
             if($emp_job_title==="Contract Manager"){
-                $ContractManager[]= $all_emp_and_mangers[$z];
+                $ContractManager[]= $all_emp_and_mangers[$AA];
                 $ContractManager = $this->remove_duplicated_value($ContractManager);
                  // get operation manger Master and slave 
                 $ContractManagerCount= count($ContractManager);
-                for ($z = 0; $z <$ContractManagerCount; $z++) {
-                    $ContractManager_emp_own= $this->check_area_master_by_id_area($ContractManager[$z], $area);
-                    if ($ContractManager_emp_own===true) {
-                        $ContractManagerMaster[]= $ContractManager[$z];
-                        $ContractManagerMaster = $this->remove_duplicated_value($ContractManagerMaster);
-                    } else {
-                        $ContractManagerSlave[]= $ContractManager[$z];
-                        $ContractManagerSlave = $this->remove_duplicated_value($ContractManagerSlave);
+                if ($ContractManagerCount>1) {
+                    for ($BB = 0; $BB <$ContractManagerCount; $BB++) {
+                        $ContractManager_emp_own= $this->check_area_master_by_id_area($ContractManager[$BB], $area);
+                        if ($ContractManager_emp_own===true) {
+                            $ContractManagerMaster[]= $ContractManager[$BB];
+                            $ContractManagerMaster = $this->remove_duplicated_value($ContractManagerMaster);
+                        } else {
+                            $ContractManagerSlave[]= $ContractManager[$BB];
+                            $ContractManagerSlave = $this->remove_duplicated_value($ContractManagerSlave);
+                        }
+                    
                     }
-                
                 }
+                
             }elseif($emp_job_title==="Contract Specialist"){
-                $ContractSpecialist [] = $all_emp_and_mangers[$z];
+                $ContractSpecialist [] = $all_emp_and_mangers[$AA];
                 $ContractSpecialist = $this->remove_duplicated_value($ContractSpecialist);
                 
                 // get Sales Admin Master and slave 
                 $ContractSpecialistCount= count($ContractSpecialist);
-                for ($cc = 0; $cc <$ContractSpecialistCount; $cc++) {
-                    $SalesAdmin_emp_own= $this->check_area_master_by_id_area($ContractSpecialist[$cc], $area);
-                    if ($SalesAdmin_emp_own===true) {
-                        $ContractSpecialistMaster[]= $ContractSpecialist[$cc];
-                        $ContractSpecialistMaster = $this->remove_duplicated_value($ContractSpecialistMaster);
-                    } else {
-                        $ContractSpecialistSlave[]= $ContractSpecialist[$cc];
-                        $ContractSpecialistSlave = $this->remove_duplicated_value($ContractSpecialistSlave);
+                if ($ContractSpecialistCount>1) {
+                    for ($cc = 0; $cc <$ContractSpecialistCount; $cc++) {
+                        $SalesAdmin_emp_own= $this->check_area_master_by_id_area($ContractSpecialist[$cc], $area);
+                        if ($SalesAdmin_emp_own===true) {
+                            $ContractSpecialistMaster[]= $ContractSpecialist[$cc];
+                            $ContractSpecialistMaster = $this->remove_duplicated_value($ContractSpecialistMaster);
+                        } else {
+                            $ContractSpecialistSlave[]= $ContractSpecialist[$cc];
+                            $ContractSpecialistSlave = $this->remove_duplicated_value($ContractSpecialistSlave);
+                        }
+                    
                     }
-                
                 }
+                
             } 
         }
 
@@ -317,74 +329,111 @@ class CommissionSystem{
         $SalesManagerSlave=array();
         $CCOMaster=array();
         $CCOSlave=array();
-        $SalesDirectorMaster=array()
-        $SalesDirectorSlave=array()
+        $SalesDirectorMaster=array();
+        $SalesDirectorSlave=array();
 
-        for ($z = 0; $z < $arrCount_all; $z++) {
-            $emp_job_title = $this->get_emp_job_title_by_id($all_emp_and_mangers[$z]);
+        for ($AA = 0; $AA < $arrCount_all; $AA++) {
+            $emp_job_title = $this->get_emp_job_title_by_id($all_emp_and_mangers[$AA]);
             if($emp_job_title==="Sales Sepecialist"){
-                $SalesSepecialist[]= $all_emp_and_mangers[$z];
+                $SalesSepecialist[]= $all_emp_and_mangers[$AA];
                 $SalesSepecialist = $this->remove_duplicated_value($SalesSepecialist);
 
-                 // get operation manger Master and slave 
-                 $SalesSepecialistCount= count($SalesSepecialist);
-                 for ($z = 0; $z <$SalesSepecialistCount; $z++) {
-                     $SalesSepecialist_emp_own= $this->check_area_master_by_id_area($SalesSepecialist[$z], $area);
-                     if ($SalesSepecialist_emp_own===true) {
-                         $SalesSepecialistMaster[]= $SalesSepecialist[$z];
-                         $SalesSepecialistMaster = $this->remove_duplicated_value($SalesSepecialistMaster);
-                     } else {
-                         $SalesSepecialistSlave[]= $SalesSepecialist[$z];
-                         $SalesSepecialistSlave = $this->remove_duplicated_value($SalesSepecialistSlave);
-                     }
-                 
+                //  // get operation manger Master and slave 
+                $SalesSepecialistCount= count($SalesSepecialist);
+                if ($SalesSepecialistCount>1) {
+                    for ($BB = 0; $BB <$SalesSepecialistCount; $BB++) {
+                        $SalesSepecialist_emp_own= $this->check_area_master_by_id_area($SalesSepecialist[$BB], $area);
+                        if ($SalesSepecialist_emp_own===true) {
+                            $SalesSepecialistMaster[]= $SalesSepecialist[$BB];
+                            $SalesSepecialistMaster = $this->remove_duplicated_value($SalesSepecialistMaster);
+                        } else {
+                            $SalesSepecialistSlave[]= $SalesSepecialist[$BB];
+                            $SalesSepecialistSlave = $this->remove_duplicated_value($SalesSepecialistSlave);
+                        }
+                    
+                    }
                 }
+                 
 
             }elseif($emp_job_title==="Sales Manager"){
-                $SalesManager [] = $all_emp_and_mangers[$z];
+                $SalesManager [] = $all_emp_and_mangers[$AA];
                 $SalesManager = $this->remove_duplicated_value($SalesManager);
 
                 // get Sales Admin Master and slave 
                 $SalesManagerCount= count($SalesManager);
-                for ($cc = 0; $cc <$SalesManagerCount; $cc++) {
-                    $SalesManager_emp_own= $this->check_area_master_by_id_area($SalesManager[$cc], $area);
-                    if ($SalesManager_emp_own===true) {
-                        $SalesManagerMaster[]= $SalesManager[$cc];
-                        $SalesManagerMaster = $this->remove_duplicated_value($SalesManagerMaster);
-                    } else {
-                        $SalesManagerSlave[]= $SalesManager[$cc];
-                        $SalesManagerSlave = $this->remove_duplicated_value($SalesManagerSlave);
+                if ($SalesManagerCount>1) {
+                    for ($cc = 0; $cc <$SalesManagerCount; $cc++) {
+                        $SalesManager_emp_own= $this->check_area_master_by_id_area($SalesManager[$cc], $area);
+                        if ($SalesManager_emp_own===true) {
+                            $SalesManagerMaster[]= $SalesManager[$cc];
+                            $SalesManagerMaster = $this->remove_duplicated_value($SalesManagerMaster);
+                        } else {
+                            $SalesManagerSlave[]= $SalesManager[$cc];
+                            $SalesManagerSlave = $this->remove_duplicated_value($SalesManagerSlave);
+                        }
+                    
                     }
-                
                 }
+                
 
             }elseif($emp_job_title==="CCO"){
-                $CCO [] = $all_emp_and_mangers[$z];
+                $CCO [] = $all_emp_and_mangers[$AA];
                 $CCO = $this->remove_duplicated_value($CCO);
 
                 // get operation manger Master and slave 
                 $CCOCount= count($CCO);
-                for ($z = 0; $z <$CCOCount; $z++) {
-                    $CCO_emp_own= $this->check_area_master_by_id_area($CCO[$z], $area);
-                    if ($CCO_emp_own===true) {
-                        $CCOMaster[]= $CCO[$z];
-                        $CCOMaster = $this->remove_duplicated_value($CCOMaster);
-                    } else {
-                        $CCOSlave[]= $CCO[$z];
-                        $CCOSlave = $this->remove_duplicated_value($CCOSlave);
+                if ($CCOCount>1) {
+                    for ($DD = 0; $DD <$CCOCount; $DD++) {
+                        $CCO_emp_own= $this->check_area_master_by_id_area($CCO[$DD], $area);
+                        if ($CCO_emp_own===true) {
+                            $CCOMaster[]= $CCO[$DD];
+                            $CCOMaster = $this->remove_duplicated_value($CCOMaster);
+                        } else {
+                            $CCOSlave[]= $CCO[$DD];
+                            $CCOSlave = $this->remove_duplicated_value($CCOSlave);
+                        }
+                    
                     }
-                
                 }
+               
 
             }elseif($emp_job_title==="Sales Director"){
-                $SalesDirector [] = $all_emp_and_mangers[$z];
+                $SalesDirector [] = $all_emp_and_mangers[$AA];
                 $SalesDirector = $this->remove_duplicated_value($SalesDirector);
+
+                // get operation manger Master and slave 
+                $SalesDirectorCount= count($SalesDirector);
+                if ($SalesDirectorCount>1) {
+                    for ($EE = 0; $EE <$SalesDirectorCount; $EE++) {
+                        $SalesDirector_emp_own= $this->check_area_master_by_id_area($SalesDirector[$EE], $area);
+                        if ($SalesDirector_emp_own===true) {
+                            $SalesDirectorMaster[]= $SalesDirector[$EE];
+                            $SalesDirectorMaster = $this->remove_duplicated_value($SalesDirectorMaster);
+                        } else {
+                            $SalesDirectorSlave[]= $SalesDirector[$EE];
+                            $SalesDirectorSlave = $this->remove_duplicated_value($SalesDirectorSlave);
+                        }
+                    
+                    }
+                }
+                
 
 
             } 
         }
-        $participated_emp =array("SalesSepecialist"=>$SalesSepecialist, "SalesManager"=>$SalesManager, "CCO"=>$CCO, "SalesDirector"=>$SalesDirector );
-        return $participated_emp;   
+
+
+        $participated_emp =array("SalesSepecialistMaster"=>$SalesSepecialistMaster, 
+        "SalesSepecialistSlave"=>$SalesSepecialistSlave, 
+        "SalesManagerMaster"=>$SalesManagerMaster, 
+        "SalesManagerSlave"=>$SalesManagerSlave, 
+        "CCOMaster"=>$CCOMaster, 
+        "CCOSlave"=>$CCOSlave, 
+        "SalesDirectorMaster"=>$SalesDirectorMaster,
+        "SalesDirectorSlave"=>$SalesDirectorSlave );
+
+
+        return $participated_emp;  
     }
 
 
@@ -419,7 +468,27 @@ class CommissionSystem{
             }
 
         } else {
-            # code...
+            $OperationManagercommission_value= $this->get_commission_value_by_title("Operation Manager");
+            $SalesAdmincommission_value= $this->get_commission_value_by_title("Sales Admin");
+            $participated_emp = $this->calculate_operation_participated_emp_conflict($empArr);
+
+            // operation manager array 
+            $OperationManager= $participated_emp["OperationManagerMaster"];
+            $OperationManager= $participated_emp["OperationManagerSlave"];
+            // Sales Admin array 
+            $SalesAdmin=$participated_emp["SalesAdminMaster"] ;
+            $SalesAdmin=$participated_emp["SalesAdminSlave"] ;
+            
+            // check if OperationManager array not empty 
+            // if(count($participated_emp["OperationManager"])!==0){
+            //     $OperationManager_and_commission = $this->get_emp_commission_by_count_value($unitPrice, $OperationManager, NULL, $OperationManagercommission_value);
+            //     $emp_id_and_commission+= $OperationManager_and_commission; 
+            // }
+            // // check if OperationManager array not empty 
+            // if(count($participated_emp["SalesAdmin"])!==0){
+            //     $OperationManager_and_commission = $this->get_emp_commission_by_count_value($unitPrice, $SalesAdmin, NULL, $SalesAdmincommission_value);
+            //     $emp_id_and_commission+= $OperationManager_and_commission; 
+            // }
         }
 
 
@@ -489,6 +558,7 @@ class CommissionSystem{
         while($row = $result->fetch_assoc()) {
             $area_name = $row["area"];
         }
+        $commissiondb->close_db_connection();
 
         if($area===$area_name){
         $master= true;
@@ -496,8 +566,7 @@ class CommissionSystem{
         $master= false;
         }
 
-        return $master;
-        $commissiondb->close_db_connection();
+        return $master;   
 
     }
 
@@ -520,10 +589,9 @@ class CommissionSystem{
             }
 
         }
-
+        $commissiondb->close_db_connection();
         $percentage =$percentage/100;
         return $percentage;
-        $commissiondb->close_db_connection();
 
     }
 
@@ -536,19 +604,23 @@ class CommissionSystem{
         
         $result = $commissiondb->query($sql);
 
-        if ($result->num_rows > 0) {
-            // output data of each row
-            while($row = $result->fetch_assoc()) {
-              $manger_id = $row["manger_id"];
-
-            }
-          } else {
+        if($result!==false){
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+                  $manger_id = $row["manger_id"];
+    
+                }
+            } else {
             $manger_id = NULL;
-          }
+            }
 
-        return $manger_id;
+        }else{
+            $manger_id = NULL;
+        }
         $commissiondb->close_db_connection();
-
+        return $manger_id;
+        
     }
 
     public function get_emp_name_by_id($emp_id){
@@ -561,9 +633,8 @@ class CommissionSystem{
         while($row = $result->fetch_assoc()) {
             $emp_name = $row["name"];
           }
+          $commissiondb->close_db_connection();
         return $emp_name;
-        $commissiondb->close_db_connection();
-
     }
 
     public function get_root_emp_manager_array($emp_id){
@@ -577,7 +648,8 @@ class CommissionSystem{
         while($row = $result->fetch_assoc()) {
             $emp_level = (int)$row["level"];
         }
-      
+        $commissiondb->close_db_connection();
+
         $emp_manager_root_array=array($emp_id);
         $start_emp_id = $emp_id;
 
@@ -598,9 +670,9 @@ class CommissionSystem{
                 unset($emp_manager_root_array[$key]);
             } 
         }
-
+        
         return $emp_manager_root_array;
-        $userdb->close_db_connection();
+        
     }
 
     public function get_root_emp_arr_manager_array($emp_id_arr){
@@ -628,8 +700,9 @@ class CommissionSystem{
         $sql = "SELECT * FROM `unit_sold`";
         
         $result = $commissiondb->query($sql);
+         
         return $result;
-        $commissiondb->close_db_connection();  
+        $commissiondb->close_db_connection();
         
     }
 
@@ -645,11 +718,8 @@ class CommissionSystem{
         while($row = $result->fetch_assoc()) {
             $job_title = $row["job_title"];
         }
-
-        return $job_title;
         $commissiondb->close_db_connection(); 
-
-
+        return $job_title;
     }
 
     public function get_commission_value_by_title($title){
@@ -662,10 +732,8 @@ class CommissionSystem{
         while($row = $result->fetch_assoc()) {
             $commission_value = $row["commission_value"];
         }
-
-        return $commission_value;
         $commissiondb->close_db_connection();
-
+        return $commission_value; 
     }
 
     public function get_commission_percentage_by_title($title){
@@ -678,10 +746,9 @@ class CommissionSystem{
         while($row = $result->fetch_assoc()) {
             $commission_percentage = $row["commission_percentage"];
         }
-
-        return $commission_percentage;
         $commissiondb->close_db_connection();
-
+        return $commission_percentage;
+        
     }
 
 
@@ -725,8 +792,9 @@ class CommissionSystem{
       ";
         
         $result = $commissiondb->query($sql);
+        $commissiondb->close_db_connection(); 
         return $result;
-        $commissiondb->close_db_connection();  
+         
 
     }
     public function get_all_sales_emp(){
@@ -741,8 +809,8 @@ class CommissionSystem{
           AND `employee`.`job_title`= `job_title`.`id`) AS `T1` WHERE department ='Sales';";
         
         $result = $commissiondb->query($sql);
+        $commissiondb->close_db_connection();
         return $result;
-        $commissiondb->close_db_connection();  
 
     }
     public function get_all_operation_emp(){
@@ -757,8 +825,8 @@ class CommissionSystem{
          AND `employee`.`job_title`= `job_title`.`id`) AS `T1` WHERE department ='Operation';";
         
         $result = $commissiondb->query($sql);
-        return $result;
         $commissiondb->close_db_connection();  
+        return $result;
 
     }
     public function get_all_Contract_emp(){
@@ -773,8 +841,9 @@ class CommissionSystem{
          AND `employee`.`job_title`= `job_title`.`id`) AS `T1` WHERE department ='Contract';";
         
         $result = $commissiondb->query($sql);
+        $commissiondb->close_db_connection(); 
         return $result;
-        $commissiondb->close_db_connection();  
+         
 
     }
 
