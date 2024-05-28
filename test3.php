@@ -42,6 +42,6 @@ echo "<br>";
 
 echo"calculate_Contract_commission";
 echo "<br>";
-$ww=array(14,11);
-var_dump($newCommissionSystem->calculate_Sales_commission($ww, "1000000", "East", "yes", "yes"));
+$ww=array(14,19,15,11);
+var_dump($newCommissionSystem->calculate_Sales_commission($ww, "1000000", "West", "no", "yes"));
 echo "<br>";
