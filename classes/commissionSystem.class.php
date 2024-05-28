@@ -177,7 +177,7 @@ class CommissionSystem{
                 $OperationManager = $this->remove_duplicated_value($OperationManager);
                 // get operation manger Master and slave 
                 $OperationManagerCount= count($OperationManager);
-                if ($OperationManagerCount>1) {
+                if ($OperationManagerCount>=1) {
                     for ($BB = 0; $BB <$OperationManagerCount; $BB++) {
                         $OperationManager_emp_own= $this->check_area_master_by_id_area($OperationManager[$BB], $area);
                         if ($OperationManager_emp_own===true) {
@@ -252,9 +252,9 @@ class CommissionSystem{
             if($emp_job_title==="Contract Manager"){
                 $ContractManager[]= $all_emp_and_mangers[$AA];
                 $ContractManager = $this->remove_duplicated_value($ContractManager);
-                 // get operation manger Master and slave 
+                 // get Contract manger Master and slave 
                 $ContractManagerCount= count($ContractManager);
-                if ($ContractManagerCount>1) {
+                if ($ContractManagerCount>=1) {
                     for ($BB = 0; $BB <$ContractManagerCount; $BB++) {
                         $ContractManager_emp_own= $this->check_area_master_by_id_area($ContractManager[$BB], $area);
                         if ($ContractManager_emp_own===true) {
@@ -340,7 +340,7 @@ class CommissionSystem{
 
                 //  // get operation manger Master and slave 
                 $SalesSepecialistCount= count($SalesSepecialist);
-                if ($SalesSepecialistCount>1) {
+                if ($SalesSepecialistCount>=1) {
                     for ($BB = 0; $BB <$SalesSepecialistCount; $BB++) {
                         $SalesSepecialist_emp_own= $this->check_area_master_by_id_area($SalesSepecialist[$BB], $area);
                         if ($SalesSepecialist_emp_own===true) {
@@ -361,7 +361,7 @@ class CommissionSystem{
 
                 // get Sales Admin Master and slave 
                 $SalesManagerCount= count($SalesManager);
-                if ($SalesManagerCount>1) {
+                if ($SalesManagerCount>=1) {
                     for ($cc = 0; $cc <$SalesManagerCount; $cc++) {
                         $SalesManager_emp_own= $this->check_area_master_by_id_area($SalesManager[$cc], $area);
                         if ($SalesManager_emp_own===true) {
@@ -382,7 +382,7 @@ class CommissionSystem{
 
                 // get operation manger Master and slave 
                 $CCOCount= count($CCO);
-                if ($CCOCount>1) {
+                if ($CCOCount>=1) {
                     for ($DD = 0; $DD <$CCOCount; $DD++) {
                         $CCO_emp_own= $this->check_area_master_by_id_area($CCO[$DD], $area);
                         if ($CCO_emp_own===true) {
@@ -403,7 +403,7 @@ class CommissionSystem{
 
                 // get operation manger Master and slave 
                 $SalesDirectorCount= count($SalesDirector);
-                if ($SalesDirectorCount>1) {
+                if ($SalesDirectorCount>=1) {
                     for ($EE = 0; $EE <$SalesDirectorCount; $EE++) {
                         $SalesDirector_emp_own= $this->check_area_master_by_id_area($SalesDirector[$EE], $area);
                         if ($SalesDirector_emp_own===true) {
@@ -541,12 +541,12 @@ class CommissionSystem{
             
             // check if ContractManager array not empty 
             if(count($participated_emp["ContractManager"])!==0){
-                $ContractManager_and_commission = $this->get_emp_commission_by_count_value($unitPrice, $OperationManager, NULL, $ContractManagercommission_value);
+                $ContractManager_and_commission = $this->get_emp_commission_by_count_value($unitPrice, $ContractManager, NULL, $ContractManagercommission_value);
                 $emp_id_and_commission+= $ContractManager_and_commission; 
             }
             // check if ContractSpecialist array not empty 
             if(count($participated_emp["ContractSpecialist"])!==0){
-                $ContractSpecialist_and_commission = $this->get_emp_commission_by_count_value($unitPrice, $SalesAdmin, NULL, $ContractSpecialist_value);
+                $ContractSpecialist_and_commission = $this->get_emp_commission_by_count_value($unitPrice, $ContractSpecialist, NULL, $ContractSpecialist_value);
                 $emp_id_and_commission+= $ContractSpecialist_and_commission; 
             }
 
@@ -761,7 +761,7 @@ class CommissionSystem{
         for ($x = $emp_level; $x >= 0; $x--) {
 
             $emp_manger_id = $this->get_emp_manger($start_emp_id);
-            array_push($emp_manager_root_array, $emp_manger_id);
+            array_push($emp_manager_root_array, (int)$emp_manger_id);
             $start_emp_id = $emp_manger_id;
 
         }

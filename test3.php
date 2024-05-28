@@ -31,6 +31,9 @@ foreach ($operationCommission as $x => $y) {
 var_dump($newCommissionSystem->get_commission_value_by_title("Sales Manager"));
 
 echo "<br>";
-$y=array(13,22);
-// var_dump($newCommissionSystem->calculate_Contract_commission($y, "1000000", "East", "yes", "yes"));
+$y=array(9,12,23);
+var_dump($newCommissionSystem->calculate_Contract_commission($y, "1000000", "East", "no", "yes"));
+echo "<br>";
+
+var_dump($newCommissionSystem->calculate_Contract_participated_emp_conflict($y, "West"));
 echo "<br>";
