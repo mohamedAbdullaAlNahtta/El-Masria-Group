@@ -1085,6 +1085,72 @@ class CommissionSystem{
 
     }
 
+    public function get_emp_data_by_id($id){
+        $commissiondb = new CommissionSystemDB;
+
+        $employee_data= array();
+        
+        $sql = "SELECT * FROM (
+                SELECT 
+                    `emp1`.`id`, 
+                    `emp1`.`name`, 
+                    `emp1`.`manger_id`, 
+                    `emp2`.`name` AS `Manager`, 
+                    `emp1`.`department`, 
+                    `emp1`.`area`, 
+                    `emp1`.`job_title`, 
+                    `emp1`.`mobile`, 
+                    `emp1`.`bank_account`, 
+                    `emp1`.`level` 
+                FROM 
+                    (
+                    SELECT 
+                        `e1`.`id`, 
+                        `e1`.`name`, 
+                        `e1`.`manger_id`, 
+                        `department`.`name` AS `department`, 
+                        `area`.`name` AS `area`, 
+                        `job_title`.`name` AS `job_title`, 
+                        `e1`.`mobile`, 
+                        `e1`.`bank_account`, 
+                        `e1`.`level` 
+                    FROM 
+                        `employee` AS `e1`, 
+                        `department`, 
+                        `area`, 
+                        `job_title` 
+                    WHERE 
+                        `e1`.`department_id` = `department`.`id` 
+                        AND `e1`.`area_id` = `area`.`id` 
+                        AND `e1`.`job_title` = `job_title`.`id`
+                    ) AS `emp1` 
+                    LEFT OUTER JOIN `employee` AS `emp2` ON `emp1`.`manger_id` = `emp2`.`id`
+                ) AS `tab` 
+            WHERE 
+                `id` = {$id}";
+        
+        $result = $commissiondb->query($sql);
+        $commissiondb->close_db_connection(); 
+
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            $employee_data["id"] = $row["id"];
+            $employee_data["name"] = $row["name"];
+            $employee_data["manger_id"] = $row["manger_id"];
+            $employee_data["Manager"] = $row["Manager"];
+            $employee_data["department"] = $row["department"];
+            $employee_data["area"] = $row["area"];
+            $employee_data["job_title"] = $row["job_title"];
+            $employee_data["mobile"] = $row["mobile"];
+            $employee_data["bank_account"] = $row["bank_account"];
+            $employee_data["level"] = $row["level"];
+        }
+
+
+        return $employee_data;
+        
+    }
+
 
 
     

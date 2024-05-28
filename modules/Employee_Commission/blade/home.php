@@ -84,7 +84,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-block">
-                        <form action="index?module=Employee_Commission" method="post" enctype="multipart/form-data">
+                        <!-- <form action="index?module=Employee_Commission" method="post" enctype="multipart/form-data"> -->
                             <h4 class="card-title">Multiple Select</h4>
                             <h6 class="card-subtitle"> Use a <code>select multiple</code> as your input element.</h6>
                             <div class="row">
@@ -112,6 +112,8 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>    
+                            <div class="row">    
                                 <!-- <table  class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                     <thead>
                                         <tr>
@@ -122,7 +124,7 @@
                                     </tbody>
                                 </table> -->
                                  <!--/span-->
-                                 <div class="col-lg-12 col-xlg-12  m-b-30">
+                                 <div class="col-lg-6 col-xlg-6  m-b-30">
                                     <h5 class="box-title">Select Employees from <code>Sales</code> Department Shown as Name===Job Title===area</h5>
                                     <select id='pre-selected-options2'  name="empMySelect[]" multiple='multiple'>
                                         <?php
@@ -172,7 +174,7 @@
                             <div class="form-actions" >
                                 <button type="submit" id='submit' name="submit" class="btn btn-success" ><i class="fa fa-check"></i> Save</button>
                             </div>
-                        </form>   
+                        <!-- </form>    -->
                     </div>
                 </div>
             </div>
@@ -243,6 +245,56 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-block">
+                            <h4 class="card-title">Calculation Result</h4>
+                            <h6 class="card-subtitle"> Use a <code>select multiple</code> as your input element.</h6>
+                            <div class="row">
+                                    <table>
+                                        <tr>
+                                            <th>Company</th>
+                                            <th>Contact</th>
+                                            <th>Country</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Alfreds Futterkiste</td>
+                                            <td>Maria Anders</td>
+                                            <td>Germany</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Centro comercial Moctezuma</td>
+                                            <td>Francisco Chang</td>
+                                            <td>Mexico</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ernst Handel</td>
+                                            <td>Roland Mendel</td>
+                                            <td>Austria</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Island Trading</td>
+                                            <td>Helen Bennett</td>
+                                            <td>UK</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Laughing Bacchus Winecellars</td>
+                                            <td>Yoshi Tannamuri</td>
+                                            <td>Canada</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Magazzini Alimentari Riuniti</td>
+                                            <td>Giovanni Rovelli</td>
+                                            <td>Italy</td>
+                                        </tr>
+                                    </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
 
         <!--==================================================================================================-->
         <!--==================================================================================================-->

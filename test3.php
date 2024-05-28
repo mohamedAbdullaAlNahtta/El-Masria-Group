@@ -45,3 +45,11 @@ echo "<br>";
 $ww=array(14,19,15,11);
 var_dump($newCommissionSystem->calculate_Sales_commission($ww, "1000000", "West", "no", "yes"));
 echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<br>";
+// var_dump($newCommissionSystem->get_emp_data_by_id(14));
+
+foreach ($newCommissionSystem->get_emp_data_by_id(14) as $x => $y) {
+  echo "$x: $y <br>";
+}
