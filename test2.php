@@ -9,12 +9,17 @@ $newCommissionSystem = new CommissionSystem;
 
 
 $cars=array(7,10,13);
+echo "get_emp_commission_by_count_value";
+echo "<br>";
 var_dump($newCommissionSystem->get_emp_commission_by_count_value("1000000", $cars, "0.02", NULL));
 // result should be like this 
 // array(4) { ["Volvo"]=> float(5000) ["BMW"]=> float(5000) ["Toyota"]=> float(5000) ["Tyota"]=> float(5000) } 
 echo "<br>";
 
-var_dump($newCommissionSystem->get_emp_commission_by_count_value("1000000", $cars, NULL, 2000));
+echo "<br>";
+echo "get_emp_commission_by_count_value";
+echo "<br>";
+var_dump($newCommissionSystem->get_emp_commission_by_count_value("1000000", $cars, NULL, 2000*0.5));
 echo "<br>";
 // result should be like this 
 // array(4) { ["Volvo"]=> int(500) ["BMW"]=> int(500) ["Toyota"]=> int(500) ["Tyota"]=> int(500) } 
@@ -68,8 +73,10 @@ var_dump($newCommissionSystem->check_area_master_by_id_area("19", "East"));
 
 echo "<br>";
 echo "<br>";
+
+echo"check_area_master_precentage";
 echo "<br>";
-var_dump($newCommissionSystem->check_area_master_precentage("3", "master","no"));
+var_dump($newCommissionSystem->check_area_master_precentage("3","slave", "no"));
 echo "<br>";
 echo "<br>";
 var_dump($newCommissionSystem->calculate_operation_participated_emp_conflict($yarray,"West"));
