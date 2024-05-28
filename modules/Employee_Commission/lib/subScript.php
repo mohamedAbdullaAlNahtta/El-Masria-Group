@@ -137,42 +137,51 @@ jQuery(document).ready(function() {
 
 <script>
 function myFunctionGetSelectedSalesEmployee(){
-    var selected = [];
-    for (var option of document.getElementById('pre-selected-options0').options)
-    {
-        if (option.selected) {
-            selected.push(option.value);
-        }
-    }
-    // console.log(selected);
-    let text = selected.toString();
-    document.getElementById("calculationResult0").innerHTML = text;
+    // var selected = [];
+    // for (var option of document.getElementById('pre-selected-options0').options)
+    // {
+    //     if (option.selected) {
+    //         selected.push(option.value);
+    //     }
+    // }
+    // // console.log(selected);
+    // let text = selected.toString();
+    // document.getElementById("calculationResult0").innerHTML = text;
 }
 
 function myFunctionGetSelectedContractEmployee(){
-    var selected = [];
-    for (var option of document.getElementById('pre-selected-options1').options)
-    {
-        if (option.selected) {
-            selected.push(option.value);
-        }
-    }
-    // console.log(selected);
-    let text = selected.toString();
-    document.getElementById("calculationResult1").innerHTML = text;
+    // var selected = [];
+    // for (var option of document.getElementById('pre-selected-options1').options)
+    // {
+    //     if (option.selected) {
+    //         selected.push(option.value);
+    //     }
+    // }
+    // // console.log(selected);
+    // let text = selected.toString();
+    // document.getElementById("calculationResult1").innerHTML = text;
 }
 
 function myFunctionGetSelectedOperationEmployee(){
-    var selected = [];
-    for (var option of document.getElementById('pre-selected-options2').options)
-    {
-        if (option.selected) {
-            selected.push(option.value);
-        }
+    // var selected = [];
+    // for (var option of document.getElementById('pre-selected-options2').options)
+    // {
+    //     if (option.selected) {
+    //         selected.push(option.value);
+    //     }
+    // }
+    // // console.log(selected);
+    // let text = selected.toString();
+    // document.getElementById("calculationResult2").innerHTML = text;
+}
+
+function loadRes() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("calculationResult0").innerHTML = this.responseText;
     }
-    // console.log(selected);
-    let text = selected.toString();
-    document.getElementById("calculationResult2").innerHTML = text;
+  xhttp.open("GET", "http://localhost/El-Masria-Group/modules/Employee_Commission/ajax/calculate?salesText=11,14,15,16&contractText=6,12&operationText=20,21&unitPrice=1000000&area=West&IsLaunch=yes&IsOverSeas=yes", true);
+  xhttp.send();
 }
 </script>
 

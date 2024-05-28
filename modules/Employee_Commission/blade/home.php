@@ -172,7 +172,7 @@
                             </div>
                             <hr>
                             <div class="form-actions" >
-                                <button onclick="myFunctionGetSelectedSalesEmployee();myFunctionGetSelectedContractEmployee();myFunctionGetSelectedOperationEmployee();" type="submit" id='submit' name="submit" class="btn btn-success" ><i class="fa fa-check"></i> Save</button>
+                                <button onclick="myFunctionGetSelectedSalesEmployee();myFunctionGetSelectedContractEmployee();myFunctionGetSelectedOperationEmployee();loadRes();" type="submit" id='submit' name="submit" class="btn btn-success" ><i class="fa fa-check"></i> Save</button>
                             </div>
                         <!-- </form>    -->
                     </div>
@@ -250,22 +250,8 @@
                     <div class="card">
                         <div class="card-block">
                             <h4 class="card-title">Calculation Result</h4>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div id="calculationResult0">
-
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div id="calculationResult1">
-
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div id="calculationResult2">
-
-                                    </div>
-                                </div>
+                            <div class="row" id="calculationResult0">
+                                
                             </div>
                         </div>
                     </div>
