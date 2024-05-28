@@ -117,18 +117,25 @@
                                         <input type="text" id="unitPrice" name="unitPrice" class="form-control" placeholder="" required="required"/>
                                     </div>
                                 </div>
-                                <!--/span-->
-                                <div class="col-md-3" >
-                                    <label class="control-label">Is Luanch</label>
+                                 <!--/span-->
+                                 <div class="col-md-2" >
+                                    <label class="control-label">Area</label>
                                     <div class="form-group" >
-                                        <input type="text" id="isLuanch" name="isLuanch" class="form-control" placeholder="" required="required" />
+                                        <input type="text" id="area" name="area" class="form-control" placeholder="" required="required"/>
                                     </div>
                                 </div>
                                 <!--/span-->
-                                <div class="col-md-3" >
+                                <div class="col-md-2" >
+                                    <label class="control-label">Is Luanch</label>
+                                    <div class="form-group" >
+                                        <input type="text" id="IsLaunch" name="IsLaunch" class="form-control" placeholder="" required="required" />
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-2" >
                                     <label class="control-label">Is Over Seas</label>
                                     <div class="form-group" >
-                                        <input type="text" id="isOverSeas" name="isOverSeas" class="form-control" placeholder="" required="required"/>
+                                        <input type="text" id="IsOverSeas" name="IsOverSeas" class="form-control" placeholder="" required="required"/>
                                     </div>
                                 </div>
                             </div>    
