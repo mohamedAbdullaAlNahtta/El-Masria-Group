@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2024 at 06:24 AM
+-- Generation Time: May 28, 2024 at 09:37 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -157,7 +157,7 @@ INSERT INTO `employee` (`id`, `name`, `department_id`, `manger_id`, `area_id`, `
 (6, 'Alla Wagdy Ibrahim', 1, 1, 1, 2, '1001234572', 'XXX-XXX-XXX', 1),
 (7, 'Ahmed Wagdy Alla', 2, 2, 1, 4, '1001234573', 'XXX-XXX-XXX', 1),
 (8, 'Ahmed Kamal Ibrahim', 3, 5, 1, 8, '1001234574', 'XXX-XXX-XXX', 1),
-(9, 'Mohamed Wagdy Mohamed', 1, 1, 1, 2, '1001234575', 'XXX-XXX-XXX', 1),
+(9, 'Mohamed Wagdy Mohamed', 1, 1, 2, 2, '1001234575', 'XXX-XXX-XXX', 1),
 (10, 'Rady Wagdy Rady', 2, 2, 1, 4, '1001234576', 'XXX-XXX-XXX', 1),
 (11, 'teleb Wagdy teleb', 3, NULL, 1, 8, '1001234577', 'XXX-XXX-XXX', 3),
 (12, 'Ahmed Moustafa Moustafa', 1, 1, 1, 2, '1001234578', 'XXX-XXX-XXX', 1),
@@ -168,8 +168,9 @@ INSERT INTO `employee` (`id`, `name`, `department_id`, `manger_id`, `area_id`, `
 (17, 'Adel Adel Ibrahim', 3, NULL, 2, 8, '1001234583', 'XXX-XXX-XXX', 3),
 (19, 'Walaa Wagdy Mohamed', 3, NULL, 2, 7, '1001234583', 'XXX-XXX-XXX', 2),
 (20, 'Ahmed AliAliAli Mohamed', 2, NULL, 2, 3, '1001234568', 'XXX-XXX-XXX', 0),
-(21, 'Ahmed AliAliAli Ahmed', 2, 20, 2, 4, '1001234568', 'XXX-XXX-XXX', 0),
-(22, 'Tamer Tamer Tamer', 2, NULL, 2, 4, '1001234568', 'XXX-XXX-XXX', 0);
+(21, 'Ahmed AliAliAli Ahmed', 2, 20, 2, 4, '1001234568', 'XXX-XXX-XXX', 1),
+(22, 'Tamer Tamer Tamer', 2, NULL, 2, 4, '1001234568', 'XXX-XXX-XXX', 1),
+(23, 'alyaa ahmad nagy', 1, NULL, 2, 2, '1001234581', 'XXX-XXX-XXX', 1);
 
 -- --------------------------------------------------------
 
@@ -193,8 +194,8 @@ INSERT INTO `job_title` (`id`, `name`, `commission_percentage`, `commission_valu
 (2, 'Contract Specialist', NULL, 200),
 (3, 'Operation Manager', NULL, 150),
 (4, 'Sales Admin', NULL, 200),
-(5, 'CCO', '0.4', NULL),
-(6, 'Sales Director', '0.4', NULL),
+(5, 'CCO', '0.04', NULL),
+(6, 'Sales Director', '0.04', NULL),
 (7, 'Sales Manager', '0.02', NULL),
 (8, 'Sales Sepecialist', '0.01', NULL);
 
@@ -371,7 +372,7 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `job_title`
