@@ -114,28 +114,28 @@
                                 <div class="col-md-3" >
                                     <label class="control-label">Unit Price</label>
                                     <div class="form-group" >
-                                        <input type="text" id="unitPrice" name="unitPrice" class="form-control" placeholder="" required="required"/>
+                                        <input type="text" id="unitPrice" name="unitPrice" class="form-control" placeholder="" required="required" readonly="true"/>
                                     </div>
                                 </div>
                                  <!--/span-->
                                  <div class="col-md-2" >
                                     <label class="control-label">Area</label>
                                     <div class="form-group" >
-                                        <input type="text" id="area" name="area" class="form-control" placeholder="" required="required"/>
+                                        <input type="text" id="area" name="area" class="form-control" placeholder="" required="required" readonly="true"/>
                                     </div>
                                 </div>
                                 <!--/span-->
                                 <div class="col-md-2" >
                                     <label class="control-label">Is Luanch</label>
                                     <div class="form-group" >
-                                        <input type="text" id="IsLaunch" name="IsLaunch" class="form-control" placeholder="" required="required" />
+                                        <input type="text" id="IsLaunch" name="IsLaunch" class="form-control" placeholder="" required="required" readonly="true"/>
                                     </div>
                                 </div>
                                 <!--/span-->
                                 <div class="col-md-2" >
                                     <label class="control-label">Is Over Seas</label>
                                     <div class="form-group" >
-                                        <input type="text" id="IsOverSeas" name="IsOverSeas" class="form-control" placeholder="" required="required"/>
+                                        <input type="text" id="IsOverSeas" name="IsOverSeas" class="form-control" placeholder="" required="required" readonly="true"/>
                                     </div>
                                 </div>
                             </div>    
@@ -188,7 +188,7 @@
                             </div>
                             <hr>
                             <div class="form-actions" >
-                                <button onclick="myFunctionGetSelectedSalesEmployee();myFunctionGetSelectedContractEmployee();myFunctionGetSelectedOperationEmployee();loadRes();" type="submit" id='submit' name="submit" class="btn btn-success" ><i class="fa fa-check"></i> Save</button>
+                                <button onclick="loadRes();" type="submit" id='submit' name="submit" class="btn btn-success" ><i class="fa fa-check"></i> Save</button>
                             </div>
                         <!-- </form>    -->
                     </div>
@@ -248,7 +248,7 @@
                                             echo "<td> ".$row["is_launch"]." </td>"; 
                                             echo "<td> ".$row["area"]." </td>"; 
                                             ?>
-                                            <td><button onclick="myFunctionChangeSelectedUnit(<?php echo $row['id']; ?>);myBlurFunction(0);" style="width: 35px;height: 35px;padding: 0px;font-size: 18px;" class="clientIdSelected btn btn-info btn-circle btn-xl"><i class="mdi mdi-home"></i> </button></td>
+                                            <td><button onclick="myFunctionChangeSelectedUnit(<?php echo $row['id']; ?>);myFunctionChangeUnitPrice('<?php echo $row['unit_price']; ?>');myFunctionChangeArea('<?php echo $row['area']; ?>');myFunctionChangeIsLuancht('<?php echo $row['is_launch']; ?>');myFunctionChangeIsOverSeas('<?php echo $row['is_over_seas']; ?>');myBlurFunction(0);" style="width: 35px;height: 35px;padding: 0px;font-size: 18px;" class="clientIdSelected btn btn-info btn-circle btn-xl"><i class="mdi mdi-home"></i> </button></td>
                                             <?php
                                             echo "</tr>";          
                                         }
