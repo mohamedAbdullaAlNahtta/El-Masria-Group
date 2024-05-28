@@ -188,7 +188,7 @@
                             </div>
                             <hr>
                             <div class="form-actions" >
-                                <button onclick="loadRes();" type="submit" id='submit' name="submit" class="btn btn-success" ><i class="fa fa-check"></i> Save</button>
+                                <button onclick="loadRes();"  id='submit' class="btn btn-success" ><i class="fa fa-check"></i> Calculate </button>
                             </div>
                         <!-- </form>    -->
                     </div>

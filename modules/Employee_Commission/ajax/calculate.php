@@ -62,6 +62,11 @@ $salesText = $_GET['salesText'];
 $contractText = $_GET['contractText'];
 $operationText = $_GET['operationText'];
 
+
+    
+
+
+
 $unitPrice = $_GET['unitPrice'];
 $area = $_GET['area'];
 $IsLaunch = $_GET['IsLaunch'];
@@ -81,6 +86,8 @@ $salesArr = explode(',', $salesText);
 $contractArr = explode(',', $contractText);
 $operationArr = explode(',', $operationText);
 
+
+
 // var_dump($salesArr);
 // echo"<br>";
 // var_dump($contractArr);
@@ -96,9 +103,16 @@ $operationArr = explode(',', $operationText);
 // var_dump($newCommissionSystem->calculate_operation_commission($operationArr, $unitPrice, $area, $IsLaunch, $IsOverSeas));
 // echo"<br>";
 
-$Sales_commission = $newCommissionSystem->calculate_Sales_commission($salesArr, $unitPrice, $area, $IsLaunch, $IsOverSeas);
-$Contract_commission = $newCommissionSystem->calculate_Contract_commission($contractArr, $unitPrice, $area, $IsLaunch, $IsOverSeas);
-$operation_commission = $newCommissionSystem->calculate_operation_commission($operationArr, $unitPrice, $area, $IsLaunch, $IsOverSeas);
+if (strlen($salesText)>=1) {
+    $Sales_commission = $newCommissionSystem->calculate_Sales_commission($salesArr, $unitPrice, $area, $IsLaunch, $IsOverSeas);
+}
+if (strlen($contractText)>=1) {
+    $Contract_commission = $newCommissionSystem->calculate_Contract_commission($contractArr, $unitPrice, $area, $IsLaunch, $IsOverSeas);
+}
+if (strlen($operationText)>=1) {
+    $operation_commission = $newCommissionSystem->calculate_operation_commission($operationArr, $unitPrice, $area, $IsLaunch, $IsOverSeas);
+}
+
 
 echo "<table id='example23' class='display nowrap table table-hover table-striped table-bordered' cellspacing='0' width='100%'>
     <thead>
@@ -115,52 +129,63 @@ echo "<table id='example23' class='display nowrap table table-hover table-stripe
             <th> Commission </th>
         </tr>
     </thead>
-    <tbody>";     
-    foreach ($Sales_commission as $x => $y) {
-        // echo "$x : $y <br>";
-        echo "<tr>";
-        echo "<td><i class='mdi mdi-account-card-details'></i> ".$newCommissionSystem->get_emp_data_by_id($x)['id']."</td>"; 
-        echo "<td>".$newCommissionSystem->get_emp_data_by_id($x)['name']."</td>"; 
-        echo "<td>".$newCommissionSystem->get_emp_data_by_id($x)['Manager']."</td>"; 
-        echo "<td><img src='assets/images/bg/department.png' style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$newCommissionSystem->get_emp_data_by_id($x)['department']."</td>"; 
-        echo "<td>".$newCommissionSystem->get_emp_data_by_id($x)['area']."</td>"; 
-        echo "<td>".$newCommissionSystem->get_emp_data_by_id($x)['job_title']."</td>"; 
-        echo "<td><img src='assets/images/test/custom-select.png' style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$newCommissionSystem->get_emp_data_by_id($x)['mobile']."</td>"; 
-        echo "<td> <img src='assets/images/bg/bank.png' style='border-radius: 50%; border: 1px solid #000;' width='35'>".$newCommissionSystem->get_emp_data_by_id($x)['bank_account']."</td>"; 
-        echo "<td>".$newCommissionSystem->get_emp_data_by_id($x)['level']."</td>"; 
-        echo "<td>".$y."</td>"; 
-        echo "</tr>"; 
-    }     
-    foreach ($Contract_commission as $a => $b) {
-        // echo "$x : $y <br>";
-        echo "<tr>";
-        echo "<td><i class='mdi mdi-account-card-details'></i> ".$newCommissionSystem->get_emp_data_by_id($a)['id']."</td>"; 
-        echo "<td>".$newCommissionSystem->get_emp_data_by_id($a)['name']."</td>"; 
-        echo "<td>".$newCommissionSystem->get_emp_data_by_id($a)['Manager']."</td>"; 
-        echo "<td><img src='assets/images/bg/department.png' style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$newCommissionSystem->get_emp_data_by_id($a)['department']."</td>"; 
-        echo "<td>".$newCommissionSystem->get_emp_data_by_id($a)['area']."</td>"; 
-        echo "<td>".$newCommissionSystem->get_emp_data_by_id($a)['job_title']."</td>"; 
-        echo "<td><img src='assets/images/test/custom-select.png' style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$newCommissionSystem->get_emp_data_by_id($a)['mobile']."</td>"; 
-        echo "<td><img src='assets/images/bg/bank.png' style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$newCommissionSystem->get_emp_data_by_id($a)['bank_account']."</td>"; 
-        echo "<td>".$newCommissionSystem->get_emp_data_by_id($a)['level']."</td>"; 
-        echo "<td>".$b."</td>"; 
-        echo "</tr>"; 
-    } 
-    foreach ($operation_commission as $c => $d) {
-        // echo "$x : $y <br>";
-        echo "<tr>";
-        echo "<td><i class='mdi mdi-account-card-details'></i> ".$newCommissionSystem->get_emp_data_by_id($c)['id']."</td>"; 
-        echo "<td>".$newCommissionSystem->get_emp_data_by_id($c)['name']."</td>"; 
-        echo "<td>".$newCommissionSystem->get_emp_data_by_id($c)['Manager']."</td>"; 
-        echo "<td><img src='assets/images/bg/department.png' style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$newCommissionSystem->get_emp_data_by_id($c)['department']."</td>"; 
-        echo "<td>".$newCommissionSystem->get_emp_data_by_id($c)['area']."</td>"; 
-        echo "<td>".$newCommissionSystem->get_emp_data_by_id($c)['job_title']."</td>"; 
-        echo "<td><img src='assets/images/test/custom-select.png' style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$newCommissionSystem->get_emp_data_by_id($c)['mobile']."</td>"; 
-        echo "<td><img src='assets/images/bg/bank.png' style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$newCommissionSystem->get_emp_data_by_id($c)['bank_account']."</td>"; 
-        echo "<td>".$newCommissionSystem->get_emp_data_by_id($c)['level']."</td>"; 
-        echo "<td>".$d."</td>"; 
-        echo "</tr>"; 
-    }             
+    <tbody>"; 
+    if (strlen($salesText)>=1) {
+        foreach ($Sales_commission as $x => $y) {
+            // echo "$x : $y <br>";
+            echo "<tr>";
+            echo "<td><i class='mdi mdi-account-card-details'></i> ".$newCommissionSystem->get_emp_data_by_id($x)['id']."</td>"; 
+            echo "<td>".$newCommissionSystem->get_emp_data_by_id($x)['name']."</td>"; 
+            echo "<td>".$newCommissionSystem->get_emp_data_by_id($x)['Manager']."</td>"; 
+            echo "<td><img src='assets/images/bg/department.png' style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$newCommissionSystem->get_emp_data_by_id($x)['department']."</td>"; 
+            echo "<td>".$newCommissionSystem->get_emp_data_by_id($x)['area']."</td>"; 
+            echo "<td>".$newCommissionSystem->get_emp_data_by_id($x)['job_title']."</td>"; 
+            echo "<td><img src='assets/images/test/custom-select.png' style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$newCommissionSystem->get_emp_data_by_id($x)['mobile']."</td>"; 
+            echo "<td> <img src='assets/images/bg/bank.png' style='border-radius: 50%; border: 1px solid #000;' width='35'>".$newCommissionSystem->get_emp_data_by_id($x)['bank_account']."</td>"; 
+            echo "<td>".$newCommissionSystem->get_emp_data_by_id($x)['level']."</td>"; 
+            echo "<td>".$y."</td>"; 
+            echo "</tr>"; 
+        }
+    }
+    if (strlen($contractText)>=1) {
+        foreach ($Contract_commission as $a => $b) {
+            // echo "$x : $y <br>";
+            echo "<tr>";
+            echo "<td><i class='mdi mdi-account-card-details'></i> ".$newCommissionSystem->get_emp_data_by_id($a)['id']."</td>"; 
+            echo "<td>".$newCommissionSystem->get_emp_data_by_id($a)['name']."</td>"; 
+            echo "<td>".$newCommissionSystem->get_emp_data_by_id($a)['Manager']."</td>"; 
+            echo "<td><img src='assets/images/bg/department.png' style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$newCommissionSystem->get_emp_data_by_id($a)['department']."</td>"; 
+            echo "<td>".$newCommissionSystem->get_emp_data_by_id($a)['area']."</td>"; 
+            echo "<td>".$newCommissionSystem->get_emp_data_by_id($a)['job_title']."</td>"; 
+            echo "<td><img src='assets/images/test/custom-select.png' style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$newCommissionSystem->get_emp_data_by_id($a)['mobile']."</td>"; 
+            echo "<td><img src='assets/images/bg/bank.png' style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$newCommissionSystem->get_emp_data_by_id($a)['bank_account']."</td>"; 
+            echo "<td>".$newCommissionSystem->get_emp_data_by_id($a)['level']."</td>"; 
+            echo "<td>".$b."</td>"; 
+            echo "</tr>"; 
+        } 
+        
+    }    
+    
+    if (strlen($operationText)>=1) {
+        foreach ($operation_commission as $c => $d) {
+            // echo "$x : $y <br>";
+            echo "<tr>";
+            echo "<td><i class='mdi mdi-account-card-details'></i> ".$newCommissionSystem->get_emp_data_by_id($c)['id']."</td>"; 
+            echo "<td>".$newCommissionSystem->get_emp_data_by_id($c)['name']."</td>"; 
+            echo "<td>".$newCommissionSystem->get_emp_data_by_id($c)['Manager']."</td>"; 
+            echo "<td><img src='assets/images/bg/department.png' style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$newCommissionSystem->get_emp_data_by_id($c)['department']."</td>"; 
+            echo "<td>".$newCommissionSystem->get_emp_data_by_id($c)['area']."</td>"; 
+            echo "<td>".$newCommissionSystem->get_emp_data_by_id($c)['job_title']."</td>"; 
+            echo "<td><img src='assets/images/test/custom-select.png' style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$newCommissionSystem->get_emp_data_by_id($c)['mobile']."</td>"; 
+            echo "<td><img src='assets/images/bg/bank.png' style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$newCommissionSystem->get_emp_data_by_id($c)['bank_account']."</td>"; 
+            echo "<td>".$newCommissionSystem->get_emp_data_by_id($c)['level']."</td>"; 
+            echo "<td>".$d."</td>"; 
+            echo "</tr>"; 
+        }             
+    }
+    
+    
+    
 echo "</tbody>
 </table>";
 

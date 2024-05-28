@@ -167,6 +167,16 @@ function loadRes() {
     salesEmployees=myFunctionGetSelectedSalesEmployee();
     contractEmployees=myFunctionGetSelectedContractEmployee();
     operationEmployees=myFunctionGetSelectedOperationEmployee();
+
+
+
+	const $unitPrice = document.getElementById('unitPrice').value;
+	const $area = document.getElementById('area').value;
+	const $IsLaunch = document.getElementById('IsLaunch').value;
+	const $IsOverSeas = document.getElementById('IsOverSeas').value;
+
+
+
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function() {
     document.getElementById("calculationResult0").innerHTML = this.responseText;
@@ -176,6 +186,12 @@ function loadRes() {
   console.log(salesEmployees);
   console.log(contractEmployees);
   console.log(operationEmployees);
+
+  console.log($unitPrice);
+  console.log($area);
+  console.log($IsLaunch);
+  console.log($IsOverSeas);
+
   console.log("http://localhost/El-Masria-Group/modules/Employee_Commission/ajax/calculate?salesText="+salesEmployees+"&contractText="+contractEmployees+"&operationText="+operationEmployees+"&unitPrice=1000000&area=West&IsLaunch=yes&IsOverSeas=yes");
 }
 
