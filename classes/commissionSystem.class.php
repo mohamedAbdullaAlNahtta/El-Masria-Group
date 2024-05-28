@@ -448,7 +448,13 @@ class CommissionSystem{
         $isConfilict = $this->is_there_is_confilict($empArr);
         if ($IsLaunch==="yes" || $isConfilict===False) {
             $OperationManagercommission_value= $this->get_commission_value_by_title("Operation Manager");
+            // if ($OperationManagercommission_value===NULL) {
+            //     $OperationManagercommission_value= $this->get_commission_percentage_by_title("Operation Manager");
+            // }
             $SalesAdmincommission_value= $this->get_commission_value_by_title("Sales Admin");
+            // if ($SalesAdmincommission_value===NULL) {
+            //     $SalesAdmincommission_value= $this->get_commission_percentage_by_title("Sales Admin");
+            // }
             $participated_emp = $this->calculate_operation_participated_emp($empArr);
 
             // operation manager array 
@@ -547,44 +553,44 @@ class CommissionSystem{
         } else {
             $ContractManagercommission_value= $this->get_commission_value_by_title("Contract Manager");
             $ContractSpecialist_value= $this->get_commission_value_by_title("Contract Specialist");
-            $participated_emp = $this->calculate_Contract_participated_emp($empArr);
+            $participated_emp = $this->calculate_Contract_participated_emp_conflict($empArr);
 
-            // operation manager array 
-            $OperationManagerMaster= $participated_emp["OperationManagerMaster"];
-            $OperationManagerSlave= $participated_emp["OperationManagerSlave"];
-            // Sales Admin array 
-            $SalesAdminMaster=$participated_emp["SalesAdminMaster"] ;
-            $SalesAdminSlave=$participated_emp["SalesAdminSlave"] ;
+            // Contract Manager array 
+            $ContractManagerMaster= $participated_emp["ContractManagerMaster"];
+            $ContractManagerSlave= $participated_emp["ContractManagerSlave"];
+            // Contract Specialist array 
+            $ContractSpecialistMaster=$participated_emp["ContractSpecialistMaster"] ;
+            $ContractSpecialistSlave=$participated_emp["ContractSpecialistSlave"] ;
 
             $master = $this->check_area_master_precentage($dep_id, "master",$IsOverSeas);
             $salve = $this->check_area_master_precentage($dep_id, "slave",$IsOverSeas);
             
             // check if OperationManager array not empty 
-            if(count($participated_emp["OperationManagerMaster"])!==0 && count($participated_emp["OperationManagerSlave"])!==0){
-                $OperationManagerMaster_and_commission = $this->get_emp_commission_by_count_value($unitPrice, $OperationManagerMaster, NULL, $OperationManagercommission_value*$master);
-                $emp_id_and_commission+= $OperationManagerMaster_and_commission; 
-                $OperationManagerSlave_and_commission = $this->get_emp_commission_by_count_value($unitPrice, $OperationManagerSlave, NULL, $OperationManagercommission_value*$salve);
-                $emp_id_and_commission+= $OperationManagerSlave_and_commission; 
-            }elseif(count($participated_emp["OperationManagerMaster"])!==0 && count($participated_emp["OperationManagerSlave"])===0){
-                $OperationManagerMaster_and_commission = $this->get_emp_commission_by_count_value($unitPrice, $OperationManagerMaster, NULL, $OperationManagercommission_value);
-                $emp_id_and_commission+= $OperationManagerMaster_and_commission; 
-            }elseif(count($participated_emp["OperationManagerMaster"])===0 && count($participated_emp["OperationManagerSlave"])!==0){
-                $OperationManagerSlave_and_commission = $this->get_emp_commission_by_count_value($unitPrice, $OperationManagerSlave, NULL, $OperationManagercommission_value);
-                $emp_id_and_commission+= $OperationManagerSlave_and_commission;
+            if(count($participated_emp["ContractManagerMaster"])!==0 && count($participated_emp["ContractManagerSlave"])!==0){
+                $ContractManagerMaster_and_commission = $this->get_emp_commission_by_count_value($unitPrice, $ContractManagerMaster, NULL, $ContractManagercommission_value*$master);
+                $emp_id_and_commission+= $ContractManagerMaster_and_commission; 
+                $ContractManagerSlave_and_commission = $this->get_emp_commission_by_count_value($unitPrice, $ContractManagerSlave, NULL, $ContractManagercommission_value*$salve);
+                $emp_id_and_commission+= $ContractManagerSlave_and_commission; 
+            }elseif(count($participated_emp["ContractManagerMaster"])!==0 && count($participated_emp["ContractManagerSlave"])===0){
+                $ContractManagerMaster_and_commission = $this->get_emp_commission_by_count_value($unitPrice, $ContractManagerMaster, NULL, $ContractManagercommission_value);
+                $emp_id_and_commission+= $ContractManagerMaster_and_commission; 
+            }elseif(count($participated_emp["ContractManagerMaster"])===0 && count($participated_emp["ContractManagerSlave"])!==0){
+                $ContractManagerSlave_and_commission = $this->get_emp_commission_by_count_value($unitPrice, $ContractManagerSlave, NULL, $ContractManagercommission_value);
+                $emp_id_and_commission+= $ContractManagerSlave_and_commission;
             }
 
             // // check if OperationManager array not empty 
-            if(count($participated_emp["SalesAdminMaster"])!==0 && count($participated_emp["SalesAdminSlave"])!==0){
-                $SalesAdminMaster_and_commission = $this->get_emp_commission_by_count_value($unitPrice, $SalesAdminMaster, NULL, $SalesAdmincommission_value*$master);
-                $emp_id_and_commission+= $SalesAdminMaster_and_commission; 
-                $SalesAdminSlave_and_commission = $this->get_emp_commission_by_count_value($unitPrice, $SalesAdminSlave, NULL, $SalesAdmincommission_value*$salve);
-                $emp_id_and_commission+= $SalesAdminSlave_and_commission; 
-            }elseif(count($participated_emp["SalesAdminMaster"])!==0 && count($participated_emp["SalesAdminSlave"])===0){
-                $SalesAdminMaster_and_commission = $this->get_emp_commission_by_count_value($unitPrice, $SalesAdminMaster, NULL, $SalesAdmincommission_value);
-                $emp_id_and_commission+= $SalesAdminMaster_and_commission; 
-            }elseif(count($participated_emp["SalesAdminMaster"])===0 && count($participated_emp["SalesAdminSlave"])!==0){
-                $SalesAdminSlave_and_commission = $this->get_emp_commission_by_count_value($unitPrice, $SalesAdminSlave, NULL, $SalesAdmincommission_value);
-                $emp_id_and_commission+= $SalesAdminSlave_and_commission;
+            if(count($participated_emp["ContractSpecialistMaster"])!==0 && count($participated_emp["ContractSpecialistSlave"])!==0){
+                $ContractSpecialistMaster_and_commission = $this->get_emp_commission_by_count_value($unitPrice, $ContractSpecialistMaster, NULL, $ContractSpecialist_value*$master);
+                $emp_id_and_commission+= $ContractSpecialistMaster_and_commission; 
+                $ContractSpecialistSlave_and_commission = $this->get_emp_commission_by_count_value($unitPrice, $ContractSpecialistSlave, NULL, $ContractSpecialist_value*$salve);
+                $emp_id_and_commission+= $ContractSpecialistSlave_and_commission; 
+            }elseif(count($participated_emp["ContractSpecialistMaster"])!==0 && count($participated_emp["ContractSpecialistSlave"])===0){
+                $ContractSpecialistMaster_and_commission = $this->get_emp_commission_by_count_value($unitPrice, $ContractSpecialistMaster, NULL, $ContractSpecialist_value);
+                $emp_id_and_commission+= $ContractSpecialistMaster_and_commission; 
+            }elseif(count($participated_emp["ContractSpecialistMaster"])===0 && count($participated_emp["ContractSpecialistSlave"])!==0){
+                $ContractSpecialistSlave_and_commission = $this->get_emp_commission_by_count_value($unitPrice, $ContractSpecialistSlave, NULL, $ContractSpecialist_value);
+                $emp_id_and_commission+= $ContractSpecialistSlave_and_commission;
             }
 
 

@@ -27,3 +27,5 @@ foreach ($operationCommission as $x => $y) {
   }
 
   echo "<br>";
+
+var_dump($newCommissionSystem->get_commission_value_by_title("Sales Manager"));
