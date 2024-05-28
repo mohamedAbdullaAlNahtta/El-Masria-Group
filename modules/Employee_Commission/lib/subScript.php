@@ -183,16 +183,15 @@ function loadRes() {
     }
   xhttp.open("GET", "http://localhost/El-Masria-Group/modules/Employee_Commission/ajax/calculate?salesText="+salesEmployees+"&contractText="+contractEmployees+"&operationText="+operationEmployees+"&unitPrice="+$unitPrice+"&area=West&IsLaunch="+$IsLaunch+"&IsOverSeas="+$IsOverSeas+"", true);
   xhttp.send();
-  console.log(salesEmployees);
-  console.log(contractEmployees);
-  console.log(operationEmployees);
+//   console.log(salesEmployees);
+//   console.log(contractEmployees);
+//   console.log(operationEmployees);
 
-  console.log($unitPrice);
-  console.log($area);
-  console.log($IsLaunch);
-  console.log($IsOverSeas);
-
-  console.log("http://localhost/El-Masria-Group/modules/Employee_Commission/ajax/calculate?salesText="+salesEmployees+"&contractText="+contractEmployees+"&operationText="+operationEmployees+"&unitPrice="+$unitPrice+"&area=West&IsLaunch="+$IsLaunch+"&IsOverSeas="+$IsOverSeas+"");
+//   console.log($unitPrice);
+//   console.log($area);
+//   console.log($IsLaunch);
+//   console.log($IsOverSeas);
+//   console.log("http://localhost/El-Masria-Group/modules/Employee_Commission/ajax/calculate?salesText="+salesEmployees+"&contractText="+contractEmployees+"&operationText="+operationEmployees+"&unitPrice="+$unitPrice+"&area=West&IsLaunch="+$IsLaunch+"&IsOverSeas="+$IsOverSeas+"");
 }
 
 </script>
