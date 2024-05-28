@@ -37,3 +37,11 @@ echo "<br>";
 
 var_dump($newCommissionSystem->calculate_Contract_participated_emp_conflict($y, "East"));
 echo "<br>";
+
+
+
+echo"calculate_Contract_commission";
+echo "<br>";
+$ww=array(14,11);
+var_dump($newCommissionSystem->calculate_Sales_commission($ww, "1000000", "East", "yes", "yes"));
+echo "<br>";
