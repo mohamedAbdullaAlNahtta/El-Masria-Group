@@ -476,7 +476,7 @@ class CommissionSystem{
         } else {
             $OperationManagercommission_value= $this->get_commission_value_by_title("Operation Manager");
             $SalesAdmincommission_value= $this->get_commission_value_by_title("Sales Admin");
-            $participated_emp = $this->calculate_operation_participated_emp_conflict($empArr);
+            $participated_emp = $this->calculate_operation_participated_emp_conflict($empArr, $area);
 
             // operation manager array 
             $OperationManagerMaster= $participated_emp["OperationManagerMaster"];
@@ -485,8 +485,8 @@ class CommissionSystem{
             $SalesAdminMaster=$participated_emp["SalesAdminMaster"] ;
             $SalesAdminSlave=$participated_emp["SalesAdminSlave"] ;
 
-            $master = $this->check_area_master_precentage($dep_id, "master",$IsOverSeas);
-            $salve = $this->check_area_master_precentage($dep_id, "slave",$IsOverSeas);
+            $master = $this->check_area_master_precentage("2", "master",$IsOverSeas);
+            $salve = $this->check_area_master_precentage("2", "slave",$IsOverSeas);
             
             // check if OperationManager array not empty 
             if(count($participated_emp["OperationManagerMaster"])!==0 && count($participated_emp["OperationManagerSlave"])!==0){
@@ -553,7 +553,7 @@ class CommissionSystem{
         } else {
             $ContractManagercommission_value= $this->get_commission_value_by_title("Contract Manager");
             $ContractSpecialist_value= $this->get_commission_value_by_title("Contract Specialist");
-            $participated_emp = $this->calculate_Contract_participated_emp_conflict($empArr);
+            $participated_emp = $this->calculate_Contract_participated_emp_conflict($empArr, $area);
 
             // Contract Manager array 
             $ContractManagerMaster= $participated_emp["ContractManagerMaster"];
@@ -562,8 +562,8 @@ class CommissionSystem{
             $ContractSpecialistMaster=$participated_emp["ContractSpecialistMaster"] ;
             $ContractSpecialistSlave=$participated_emp["ContractSpecialistSlave"] ;
 
-            $master = $this->check_area_master_precentage($dep_id, "master",$IsOverSeas);
-            $salve = $this->check_area_master_precentage($dep_id, "slave",$IsOverSeas);
+            $master = $this->check_area_master_precentage("1", "master",$IsOverSeas);
+            $salve = $this->check_area_master_precentage("1", "slave",$IsOverSeas);
             
             // check if OperationManager array not empty 
             if(count($participated_emp["ContractManagerMaster"])!==0 && count($participated_emp["ContractManagerSlave"])!==0){
