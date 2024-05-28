@@ -126,7 +126,7 @@
                                  <!--/span-->
                                  <div class="col-lg-6 col-xlg-6  m-b-30">
                                     <h5 class="box-title">Select Employees from <code>Sales</code> Department Shown as Name===Job Title===area</h5>
-                                    <select id='pre-selected-options2'  name="empMySelect[]" multiple='multiple'>
+                                    <select id='pre-selected-options0'  name="empMySelectSales[]" multiple='multiple'>
                                         <?php
                                         $result02 = $newCommissionSystem->get_all_sales_emp();
                                         if ($result02->num_rows > 0) {
@@ -141,7 +141,7 @@
                                 <!--/span-->
                                 <div class="col-lg-6 col-xlg-6  m-b-30">
                                     <h5 class="box-title">Select Employees from <code>Contract</code> Department Shown as Name===Job Title</h5>
-                                    <select id='pre-selected-options0'  name="empMySelect[]" multiple='multiple'>
+                                    <select id='pre-selected-options1'  name="empMySelectContract[]" multiple='multiple'>
                                         <?php
                                         $result00 = $newCommissionSystem->get_all_Contract_emp();
                                         if ($result00->num_rows > 0) {
@@ -156,7 +156,7 @@
                                  <!--/span-->
                                  <div class="col-lg-6 col-xlg-6  m-b-30">
                                     <h5 class="box-title">Select Employees from <code>Operation</code> Department Shown as Name===Job Title</h5>
-                                    <select id='pre-selected-options1'  name="empMySelect[]" multiple='multiple'>
+                                    <select id='pre-selected-options2'  name="empMySelectOperation[]" multiple='multiple'>
                                         <?php
                                         $result01 = $newCommissionSystem->get_all_operation_emp();
                                         if ($result01->num_rows > 0) {
@@ -172,7 +172,7 @@
                             </div>
                             <hr>
                             <div class="form-actions" >
-                                <button type="submit" id='submit' name="submit" class="btn btn-success" ><i class="fa fa-check"></i> Save</button>
+                                <button onclick="myFunctionGetSelectedSalesEmployee();myFunctionGetSelectedContractEmployee();myFunctionGetSelectedOperationEmployee();" type="submit" id='submit' name="submit" class="btn btn-success" ><i class="fa fa-check"></i> Save</button>
                             </div>
                         <!-- </form>    -->
                     </div>
@@ -250,45 +250,22 @@
                     <div class="card">
                         <div class="card-block">
                             <h4 class="card-title">Calculation Result</h4>
-                            <h6 class="card-subtitle"> Use a <code>select multiple</code> as your input element.</h6>
                             <div class="row">
-                                    <table>
-                                        <tr>
-                                            <th>Company</th>
-                                            <th>Contact</th>
-                                            <th>Country</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Alfreds Futterkiste</td>
-                                            <td>Maria Anders</td>
-                                            <td>Germany</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Centro comercial Moctezuma</td>
-                                            <td>Francisco Chang</td>
-                                            <td>Mexico</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ernst Handel</td>
-                                            <td>Roland Mendel</td>
-                                            <td>Austria</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Island Trading</td>
-                                            <td>Helen Bennett</td>
-                                            <td>UK</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Laughing Bacchus Winecellars</td>
-                                            <td>Yoshi Tannamuri</td>
-                                            <td>Canada</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Magazzini Alimentari Riuniti</td>
-                                            <td>Giovanni Rovelli</td>
-                                            <td>Italy</td>
-                                        </tr>
-                                    </table>
+                                <div class="col-md-3">
+                                    <div id="calculationResult0">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div id="calculationResult1">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div id="calculationResult2">
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

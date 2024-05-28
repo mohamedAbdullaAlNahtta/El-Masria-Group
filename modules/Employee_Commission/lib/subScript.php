@@ -86,51 +86,96 @@ myBlurFunction = function(state) {
     });
 </script>
 <!-- This page plugins -->
-    <!-- ============================================================== -->
-    <script src="assets/plugins/switchery/dist/switchery.min.js"></script>
-    <script src="assets/plugins/select2/dist/js/select2.full.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
-    <script src="assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="assets/plugins/multiselect/js/jquery.multi-select.js"></script>
-    <script>
-    jQuery(document).ready(function() {
-        // For multiselect
-        $('#pre-selected-options0').multiSelect();
-        $('#pre-selected-options1').multiSelect();
-        $('#pre-selected-options2').multiSelect();
-        $(".ajax").select2({
-            ajax: {
-                url: "https://api.github.com/search/repositories",
-                dataType: 'json',
-                delay: 250,
-                data: function(params) {
-                    return {
-                        q: params.term, // search term
-                        page: params.page
-                    };
-                },
-                processResults: function(data, params) {
-                    // parse the results into the format expected by Select2
-                    // since we are using custom formatting functions we do not need to
-                    // alter the remote JSON data, except to indicate that infinite
-                    // scrolling can be used
-                    params.page = params.page || 1;
-                    return {
-                        results: data.items,
-                        pagination: {
-                            more: (params.page * 30) < data.total_count
-                        }
-                    };
-                },
-                cache: true
-            },
-            escapeMarkup: function(markup) {
-                return markup;
-            }, // let our custom formatter work
-            minimumInputLength: 1,
-            templateResult: formatRepo, // omitted for brevity, see the source of this page
-            templateSelection: formatRepoSelection // omitted for brevity, see the source of this page
-        });
-    });
-    </script>
+<!-- ============================================================== -->
+<script src="assets/plugins/switchery/dist/switchery.min.js"></script>
+<script src="assets/plugins/select2/dist/js/select2.full.min.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+<script src="assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/plugins/multiselect/js/jquery.multi-select.js"></script>
+<script>
+jQuery(document).ready(function() {
+    // For multiselect
+    $('#pre-selected-options0').multiSelect();
+    $('#pre-selected-options1').multiSelect();
+    $('#pre-selected-options2').multiSelect();
+    // $(".ajax").select2({
+    //     ajax: {
+    //         url: "https://api.github.com/search/repositories",
+    //         dataType: 'json',
+    //         delay: 250,
+    //         data: function(params) {
+    //             return {
+    //                 q: params.term, // search term
+    //                 page: params.page
+    //             };
+    //         },
+    //         processResults: function(data, params) {
+    //             // parse the results into the format expected by Select2
+    //             // since we are using custom formatting functions we do not need to
+    //             // alter the remote JSON data, except to indicate that infinite
+    //             // scrolling can be used
+    //             params.page = params.page || 1;
+    //             return {
+    //                 results: data.items,
+    //                 pagination: {
+    //                     more: (params.page * 30) < data.total_count
+    //                 }
+    //             };
+    //         },
+    //         cache: true
+    //     },
+    //     escapeMarkup: function(markup) {
+    //         return markup;
+    //     }, // let our custom formatter work
+    //     minimumInputLength: 1,
+    //     templateResult: formatRepo, // omitted for brevity, see the source of this page
+    //     templateSelection: formatRepoSelection // omitted for brevity, see the source of this page
+    // });
+});
+</script>
+
+<script>
+function myFunctionGetSelectedSalesEmployee(){
+    var selected = [];
+    for (var option of document.getElementById('pre-selected-options0').options)
+    {
+        if (option.selected) {
+            selected.push(option.value);
+        }
+    }
+    // console.log(selected);
+    let text = selected.toString();
+    document.getElementById("calculationResult0").innerHTML = text;
+}
+
+function myFunctionGetSelectedContractEmployee(){
+    var selected = [];
+    for (var option of document.getElementById('pre-selected-options1').options)
+    {
+        if (option.selected) {
+            selected.push(option.value);
+        }
+    }
+    // console.log(selected);
+    let text = selected.toString();
+    document.getElementById("calculationResult1").innerHTML = text;
+}
+
+function myFunctionGetSelectedOperationEmployee(){
+    var selected = [];
+    for (var option of document.getElementById('pre-selected-options2').options)
+    {
+        if (option.selected) {
+            selected.push(option.value);
+        }
+    }
+    // console.log(selected);
+    let text = selected.toString();
+    document.getElementById("calculationResult2").innerHTML = text;
+}
+</script>
+
+
+
+
