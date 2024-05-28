@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2024 at 09:21 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.13
+-- Generation Time: May 28, 2024 at 06:24 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,7 +41,7 @@ CREATE TABLE `client_user` (
   `HasLawProcedures` varchar(250) NOT NULL,
   `TypeAchievePersonal` varchar(250) NOT NULL,
   `reg_status` enum('registered','not registered','in progress') NOT NULL DEFAULT 'not registered'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `client_user`
@@ -281,7 +281,7 @@ INSERT INTO `client_user` (`id`, `national_ID`, `full_name`, `email`, `phone_num
 CREATE TABLE `gui_lanuage` (
   `id` int(11) NOT NULL,
   `lang` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `gui_lanuage`
@@ -300,7 +300,7 @@ INSERT INTO `gui_lanuage` (`id`, `lang`) VALUES
 CREATE TABLE `gui_theme` (
   `id` int(11) NOT NULL,
   `theme` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `gui_theme`
@@ -321,7 +321,7 @@ CREATE TABLE `leaveamessage` (
   `companyId` varchar(250) NOT NULL,
   `extensionNumber` varchar(250) NOT NULL,
   `extensionName` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `leaveamessage`
@@ -346,7 +346,7 @@ CREATE TABLE `module_menu` (
   `order_no` int(11) NOT NULL,
   `level` int(18) NOT NULL,
   `nahtta_order` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `module_menu`
@@ -407,7 +407,7 @@ CREATE TABLE `support_tickets` (
   `contact_number` varchar(250) NOT NULL,
   `last_update_date` datetime NOT NULL,
   `ast_update_by` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `support_tickets`
@@ -443,14 +443,14 @@ CREATE TABLE `users` (
   `creationDate` datetime NOT NULL DEFAULT current_timestamp(),
   `createdBy` varchar(250) NOT NULL,
   `client_id` int(18) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`userId`, `name`, `username`, `secureH`, `password`, `companyId`, `user_role_id`, `userType`, `systemtype`, `gui_language`, `gui_theme`, `Status`, `creationDate`, `createdBy`, `client_id`) VALUES
-(1, 'Eng Muhammad ElNahtta', 'muhammad.elnahtta', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 2, 'P', 'web', 1, 1, 'A', '2023-12-07 09:22:14', 'Muhammad.AlNahtta', 20758),
+(1, 'Eng Muhammad ElNahtta', 'muhammad.elnahtta', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 2, 'P', 'web', 1, 2, 'A', '2023-12-07 09:22:14', 'Muhammad.AlNahtta', 20758),
 (9, 'admin', 'Administrator', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 2, 'P', 'web', 1, 1, 'A', '2023-12-07 09:22:14', 'Muhammad.AlNahtta', 0),
 (13, 'Muhammad Soliman', 'Muhammad.Soliman', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 3, 'P', 'web', 1, 1, 'I', '2023-12-07 09:22:14', 'Muhammad.AlNahtta', 0),
 (14, 'Nabile', 'Nabile', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 3, 'P', 'web', 1, 1, 'A', '2023-12-07 09:22:14', 'Muhammad.AlNahtta', 20758),
@@ -470,7 +470,7 @@ CREATE TABLE `users_blocked` (
   `systemtype` varchar(250) NOT NULL,
   `IP` varchar(255) NOT NULL,
   `blockDate` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users_blocked`
@@ -492,7 +492,7 @@ CREATE TABLE `users_login_sessions` (
   `token` varchar(250) NOT NULL,
   `loginTme` datetime DEFAULT NULL,
   `logOutTime` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `users_login_sessions`
@@ -522,7 +522,8 @@ INSERT INTO `users_login_sessions` (`id`, `username`, `systemtype`, `token`, `lo
 (469, 'muhammad.elnahtta', 'web', '7d4f3deac02d4b1836aeff4813e63910GXxrzVnP2Rcc18f0679e94900d8336ffc2b7f5debc567f38be', '2024-05-08 02:24:17', '2024-05-08 03:20:49'),
 (470, 'muhammad.elnahtta', 'web', '65b58b392edba17bb009bc14d5c90c4dbreWGCDzjx777d160caae35071f30482d12581e98985d7cda2', '2024-05-08 03:20:45', '2024-05-09 03:47:16'),
 (471, 'muhammad.elnahtta', 'web', '88788ab9c8e1a17186cb6925d6c990fbjRFKwlluegd4bc268d9abe8f2e273a7d4e65c79d7c875a717a', '2024-05-09 03:47:57', '2024-05-21 07:47:53'),
-(472, 'muhammad.elnahtta', 'web', '2d991a056c8b6814dfd2fd8d4c84197fRXux13Bl1d63f7310b4dddb9c033923be869661d1984e4a69b', '2024-05-21 07:47:48', NULL);
+(472, 'muhammad.elnahtta', 'web', '2d991a056c8b6814dfd2fd8d4c84197fRXux13Bl1d63f7310b4dddb9c033923be869661d1984e4a69b', '2024-05-21 07:47:48', '2024-05-26 08:35:04'),
+(473, 'muhammad.elnahtta', 'web', 'a24776e35c114d0f39aa2119eba40396s1iWbctmDca029c9cd616a084d052aa54ee9d5c8c956fe603c', '2024-05-26 08:35:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -545,7 +546,7 @@ CREATE TABLE `users_logs` (
   `browserPlatform` varchar(250) NOT NULL,
   `browserPattern` varchar(250) NOT NULL,
   `actionApproval` varchar(250) NOT NULL DEFAULT 'Not Approved'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users_logs`
@@ -734,7 +735,10 @@ INSERT INTO `users_logs` (`id`, `username`, `systemtype`, `userIP`, `action`, `d
 (1368, 'muhammad.elnahtta', 'web', '127.0.0.1', 'dectivate user ', ' Deactivated User  ahmed.hisham', 'Success', '2024-05-11 00:31:03', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
 (1369, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log in', '', 'Success', '2024-05-21 07:47:48', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
 (1370, 'muhammad.elnahtta', 'web', '127.0.0.1', 'destroy other session token', '', 'Success', '2024-05-21 07:47:53', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
-(1371, 'muhammad.elnahtta', 'web', '127.0.0.1', 'destroy other session token', '', 'Success', '2024-05-22 03:40:10', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved');
+(1371, 'muhammad.elnahtta', 'web', '127.0.0.1', 'destroy other session token', '', 'Success', '2024-05-22 03:40:10', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0', 'Mozilla Firefox', '125.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1372, 'muhammad.elnahtta', 'web', '127.0.0.1', 'log in', '', 'Success', '2024-05-26 08:35:00', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1373, 'muhammad.elnahtta', 'web', '127.0.0.1', 'destroy other session token', '', 'Success', '2024-05-26 08:35:04', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved'),
+(1374, 'muhammad.elnahtta', 'web', '127.0.0.1', 'change theme', '', 'Success', '2024-05-27 00:39:19', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0', 'Mozilla Firefox', '119.0', 'windows', '#(?<browser>Version|Firefox|other)[/ ]+(?<version>[0-9.|a-zA-Z.]*)#', 'Not Approved');
 
 -- --------------------------------------------------------
 
@@ -748,7 +752,7 @@ CREATE TABLE `users_profiles` (
   `Profile_image` varchar(250) NOT NULL,
   `Job_Title` varchar(250) NOT NULL,
   `job_description` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users_profiles`
@@ -771,7 +775,7 @@ CREATE TABLE `user_role` (
   `status` enum('Active','Deactivate') NOT NULL DEFAULT 'Active',
   `creationDate` datetime NOT NULL DEFAULT current_timestamp(),
   `createdBy` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user_role`
@@ -793,7 +797,7 @@ CREATE TABLE `user_role_module_menu` (
   `user_role_id` int(11) NOT NULL,
   `module_menu_id` varchar(250) NOT NULL,
   `access_type` enum('read','write') NOT NULL DEFAULT 'read'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user_role_module_menu`
@@ -1007,13 +1011,13 @@ ALTER TABLE `users_blocked`
 -- AUTO_INCREMENT for table `users_login_sessions`
 --
 ALTER TABLE `users_login_sessions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=473;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=474;
 
 --
 -- AUTO_INCREMENT for table `users_logs`
 --
 ALTER TABLE `users_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1372;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1375;
 
 --
 -- AUTO_INCREMENT for table `users_profiles`

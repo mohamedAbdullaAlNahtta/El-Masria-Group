@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2024 at 09:21 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.13
+-- Generation Time: May 28, 2024 at 06:24 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,7 @@ CREATE TABLE `area` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `area`
@@ -53,7 +53,7 @@ CREATE TABLE `area_direct_confilict` (
   `is_over_seas` enum('yes','no') NOT NULL,
   `area_master_percentage` varchar(255) NOT NULL,
   `area_slave_percentage` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `area_direct_confilict`
@@ -79,7 +79,7 @@ CREATE TABLE `area_indirect_confilict` (
   `is_over_seas` enum('yes','no') NOT NULL,
   `sales_percentage` varchar(255) NOT NULL,
   `broker_percentage` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `area_indirect_confilict`
@@ -103,7 +103,7 @@ CREATE TABLE `broker_commission_stack_holder` (
   `title` varchar(255) NOT NULL,
   `commission_percentage` varchar(255) NOT NULL,
   `commission_value` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -115,7 +115,7 @@ CREATE TABLE `department` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `department`
@@ -142,7 +142,7 @@ CREATE TABLE `employee` (
   `mobile` varchar(11) NOT NULL,
   `bank_account` varchar(255) NOT NULL,
   `level` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `employee`
@@ -165,8 +165,11 @@ INSERT INTO `employee` (`id`, `name`, `department_id`, `manger_id`, `area_id`, `
 (14, 'Mohamed Magdy Ibrahim', 3, 5, 1, 8, '1001234580', 'XXX-XXX-XXX', 3),
 (15, 'Magdy MagdyAdel', 3, NULL, 1, 8, '1001234581', 'XXX-XXX-XXX', 3),
 (16, 'Adel Magdy Ibrahim', 3, NULL, 1, 8, '1001234582', 'XXX-XXX-XXX', 3),
-(17, 'Adel Adel Ibrahim', 3, NULL, 1, 8, '1001234583', 'XXX-XXX-XXX', 3),
-(19, 'Walaa Wagdy Mohamed', 3, NULL, 1, 7, '1001234583', 'XXX-XXX-XXX', 2);
+(17, 'Adel Adel Ibrahim', 3, NULL, 2, 8, '1001234583', 'XXX-XXX-XXX', 3),
+(19, 'Walaa Wagdy Mohamed', 3, NULL, 2, 7, '1001234583', 'XXX-XXX-XXX', 2),
+(20, 'Ahmed AliAliAli Mohamed', 2, NULL, 2, 3, '1001234568', 'XXX-XXX-XXX', 0),
+(21, 'Ahmed AliAliAli Ahmed', 2, 20, 2, 4, '1001234568', 'XXX-XXX-XXX', 0),
+(22, 'Tamer Tamer Tamer', 2, NULL, 2, 4, '1001234568', 'XXX-XXX-XXX', 0);
 
 -- --------------------------------------------------------
 
@@ -179,7 +182,7 @@ CREATE TABLE `job_title` (
   `name` varchar(255) NOT NULL,
   `commission_percentage` varchar(11) DEFAULT NULL,
   `commission_value` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `job_title`
@@ -205,7 +208,7 @@ CREATE TABLE `project` (
   `id` int(11) NOT NULL,
   `Name` varchar(250) NOT NULL,
   `area_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `project`
@@ -239,7 +242,7 @@ CREATE TABLE `unit_commission_direct` (
   `contract_date` varchar(255) NOT NULL,
   `is_over_seas` varchar(255) NOT NULL,
   `unit_commission_value` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -257,7 +260,7 @@ CREATE TABLE `unit_sold` (
   `is_over_seas` enum('yes','no') NOT NULL,
   `is_launch` enum('yes','no') NOT NULL,
   `area` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `unit_sold`
@@ -368,7 +371,7 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `job_title`
