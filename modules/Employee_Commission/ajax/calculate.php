@@ -112,35 +112,21 @@ echo "<table id='example23' class='display nowrap table table-hover table-stripe
             <th> mobile </th>
             <th> bank account </th>
             <th> level </th>
-            <th> level </th>
+            <th> Commission </th>
         </tr>
     </thead>
-    <tfoot>
-        <tr>
-            <th> ID </th>
-            <th> name </th> 
-            <th> Manager </th>
-            <th> department </th>
-            <th> area </th>
-            <th> job title </th>
-            <th> mobile </th>
-            <th> bank account </th>
-            <th> level </th>
-            <th> level </th>
-        </tr>
-    </tfoot>
     <tbody>";     
     foreach ($Sales_commission as $x => $y) {
         // echo "$x : $y <br>";
         echo "<tr>";
-        echo "<td>".$newCommissionSystem->get_emp_data_by_id($x)['id']."</td>"; 
+        echo "<td><i class='mdi mdi-account-card-details'></i> ".$newCommissionSystem->get_emp_data_by_id($x)['id']."</td>"; 
         echo "<td>".$newCommissionSystem->get_emp_data_by_id($x)['name']."</td>"; 
         echo "<td>".$newCommissionSystem->get_emp_data_by_id($x)['Manager']."</td>"; 
-        echo "<td>".$newCommissionSystem->get_emp_data_by_id($x)['department']."</td>"; 
+        echo "<td><img src='assets/images/bg/department.png' style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$newCommissionSystem->get_emp_data_by_id($x)['department']."</td>"; 
         echo "<td>".$newCommissionSystem->get_emp_data_by_id($x)['area']."</td>"; 
         echo "<td>".$newCommissionSystem->get_emp_data_by_id($x)['job_title']."</td>"; 
-        echo "<td>".$newCommissionSystem->get_emp_data_by_id($x)['mobile']."</td>"; 
-        echo "<td>".$newCommissionSystem->get_emp_data_by_id($x)['bank_account']."</td>"; 
+        echo "<td><img src='assets/images/test/custom-select.png' style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$newCommissionSystem->get_emp_data_by_id($x)['mobile']."</td>"; 
+        echo "<td> <img src='assets/images/bg/bank.png' style='border-radius: 50%; border: 1px solid #000;' width='35'>".$newCommissionSystem->get_emp_data_by_id($x)['bank_account']."</td>"; 
         echo "<td>".$newCommissionSystem->get_emp_data_by_id($x)['level']."</td>"; 
         echo "<td>".$y."</td>"; 
         echo "</tr>"; 
@@ -148,14 +134,14 @@ echo "<table id='example23' class='display nowrap table table-hover table-stripe
     foreach ($Contract_commission as $a => $b) {
         // echo "$x : $y <br>";
         echo "<tr>";
-        echo "<td>".$newCommissionSystem->get_emp_data_by_id($a)['id']."</td>"; 
+        echo "<td><i class='mdi mdi-account-card-details'></i> ".$newCommissionSystem->get_emp_data_by_id($a)['id']."</td>"; 
         echo "<td>".$newCommissionSystem->get_emp_data_by_id($a)['name']."</td>"; 
         echo "<td>".$newCommissionSystem->get_emp_data_by_id($a)['Manager']."</td>"; 
-        echo "<td>".$newCommissionSystem->get_emp_data_by_id($a)['department']."</td>"; 
+        echo "<td><img src='assets/images/bg/department.png' style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$newCommissionSystem->get_emp_data_by_id($a)['department']."</td>"; 
         echo "<td>".$newCommissionSystem->get_emp_data_by_id($a)['area']."</td>"; 
         echo "<td>".$newCommissionSystem->get_emp_data_by_id($a)['job_title']."</td>"; 
-        echo "<td>".$newCommissionSystem->get_emp_data_by_id($a)['mobile']."</td>"; 
-        echo "<td>".$newCommissionSystem->get_emp_data_by_id($a)['bank_account']."</td>"; 
+        echo "<td><img src='assets/images/test/custom-select.png' style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$newCommissionSystem->get_emp_data_by_id($a)['mobile']."</td>"; 
+        echo "<td><img src='assets/images/bg/bank.png' style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$newCommissionSystem->get_emp_data_by_id($a)['bank_account']."</td>"; 
         echo "<td>".$newCommissionSystem->get_emp_data_by_id($a)['level']."</td>"; 
         echo "<td>".$b."</td>"; 
         echo "</tr>"; 
@@ -163,14 +149,14 @@ echo "<table id='example23' class='display nowrap table table-hover table-stripe
     foreach ($operation_commission as $c => $d) {
         // echo "$x : $y <br>";
         echo "<tr>";
-        echo "<td>".$newCommissionSystem->get_emp_data_by_id($c)['id']."</td>"; 
+        echo "<td><i class='mdi mdi-account-card-details'></i> ".$newCommissionSystem->get_emp_data_by_id($c)['id']."</td>"; 
         echo "<td>".$newCommissionSystem->get_emp_data_by_id($c)['name']."</td>"; 
         echo "<td>".$newCommissionSystem->get_emp_data_by_id($c)['Manager']."</td>"; 
-        echo "<td>".$newCommissionSystem->get_emp_data_by_id($c)['department']."</td>"; 
+        echo "<td><img src='assets/images/bg/department.png' style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$newCommissionSystem->get_emp_data_by_id($c)['department']."</td>"; 
         echo "<td>".$newCommissionSystem->get_emp_data_by_id($c)['area']."</td>"; 
         echo "<td>".$newCommissionSystem->get_emp_data_by_id($c)['job_title']."</td>"; 
-        echo "<td>".$newCommissionSystem->get_emp_data_by_id($c)['mobile']."</td>"; 
-        echo "<td>".$newCommissionSystem->get_emp_data_by_id($c)['bank_account']."</td>"; 
+        echo "<td><img src='assets/images/test/custom-select.png' style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$newCommissionSystem->get_emp_data_by_id($c)['mobile']."</td>"; 
+        echo "<td><img src='assets/images/bg/bank.png' style='border-radius: 50%; border: 1px solid #000;' width='35'> ".$newCommissionSystem->get_emp_data_by_id($c)['bank_account']."</td>"; 
         echo "<td>".$newCommissionSystem->get_emp_data_by_id($c)['level']."</td>"; 
         echo "<td>".$d."</td>"; 
         echo "</tr>"; 

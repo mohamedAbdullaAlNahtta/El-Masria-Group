@@ -97,8 +97,6 @@
                                     <div class="form-group" >
                                         <div class="input-group" bis_skin_checked="1">
                                             <select id="new_unit_id" name="new_unit_id" class="form-control form-control-line">
-                                                <option value="xxxx">xxxx</option>
-                                                <option value="123">123</option>
                                             <?php 
                                             if ($result3->num_rows > 0) {
                                                 // output data of each row
@@ -112,18 +110,29 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!--/span-->
+                                <div class="col-md-3" >
+                                    <label class="control-label">Unit Price</label>
+                                    <div class="form-group" >
+                                        <input type="text" id="unitPrice" name="unitPrice" class="form-control" placeholder="" required="required"/>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-3" >
+                                    <label class="control-label">Is Luanch</label>
+                                    <div class="form-group" >
+                                        <input type="text" id="isLuanch" name="isLuanch" class="form-control" placeholder="" required="required" />
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-3" >
+                                    <label class="control-label">Is Over Seas</label>
+                                    <div class="form-group" >
+                                        <input type="text" id="isOverSeas" name="isOverSeas" class="form-control" placeholder="" required="required"/>
+                                    </div>
+                                </div>
                             </div>    
                             <div class="row">    
-                                <!-- <table  class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
-                                    <thead>
-                                        <tr>
-
-                                    </thead>
-                                    <tbody>
-                                   
-                                    </tbody>
-                                </table> -->
-                                 <!--/span-->
                                  <div class="col-lg-6 col-xlg-6  m-b-30">
                                     <h5 class="box-title">Select Employees from <code>Sales</code> Department Shown as Name===Job Title===area</h5>
                                     <select id='pre-selected-options0'  name="empMySelectSales[]" multiple='multiple'>
@@ -250,8 +259,10 @@
                     <div class="card">
                         <div class="card-block">
                             <h4 class="card-title">Calculation Result</h4>
-                            <div class="row" id="calculationResult0">
+                            <div class="card-block">
+                                <div class="row" id="calculationResult0">
                                 
+                                </div>
                             </div>
                         </div>
                     </div>
