@@ -51,6 +51,10 @@ if (isset($_GET['view']))
 {
     //loading create page
     require_once ("blade/view.php");
+}elseif(isset($_GET['create']))
+{
+    //...
+    require_once ("blade/add.php");
 }
 else
 {

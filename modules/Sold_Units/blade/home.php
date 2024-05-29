@@ -72,6 +72,7 @@
 		<div class="col-12">
                 <div class="card">
                     <div class="card-block">
+                        <button class="btn pull-right hidden-sm-down btn-success" onclick="location.href='index?module=Sold_Units&create=true';"><i class="mdi mdi-plus-circle"></i> New Sold Unit </button>
                         <h4 class="card-title"><?php echo $lang['Data Export'] ?></h4>
                         <h6 class="card-subtitle"><?php echo $lang['Export data to Copy, CSV, Excel, PDF & Print'] ?></h6>
                         <div class="table-responsive m-t-40">
