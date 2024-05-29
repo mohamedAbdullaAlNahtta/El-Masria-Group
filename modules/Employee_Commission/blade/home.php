@@ -184,11 +184,25 @@
                                         ?>
                                     </select>
                                 </div>
+                                <div class="col-lg-6 col-xlg-6  m-b-30">
+                                    <br>
+                                    <center>
+                                        <button onclick="loadRes();" style="background: transparent;border: none;">
+                                            <figure class="circle">
+                                                <div class="mask-b">
+                                                    <span class="ok-btn">GO </span>
+                                                    <div class="cursor"></div>
+                                                </div>
+                                            </figure>
+                                        </button>
+                                    </center>
+                                   
+                                </div>
                                 
                             </div>
                             <hr>
                             <div class="form-actions" >
-                                <button onclick="loadRes();"  id='submit' class="btn btn-success" ><i class="fa fa-check"></i> Calculate </button>
+                                <!-- <button onclick="loadRes();"  id='submit' class="btn btn-success" ><i class="fa fa-check"></i> Calculate </button> -->
                             </div>
                         <!-- </form>    -->
                     </div>
